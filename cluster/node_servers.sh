@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# node_servers.sh stop | start <side> — na .235: serwery hugegraph (8080 hstore, 8081 rocksdb) i PD
-#   stop : skrypty stop -> kill po PID portow -> wipe pd_data, rocksdb-data, logi, pid-y
-#   start: init-store hstore (retry gdy PD zglasza <3 store'ow), init rocksdb, start obu, czekaj na REST
+# node_servers.sh stop | start <side> — on .235: the hugegraph servers (8080 hstore, 8081 rocksdb) and PD
+#   stop : stop scripts -> kill by port PID -> wipe pd_data, rocksdb-data, logs, pid files
+#   start: init-store hstore (retried while PD reports <3 stores), init rocksdb, start both, wait for REST
 set -uo pipefail
 H=$HOME
 PD=$H/hugegraph/hugegraph-pd/apache-hugegraph-pd-1.7.0
-# ktore dystrybucje serwera (domyslnie build combined); dla strony master driver podaje dist-master-*
+# which server distributions (default: the combined build); for the master side the driver passes dist-master-*
 SV=${HG_SV:-$H/hugegraph/hugegraph-server/apache-hugegraph-server-1.7.0}
 RD=${HG_RD:-$H/hugegraph/hugegraph-server/dist-rocksdb}
 port_pid() { ss -tlnp 2>/dev/null | grep ":$1 " | grep -o 'pid=[0-9]*' | head -1 | cut -d= -f2; }
@@ -43,7 +43,7 @@ case ${1:?stop|start} in
     done
     echo "  8080: $(curl -s --compressed http://127.0.0.1:8080/graphspaces/DEFAULT/graphs/hugegraph | head -c 60)"
     echo "  8081: $(curl -s --compressed http://127.0.0.1:8081/graphspaces/DEFAULT/graphs/hugegraph | head -c 60)"
-    # smoke: zapis na hstore musi przejsc (partycje przydzielone = 3 store'y aktywne)
+    # smoke: a write on hstore must succeed (partitions assigned = 3 stores active)
     R=$(curl -s --compressed -X POST -H 'Content-Type: application/json' http://127.0.0.1:8080/graphspaces/DEFAULT/graphs/hugegraph/schema/propertykeys -d '{"name":"_smoke","data_type":"INT","cardinality":"SINGLE"}' --max-time 60 | head -c 100)
     echo "  hstore write smoke: $R"
     ;;

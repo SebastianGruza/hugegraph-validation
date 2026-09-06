@@ -1,22 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""hg_suite.py — jedna suita regresyjna HugeGraph 1.7.0: badany backend (hstore) vs wyrocznia (RocksDB).
+"""hg_suite.py — one regression suite for HugeGraph 1.7.0: backend under test (hstore) vs an oracle (RocksDB).
 
-Sekcje = terytoria PR-ow (kolejnosc ma znaczenie: J korzysta z danych S i L):
-  S  sort keys / ConditionQuery pushdown (#3090, PR #3184)  — krawedzie a->b, REST + gremlin + paging
-  L  range index: order / limit / offset / paging (#3140, dom page-500) — 3000 wierzcholkow person
-  J  semantyka warunkow LABEL (PR #2994)                    — neq / without / within / konflikt / or / barrier
-  K  within x search x range, cache, determinizm, tx niezakomitowana (PR #3182)
+Sections = the territory of one upstream PR each (order matters: J uses the data of S and L):
+  S  sort keys / ConditionQuery pushdown (#3090, PR #3184)  — edges a->b, REST + gremlin + paging
+  L  range index: order / limit / offset / paging (#3140, the page-500 family) — 3000 person vertices
+  J  LABEL condition semantics (PR #2994)                   — neq / without / within / conflict / or / barrier
+  K  within x search x range, cache, determinism, uncommitted tx (PR #3182)
 
-Zaden przypadek nie ma zaszytego oczekiwania. Prawda = wynik TEJ SAMEJ suity na wyroczni (ten sam kod
-serwera, backend rocksdb). Kazdy przypadek to ZBIOR id: n, uniq, md5 posortowanych id (+ same id w JSON).
+No case carries a hard-coded expectation. The truth is the result of THE SAME suite on the oracle (same server
+code, rocksdb backend). Every case is a SET of ids: n, uniq, md5 of the sorted ids (+ the ids themselves in JSON).
 
   run      hg_suite.py run --port 8081 --load --out oracle.json
            hg_suite.py run --port 8080 --load --out hstore.json --expect oracle.json   (PASS/FAIL inline)
   compare  hg_suite.py compare oracle.json hstore.json [--ids] [--all]
 
-Klasy porownania: OK | DUP (duplikaty tylko u badanego) | MISMATCH (inny zbior) | TARGET-ERR (blad tylko
-u badanego = bug backendu) | ORACLE-ERR | BOTH-ERR (ograniczenie serwera/suity) | NEW | MISSING.
+Comparison classes: OK | DUP (duplicates only on the target) | MISMATCH (different set) | TARGET-ERR (error only
+on the target = backend bug) | ORACLE-ERR | BOTH-ERR (server/suite limitation) | NEW | MISSING.
 """
 import argparse, gzip, hashlib, json, sys, time, urllib.parse, urllib.request
 from datetime import datetime
@@ -32,7 +32,7 @@ class HG:
 
     @staticmethod
     def _decode(raw):
-        if raw[:2] == b"\x1f\x8b":            # serwer gzipuje niezaleznie od Accept-Encoding
+        if raw[:2] == b"\x1f\x8b":            # the server gzips regardless of Accept-Encoding
             raw = gzip.decompress(raw)
         try:
             return json.loads(raw.decode())
@@ -73,7 +73,7 @@ class HG:
         return {"backend": g.get("backend") if isinstance(g, dict) else None,
                 "version": (v.get("versions") or {}).get("version") if isinstance(v, dict) else None}
 
-    # ── zbiory id: (ids | None, err) ──
+    # ── id sets: (ids | None, err) ──
     @staticmethod
     def _bad(st, d): return st >= 400 or st == 0 or "exception" in d
     @staticmethod
@@ -109,11 +109,11 @@ class HG:
         return seen, None
 
 
-# ────────────────────────────── raport / porownanie ──────────────────────────────
+# ────────────────────────────── report / compare ──────────────────────────────
 def H(ids): return hashlib.md5("\n".join(sorted(map(str, ids))).encode()).hexdigest()[:12]
 
 def classify(o, t):
-    """o = rekord wyroczni (None = brak), t = rekord badany -> (klasa, notatka)."""
+    """o = oracle record (None = absent), t = target record -> (class, note)."""
     if o is None: return "NEW", ""
     oe, te = "err" in o, "err" in t
     if oe and te: return "BOTH-ERR", ""
@@ -153,7 +153,7 @@ class Report:
         self.cases.append(rec); print(line, flush=True)
 
     def case(self, name, ids, err=None):
-        """zbior id (ids=None -> blad)"""
+        """an id set (ids=None -> error)"""
         name = self._name(name)
         rec = {"section": self.section, "name": name}
         if ids is None:
@@ -165,7 +165,7 @@ class Report:
         return ids
 
     def scalar(self, name, value):
-        """liczba/flaga jako przypadek (n=uniq=value); tez porownywana z wyrocznia"""
+        """a number/flag as a case (n=uniq=value); compared against the oracle as well"""
         name = self._name(name)
         rec = {"section": self.section, "name": name, "n": value, "uniq": value, "h": f"v{value}"}
         self._emit(rec, f"CASE  {self.section} {name:72} n={value} uniq={value} h=v{value}")
@@ -183,10 +183,10 @@ def compare(oracle_path, target_path, show_ids=False, show_all=False):
     rows = []
     for o in O["cases"]:
         key = (o["section"], o["name"])
-        if key not in tk: rows.append(("MISSING", o["section"], o["name"], "brak u badanego", None, None)); continue
+        if key not in tk: rows.append(("MISSING", o["section"], o["name"], "absent on target", None, None)); continue
         cls, note = classify(o, tk[key]); rows.append((cls, o["section"], o["name"], note, o, tk[key]))
     for t in T["cases"]:
-        if (t["section"], t["name"]) not in ok: rows.append(("NEW", t["section"], t["name"], "brak u wyroczni", None, t))
+        if (t["section"], t["name"]) not in ok: rows.append(("NEW", t["section"], t["name"], "absent on oracle", None, t))
     tot = {c: sum(1 for r in rows if r[0] == c) for c in CLASSES}
     print("=== SUMMARY  " + "  ".join(f"{c}={n}" for c, n in tot.items() if n or c in ("OK", "MISMATCH", "TARGET-ERR")))
     for s in sorted({r[1] for r in rows}):
@@ -202,15 +202,15 @@ def compare(oracle_path, target_path, show_ids=False, show_all=False):
     return bad
 
 
-# ────────────────────────────── sekcja S: sort keys / pushdown ──────────────────────────────
+# ────────────────────────────── section S: sort keys / pushdown ──────────────────────────────
 def load_S(hg):
-    print("### S LOAD schema ('amount' FIRST -> najnizszy id -> pierwsza wartosc w kazdym wierszu)")
+    print("### S LOAD schema ('amount' FIRST -> lowest id -> first value in every row)")
     for name, dt, card in (("amount", "DOUBLE", "SINGLE"), ("asset", "TEXT", "SINGLE"), ("epoch", "LONG", "SINGLE"),
                            ("note", "TEXT", "SINGLE"), ("tags", "TEXT", "LIST"), ("flags", "INT", "SET"),
                            ("ok", "BOOLEAN", "SINGLE"), ("ratio", "FLOAT", "SINGLE"), ("cnt", "INT", "SINGLE"),
                            ("ts", "DATE", "SINGLE"), ("name", "TEXT", "SINGLE")):
         st, r = hg.post("/schema/propertykeys", {"name": name, "data_type": dt, "cardinality": card}); hg.wait_task(r)
-    # cztery strategie id -> sciezka rownosci OWNER_VERTEX
+    # four id strategies -> the OWNER_VERTEX equality path
     for vl in ({"name": "node", "id_strategy": "CUSTOMIZE_STRING"}, {"name": "nnode", "id_strategy": "CUSTOMIZE_NUMBER"},
                {"name": "unode", "id_strategy": "CUSTOMIZE_UUID"},
                {"name": "pnode", "id_strategy": "PRIMARY_KEY", "primary_keys": ["name"], "properties": ["name"]}):
@@ -222,7 +222,7 @@ def load_S(hg):
                                               properties=["asset", "epoch", "amount", "note", "tags", "flags", "ok", "ratio", "cnt", "ts"],
                                               nullable_keys=["note", "tags", "flags", "ok", "ratio", "cnt", "ts"]))
     print(f"  edgelabel flow: {st}")
-    for i in range(1, 7):   # ids 2..7, zeby flow_p dostal DWUCYFROWE id (10)
+    for i in range(1, 7):   # ids 2..7, so that flow_p gets a TWO-DIGIT id (10)
         hg.post("/schema/edgelabels", dict(EL, name=f"dummy{i}", properties=["asset", "epoch", "amount"], nullable_keys=[]))
     for name, src in (("flow_n", "nnode"), ("flow_u", "unode"), ("flow_p", "pnode")):   # ids 8, 9, 10
         st, r = hg.post("/schema/edgelabels", dict(EL, name=name, source_label=src, properties=["asset", "epoch", "amount"], nullable_keys=[]))
@@ -238,19 +238,19 @@ def load_S(hg):
 
     print("### S LOAD edges a->b (flow)")
     E = {"label": "flow", "outV": "a", "outVLabel": "node", "inV": "b", "inVLabel": "node"}
-    rows = [  # parser: pierwszy bajt 'amount' 1.5->0x3F, 2.5->0x40, 0.0->0x00, -1.0->0xBF
+    rows = [  # parser: first byte of 'amount' 1.5->0x3F, 2.5->0x40, 0.0->0x00, -1.0->0xBF
         {"asset": "ETC", "epoch": 100, "amount": 1.5}, {"asset": "ETC", "epoch": 200, "amount": 2.5},
         {"asset": "ETC", "epoch": -5, "amount": 0.0}, {"asset": "ETC", "epoch": 0, "amount": -1.0},
-        # granice LongEncoding
+        # LongEncoding boundaries
         {"asset": "ETC", "epoch": 63, "amount": 63.5}, {"asset": "ETC", "epoch": 64, "amount": 64.5},
         {"asset": "ETC", "epoch": 4095, "amount": 4095.5}, {"asset": "ETC", "epoch": 4096, "amount": 4096.5},
         {"asset": "ETC", "epoch": 9223372036854775807, "amount": 9.5},
-        # kazdy opcjonalny typ na jednym wierszu
+        # every optional property type on one row
         {"asset": "ETC", "epoch": 300, "amount": 3.5, "note": "x" * 300, "tags": ["x", "y", "zażółć"], "flags": [1, 2, 3],
          "ok": True, "ratio": 0.25, "cnt": 7, "ts": "2026-09-02 10:00:00"},
         {"asset": "ETC", "epoch": 301, "amount": 3.6, "note": "", "tags": [], "ok": False},
         {"asset": "ETC", "epoch": 302, "amount": 3.7, "note": "zażółć gęślą jaźń 😀"},
-        # inne assety: prefix / case / whitespace / separator / non-ASCII
+        # other assets: prefix / case / whitespace / separator / non-ASCII
         {"asset": "BTC", "epoch": 100, "amount": 0.1}, {"asset": "ET", "epoch": 100, "amount": 0.2},
         {"asset": "ETCX", "epoch": 100, "amount": 0.3}, {"asset": "etc", "epoch": 100, "amount": 0.4},
         {"asset": "Etc", "epoch": 100, "amount": 0.5}, {"asset": "ETC ", "epoch": 100, "amount": 0.6},
@@ -269,7 +269,7 @@ def load_S(hg):
     for ep, am in ((100, 1.5), (200, 2.5)):
         hg.post("/graph/edges", {"label": "flow_n", "outV": 7, "outVLabel": "nnode", "inV": "b", "inVLabel": "node",
                                  "properties": {"asset": "ETC", "epoch": ep, "amount": am}})
-        # REST body edge-create nie parsuje typowanych id (UUID) -> gremlin addE
+        # the REST edge-create body does not parse typed ids (UUID) -> gremlin addE
         r, e = hg.ids_grem(f"g.V().hasLabel('unode').addE('flow_u').to(__.V('b')).property('asset','ETC').property('epoch',{ep}L).property('amount',{am}d)")
         print(f"  flow_u epoch={ep} (gremlin addE): {'n=' + str(len(r)) if r is not None else 'ERR ' + e}")
         hg.post("/graph/edges", {"label": "flow_p", "outV": pnode_vid, "outVLabel": "pnode", "inV": "b", "inVLabel": "node",
@@ -313,7 +313,7 @@ def run_S(hg, rep):
     E("asset>=ETC & asset<ETC!", V, {"asset": 'P.between("ETC","ETC!")'})
     E("asset>=ÉTC (UTF-8 byte order)", V, {"asset": 'P.gte("ÉTC")'})
     E("asset>=～ (UTF-8 vs UTF-16 order)", V, {"asset": 'P.gte("～")'})
-    # te same zakresy przez gremlin: czy 'expect a number' to ograniczenie REST czy serwera
+    # the same ranges via gremlin: is 'expect a number' a REST or a server limitation
     G("g.V('a').outE('flow').has('asset',gte('ETC'))", "g.V('a').outE('flow').has('asset',gte('ETC'))")
     G("g.V('a').outE('flow').has('asset',between('ETC','ETC!'))", "g.V('a').outE('flow').has('asset',between('ETC','ETC!'))")
     G("g.V('a').outE('flow').has('asset',gte('ÉTC'))", "g.V('a').outE('flow').has('asset',gte('ÉTC'))")
@@ -348,11 +348,11 @@ def run_S(hg, rep):
     P("asset=ETC & 1000<=epoch<2000, page size 333", 333, V, {"asset": "ETC", "epoch": "P.between(1000,2000)"})
 
 
-# ────────────────────────────── sekcja L: range index / paging ──────────────────────────────
+# ────────────────────────────── section L: range index / paging ──────────────────────────────
 def persons(n):
     for i in range(n):
         yield {"label": "person", "id": f"p{i:05d}",
-               "properties": {"age": 18 + (i * 7) % 63,                  # 18..80, duzo remisow
+               "properties": {"age": 18 + (i * 7) % 63,                  # 18..80, many ties
                               "score": round(((i * 37) % 1000) / 10.0, 1),
                               "ts": f"{2010 + (i * 13) % 15}-{1 + (i * 3) % 12:02d}-{1 + (i * 5) % 28:02d} 00:00:00",
                               "cnt": i % 10}}
@@ -427,7 +427,7 @@ def run_L(hg, rep):
     R("age>=30 order by age desc,id limit 50", GV("g.V().hasLabel('person').has('age',gte(30)).order().by('age',desc).by(id).limit(50).id()"))
 
 
-# ────────────────────────────── sekcja J: semantyka LABEL ──────────────────────────────
+# ────────────────────────────── section J: LABEL semantics ──────────────────────────────
 def load_J(hg):
     print("### J LOAD dummy1..3 edges a->b (40 each, ETC/BTC, epoch 10..49)")
     for d in (1, 2, 3):
@@ -451,7 +451,7 @@ def load_J(hg):
 def run_J(hg, rep):
     def R(name, g): rep.case(name, *hg.ids_grem(g))
     A_, B_ = "g.V('a').outE()", "g.V('b').inE()"
-    rep.sec("J", "semantyka warunkow LABEL (PR #2994)")
+    rep.sec("J", "LABEL condition semantics (PR #2994)")
     print("--- J1. edges: single / multi label + sort keys")
     R("outE flow asset=ETC", "g.V('a').outE('flow').has('asset','ETC').id()")
     R("outE(flow,dummy1) asset=ETC", "g.V('a').outE('flow','dummy1').has('asset','ETC').id()")
@@ -496,7 +496,7 @@ def run_J(hg, rep):
     R("V age>=60 neq(person) limit 20 order id", "g.V().has('age',gte(60)).hasLabel(neq('person')).order().by(id).limit(20).id()")
 
 
-# ────────────────────────────── sekcja K: within x search x range ──────────────────────────────
+# ────────────────────────────── section K: within x search x range ──────────────────────────────
 NAMES = ["北京诚信科技", "上海诚信贸易", "gold trading ltd", "silver gold mining", "诚信 gold partners",
          "plain company", "深圳信诚有限", "warsaw gold exchange", "诚信", "no match here"]
 
@@ -534,13 +534,13 @@ def load_K(hg):
 
 def run_K(hg, rep):
     def R(name, g):
-        """kazde zapytanie 2x: drugi przebieg = cache hit (#3182 omija cache przy post-filtrze)"""
+        """every query twice: the second run is a cache hit (#3182 bypasses the cache with a post-filter)"""
         r = rep.case(name, *hg.ids_grem(g))
         rep.case(name + " [2nd run/cache]", *hg.ids_grem(g))
         return r
     F, CN = "g.V().hasLabel('firm')", "诚信"
     COMBO_GOLD = F + ".has('type',gte(2)).has('confirmType',within(1,2,3)).has('fname',Text.contains('gold')).id()"
-    rep.sec("K", "within x search x range, cache, determinizm, tx niezakomitowana (PR #3182)")
+    rep.sec("K", "within x search x range, cache, determinism, uncommitted tx (PR #3182)")
     print("--- K1. the #3180 combo: range + within(range) + search")
     combo = F + f".has('type',gte(2)).has('confirmType',within(1,2,3)).has('fname',Text.contains('{CN}')).id()"
     R("type>=2 & confirm within(1,2,3) & contains(诚信)", combo)
@@ -583,35 +583,35 @@ def run_K(hg, rep):
         b, a, bl, al = d.get("result", {}).get("data", [])
         rep.case("K5 before-commit set", bl)
         rep.case("K5 after-commit set", al)
-        # swieze elementy widoczne juz PRZED commitem (2 z 3 pasuja), commit nic nie zmienia
+        # fresh elements are visible BEFORE the commit (2 of 3 match); the commit changes nothing
         rep.scalar("K5 before-commit minus baseline (2 = fresh visible in tx)", b - (len(base) if base is not None else -1))
         rep.scalar("K5 after minus before (0 = commit changes nothing)", a - b)
     R("K5 combo after fresh commit (baseline+2)", COMBO_GOLD)
-    hg.gremlin("g.V('fx0001','fx0002','fx0003').drop()")   # sprzatanie: przebiegi idempotentne
+    hg.gremlin("g.V('fx0001','fx0002','fx0003').drop()")   # cleanup: runs stay idempotent
 
 
 # ────────────────────────────── main ──────────────────────────────
 SECTIONS = {"S": ("sort keys / pushdown (#3090, PR #3184)", load_S, run_S),
             "L": ("range index / paging (#3140)", load_L, run_L),
-            "J": ("semantyka LABEL (PR #2994)", load_J, run_J),
+            "J": ("LABEL semantics (PR #2994)", load_J, run_J),
             "K": ("within x search x range / cache / tx (PR #3182)", load_K, run_K)}
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
-    r = sub.add_parser("run", help="odpal suite na jednym serwerze")
+    r = sub.add_parser("run", help="run the suite against one server")
     r.add_argument("--host", default="localhost"); r.add_argument("--port", type=int, required=True)
     r.add_argument("--graph", default="hugegraph"); r.add_argument("--space", default="DEFAULT")
-    r.add_argument("--load", action="store_true", help="najpierw zbuduj scheme + dane wybranych sekcji (swiezy graf)")
+    r.add_argument("--load", action="store_true", help="build schema + data of the selected sections first (fresh graph)")
     r.add_argument("--sections", default="S,L,J,K")
-    r.add_argument("--out", help="raport JSON (zbiory id)")
-    r.add_argument("--expect", help="raport wyroczni: klasyfikuj kazdy przypadek inline")
-    r.add_argument("--no-ids", action="store_true", help="w JSON tylko n/uniq/hash")
+    r.add_argument("--out", help="JSON report (id sets)")
+    r.add_argument("--expect", help="oracle report: classify every case inline")
+    r.add_argument("--no-ids", action="store_true", help="JSON with n/uniq/hash only")
     r.add_argument("--persons", type=int, default=3000)
-    c = sub.add_parser("compare", help="porownaj dwa raporty JSON (wyrocznia vs badany)")
+    c = sub.add_parser("compare", help="compare two JSON reports (oracle vs target)")
     c.add_argument("oracle"); c.add_argument("target")
-    c.add_argument("--ids", action="store_true", help="pokaz po 5 id roznicy przy MISMATCH")
-    c.add_argument("--all", action="store_true", help="wypisz tez OK")
+    c.add_argument("--ids", action="store_true", help="show 5 differing ids per MISMATCH")
+    c.add_argument("--all", action="store_true", help="print OK cases too")
     A = ap.parse_args()
 
     if A.cmd == "compare":
@@ -619,8 +619,8 @@ def main():
 
     secs = [s.strip().upper() for s in A.sections.split(",") if s.strip()]
     bad = [s for s in secs if s not in SECTIONS]
-    if bad: sys.exit(f"nieznane sekcje: {bad} (dostepne: {list(SECTIONS)})")
-    secs = [s for s in SECTIONS if s in secs]          # kolejnosc S,L,J,K niezaleznie od podanej
+    if bad: sys.exit(f"unknown sections: {bad} (available: {list(SECTIONS)})")
+    secs = [s for s in SECTIONS if s in secs]          # always in S,L,J,K order regardless of the argument
     hg = HG(A.host, A.port, A.space, A.graph)
     meta = dict(hg.info(), host=A.host, port=A.port, graph=A.graph, sections=secs, load=A.load,
                 started=datetime.now().isoformat(timespec="seconds"))
@@ -637,7 +637,7 @@ def main():
     if rep.expect is not None:
         print("=== vs oracle: " + "  ".join(f"{k}={rep.tally.get(k, 0)}" for k in CLASSES if rep.tally.get(k)))
     if A.out:
-        rep.dump(A.out, meta); print(f"raport: {A.out}")
+        rep.dump(A.out, meta); print(f"report: {A.out}")
     if rep.expect is not None and any(k != "OK" for k in rep.tally):
         sys.exit(1)
 

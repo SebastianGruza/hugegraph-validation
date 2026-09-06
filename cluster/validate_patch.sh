@@ -12,7 +12,7 @@ RD=$REPO/hugegraph-server/dist-rocksdb
 export JAVA_HOME=$H/tools/jdk17 PATH=$H/tools/jdk17/bin:$H/tools/apache-maven-3.9.9/bin:/usr/bin:/bin:/usr/sbin
 MVN="mvn -q -ntp -Drat.skip=true -Dcheckstyle.skip=true -Dmaven.javadoc.skip=true"
 TESTS='EdgeCoreTest#testQueryOutEdgesOfVertexInPagingAtBatchBoundary,VertexCoreTest#testQueryVerticesByLabelInPagingAtBatchBoundary'
-run_tests() {   # $1 = etykieta
+run_tests() {   # $1 = label
   (cd $REPO && $MVN -pl hugegraph-server/hugegraph-test -am -P core-test,rocksdb -Dtest="$TESTS" -DfailIfNoTests=false -Dsurefire.failIfNoSpecifiedTests=false test) > /tmp/fixtest_$1.log 2>&1
   echo "  [$1] mvn exit=$?"
   grep -E "Tests run:|FAIL|limit [0-9]+ expected|AssertionError" /tmp/fixtest_$1.log | grep -v "^\[INFO\] *$" | head -12 | cut -c1-160
@@ -20,7 +20,7 @@ run_tests() {   # $1 = etykieta
 case ${1:?red|green|deploy|revert} in
   red)
     cd $REPO && (git apply --check $PATCH 2>/dev/null && git apply $PATCH)
-    git checkout -- hugegraph-server/hugegraph-core   # red = testy nowe, core NIEZALATANY
+    git checkout -- hugegraph-server/hugegraph-core   # red = new tests, core UNPATCHED
     echo "  patch state: $(git diff --stat | tail -1)"
     run_tests red
     ;;

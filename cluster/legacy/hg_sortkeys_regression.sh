@@ -171,7 +171,7 @@ done
 echo "### LOAD edges from number / uuid / primary-key vertices"
 post /graph/edges '{"label":"flow_n","outV":7,"outVLabel":"nnode","inV":"b","inVLabel":"node","properties":{"asset":"ETC","epoch":100,"amount":1.5}}'
 post /graph/edges '{"label":"flow_n","outV":7,"outVLabel":"nnode","inV":"b","inVLabel":"node","properties":{"asset":"ETC","epoch":200,"amount":2.5}}'
-# UUID: REST body edge-create nie parsuje typowanych id (EdgeAPI.getVertex) -> gremlin
+# UUID: the REST edge-create body does not parse typed ids (EdgeAPI.getVertex) -> gremlin
 gexpect 1 "LOAD flow_u epoch=100 (gremlin addE)" "g.V().hasLabel('unode').addE('flow_u').to(__.V('b')).property('asset','ETC').property('epoch',100L).property('amount',1.5d)"
 gexpect 1 "LOAD flow_u epoch=200 (gremlin addE)" "g.V().hasLabel('unode').addE('flow_u').to(__.V('b')).property('asset','ETC').property('epoch',200L).property('amount',2.5d)"
 post /graph/edges '{"label":"flow_p","outV":"4:alice","outVLabel":"pnode","inV":"b","inVLabel":"node","properties":{"asset":"ETC","epoch":100,"amount":1.5}}'

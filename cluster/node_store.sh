@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-# node_store.sh stop|start — hstore na tym wezle (kopiowany na .235/.236/.237)
-#   stop : skrypt stop -> kill po PID portu 8500 i po wzorcu -> wipe storage (w tym hgstore-metadata ze store-ID!)
-#   start: start z jdk17, czekaj az 8500 nasluchuje (do 60 s), 1 retry; wypisz stan
+# node_store.sh stop|start — the hstore store on this node (copied to .235/.236/.237)
+#   stop : stop script -> kill by port 8500 PID and by pattern -> wipe storage (including hgstore-metadata with the store ID!)
+#   start: start on jdk17, wait until 8500 listens (up to 60 s), 1 retry; print the state
 set -uo pipefail
 ST=$HOME/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.0
 HN=$(hostname)

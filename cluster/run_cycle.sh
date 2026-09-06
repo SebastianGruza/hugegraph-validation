@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# run_cycle.sh <master|fix|combined> — orkiestracja z kolektora: pelny cykl na klastrze 3-store (.235/.236/.237)
-#   stop + wipe: serwery (8080 hstore, 8081 rocksdb) i PD na .235, store'y (node_store.sh) na .235/.236/.237
-#   -> jar hstore wg <side> -> PD -> 3 store'y -> init + serwery -> hg_suite.py --load na obu -> compare
-# Wyniki na .235: ~/validation/<side>_oracle.{txt,json}, <side>_hstore.{txt,json}, compare_<side>.txt
+# run_cycle.sh <master|fix|combined> — orchestrated from the workstation: full cycle on the 3-store cluster (.235/.236/.237)
+#   stop + wipe: servers (8080 hstore, 8081 rocksdb) and PD on .235, stores (node_store.sh) on .235/.236/.237
+#   -> hstore jar per <side> -> PD -> 3 stores -> init + servers -> hg_suite.py --load on both -> compare
+# Results on .235: ~/validation/<side>_oracle.{txt,json}, <side>_hstore.{txt,json}, compare_<side>.txt
 set -uo pipefail
 SIDE=${1:?master|fix|combined}
 N1=seba@192.168.80.235; N2=seba@192.168.80.236; N3=seba@192.168.80.237
@@ -16,8 +16,8 @@ J11="export JAVA_HOME=$H/tools/jdk11 PATH=$H/tools/jdk11/bin:/usr/bin:/bin:/usr/
 OUT=$H/validation
 ts() { date +%T; }
 
-# ktory serwer: combined = dystrybucje zbudowane z galezi combined; master = dystrybucje zbudowane z master 98477f0
-# (~/hg-master worktree, dist-master-hstore / dist-master-rocksdb); fix = combined + jar hstore z PR #3184 (historyczne)
+# which server: combined = distributions built from the combined branch; master = distributions built from master 98477f0
+# (~/hg-master worktree, dist-master-hstore / dist-master-rocksdb); fix = combined + the hstore jar from PR #3184 (historical)
 case $SIDE in
   combined) DISTS="" ;;
   master)   DISTS="HG_SV=$H/hg-master/hugegraph-server/dist-master-hstore HG_RD=$H/hg-master/hugegraph-server/dist-master-rocksdb" ;;
@@ -31,7 +31,7 @@ echo "== [$SIDE] $(ts) stop + wipe stores on .235 .236 .237"
 for N in $N1 $N2 $N3; do $SSH $N "bash $H/node_store.sh stop"; done
 echo "== [$SIDE] $(ts) start PD on .235"
 $SSH $N1 "$J17; (cd $PD && ./bin/start-hugegraph-pd.sh) >/dev/null 2>&1; for i in \$(seq 1 20); do ss -tln | grep -q ':8686 ' && break; sleep 2; done; ss -tln | grep -q ':8686 ' && echo '  pd listening' || echo '  PD NOT UP'"
-sleep 12   # lider raft PD; store'y odbite w tym oknie wyczerpuja retry i gasna
+sleep 12   # PD raft leader election; a store bounced inside this window exhausts its retries and exits
 echo "== [$SIDE] $(ts) start stores on .235 .236 .237"
 for N in $N1 $N2 $N3; do $SSH $N "bash $H/node_store.sh start"; done
 echo "== [$SIDE] $(ts) init + servers on .235 (jdk11)"

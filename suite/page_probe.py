@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Sonda paging: ktore id sie duplikuja i na ktorej granicy strony. Usage: page_probe.py --port 8081"""
+"""Paging probe: which ids duplicate, and on which page boundary. Usage: page_probe.py --port 8081"""
 import argparse, json, sys
-sys.path.insert(0, "/home/seba")
+sys.path.insert(0, __import__("os").path.dirname(__import__("os").path.abspath(__file__)))
 from hg_suite import HG
 
 ap = argparse.ArgumentParser(); ap.add_argument("--port", type=int, required=True); A = ap.parse_args()
