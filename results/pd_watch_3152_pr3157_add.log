@@ -1,0 +1,48 @@
+== [pr3157] 20:21:54 start A=/home/seba/hg-pr3157/hugegraph-server/dist-pr3157-hstore B=/home/seba/hg-pr3157/hugegraph-server/dist-pr3157-hstore-B
+  A+B up: A={"graphs":["master_pdmeta_g3","pr3157_g1","master_pdmeta_g2","hugegraph","master_pdmeta_g1","pr3157_g3","pr3157_g2"]} B={"graphs":["master_pdmeta_g3","master_pdmeta_g2","hugegraph","master_pdmeta_g1"]}
+== [pr3157] step 1: baseline propagation
+{"name":"pr3157_pdmeta_g1","nickname":"pr3157_pdmeta_g1","backend":"hstore","description":""}
+  B constructed pr3157_pdmeta_g1 after 2s (schema HTTP 200); watch signals in B log: 1
+== [pr3157] step 2: PD outage #1
+  [20:22:15] PD down for 30 s
+  [20:22:56] PD back (listening); settling 15 s
+  stores: up up up 
+== [pr3157] step 3: propagation after outage #1
+{"name":"pr3157_pdmeta_g2","nickname":"pr3157_pdmeta_g2","backend":"hstore","description":""}
+  B constructed pr3157_pdmeta_g2 after 1s (schema HTTP 200); watch signals in B log: 1
+== [pr3157] step 4: PD outage #2
+  [20:23:11] PD down for 30 s
+  [20:23:53] PD back (listening); settling 15 s
+  stores: up up up 
+== [pr3157] step 5: propagation after outage #2
+{"name":"pr3157_pdmeta_g3","nickname":"pr3157_pdmeta_g3","backend":"hstore","description":""}
+  B constructed pr3157_pdmeta_g3 after 1s (schema HTTP 200); watch signals in B log: 1
+== [pr3157] A list: {"graphs":["master_pdmeta_g3","pr3157_g1","master_pdmeta_g2","hugegraph","master_pdmeta_g1","pr3157_pdmeta_g1","pr3157_pdmeta_g3","pr3157_g3","pr3157_pdmeta_g2","pr3157_g2"]}
+== [pr3157] B list: {"graphs":["master_pdmeta_g3","master_pdmeta_g2","hugegraph","master_pdmeta_g1","pr3157_pdmeta_g1","pr3157_pdmeta_g3","pr3157_pdmeta_g2"]}
+== [pr3157] B log — KvClient / watch lines:
+	at org.apache.hugegraph.pd.client.KvClient.lambda$submitReconnect$8(KvClient.java:531) ~[hg-pd-client-1.7.0.jar:1.7.0]
+2026-09-03 20:23:51 o.a.h.p.c.AbstractClient - connect to 192.168.80.235:8686 with error: 
+	at org.apache.hugegraph.pd.client.KvClient.startWatch(KvClient.java:328) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.reconnect(KvClient.java:559) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.lambda$submitReconnect$8(KvClient.java:531) ~[hg-pd-client-1.7.0.jar:1.7.0]
+2026-09-03 20:23:51 o.a.h.p.c.KvClient - Failed to reconnect watch for key HUGEGRAPH/hg/EVENT/GRAPH/CLEAR
+	at org.apache.hugegraph.pd.client.KvClient.startWatch(KvClient.java:328) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.reconnect(KvClient.java:559) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.lambda$submitReconnect$8(KvClient.java:531) ~[hg-pd-client-1.7.0.jar:1.7.0]
+2026-09-03 20:23:51 o.a.h.p.c.AbstractClient - connect to 192.168.80.235:8686 with error: 
+	at org.apache.hugegraph.pd.client.KvClient.startWatch(KvClient.java:328) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.reconnect(KvClient.java:559) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.lambda$submitReconnect$8(KvClient.java:531) ~[hg-pd-client-1.7.0.jar:1.7.0]
+2026-09-03 20:23:51 o.a.h.p.c.KvClient - Failed to reconnect watch for key HUGEGRAPH/hg/EVENT/GRAPH/UPDATE
+	at org.apache.hugegraph.pd.client.KvClient.startWatch(KvClient.java:328) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.reconnect(KvClient.java:559) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.lambda$submitReconnect$8(KvClient.java:531) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:153) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:153) ~[hg-pd-client-1.7.0.jar:1.7.0]
+2026-09-03 20:23:52 o.a.h.p.c.AbstractClient - AbstractClient connect to host = 192.168.80.235:8686 success
+2026-09-03 20:23:52 o.a.h.p.c.KvClient - set watch client id to :-158743201162327235
+2026-09-03 20:23:52 o.a.h.p.c.KvClient - set watch client id to :3055144084263071776
+2026-09-03 20:23:52 o.a.h.p.c.KvClient - set watch client id to :-2095505295163550729
+2026-09-03 20:23:52 o.a.h.p.c.KvClient - set watch client id to :-3624430710303615910
+2026-09-03 20:23:52 o.a.h.p.c.KvClient - set watch client id to :6389354963413770014
+== [pr3157] 20:24:08 done (servers left running)

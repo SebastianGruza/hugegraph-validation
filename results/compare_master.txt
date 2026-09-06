@@ -1,0 +1,97 @@
+oracle: /home/seba/validation/master_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'host': 'localhost', 'port': 8081, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-03T17:19:06', 'seconds': 8.5, 'cases': 174}
+target: /home/seba/validation/master_hstore.json  {'backend': 'hstore', 'version': 'v1', 'host': 'localhost', 'port': 8080, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-03T17:19:25', 'seconds': 25.6, 'cases': 174}
+=== SUMMARY  OK=114  MISMATCH=16  TARGET-ERR=38  BOTH-ERR=6
+  J: OK=32  TARGET-ERR=1  BOTH-ERR=2
+  K: OK=24  MISMATCH=16
+  L: OK=43
+  S: OK=15  TARGET-ERR=37  BOTH-ERR=4
+  TARGET-ERR S REST asset='ETC'                                             oracle n=1212
+  TARGET-ERR S REST asset='ET' (must NOT swallow ETC*)                      oracle n=1
+  TARGET-ERR S REST asset='ETCX'                                            oracle n=1
+  TARGET-ERR S REST asset='etc' (case-sensitive)                            oracle n=1
+  TARGET-ERR S REST asset='Etc'                                             oracle n=1
+  TARGET-ERR S REST asset='ETC ' (trailing space)                           oracle n=1
+  TARGET-ERR S REST asset='ETC!X' (separator char inside value)             oracle n=1
+  TARGET-ERR S REST asset='BTC'                                             oracle n=1
+  TARGET-ERR S REST asset='ÉTC' (2-byte UTF-8)                              oracle n=1
+  TARGET-ERR S REST asset='～' (U+FF5E, 3-byte UTF-8, high UTF-16 unit)      oracle n=1
+  TARGET-ERR S REST asset='😀' (U+1F600, surrogate pair)                     oracle n=1
+  TARGET-ERR S REST asset=ETC & epoch>=150                                  oracle n=1207
+  TARGET-ERR S REST asset=ETC & epoch<0 (negative encoding)                 oracle n=1
+  TARGET-ERR S REST asset=ETC & epoch<=0                                    oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=0                                    oracle n=1211
+  TARGET-ERR S REST asset=ETC & 63<=epoch<=64 (1/2-digit edge)              oracle n=2
+  TARGET-ERR S REST asset=ETC & 4095<=epoch<=4096 (2/3-digit edge)          oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=4096 (4096 + Long.MAX)               oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch between(100,200) [gte,lt)             oracle n=1
+  TARGET-ERR S REST asset=ETC & 1000<=epoch<2000 (bulk, >1 gRPC batch)      oracle n=1000
+  BOTH-ERR   S REST asset>=ETC                                              
+  BOTH-ERR   S REST asset>=ETC & asset<ETC!                                 
+  BOTH-ERR   S REST asset>=ÉTC (UTF-8 byte order)                           
+  BOTH-ERR   S REST asset>=～ (UTF-8 vs UTF-16 order)                        
+  TARGET-ERR S REST asset within(ET,ETCX) (prefix list)                     oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=1000 & cnt=5                         oracle n=120
+  TARGET-ERR S REST b inE flow asset=ETC                                    oracle n=1212
+  TARGET-ERR S REST b inE flow asset=ETC & epoch>=150                       oracle n=1207
+  TARGET-ERR S GRMLN g.V('a').bothE('flow').has('asset','ETC')              oracle n=1212
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset','ETC').has('epoch',g oracle n=1207
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset','ETC').has('epoch',b oracle n=2
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset',within('ET','ETCX')) oracle n=2
+  TARGET-ERR S REST nnode 7 (CUSTOMIZE_NUMBER) outE flow_n asset=ETC        oracle n=2
+  TARGET-ERR S REST nnode 7 (CUSTOMIZE_NUMBER) outE flow_n asset=ETC & epoc oracle n=1
+  TARGET-ERR S REST unode (CUSTOMIZE_UUID) outE flow_u asset=ETC            oracle n=2
+  TARGET-ERR S REST unode (CUSTOMIZE_UUID) outE flow_u asset=ETC & epoch>=1 oracle n=1
+  TARGET-ERR S REST pnode alice (PRIMARY_KEY, label id 10) outE flow_p asse oracle n=2
+  TARGET-ERR S REST pnode alice (PRIMARY_KEY, label id 10) outE flow_p asse oracle n=1
+  TARGET-ERR S PAGED asset=ETC, page size 500                               oracle n=1214
+  TARGET-ERR S PAGED asset=ETC & epoch>=150, page size 100                  oracle n=1207
+  TARGET-ERR S PAGED asset=ETC & 1000<=epoch<2000, page size 333            oracle n=1000
+  TARGET-ERR J outE flow asset=ETC                                          oracle n=1212
+  BOTH-ERR   J V age>=30 without(person,robot)                              
+  BOTH-ERR   J V without(person) age>=60 barrier                            
+  MISMATCH   K type>=2 & confirm within(1,2,3) & contains(诚信)               oracle n=50 h=76a120078cf8 target n=20 h=39bbfe5fafb3 only-oracle=30 only-target=0
+             only-oracle: ['f0001', 'f0004', 'f0008', 'f0021', 'f0024']
+             only-target: []
+  MISMATCH   K type>=2 & confirm within(1,2,3) & contains(诚信) [2nd run/cach oracle n=50 h=76a120078cf8 target n=20 h=39bbfe5fafb3 only-oracle=30 only-target=0
+             only-oracle: ['f0001', 'f0004', 'f0008', 'f0021', 'f0024']
+             only-target: []
+  MISMATCH   K type>=2 & confirm within(1,2,3) & contains(gold)             oracle n=60 h=48c8c65444dc target n=20 h=d45b417ad145 only-oracle=40 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K type>=2 & confirm within(1,2,3) & contains(gold) [2nd run/ca oracle n=60 h=48c8c65444dc target n=20 h=d45b417ad145 only-oracle=40 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K within(1,2,3,4) all                                          oracle n=80 h=0b113f458329 target n=20 h=e2565b22f657 only-oracle=60 only-target=0
+             only-oracle: ['f0002', 'f0004', 'f0012', 'f0013', 'f0014']
+             only-target: []
+  MISMATCH   K within(1,2,3,4) all [2nd run/cache]                          oracle n=80 h=0b113f458329 target n=20 h=e2565b22f657 only-oracle=60 only-target=0
+             only-oracle: ['f0002', 'f0004', 'f0012', 'f0013', 'f0014']
+             only-target: []
+  MISMATCH   K type within(1,3,5) + search                                  oracle n=60 h=dade6099392b target n=20 h=ae96cb3489b8 only-oracle=40 only-target=0
+             only-oracle: ['f0002', 'f0007', 'f0012', 'f0017', 'f0022']
+             only-target: []
+  MISMATCH   K type within(1,3,5) + search [2nd run/cache]                  oracle n=60 h=dade6099392b target n=20 h=ae96cb3489b8 only-oracle=40 only-target=0
+             only-oracle: ['f0002', 'f0007', 'f0012', 'f0017', 'f0022']
+             only-target: []
+  MISMATCH   K search+within no range                                       oracle n=40 h=1f5423dc15a2 target n=20 h=d45b417ad145 only-oracle=20 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0024', 'f0032', 'f0044']
+             only-target: []
+  MISMATCH   K search+within no range [2nd run/cache]                       oracle n=40 h=1f5423dc15a2 target n=20 h=d45b417ad145 only-oracle=20 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0024', 'f0032', 'f0044']
+             only-target: []
+  MISMATCH   K K5 baseline combo gold                                       oracle n=60 h=48c8c65444dc target n=20 h=d45b417ad145 only-oracle=40 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K K5 before-commit set                                         oracle n=62 h=e762d1fa3005 target n=22 h=d766087b13da only-oracle=40 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K K5 after-commit set                                          oracle n=62 h=e762d1fa3005 target n=21 h=b0b4cc4e8ec9 only-oracle=41 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K K5 after minus before (0 = commit changes nothing)           oracle n=0 h=v0 target n=-1 h=v-1
+  MISMATCH   K K5 combo after fresh commit (baseline+2)                     oracle n=62 h=e762d1fa3005 target n=21 h=b0b4cc4e8ec9 only-oracle=41 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []
+  MISMATCH   K K5 combo after fresh commit (baseline+2) [2nd run/cache]     oracle n=62 h=e762d1fa3005 target n=21 h=b0b4cc4e8ec9 only-oracle=41 only-target=0
+             only-oracle: ['f0004', 'f0012', 'f0013', 'f0017', 'f0024']
+             only-target: []

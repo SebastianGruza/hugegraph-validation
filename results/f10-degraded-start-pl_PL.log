@@ -1,0 +1,48 @@
+# F10 degraded start — master 98477f0 dist-master-hstore, JVM started 2026-09-05 10:43:30 with LANG=pl_PL.UTF-8 (no LC_ALL), DEFAULT graphspace already present in PD
+# JVM env: LANG=pl_PL.UTF-8
+# graphs listed by REST: 19
+
+## startup: graphs that failed to load from PD meta
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'master_pdmeta_g2' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'master_pdmeta_g3' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'rbug' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'lnq' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'pr3157_pdmeta_g2' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'pr3157_pdmeta_g3' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'ctrlx' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'bleed' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'lngx' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'cgc' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'pr3157_pdmeta_g1' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'lng' from meta server
+2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'master_pdmeta_g1' from meta server
+
+## one full 0,00 stack (first occurrence after start)
+130-2026-09-05 10:43:47 [main] [INFO] o.a.h.t.TaskManager - Use distributed as the scheduler of graph (master_pdmeta_g2)
+131-2026-09-05 10:43:47 [main] [ERROR] o.a.h.c.GraphManager - Failed to load graph 'master_pdmeta_g2' from meta server
+132:org.apache.hugegraph.HugeException: Can't write json: For input string: "0,00"
+133-	at org.apache.hugegraph.util.JsonUtil.toJson(JsonUtil.java:69) ~[hugegraph-core-1.7.0.jar:1.7.0]
+134-	at org.apache.hugegraph.meta.managers.SpaceMetaManager.updateGraphSpaceConfig(SpaceMetaManager.java:100) ~[hugegraph-core-1.7.0.jar:1.7.0]
+135-	at org.apache.hugegraph.meta.MetaManager.updateGraphSpaceConfig(MetaManager.java:466) ~[hugegraph-core-1.7.0.jar:1.7.0]
+136-	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1414) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+137-	at org.apache.hugegraph.core.GraphManager.loadGraph(GraphManager.java:1127) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+138-	at org.apache.hugegraph.core.GraphManager.loadGraphsFromMeta(GraphManager.java:1166) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+139-	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:370) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+140-	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+141-	at org.apache.hugegraph.server.ApplicationConfig$GraphManagerFactory$1.onEvent(ApplicationConfig.java:184) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+142-	at org.glassfish.jersey.server.internal.monitoring.CompositeApplicationEventListener.onEvent(CompositeApplicationEventListener.java:49) ~[jersey-server-3.0.3.jar:?]
+143-	at org.glassfish.jersey.server.internal.monitoring.MonitoringContainerListener.onStartup(MonitoringContainerListener.java:56) ~[jersey-server-3.0.3.jar:?]
+144-	at org.glassfish.jersey.server.ApplicationHandler.onStartup(ApplicationHandler.java:711) ~[jersey-server-3.0.3.jar:?]
+145-	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.start(GrizzlyHttpContainer.java:330) ~[jersey-container-grizzly2-http-3.0.3.jar:?]
+146-	at org.glassfish.grizzly.http.server.HttpHandlerChain.start(HttpHandlerChain.java:376) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+
+## counts since start
+     39 0,00
+     13 Failed to load graph
+     13 JsonMappingException
+     13 NumberFormatException
+      2 task scheduler
+
+## runtime consequence: dropGraph
+DELETE f12big -> {"exception":"class java.lang.IllegalStateException","message":"Can't find task scheduler for graph 'standardhugegraph[DEFAULT-f12big]'","cause":"","trace":["com.google.common.base.Preconditions.checkState(Preconditions.
+DELETE f12ctrl -> {"exception":"class java.lang.IllegalStateException","message":"Can't find task scheduler for graph 'standardhugegraph[DEFAULT-f12ctrl]'","cause":"","trace":["com.google.common.base.Preconditions.checkState(Preconditions

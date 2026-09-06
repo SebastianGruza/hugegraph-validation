@@ -1,0 +1,48 @@
+== [master] 20:18:01 start A=/home/seba/hg-master/hugegraph-server/dist-master-hstore B=/home/seba/hg-master/hugegraph-server/dist-master-hstore-B
+  A+B up: A={"graphs":["master_g2","hugegraph","master_g3","master_g1"]} B={"graphs":["hugegraph"]}
+== [master] step 1: baseline propagation
+{"name":"master_pdmeta_g1","nickname":"master_pdmeta_g1","backend":"hstore","description":""}
+  B sees master_pdmeta_g1 after 1s
+== [master] step 2: PD outage #1
+  [20:18:21] PD down for 30 s
+  [20:19:02] PD back (listening); settling 15 s
+  stores: up up up 
+== [master] step 3: propagation after outage #1
+{"name":"master_pdmeta_g2","nickname":"master_pdmeta_g2","backend":"hstore","description":""}
+  B sees master_pdmeta_g2 after 1s
+== [master] step 4: PD outage #2
+  [20:19:18] PD down for 30 s
+  [20:19:59] PD back (listening); settling 15 s
+  stores: up up up 
+== [master] step 5: propagation after outage #2
+{"name":"master_pdmeta_g3","nickname":"master_pdmeta_g3","backend":"hstore","description":""}
+  B sees master_pdmeta_g3 after 1s
+== [master] A list: {"graphs":["master_pdmeta_g3","master_g2","master_pdmeta_g2","hugegraph","master_g3","master_pdmeta_g1","master_g1"]}
+== [master] B list: {"graphs":["master_pdmeta_g3","master_pdmeta_g2","hugegraph","master_pdmeta_g1"]}
+== [master] B log — KvClient / watch lines:
+2026-09-03 20:01:11 o.a.h.p.c.KvClient - set watch client id to :-5527833147688181686
+2026-09-03 20:01:38 o.a.h.p.c.PDClient - watchNode exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:01:38 o.a.h.p.c.PDClient - watchPartition exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:01:38 o.a.h.p.c.PDClient - shardGroupWatcher exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:01:38 o.a.h.p.c.PDClient - graphWatcher exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:14:34 o.a.h.p.c.KvClient - set watch client id to :8557183998901638770
+2026-09-03 20:18:14 o.a.h.p.c.KvClient - set watch client id to :-2906069778898340174
+2026-09-03 20:18:21 o.a.h.p.c.PDClient - watchPartition exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:18:21 o.a.h.p.c.PDClient - watchNode exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:18:21 o.a.h.p.c.PDClient - graphWatcher exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+2026-09-03 20:18:21 o.a.h.p.c.PDClient - shardGroupWatcher exception UNAVAILABLE: Connection closed after GOAWAY. HTTP/2 error code: NO_ERROR, debug data: app_requested
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.KvClient.get(KvClient.java:87) ~[hg-pd-client-1.7.0.jar:1.7.0]
+== [master] 20:20:15 done (servers left running)

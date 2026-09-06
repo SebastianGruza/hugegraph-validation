@@ -1,0 +1,123 @@
+From c08e852459747634af567126a74fe25fccfa345d Mon Sep 17 00:00:00 2001
+From: Sebastian Gruza <sebastian.gruza@gmail.com>
+Date: Thu, 3 Sep 2026 07:58:33 +0000
+Subject: [PATCH] fix(core): paging re-emits the batch-boundary record when the
+ page limit is a multiple of INLINE_BATCH_SIZE
+
+BinaryEntryIterator.fetch() breaks out of the merge loop once the current
+entry holds INLINE_BATCH_SIZE (500) columns, but only after the record that
+triggered the check has already been merged into the entry that is about to
+be emitted. results.position() has already advanced to that record and a
+page restarts inclusively from position(), so a page whose limit ends exactly
+at a batch boundary (limit 500, 1000, ...) re-emits the last record of page k
+as the first record of page k+1. The limit path (limit + 1 records, then
+removeLastRecord()) never had this problem, which is why 400 or 600 are clean.
+
+Start the next entry with the boundary record instead of merging it, so that
+position() never points at an emitted record.
+
+Affects every entry with more than INLINE_BATCH_SIZE columns: edges of one
+owner vertex (prefix and sort-key range queries) and label-index queries;
+identical on rocksdb and hstore. Secondary index queries and full scans are
+not affected.
+---
+ .../serializer/BinaryEntryIterator.java       | 24 ++++++++----
+ .../apache/hugegraph/core/EdgeCoreTest.java   | 37 +++++++++++++++++++
+ 2 files changed, 54 insertions(+), 7 deletions(-)
+
+diff --git a/hugegraph-server/hugegraph-core/src/main/java/org/apache/hugegraph/backend/serializer/BinaryEntryIterator.java b/hugegraph-server/hugegraph-core/src/main/java/org/apache/hugegraph/backend/serializer/BinaryEntryIterator.java
+index 0eb22f6..1095742 100644
+--- a/hugegraph-server/hugegraph-core/src/main/java/org/apache/hugegraph/backend/serializer/BinaryEntryIterator.java
++++ b/hugegraph-server/hugegraph-core/src/main/java/org/apache/hugegraph/backend/serializer/BinaryEntryIterator.java
+@@ -68,23 +68,33 @@ public class BinaryEntryIterator<Elem> extends BackendEntryIterator {
+ 
+         while (this.results.hasNext()) {
+             Elem elem = this.results.next();
++            if (this.current != null &&
++                this.sizeOf(this.current) >= INLINE_BATCH_SIZE) {
++                /*
++                 * The current entry already holds a full batch: start the
++                 * next entry with this record instead of appending it.
++                 * results.position() has already advanced to this record and
++                 * a page restarts inclusively from position(), so it must
++                 * never point at a record that has been emitted (a page
++                 * limit ending exactly at a batch boundary would otherwise
++                 * re-emit it as the first record of the next page).
++                 */
++                assert this.next == null;
++                this.next = this.merger.apply(null, elem);
++                break;
++            }
+             BackendEntry merged = this.merger.apply(this.current, elem);
+             E.checkState(merged != null, "Error when merging entry");
+             if (this.current == null) {
+                 // The first time to read
+                 this.current = merged;
+-            } else if (merged == this.current) {
+-                // The next entry belongs to the current entry
+-                assert this.current != null;
+-                if (this.sizeOf(this.current) >= INLINE_BATCH_SIZE) {
+-                    break;
+-                }
+-            } else {
++            } else if (merged != this.current) {
+                 // New entry
+                 assert this.next == null;
+                 this.next = merged;
+                 break;
+             }
++            // Else the record belongs to the current entry
+ 
+             // When limit exceed, stop fetching
+             if (this.reachLimit(this.fetched() - 1)) {
+diff --git a/hugegraph-server/hugegraph-test/src/main/java/org/apache/hugegraph/core/EdgeCoreTest.java b/hugegraph-server/hugegraph-test/src/main/java/org/apache/hugegraph/core/EdgeCoreTest.java
+index cbb2b7d..5048f3f 100644
+--- a/hugegraph-server/hugegraph-test/src/main/java/org/apache/hugegraph/core/EdgeCoreTest.java
++++ b/hugegraph-server/hugegraph-test/src/main/java/org/apache/hugegraph/core/EdgeCoreTest.java
+@@ -5370,6 +5370,43 @@ public class EdgeCoreTest extends BaseCoreTest {
+         Assert.assertEquals(2, count);
+     }
+ 
++    @Test
++    public void testQueryOutEdgesOfVertexInPagingAtBatchBoundary() {
++        HugeGraph graph = graph();
++        Assume.assumeTrue("Not support paging",
++                          storeFeatures().supportsQueryByPage());
++        // More edges than BackendEntryIterator.INLINE_BATCH_SIZE (500)
++        int total = 1200;
++        Vertex louise = graph.addVertex(T.label, "person", "name", "Louise",
++                                        "city", "Beijing", "age", 21);
++        Vertex java1 = graph.addVertex(T.label, "book", "name", "java-1");
++        for (int i = 0; i < total; i++) {
++            louise.addEdge("look", java1, "time", String.format("2017-%04d", i));
++        }
++        graph.tx().commit();
++
++        // A page limit ending exactly at a batch boundary (500, 1000) used to
++        // re-emit the last edge of a page as the first edge of the next page
++        for (int limit : new int[]{400, 500, 600, 1000}) {
++            Set<Object> ids = new HashSet<>();
++            int count = 0;
++            String page = PageInfo.PAGE_NONE;
++            while (page != null) {
++                GraphTraversal<Vertex, Edge> iterator = graph.traversal()
++                                                             .V(louise).outE("look")
++                                                             .has("~page", page)
++                                                             .limit(limit);
++                while (iterator.hasNext()) {
++                    ids.add(iterator.next().id());
++                    count++;
++                }
++                page = TraversalUtil.page(iterator);
++            }
++            Assert.assertEquals("limit " + limit, total, count);
++            Assert.assertEquals("limit " + limit, total, ids.size());
++        }
++    }
++
+     @Test
+     public void testQueryCount() {
+         HugeGraph graph = graph();
+-- 
+2.43.0
+
