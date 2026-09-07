@@ -1,0 +1,17 @@
+oracle: j8_pr2994_hstore.json  {'backend': 'hstore', 'version': 'v1', 'port': 8080, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+target: j8_pr2994p3184_hstore.json  {'backend': 'hstore', 'version': 'v1', 'port': 8080, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+=== SUMMARY  OK=174  MISMATCH=0  TARGET-ERR=0  BOTH-ERR=11
+  G: OK=36  BOTH-ERR=6
+  J8: OK=115  BOTH-ERR=5
+  P: OK=23
+  BOTH-ERR   J8 V robot score>=40 (positive control)                         
+  BOTH-ERR   J8 V hasKey(age) (control)                                      
+  BOTH-ERR   J8 V hasKey(age,score) without(person)                          
+  BOTH-ERR   J8 V hasKey(nope) neq(person) (-> empty)                        
+  BOTH-ERR   J8 V hasValue(20) (control)                                     
+  BOTH-ERR   G PAGE size=7 score>=40 (control, no label)                    
+  BOTH-ERR   G PAGE size=50 score>=40 (control, no label)                   
+  BOTH-ERR   G PAGE size=500 score>=40 (control, no label)                  
+  BOTH-ERR   G PAGE size=7 robot age>=60 (control, positive label)          
+  BOTH-ERR   G PAGE size=50 robot age>=60 (control, positive label)         
+  BOTH-ERR   G PAGE size=500 robot age>=60 (control, positive label)        

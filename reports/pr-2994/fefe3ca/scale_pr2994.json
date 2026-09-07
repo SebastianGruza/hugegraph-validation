@@ -1,0 +1,107 @@
+[
+ {
+  "name": "point: V(big10) (control)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010])]"
+ },
+ {
+  "name": "point: V(big10) neq(mark)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010]), HasStep([~label.neq(mark)])]"
+ },
+ {
+  "name": "point: V(big10) limit(10) neq(mark)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010]), RangeGlobalStep(0,10), HasStep([~label.neq(mark)])]"
+ },
+ {
+  "name": "point: V hasId(big10) limit(10) neq(mark)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010]), RangeGlobalStep(0,10), HasStep([~label.neq(mark)])]"
+ },
+ {
+  "name": "point: V(big10) limit(10) neq(big) (-> empty)",
+  "ms": 2,
+  "n": 0,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010]), RangeGlobalStep(0,10), HasStep([~label.neq(big)])]"
+ },
+ {
+  "name": "point: V(big10,mark0) limit(10) neq(big)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(vertex,[big00000010, mark0]), RangeGlobalStep(0,10), HasStep([~label.neq(big)])]"
+ },
+ {
+  "name": "index: V age>=60 (control)",
+  "ms": 7,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(Vertex,[age.gte(60)])]"
+ },
+ {
+  "name": "index: V age>=60 limit neq(person)",
+  "ms": 964,
+  "n": null,
+  "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+  "plan": "[HugeGraphStep(vertex,[]), HasStep([age.gte(60)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+ },
+ {
+  "name": "index: V age>=60 neq(person)",
+  "ms": 962,
+  "n": null,
+  "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+  "plan": "[HugeGraphStep(vertex,[]), HasStep([age.gte(60), ~label.neq(person)])]"
+ },
+ {
+  "name": "index: V age>=60 out() neq(person)",
+  "ms": 12,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), HugeVertexStep(OUT,vertex), HasStep([~label.neq(person)])]"
+ },
+ {
+  "name": "index: V age>=60 out() where(not(hasLabel(person)))",
+  "ms": 17,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), HugeVertexStep(OUT,vertex), NotStep([HasStep([~label.eq(person)])])]"
+ },
+ {
+  "name": "index: V age>=60 out() (control)",
+  "ms": 18,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), HugeVertexStep(OUT,vertex)]"
+ },
+ {
+  "name": "index: V score>=40 limit neq(person)",
+  "ms": 951,
+  "n": null,
+  "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+  "plan": "[HugeGraphStep(vertex,[]), HasStep([score.gte(40)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+ },
+ {
+  "name": "index: V fname contains(gold) limit neq(person)",
+  "ms": 941,
+  "n": null,
+  "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+  "plan": "[HugeGraphStep(vertex,[]), HasStep(lambda), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+ },
+ {
+  "name": "scan: V mark (label, control)",
+  "ms": 2,
+  "n": 1,
+  "err": null,
+  "plan": "[HugeGraphStep(Vertex,[~label.eq(mark)])]"
+ }
+]

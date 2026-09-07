@@ -110,6 +110,34 @@ def run_J8(hg, rep):
     R("E() asset=ETC neq(flow) (global edge scan)", "g.E().has('asset','ETC').hasLabel(neq('flow')).id()")
     R("E() amt>=500 limit neq(flow) (deal range index)", "g.E().has('amt',gte(500)).limit(100000).hasLabel(neq('flow')).id()")
     R("E() amt>=500 neq(deal) (-> empty)", "g.E().has('amt',gte(500)).hasLabel(neq('deal')).id()")
+    print("--- J8i. hasKey / hasValue / connective ids next to a negative label (review 2026-09-07, head fefe3ca)")
+    R("V hasKey(age) (control)", "g.V().hasKey('age').id()")
+    R("V hasKey(age) neq(person)", "g.V().hasKey('age').hasLabel(neq('person')).id()")
+    R("V hasKey(age) limit neq(person)", "g.V().hasKey('age').limit(100000).hasLabel(neq('person')).id()")
+    R("V neq(person) hasKey(age)", "g.V().hasLabel(neq('person')).hasKey('age').id()")
+    R("V hasKey(score) neq(robot)", "g.V().hasKey('score').hasLabel(neq('robot')).id()")
+    R("V hasKey(fname) neq(person)", "g.V().hasKey('fname').hasLabel(neq('person')).id()")
+    R("V hasKey(age,score) without(person)", "g.V().hasKey('age','score').hasLabel(without('person')).id()")
+    R("V hasKey(nope) neq(person) (-> empty)", "g.V().hasKey('nope').hasLabel(neq('person')).id()")
+    R("V hasValue(20) (control)", "g.V().hasValue(20).id()")
+    R("V hasValue(20) neq(person)", "g.V().hasValue(20).hasLabel(neq('person')).id()")
+    R("V hasValue(20) limit neq(person)", "g.V().hasValue(20).limit(100000).hasLabel(neq('person')).id()")
+    R("V hasKey(age) hasValue(20) neq(person)", "g.V().hasKey('age').hasValue(20).hasLabel(neq('person')).id()")
+    R("V hasKey(age) age>=60 neq(person)", "g.V().hasKey('age').has('age',gte(60)).hasLabel(neq('person')).id()")
+    R("V hasKey(age) where(not(hasLabel(person)))", "g.V().hasKey('age').where(__.not(__.hasLabel('person'))).id()")
+    R("V firm out(deal) hasKey(type) neq(person)", "g.V().hasLabel('firm').out('deal').hasKey('type').hasLabel(neq('person')).id()")
+    R("V firm out(deal) hasKey(type) neq(firm) (-> empty)", "g.V().hasLabel('firm').out('deal').hasKey('type').hasLabel(neq('firm')).id()")
+    R("outE hasKey(amount) neq(flow)", A_ + ".hasKey('amount').hasLabel(neq('flow')).id()")
+    R("outE hasKey(amount) limit neq(dummy1)", A_ + ".hasKey('amount').limit(100000).hasLabel(neq('dummy1')).id()")
+    R("outE hasValue(ETC) neq(flow)", A_ + ".hasValue('ETC').hasLabel(neq('flow')).id()")
+    R("outE hasValue(ETC) limit neq(dummy3)", A_ + ".hasValue('ETC').limit(100000).hasLabel(neq('dummy3')).id()")
+    R("E() hasKey(amt) neq(flow)", "g.E().hasKey('amt').hasLabel(neq('flow')).id()")
+    R("E() hasKey(amt) neq(deal) (-> empty)", "g.E().hasKey('amt').hasLabel(neq('deal')).id()")
+    R("V hasId(within(p00010,r0001).and(neq(r0001))) limit neq(robot)", "g.V().hasId(within('p00010','r0001').and(neq('r0001'))).limit(10).hasLabel(neq('robot')).id()")
+    R("V hasId(eq(p00010).and(neq(r0001))) limit neq(robot)", "g.V().hasId(eq('p00010').and(neq('r0001'))).limit(10).hasLabel(neq('robot')).id()")
+    R("V hasId(within(p00010,r0001).and(neq(r0001))) neq(person) (-> empty)", "g.V().hasId(within('p00010','r0001').and(neq('r0001'))).hasLabel(neq('person')).id()")
+    R("V(p00010,r0001) hasId(within(p00010,r0001)) limit neq(person)", "g.V('p00010','r0001').hasId(within('p00010','r0001')).limit(10).hasLabel(neq('person')).id()")
+    R("V hasId(within(p00010,r0001).or(eq(f0001))) limit neq(person)", "g.V().hasId(within('p00010','r0001').or(eq('f0001'))).limit(10).hasLabel(neq('person')).id()")
 
 
 PLAN_SHAPES = [
@@ -133,6 +161,9 @@ PLAN_SHAPES = [
     ("V(a) outE asset=ETC limit neq(dummy3)", "g.V('a').outE().has('asset','ETC').limit(100000).hasLabel(neq('dummy3'))"),
     ("V(a) outE asset=ETC (control)", "g.V('a').outE().has('asset','ETC')"),
     ("V age>=60 has(~page) limit(50) neq(person)", "g.V().has('~page','').has('age',gte(60)).limit(50).hasLabel(neq('person'))"),
+    ("V hasKey(age) neq(person)", "g.V().hasKey('age').hasLabel(neq('person'))"),
+    ("V hasKey(age) (control)", "g.V().hasKey('age')"),
+    ("V hasId(within(p00010,r0001).and(neq(r0001))) limit neq(robot)", "g.V().hasId(within('p00010','r0001').and(neq('r0001'))).limit(10).hasLabel(neq('robot'))"),
 ]
 
 

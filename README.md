@@ -124,7 +124,7 @@ Version axis, backend held constant: rocksdb master vs rocksdb combined differ i
 
 | PR | Report | Verdict measured |
 |---|---|---|
-| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) | label semantics correct on both backends and fixes 18 silently-incomplete shapes on master; point lookups preserved; the unsafe-label gate still turns `has(indexed).out().hasLabel(neq(..))` into a full scan that fails above 800 k vertices |
+| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) and [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan |
 
 ## Status (2026-09-03)
 

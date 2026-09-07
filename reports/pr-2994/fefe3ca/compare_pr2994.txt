@@ -1,0 +1,49 @@
+oracle: pr2994_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'host': 'localhost', 'port': 8081, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-07T13:58:39', 'seconds': 7.8, 'cases': 174}
+target: pr2994_hstore.json  {'backend': 'hstore', 'version': 'v1', 'host': 'localhost', 'port': 8080, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-07T13:58:58', 'seconds': 24.6, 'cases': 174}
+=== SUMMARY  OK=132  MISMATCH=0  TARGET-ERR=38  BOTH-ERR=4
+  J: OK=34  TARGET-ERR=1
+  K: OK=40
+  L: OK=43
+  S: OK=15  TARGET-ERR=37  BOTH-ERR=4
+  TARGET-ERR S REST asset='ETC'                                             oracle n=1212
+  TARGET-ERR S REST asset='ET' (must NOT swallow ETC*)                      oracle n=1
+  TARGET-ERR S REST asset='ETCX'                                            oracle n=1
+  TARGET-ERR S REST asset='etc' (case-sensitive)                            oracle n=1
+  TARGET-ERR S REST asset='Etc'                                             oracle n=1
+  TARGET-ERR S REST asset='ETC ' (trailing space)                           oracle n=1
+  TARGET-ERR S REST asset='ETC!X' (separator char inside value)             oracle n=1
+  TARGET-ERR S REST asset='BTC'                                             oracle n=1
+  TARGET-ERR S REST asset='ÉTC' (2-byte UTF-8)                              oracle n=1
+  TARGET-ERR S REST asset='～' (U+FF5E, 3-byte UTF-8, high UTF-16 unit)      oracle n=1
+  TARGET-ERR S REST asset='😀' (U+1F600, surrogate pair)                     oracle n=1
+  TARGET-ERR S REST asset=ETC & epoch>=150                                  oracle n=1207
+  TARGET-ERR S REST asset=ETC & epoch<0 (negative encoding)                 oracle n=1
+  TARGET-ERR S REST asset=ETC & epoch<=0                                    oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=0                                    oracle n=1211
+  TARGET-ERR S REST asset=ETC & 63<=epoch<=64 (1/2-digit edge)              oracle n=2
+  TARGET-ERR S REST asset=ETC & 4095<=epoch<=4096 (2/3-digit edge)          oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=4096 (4096 + Long.MAX)               oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch between(100,200) [gte,lt)             oracle n=1
+  TARGET-ERR S REST asset=ETC & 1000<=epoch<2000 (bulk, >1 gRPC batch)      oracle n=1000
+  BOTH-ERR   S REST asset>=ETC                                              
+  BOTH-ERR   S REST asset>=ETC & asset<ETC!                                 
+  BOTH-ERR   S REST asset>=ÉTC (UTF-8 byte order)                           
+  BOTH-ERR   S REST asset>=～ (UTF-8 vs UTF-16 order)                        
+  TARGET-ERR S REST asset within(ET,ETCX) (prefix list)                     oracle n=2
+  TARGET-ERR S REST asset=ETC & epoch>=1000 & cnt=5                         oracle n=120
+  TARGET-ERR S REST b inE flow asset=ETC                                    oracle n=1212
+  TARGET-ERR S REST b inE flow asset=ETC & epoch>=150                       oracle n=1207
+  TARGET-ERR S GRMLN g.V('a').bothE('flow').has('asset','ETC')              oracle n=1212
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset','ETC').has('epoch',g oracle n=1207
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset','ETC').has('epoch',b oracle n=2
+  TARGET-ERR S GRMLN g.V('a').outE('flow').has('asset',within('ET','ETCX')) oracle n=2
+  TARGET-ERR S REST nnode 7 (CUSTOMIZE_NUMBER) outE flow_n asset=ETC        oracle n=2
+  TARGET-ERR S REST nnode 7 (CUSTOMIZE_NUMBER) outE flow_n asset=ETC & epoc oracle n=1
+  TARGET-ERR S REST unode (CUSTOMIZE_UUID) outE flow_u asset=ETC            oracle n=2
+  TARGET-ERR S REST unode (CUSTOMIZE_UUID) outE flow_u asset=ETC & epoch>=1 oracle n=1
+  TARGET-ERR S REST pnode alice (PRIMARY_KEY, label id 10) outE flow_p asse oracle n=2
+  TARGET-ERR S REST pnode alice (PRIMARY_KEY, label id 10) outE flow_p asse oracle n=1
+  TARGET-ERR S PAGED asset=ETC, page size 500                               oracle n=1214
+  TARGET-ERR S PAGED asset=ETC & epoch>=150, page size 100                  oracle n=1207
+  TARGET-ERR S PAGED asset=ETC & 1000<=epoch<2000, page size 333            oracle n=1000
+  TARGET-ERR J outE flow asset=ETC                                          oracle n=1212
