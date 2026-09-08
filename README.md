@@ -37,6 +37,7 @@ suite/hg_suite.py            the suite: run / compare (Python 3, stdlib only)
 suite/page_probe.py          paging probe: which ids duplicate, on which page boundary
 suite/hg_j8.py               PR #2994 review shapes: J8 id sets, P execution plans (explain()), G Gremlin ~page paging
 suite/scale_probe.py         1 M-vertex load + timings and plans for the point-lookup / index-pushdown shapes
+suite/scale_fallback.py      the documented local-filter fallback and ~page sweep timed at 1 M vertices, per backend
 cluster/run_cycle.sh         full cycle from the workstation: wipe 3-node cluster -> boot -> --load on both -> compare
 cluster/run_side.sh          same cycle for any tag: dists from ~/hg-<tag>/hugegraph-server/dist-<tag>-{hstore,rocksdb}, plus hg_j8.py
 cluster/make_dists.sh        dist-<tag>-hstore / dist-<tag>-rocksdb from a built worktree (conf carried over)
@@ -124,7 +125,7 @@ Version axis, backend held constant: rocksdb master vs rocksdb combined differ i
 
 | PR | Report | Verdict measured |
 |---|---|---|
-| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) and [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan |
+| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) and [e32a75f](reports/pr-2994/e32a75f/README.md) (2026-09-08, fallback + paging at 1 M on HStore) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan |
 
 ## Status (2026-09-03)
 

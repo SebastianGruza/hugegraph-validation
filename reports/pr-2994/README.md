@@ -1,6 +1,6 @@
 # PR #2994 — condition resolution semantics for label queries
 
-> Re-measured on the next head: [`fefe3ca`, 2026-09-07](fefe3ca/README.md) — finding 2 closed, `hasKey`/`hasValue` shapes added.
+> Re-measured on the next heads: [`fefe3ca`, 2026-09-07](fefe3ca/README.md) — finding 2 closed, `hasKey`/`hasValue` shapes added; [`e32a75f`, 2026-09-08](e32a75f/README.md) — the documented fallback and paging measured on HStore at 1 M vertices.
 
 Measured 2026-09-06 on the lab in [docs/setup.md](../../docs/setup.md): hstore on PD + 3 store nodes
 vs an embedded rocksdb oracle, both servers built from the same tree, Temurin 17 build / Temurin 11 runtime.
