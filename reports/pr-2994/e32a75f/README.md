@@ -1,5 +1,11 @@
 # PR #2994 at head `e32a75f` — the documented fallback measured at scale, 2026-09-08
 
+> **Erratum (2026-09-09).** The rocksdb server of this run was still on the `fefe3ca` core jar (`d71cc405`): the
+> dist-assembly script had been piped into `head` and died before copying the rocksdb dist. Every *rocksdb* column
+> below therefore measures `fefe3ca`, not `e32a75f`; the hstore columns, the master baseline and the `fefe3ca → e32a75f`
+> hstore diff are valid. The "`HasStep(lambda)` on rocksdb with the same build" observation in §1 was this skew, not a
+> property of the PR. Corrected measurements on the next head: [`2d53a55`](../2d53a55/README.md).
+
 Follow-up to the [`ac641c6`](../README.md) and [`fefe3ca`](../fefe3ca/README.md) reports. `e32a75f`
 (*fix(server): preserve search predicates and ram label queries*) answers the three review notes of 2026-09-07:
 `docs/negative-label-queries.md` documents the local-filter fallback, `LocalSearchHasContainer` replaces the lambda

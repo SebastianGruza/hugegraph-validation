@@ -13,6 +13,8 @@ OUT=$H/validation
 DISTS="HG_SV=$H/hg-$TAG/hugegraph-server/dist-$TAG-hstore HG_RD=$H/hg-$TAG/hugegraph-server/dist-$TAG-rocksdb"
 ts() { date +%T; }
 $SSH $N1 "test -d $H/hg-$TAG/hugegraph-server/dist-$TAG-hstore/lib" || { echo "no dist for $TAG"; exit 2; }
+# guard: both dists of a tag must carry the same hugegraph-core jar (a half-finished make_dists.sh leaves a stale rocksdb dist)
+$SSH $N1 "A=\$(md5sum $H/hg-$TAG/hugegraph-server/dist-$TAG-hstore/lib/hugegraph-core-1.7.0.jar | cut -c1-8); B=\$(md5sum $H/hg-$TAG/hugegraph-server/dist-$TAG-rocksdb/lib/hugegraph-core-1.7.0.jar | cut -c1-8); echo \"== [$TAG] core jar hstore=\$A rocksdb=\$B\"; [ \"\$A\" = \"\$B\" ]" || { echo "core jar mismatch between the hstore and rocksdb dists of $TAG, refusing to run"; exit 3; }
 echo "== [$TAG] $(ts) stop servers + pd on .235"
 $SSH $N1 "$DISTS bash $H/node_servers.sh stop"
 echo "== [$TAG] $(ts) stop + wipe stores"

@@ -138,6 +138,25 @@ def run_J8(hg, rep):
     R("V hasId(within(p00010,r0001).and(neq(r0001))) neq(person) (-> empty)", "g.V().hasId(within('p00010','r0001').and(neq('r0001'))).hasLabel(neq('person')).id()")
     R("V(p00010,r0001) hasId(within(p00010,r0001)) limit neq(person)", "g.V('p00010','r0001').hasId(within('p00010','r0001')).limit(10).hasLabel(neq('person')).id()")
     R("V hasId(within(p00010,r0001).or(eq(f0001))) limit neq(person)", "g.V().hasId(within('p00010','r0001').or(eq('f0001'))).limit(10).hasLabel(neq('person')).id()")
+    print("--- J8j. positive label + unsafe label in a child traversal; explicit-term SEARCH in a child (review 2026-09-08, head 2d53a55)")
+    R("V person where(out().neq(robot)) (-> empty, persons have no edges)", "g.V().hasLabel('person').where(__.out().hasLabel(neq('robot'))).id()")
+    R("V firm where(out(deal).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('person'))).id()")
+    R("V firm where(out(deal).neq(firm)) (-> empty)", "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('firm'))).id()")
+    R("V within(firm,robot) where(out().neq(person))", "g.V().hasLabel(within('firm','robot')).where(__.out().hasLabel(neq('person'))).id()")
+    R("V firm type>=2 where(out(deal).neq(person))", "g.V().hasLabel('firm').has('type',gte(2)).where(__.out('deal').hasLabel(neq('person'))).id()")
+    R("V node where(outE().neq(flow))", "g.V().hasLabel('node').where(__.outE().hasLabel(neq('flow'))).id()")
+    R("V node where(not(outE().hasLabel(flow)))", "g.V().hasLabel('node').where(__.not(__.outE().hasLabel('flow'))).id()")
+    R("V firm where(out(deal).neq(person)) limit(50) order id", "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('person'))).order().by(id).limit(50).id()")
+    R("V firm AND robot where(out().neq(person)) (conflict -> empty)", "g.V().hasLabel('firm').hasLabel('robot').where(__.out().hasLabel(neq('person'))).id()")
+    R("V within() where(out().neq(person)) (-> empty)", "g.V().hasLabel(within()).where(__.out().hasLabel(neq('person'))).id()")
+    R("V nope where(out().neq(person)) (missing label)", "g.V().hasLabel('nope').where(__.out().hasLabel(neq('person'))).id()")
+    R("E deal where(inV().neq(person))", "g.E().hasLabel('deal').where(__.inV().hasLabel(neq('person'))).id()")
+    R("V firm contains((gold)) limit neq(person) (explicit term)", "g.V().hasLabel('firm').has('fname',Text.contains('(gold)')).limit(100000).hasLabel(neq('person')).id()")
+    R("V contains((gold)) (control)", "g.V().has('fname',Text.contains('(gold)')).id()")
+    R("V firm where(out(deal).has(fname,contains((gold))).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').has('fname',Text.contains('(gold)')).hasLabel(neq('person'))).id()")
+    R("V firm where(out(deal).has(fname,contains(gold)).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').has('fname',Text.contains('gold')).hasLabel(neq('person'))).id()")
+    R("V firm where(out(deal).has(fname,contains((gold|silver))).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').has('fname',Text.contains('(gold|silver)')).hasLabel(neq('person'))).id()")
+    R("V(f0001) out(deal) contains((gold)) neq(person)", "g.V('f0001').out('deal').has('fname',Text.contains('(gold)')).hasLabel(neq('person')).id()")
 
 
 PLAN_SHAPES = [
@@ -164,6 +183,10 @@ PLAN_SHAPES = [
     ("V hasKey(age) neq(person)", "g.V().hasKey('age').hasLabel(neq('person'))"),
     ("V hasKey(age) (control)", "g.V().hasKey('age')"),
     ("V hasId(within(p00010,r0001).and(neq(r0001))) limit neq(robot)", "g.V().hasId(within('p00010','r0001').and(neq('r0001'))).limit(10).hasLabel(neq('robot'))"),
+    ("V firm where(out(deal).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('person')))"),
+    ("V within(firm,robot) where(out().neq(person))", "g.V().hasLabel(within('firm','robot')).where(__.out().hasLabel(neq('person')))"),
+    ("V firm type>=2 where(out(deal).neq(person))", "g.V().hasLabel('firm').has('type',gte(2)).where(__.out('deal').hasLabel(neq('person')))"),
+    ("V firm where(out(deal).contains((gold)).neq(person))", "g.V().hasLabel('firm').where(__.out('deal').has('fname',Text.contains('(gold)')).hasLabel(neq('person')))"),
 ]
 
 

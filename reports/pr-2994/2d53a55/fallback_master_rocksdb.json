@@ -1,0 +1,221 @@
+{
+ "meta": {
+  "backend": "rocksdb",
+  "version": "v1",
+  "port": 8081
+ },
+ "rows": [
+  {
+   "name": "unindexed: V cnt=5 (control, alone)",
+   "query": "g.V().has('cnt',5).id()",
+   "ms": 5,
+   "n": null,
+   "err": "Don't accept query based on properties [cnt] that are not indexed in any label, may not match secondary condit",
+   "plan": "[HugeGraphStep(Vertex,[cnt.eq(5)])]"
+  },
+  {
+   "name": "unindexed: V cnt=5 neq(person) ids",
+   "query": "g.V().has('cnt',5).hasLabel(neq('person')).id()",
+   "ms": 954,
+   "n": null,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+   "plan": "[HugeGraphStep(vertex,[]), HasStep([cnt.eq(5), ~label.neq(person)])]"
+  },
+  {
+   "name": "unindexed: V cnt=5 limit(100000) neq(person) ids",
+   "query": "g.V().has('cnt',5).limit(100000).hasLabel(neq('person')).id()",
+   "ms": 5,
+   "n": null,
+   "err": "Don't accept query based on properties [cnt] that are not indexed in any label, may not match secondary condit",
+   "plan": "[HugeGraphStep(Vertex,[cnt.eq(5)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "unindexed: V cnt=5 neq(person) count",
+   "query": "g.V().has('cnt',5).hasLabel(neq('person')).count()",
+   "ms": 921,
+   "n": null,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+   "plan": "[HugeGraphStep(vertex,[]), HasStep([cnt.eq(5), ~label.neq(person)])]"
+  },
+  {
+   "name": "unindexed: V cnt=5 neq(person) limit(5)",
+   "query": "g.V().has('cnt',5).hasLabel(neq('person')).limit(5).id()",
+   "ms": 922,
+   "n": null,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+   "plan": "[HugeGraphStep(vertex,[]), HasStep([cnt.eq(5), ~label.neq(person)]), RangeGlobalStep(0,5)]"
+  },
+  {
+   "name": "unindexed: V cnt=5 eq(person) limit(5) (positive label, control)",
+   "query": "g.V().has('cnt',5).hasLabel('person').limit(5).id()",
+   "ms": 5,
+   "n": null,
+   "err": "Don't accept query based on properties [cnt] that are not indexed in label 'person', may not match secondary c",
+   "plan": "[HugeGraphStep(Vertex,[cnt.eq(5), ~label.eq(person)]), RangeGlobalStep(0,5)]"
+  },
+  {
+   "name": "abandoned: V age>=60 limit(100000) neq(person) ids",
+   "query": "g.V().has('age',gte(60)).limit(100000).hasLabel(neq('person')).id()",
+   "ms": 7,
+   "n": 100,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "abandoned: V age>=60 limit(100000) neq(person) count",
+   "query": "g.V().has('age',gte(60)).limit(100000).hasLabel(neq('person')).count()",
+   "ms": 7,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "abandoned: V age>=60 neq(person) limit(5)",
+   "query": "g.V().has('age',gte(60)).hasLabel(neq('person')).limit(5).id()",
+   "ms": 4,
+   "n": 5,
+   "err": null,
+   "plan": "[HugeGraphStep(vertex,[]), HasStep([age.gte(60), ~label.neq(person)]), RangeGlobalStep(0,5)]"
+  },
+  {
+   "name": "abandoned: V age>=60 neq(person) count",
+   "query": "g.V().has('age',gte(60)).hasLabel(neq('person')).count()",
+   "ms": 951,
+   "n": null,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`",
+   "plan": "[HugeGraphStep(vertex,[]), HasStep([age.gte(60), ~label.neq(person)])]"
+  },
+  {
+   "name": "abandoned: V score>=40 limit(100000) neq(person) count",
+   "query": "g.V().has('score',gte(40)).limit(100000).hasLabel(neq('person')).count()",
+   "ms": 12,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[score.gte(40)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "abandoned: V fname contains(gold) limit(100000) neq(person) count",
+   "query": "g.V().has('fname',Text.contains('gold')).limit(100000).hasLabel(neq('person')).count()",
+   "ms": 4,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[fname.TEXT_CONTAINS(gold)]), RangeGlobalStep(0,100000), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "recommended: V robot age>=60 count (positive label)",
+   "query": "g.V().hasLabel('robot').has('age',gte(60)).count()",
+   "ms": 4,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.eq(robot), age.gte(60)])]"
+  },
+  {
+   "name": "recommended: V within(robot,firm) age>=60 count",
+   "query": "g.V().hasLabel(within('robot','firm')).has('age',gte(60)).count()",
+   "ms": 5,
+   "n": null,
+   "err": "Don't accept query based on properties [age] that are not indexed in label 'firm', may not match secondary/ran",
+   "plan": "[HugeGraphStep(Vertex,[~label.within([robot, firm]), age.gte(60)])]"
+  },
+  {
+   "name": "recommended: V(r0001,r0002) neq(person) (explicit ids)",
+   "query": "g.V('r0001','r0002').hasLabel(neq('person')).id()",
+   "ms": 3,
+   "n": 2,
+   "err": null,
+   "plan": "[HugeGraphStep(vertex,[r0001, r0002]), HasStep([~label.neq(person)])]"
+  },
+  {
+   "name": "kept: V age>=60 out() neq(person) count",
+   "query": "g.V().has('age',gte(60)).out().hasLabel(neq('person')).count()",
+   "ms": 26,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[age.gte(60)]), HugeVertexStep(OUT,Vertex,[~label.neq(person)])]"
+  },
+  {
+   "name": "kept: V age>=60 count (control)",
+   "query": "g.V().has('age',gte(60)).count()",
+   "ms": 9,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[age.gte(60)])]"
+  },
+  {
+   "name": "positive: V firm where(out(deal).neq(person)) count",
+   "query": "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('person'))).count()",
+   "ms": 7,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.eq(firm)]), TraversalFilterStep([HugeVertexStep(OUT,[deal],Vertex,[~label.neq(person)])])]"
+  },
+  {
+   "name": "positive: V robot where(out().neq(person)) count (robots have no edges)",
+   "query": "g.V().hasLabel('robot').where(__.out().hasLabel(neq('person'))).count()",
+   "ms": 6,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.eq(robot)]), TraversalFilterStep([HugeVertexStep(OUT,Vertex,[~label.neq(person)])])]"
+  },
+  {
+   "name": "positive: V within(firm,robot) where(out().neq(person)) count",
+   "query": "g.V().hasLabel(within('firm','robot')).where(__.out().hasLabel(neq('person'))).count()",
+   "ms": 8,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.within([firm, robot])]), TraversalFilterStep([HugeVertexStep(OUT,Vertex,[~label.neq(person)])])]"
+  },
+  {
+   "name": "positive: V firm type>=2 where(out(deal).neq(person)) count",
+   "query": "g.V().hasLabel('firm').has('type',gte(2)).where(__.out('deal').hasLabel(neq('person'))).count()",
+   "ms": 7,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.eq(firm), type.gte(2)]), TraversalFilterStep([HugeVertexStep(OUT,[deal],Vertex,[~label.neq(person)])])]"
+  },
+  {
+   "name": "positive: V firm count (control)",
+   "query": "g.V().hasLabel('firm').count()",
+   "ms": 6,
+   "n": 1,
+   "err": null,
+   "plan": "[HugeGraphStep(Vertex,[~label.eq(firm)])]"
+  },
+  {
+   "name": "page: age>=60 neq(person), size 500",
+   "query": "g.V().has('~page',PAGE).has('age',gte(60)).hasLabel(neq('person'))",
+   "size": 500,
+   "ms": 3133,
+   "n": null,
+   "pages": 0,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`"
+  },
+  {
+   "name": "page: age>=60 neq(person), size 5000",
+   "query": "g.V().has('~page',PAGE).has('age',gte(60)).hasLabel(neq('person'))",
+   "size": 5000,
+   "ms": 3465,
+   "n": null,
+   "pages": 0,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`"
+  },
+  {
+   "name": "page: cnt=5 neq(person), size 5000",
+   "query": "g.V().has('~page',PAGE).has('cnt',5).hasLabel(neq('person'))",
+   "size": 5000,
+   "ms": 3283,
+   "n": null,
+   "pages": 0,
+   "err": "Too many records(must <= 800000) for the query: `Query * from VERTEX`"
+  },
+  {
+   "name": "page: robot age>=60, size 500 (positive label, control)",
+   "query": "g.V().has('~page',PAGE).hasLabel('robot').has('age',gte(60))",
+   "size": 500,
+   "ms": 5,
+   "n": 100,
+   "pages": 1,
+   "err": null
+  }
+ ]
+}

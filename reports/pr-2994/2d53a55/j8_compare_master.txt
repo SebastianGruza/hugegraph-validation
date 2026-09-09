@@ -1,0 +1,32 @@
+oracle: j8_master_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'port': 8081, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+target: j8_master_hstore.json  {'backend': 'hstore', 'version': 'v1', 'port': 8080, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+=== SUMMARY  OK=181  MISMATCH=0  TARGET-ERR=1  BOTH-ERR=25
+  G: OK=30  BOTH-ERR=12
+  J8: OK=124  TARGET-ERR=1  BOTH-ERR=13
+  P: OK=27
+  BOTH-ERR   J8 V robot score>=40 (positive control)                         
+  BOTH-ERR   J8 V cnt=5 limit neq(person)                                    
+  TARGET-ERR J8 E(a->b flow ETC) via outE limit neq(dummy1)                  oracle n=1212
+  BOTH-ERR   J8 V type>=2 outE(deal) neq(flow) inV                           
+  BOTH-ERR   J8 V hasKey(age) (control)                                      
+  BOTH-ERR   J8 V hasKey(age) limit neq(person)                              
+  BOTH-ERR   J8 V hasKey(age,score) without(person)                          
+  BOTH-ERR   J8 V hasValue(20) (control)                                     
+  BOTH-ERR   J8 V hasValue(20) limit neq(person)                             
+  BOTH-ERR   J8 V hasKey(age) where(not(hasLabel(person)))                   
+  BOTH-ERR   J8 V hasId(within(p00010,r0001).and(neq(r0001))) limit neq(robo 
+  BOTH-ERR   J8 V hasId(eq(p00010).and(neq(r0001))) limit neq(robot)         
+  BOTH-ERR   J8 V hasId(within(p00010,r0001).or(eq(f0001))) limit neq(person 
+  BOTH-ERR   J8 V nope where(out().neq(person)) (missing label)              
+  BOTH-ERR   G PAGE size=7 age>=60 neq(person)                              
+  BOTH-ERR   G PAGE size=50 age>=60 neq(person)                             
+  BOTH-ERR   G PAGE size=500 age>=60 neq(person)                            
+  BOTH-ERR   G PAGE size=7 score>=40 neq(person)                            
+  BOTH-ERR   G PAGE size=50 score>=40 neq(person)                           
+  BOTH-ERR   G PAGE size=500 score>=40 neq(person)                          
+  BOTH-ERR   G PAGE size=7 neq(person) age>=60                              
+  BOTH-ERR   G PAGE size=50 neq(person) age>=60                             
+  BOTH-ERR   G PAGE size=500 neq(person) age>=60                            
+  BOTH-ERR   G PAGE size=7 fname contains(gold) neq(person)                 
+  BOTH-ERR   G PAGE size=50 fname contains(gold) neq(person)                
+  BOTH-ERR   G PAGE size=500 fname contains(gold) neq(person)               

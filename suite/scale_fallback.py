@@ -34,6 +34,12 @@ QUERIES = [
     # still an index lookup after fefe3ca
     ("kept: V age>=60 out() neq(person) count", "g.V().has('age',gte(60)).out().hasLabel(neq('person')).count()"),
     ("kept: V age>=60 count (control)", "g.V().has('age',gte(60)).count()"),
+    # positive label + unsafe label in a child traversal (review 2026-09-08 note 1, head 2d53a55)
+    ("positive: V firm where(out(deal).neq(person)) count", "g.V().hasLabel('firm').where(__.out('deal').hasLabel(neq('person'))).count()"),
+    ("positive: V robot where(out().neq(person)) count (robots have no edges)", "g.V().hasLabel('robot').where(__.out().hasLabel(neq('person'))).count()"),
+    ("positive: V within(firm,robot) where(out().neq(person)) count", "g.V().hasLabel(within('firm','robot')).where(__.out().hasLabel(neq('person'))).count()"),
+    ("positive: V firm type>=2 where(out(deal).neq(person)) count", "g.V().hasLabel('firm').has('type',gte(2)).where(__.out('deal').hasLabel(neq('person'))).count()"),
+    ("positive: V firm count (control)", "g.V().hasLabel('firm').count()"),
 ]
 
 PAGES = [

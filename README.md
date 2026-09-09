@@ -125,7 +125,7 @@ Version axis, backend held constant: rocksdb master vs rocksdb combined differ i
 
 | PR | Report | Verdict measured |
 |---|---|---|
-| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) and [e32a75f](reports/pr-2994/e32a75f/README.md) (2026-09-08, fallback + paging at 1 M on HStore) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan |
+| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) [e32a75f](reports/pr-2994/e32a75f/README.md) (2026-09-08, fallback + paging at 1 M on HStore; rocksdb column invalid, see erratum) and [2d53a55](reports/pr-2994/2d53a55/README.md) (2026-09-09, positive-label pushdown and unbound SEARCH) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan; at `2d53a55` positive labels before an unsafe child are label-index lookups again on both backends |
 
 ## Status (2026-09-03)
 

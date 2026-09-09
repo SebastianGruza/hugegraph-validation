@@ -1,0 +1,13 @@
+oracle: master_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'host': 'localhost', 'port': 8081, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-09T09:27:15', 'seconds': 8.2, 'cases': 174}
+target: pr2994_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'host': 'localhost', 'port': 8081, 'graph': 'hugegraph', 'sections': ['S', 'L', 'J', 'K'], 'load': True, 'started': '2026-09-09T09:39:33', 'seconds': 8.9, 'cases': 174}
+=== SUMMARY  OK=168  MISMATCH=0  TARGET-ERR=0  ORACLE-ERR=2  BOTH-ERR=4
+  J: OK=33  ORACLE-ERR=2
+  K: OK=40
+  L: OK=43
+  S: OK=52  BOTH-ERR=4
+  BOTH-ERR   S REST asset>=ETC                                              
+  BOTH-ERR   S REST asset>=ETC & asset<ETC!                                 
+  BOTH-ERR   S REST asset>=ÉTC (UTF-8 byte order)                           
+  BOTH-ERR   S REST asset>=～ (UTF-8 vs UTF-16 order)                        
+  ORACLE-ERR J V age>=30 without(person,robot)                              target n=0
+  ORACLE-ERR J V without(person) age>=60 barrier                            target n=100

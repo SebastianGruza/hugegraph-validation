@@ -1,0 +1,23 @@
+oracle: j8_pr2994p3184_oracle.json  {'backend': 'rocksdb', 'version': 'v1', 'port': 8081, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+target: j8_pr2994p3184_hstore.json  {'backend': 'hstore', 'version': 'v1', 'port': 8080, 'sections': 'J8,P,G', 'suite': 'hg_j8'}
+=== SUMMARY  OK=190  MISMATCH=6  TARGET-ERR=6  BOTH-ERR=5
+  G: OK=30  MISMATCH=6  TARGET-ERR=6
+  J8: OK=133  BOTH-ERR=5
+  P: OK=27
+  BOTH-ERR   J8 V robot score>=40 (positive control)                         
+  BOTH-ERR   J8 V hasKey(age) (control)                                      
+  BOTH-ERR   J8 V hasKey(age,score) without(person)                          
+  BOTH-ERR   J8 V hasKey(nope) neq(person) (-> empty)                        
+  BOTH-ERR   J8 V hasValue(20) (control)                                     
+  TARGET-ERR G PAGE size=7 score>=40 (control, no label)                    oracle n=1800
+  MISMATCH   G PAGE size=7 score>=40 (control, no label) pages              oracle n=258 h=v258 target n=-1 h=v-1
+  TARGET-ERR G PAGE size=50 score>=40 (control, no label)                   oracle n=1800
+  MISMATCH   G PAGE size=50 score>=40 (control, no label) pages             oracle n=36 h=v36 target n=-1 h=v-1
+  TARGET-ERR G PAGE size=500 score>=40 (control, no label)                  oracle n=1800
+  MISMATCH   G PAGE size=500 score>=40 (control, no label) pages            oracle n=4 h=v4 target n=-1 h=v-1
+  TARGET-ERR G PAGE size=7 robot age>=60 (control, positive label)          oracle n=100
+  MISMATCH   G PAGE size=7 robot age>=60 (control, positive label) pages    oracle n=15 h=v15 target n=-1 h=v-1
+  TARGET-ERR G PAGE size=50 robot age>=60 (control, positive label)         oracle n=100
+  MISMATCH   G PAGE size=50 robot age>=60 (control, positive label) pages   oracle n=2 h=v2 target n=-1 h=v-1
+  TARGET-ERR G PAGE size=500 robot age>=60 (control, positive label)        oracle n=100
+  MISMATCH   G PAGE size=500 robot age>=60 (control, positive label) pages  oracle n=1 h=v1 target n=-1 h=v-1
