@@ -1,0 +1,139 @@
+# condensed: probe lines kept, writer lines aggregated (original had 487436 lines)
+   0.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+   2.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+   4.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+   6.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+   8.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  10.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  12.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  14.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  16.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  18.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  20.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  22.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  24.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  26.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  28.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  30.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  32.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  34.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24  34.3s writer#12 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag
+  36.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  38.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  40.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=22
+  42.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  44.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  46.3s writer#17 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag  46.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  48.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  50.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23  50.4s writer#22 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag
+  52.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  54.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  56.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  58.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  60.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  62.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24  62.4s writer#12 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag
+  64.4s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  66.5s writer#12 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag  66.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  68.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  70.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  72.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  74.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  76.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  78.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  80.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  82.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=22
+  84.5s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  86.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  88.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+  90.6s writer#7 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag  90.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  92.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  94.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  96.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+  98.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 100.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 102.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 104.6s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 106.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 108.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 110.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 112.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 114.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 116.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 118.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 120.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 122.7s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 124.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 126.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 128.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 130.8s writer#18 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 130.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 132.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 134.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 136.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 138.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=22
+ 140.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 142.8s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 144.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 146.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 148.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 150.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 152.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 154.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 156.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 158.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=21
+ 160.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 162.9s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 165.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 167.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 169.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 171.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 173.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 175.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 177.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 179.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 181.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=22
+ 183.0s writer#3 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 183.0s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 185.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 187.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 189.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 191.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 193.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 195.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 197.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 199.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 201.1s writer#7 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 201.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 203.1s writer#7 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 203.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 205.1s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 207.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 209.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 211.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 213.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 215.2s writer#6 POST    0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 215.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 217.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 219.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 221.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 223.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 225.2s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 227.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 229.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 231.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 233.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 235.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 237.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=24
+ 239.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=23
+ 241.3s probe DEAD versions=200/0.0s vertex=503/0.0s  inflight=15
+ 243.3s probe OK   versions=200/0.0s vertex=200/0.0s  inflight=12
+ 245.3s probe OK   versions=200/0.0s vertex=200/0.0s  inflight=10
+ 247.3s probe OK   versions=200/0.0s vertex=200/0.0s  inflight=10
+ 249.3s probe OK   versions=200/0.0s vertex=200/0.0s  inflight=10
+ 251.3s probe OK   versions=200/0.0s vertex=200/0.0s  inflight=0
+SUMMARY after: writers=24 write_window=240s posts_ok=96 errors={'503 {"exception":"class jakarta.ws.rs.ServiceUnavailableExce': 487227, '500 {"exception":"class org.apache.hugegraph.store.client.ty': 
+# writer outcomes (count, status):
+ 450725 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag
+     61 500 {"exception":"class org.apache.hugegraph.store.client.type.HgStoreClie
+     18 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 132.1
+     18 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag   4.8
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 229.1
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 183.4
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 147.3
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag 100.3
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag  94.6
+     17 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","messag  30.4

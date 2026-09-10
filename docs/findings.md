@@ -334,6 +334,33 @@ on `HgStoreSessionGrpc$HgStoreSessionBlockingStub.batch` from `GrpcStoreNodeSess
 `NodeTxExecutor - Failed to sleep` (the swallowed interrupt), then the next attempt. `kill -CONT` restores the
 cluster instantly; the next upsert succeeds in 0.0 s.
 
+### Before/after measurement of the fix (2026-09-10, `patches/0002`, `results/f15/`)
+
+`cluster/repro_rate.py`: one single-vertex `POST /graph/vertices` per second for 300 s (each in its own thread,
+roughly one third of them land on the frozen store's partitions), then no more writes; a probe `GET
+/graph/vertices/"p00010"` every 2 s until the server answers 10 in a row. The store on node3 is frozen with
+`SIGSTOP` for the whole run. master `36811483`, hstore dist, 8 CPU = 16 REST workers, `restserver.request_timeout`
+default 30 s, `grpc.timeout.seconds=20` written into both client jars so that one run fits in minutes
+(with the default 100 s the "before" numbers are 5× longer).
+
+| | before (`hg-store-client` as in master) | after (`patches/0002` applied) |
+|---|---|---|
+| REST unavailable (probe gets 503 from `LoadDetectFilter`) | from 28 s to 254 s and from 285 s to 503 s: **431 of 503 s** | four blips of 2–6 s, **12 s of 300** |
+| REST still dead after the writer stopped | **200 s** | 0 s |
+| POST outcomes, 300 sent | 27 × 201, **243 × 503 rejected**, 23 × 500 | 131 × 201, 152 × 500 after exactly 20.0 s, 7 × 503 |
+| slowest POST | **257 s** (= 11 × 20 s + 38 s of sleep) | 20.1 s (one deadline) |
+| server log | `Failed to sleep` 30, `reached the upper limit` 30, `for the next try` 300 | `Failed to sleep` 0, `Not retrying after` 152 |
+
+So without the fix a writer at 1 request/s turns a single frozen store into a REST server that answers 503 to
+everything for as long as the writes last plus another 3–4 minutes (19 minutes with the default deadline), and
+the writes to healthy partitions are rejected together with the rest. With the fix every request that touches
+the frozen partition fails after one deadline, the pool never fills, writes to healthy partitions keep
+succeeding, and the server is back to normal the moment the writer stops. `kill -CONT` afterwards needs no
+restart in either case. A second scenario (`cluster/repro_rest_dead.py`, 24 writers in a tight retry loop, in
+`results/f15/loop-*`) shows the limit of the fix: a client that re-sends immediately after every error keeps
+16 workers busy with 20–100 s calls on its own; there the fix only cuts the swallowed interrupts to zero and
+triples the successful writes (29 → 96 in 240 s), the client-side backoff is still needed.
+
 Fix: in `retryingInvoke` restore the interrupt flag on `InterruptedException` and abort the loop with an
 error; stop retrying on `DEADLINE_EXCEEDED` at all (a second attempt only waits the full deadline again — the
 retry is only useful for `UNAVAILABLE` after a leader change, which is what PR #3130 relies on); expose the
