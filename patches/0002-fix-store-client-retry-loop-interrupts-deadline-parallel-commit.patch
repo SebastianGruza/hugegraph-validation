@@ -1,0 +1,428 @@
+From e0a04d1df450bc94f35757db0189b695b0f210a8 Mon Sep 17 00:00:00 2001
+From: Sebastian Gruza <sebastian@gruzalab.pl>
+Date: Thu, 10 Sep 2026 23:04:30 +0000
+Subject: [PATCH] fix(store-client): stop retrying after DEADLINE_EXCEEDED and
+ honour thread interrupts in NodeTxExecutor
+
+Squashed export of apache/hugegraph#3204 at 8adf522: the retry loop
+aborts on interrupt (flag restored), does not retry DEADLINE_EXCEEDED/CANCELLED, decides on every failure of a
+parallel commit (others attached as suppressed), checks retryability before the attempt budget and logs the cause.
+Tests in NodeTxExecutorTest (hg-store-test, store-client-test profile).
+---
+ .../store/client/NodeTxExecutor.java          | 167 +++++++++++++-----
+ .../store/client/NodeTxExecutorTest.java      | 152 ++++++++++++++++
+ 2 files changed, 271 insertions(+), 48 deletions(-)
+
+diff --git a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
+index 9393421..7c95b3c 100644
+--- a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
++++ b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
+@@ -22,13 +22,18 @@ import static org.apache.hugegraph.store.client.util.HgStoreClientConst.NODE_MAX
+ import static org.apache.hugegraph.store.client.util.HgStoreClientConst.TX_SESSIONS_MAP_CAPACITY;
+ 
+ import java.util.Collection;
++import java.util.Collections;
+ import java.util.HashMap;
++import java.util.IdentityHashMap;
++import java.util.Iterator;
+ import java.util.LinkedList;
+ import java.util.List;
+ import java.util.Map;
+ import java.util.Optional;
++import java.util.Queue;
++import java.util.Set;
++import java.util.concurrent.ConcurrentLinkedQueue;
+ import java.util.concurrent.atomic.AtomicBoolean;
+-import java.util.concurrent.atomic.AtomicReference;
+ import java.util.function.Function;
+ import java.util.function.Supplier;
+ import java.util.stream.Collector;
+@@ -46,6 +51,8 @@ import org.apache.hugegraph.store.client.util.HgStoreClientConst;
+ import org.apache.hugegraph.store.term.HgPair;
+ import org.apache.hugegraph.store.term.HgTriple;
+ 
++import io.grpc.Status;
++import io.grpc.StatusRuntimeException;
+ import lombok.extern.slf4j.Slf4j;
+ 
+ /**
+@@ -129,35 +136,7 @@ final class NodeTxExecutor {
+                 if (!allSuccess.get()) {
+                     throw HgStoreClientException.of(msg);
+                 }
+-                AtomicReference<Throwable> throwable = new AtomicReference<>();
+-                Collection<HgStoreSession> sessions = this.sessions.values();
+-                sessions.parallelStream().forEach(e -> {
+-                    if (e.isTx()) {
+-                        try {
+-                            e.commit();
+-                        } catch (Throwable t) {
+-                            throwable.compareAndSet(null, t);
+-                            allSuccess.set(false);
+-                        }
+-                    }
+-                });
+-                if (!allSuccess.get()) {
+-                    if (isTx) {
+-                        try {
+-                            sessions.stream().forEach(HgStoreSession::rollback);
+-                        } catch (Exception e) {
+-
+-                        }
+-                    }
+-                    Throwable cause = throwable.get();
+-                    if (cause.getCause() != null) {
+-                        cause = cause.getCause();
+-                    }
+-                    if (cause instanceof HgStoreClientException) {
+-                        throw (HgStoreClientException) cause;
+-                    }
+-                    throw HgStoreClientException.of(cause);
+-                }
++                this.commitSessions(this.sessions.values());
+                 return true;
+             });
+ 
+@@ -232,6 +211,52 @@ final class NodeTxExecutor {
+     //    }
+     // };
+ 
++    /**
++     * Commit every tx session in parallel. When at least one commit fails, roll back (in tx
++     * mode) and throw one exception that carries ALL failures: the first one as the cause, the
++     * others as suppressed. The retry loop looks at all of them, so whether a commit is retried
++     * no longer depends on which partition happened to fail first.
++     */
++    void commitSessions(Collection<HgStoreSession> sessions) {
++        Queue<Throwable> failures = new ConcurrentLinkedQueue<>();
++        sessions.parallelStream().forEach(e -> {
++            if (e.isTx()) {
++                try {
++                    e.commit();
++                } catch (Throwable t) {
++                    failures.add(t);
++                }
++            }
++        });
++        if (failures.isEmpty()) {
++            return;
++        }
++        if (isTx) {
++            try {
++                sessions.stream().forEach(HgStoreSession::rollback);
++            } catch (Exception e) {
++                // keep the commit failure as the reported one
++            }
++        }
++        throw aggregate(failures);
++    }
++
++    static HgStoreClientException aggregate(Collection<Throwable> failures) {
++        Iterator<Throwable> it = failures.iterator();
++        Throwable first = it.next();
++        Throwable cause = first.getCause() != null ? first.getCause() : first;
++        HgStoreClientException result = cause instanceof HgStoreClientException ?
++                                        (HgStoreClientException) cause :
++                                        HgStoreClientException.of(cause);
++        while (it.hasNext()) {
++            Throwable other = it.next();
++            if (other != result && other != cause) {
++                result.addSuppressed(other);
++            }
++        }
++        return result;
++    }
++
+     private boolean doAction(HgTriple<String, HgOwnerKey, Object> nodeParams,
+                              Function<NodeTkv, Boolean> action) {
+         if (nodeParams.getZ() == null) {
+@@ -376,32 +401,44 @@ final class NodeTxExecutor {
+         return IntStream.rangeClosed(0, NODE_MAX_RETRYING_TIMES).boxed()
+                         .map(
+                                 i -> {
++                                    if (Thread.currentThread().isInterrupted()) {
++                                        // The caller (e.g. a REST worker hitting
++                                        // restserver.request_timeout) gave up: stop
++                                        // retrying instead of holding its thread.
++                                        throw HgStoreClientException.of(
++                                                "Interrupted before retry " + i);
++                                    }
+                                     T buffer = null;
+                                     try {
+                                         buffer = supplier.get();
+                                     } catch (Throwable t) {
+-                                        if (i + 1 <= NODE_MAX_RETRYING_TIMES) {
+-                                            try {
+-                                                int sleepTime;
+-                                                // The first three times try once every second
+-                                                if (i < 3) {
+-                                                    sleepTime = 1;
+-                                                } else {
+-                                                    // Subsequent incremental
+-                                                    sleepTime = i - 1;
+-                                                }
+-                                                log.info("Waiting {} seconds " +
+-                                                         "for the next try.",
+-                                                         sleepTime);
+-                                                Thread.sleep(sleepTime * 1000L);
+-                                            } catch (InterruptedException e) {
+-                                                log.error("Failed to sleep", e);
+-                                            }
+-                                        } else {
++                                        if (!isRetryable(t)) {
++                                            // A deadline or a cancellation will not
++                                            // get better by waiting the full deadline
++                                            // again; fail fast and let the caller decide.
++                                            log.warn("Not retrying after: {}",
++                                                     t.getMessage(), t);
++                                            throw HgStoreClientException.of(
++                                                    t.getMessage(), t);
++                                        }
++                                        if (i + 1 > NODE_MAX_RETRYING_TIMES) {
+                                             log.error(maxTryMsg, t);
+                                             throw HgStoreClientException.of(
+                                                     t.getMessage(), t);
+                                         }
++                                        // The first three times try once every second,
++                                        // subsequent incremental
++                                        int sleepTime = i < 3 ? 1 : i - 1;
++                                        log.info("Waiting {} seconds for the next try.",
++                                                 sleepTime);
++                                        try {
++                                            Thread.sleep(sleepTime * 1000L);
++                                        } catch (InterruptedException e) {
++                                            Thread.currentThread().interrupt();
++                                            throw HgStoreClientException.of(
++                                                    "Interrupted while waiting to retry: " +
++                                                    t.getMessage(), t);
++                                        }
+                                     }
+                                     return buffer;
+                                 }
+@@ -411,6 +448,40 @@ final class NodeTxExecutor {
+ 
+     }
+ 
++    /**
++     * Retry only failures that a fresh attempt can plausibly fix (a transport error, a
++     * leader change). A DEADLINE_EXCEEDED would wait the full deadline again, a CANCELLED
++     * means the caller's thread was interrupted; neither is retried, also when it is one of
++     * several failures of a parallel commit.
++     */
++    static boolean isRetryable(Throwable t) {
++        return isRetryable(t, Collections.newSetFromMap(new IdentityHashMap<>()));
++    }
++
++    private static boolean isRetryable(Throwable t, Set<Throwable> seen) {
++        Throwable c = t;
++        while (c != null && seen.add(c)) {
++            if (c instanceof InterruptedException) {
++                return false;
++            }
++            if (c instanceof StatusRuntimeException) {
++                Status.Code code = ((StatusRuntimeException) c).getStatus().getCode();
++                if (code == Status.Code.DEADLINE_EXCEEDED || code == Status.Code.CANCELLED) {
++                    return false;
++                }
++            }
++            // A parallel commit reports the other partitions' failures as suppressed;
++            // one non-retryable failure among them makes the whole attempt non-retryable.
++            for (Throwable suppressed : c.getSuppressed()) {
++                if (!isRetryable(suppressed, seen)) {
++                    return false;
++                }
++            }
++            c = c.getCause();
++        }
++        return true;
++    }
++
+     private boolean isValid(Object obj) {
+         if (obj == null) {
+             return false;
+diff --git a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
+index 00a05c6..c76c963 100644
+--- a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
++++ b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
+@@ -17,12 +17,18 @@
+ 
+ package org.apache.hugegraph.store.client;
+ 
++import static org.junit.Assert.assertEquals;
++import static org.junit.Assert.assertFalse;
+ import static org.junit.Assert.assertSame;
++import static org.junit.Assert.assertThrows;
++import static org.junit.Assert.assertTrue;
+ import static org.mockito.Mockito.mock;
+ import static org.mockito.Mockito.times;
+ import static org.mockito.Mockito.verify;
+ import static org.mockito.Mockito.when;
+ 
++import java.util.Arrays;
++import java.util.List;
+ import java.util.Optional;
+ import java.util.concurrent.CountDownLatch;
+ import java.util.concurrent.ExecutorService;
+@@ -32,8 +38,11 @@ import java.util.concurrent.TimeUnit;
+ import java.util.concurrent.atomic.AtomicInteger;
+ 
+ import org.apache.hugegraph.store.HgStoreSession;
++import org.apache.hugegraph.store.client.type.HgStoreClientException;
+ import org.junit.Test;
+ 
++import io.grpc.Status;
++
+ public class NodeTxExecutorTest {
+ 
+     @Test
+@@ -115,4 +124,147 @@ public class NodeTxExecutorTest {
+             workers.shutdownNow();
+         }
+     }
++
++    @Test
++    public void testIsRetryableClassifiesFailures() {
++        assertFalse(NodeTxExecutor.isRetryable(Status.DEADLINE_EXCEEDED.asRuntimeException()));
++        assertFalse(NodeTxExecutor.isRetryable(Status.CANCELLED.asRuntimeException()));
++        assertFalse(NodeTxExecutor.isRetryable(new InterruptedException("interrupted")));
++        // The status is usually wrapped by the time it reaches the retry loop
++        assertFalse(NodeTxExecutor.isRetryable(HgStoreClientException.of(
++                "commit failed",
++                new RuntimeException(Status.DEADLINE_EXCEEDED.asRuntimeException()))));
++        // one non-retryable failure among the suppressed ones decides
++        HgStoreClientException mixed = HgStoreClientException.of(
++                Status.UNAVAILABLE.asRuntimeException());
++        mixed.addSuppressed(Status.DEADLINE_EXCEEDED.asRuntimeException());
++        assertFalse(NodeTxExecutor.isRetryable(mixed));
++        assertTrue(NodeTxExecutor.isRetryable(Status.UNAVAILABLE.asRuntimeException()));
++        assertTrue(NodeTxExecutor.isRetryable(new RuntimeException("simulated transport failure")));
++    }
++
++    @Test
++    public void testDeadlineExceededIsNotRetried() {
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        AtomicInteger attempts = new AtomicInteger();
++        HgStoreClientException e = assertThrows(HgStoreClientException.class, () ->
++                executor.retryingInvoke(() -> {
++                    attempts.incrementAndGet();
++                    throw Status.DEADLINE_EXCEEDED.withDescription("deadline exceeded after 20s")
++                                                  .asRuntimeException();
++                }));
++        assertEquals(1, attempts.get());
++        assertTrue(e.getMessage(), e.getMessage().contains("DEADLINE_EXCEEDED"));
++    }
++
++    @Test
++    public void testInterruptStopsRetrying() {
++        // A REST worker hitting restserver.request_timeout (or a Gremlin evaluationTimeout)
++        // interrupts the calling thread while the store call is failing; the loop must
++        // stop instead of sleeping and retrying with the interrupt swallowed.
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        AtomicInteger attempts = new AtomicInteger();
++        try {
++            assertThrows(HgStoreClientException.class, () ->
++                    executor.retryingInvoke(() -> {
++                        attempts.incrementAndGet();
++                        Thread.currentThread().interrupt();
++                        throw new RuntimeException("simulated transport failure");
++                    }));
++            assertEquals(1, attempts.get());
++            assertTrue("interrupt flag must be restored for the caller",
++                       Thread.currentThread().isInterrupted());
++        } finally {
++            // clear the flag so the test runner thread is not left interrupted
++            Thread.interrupted();
++        }
++    }
++
++    @Test
++    public void testTransientFailureIsStillRetried() {
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        AtomicInteger attempts = new AtomicInteger();
++        Optional<String> result = executor.retryingInvoke(() -> {
++            if (attempts.getAndIncrement() == 0) {
++                throw Status.UNAVAILABLE.withDescription("store replaced").asRuntimeException();
++            }
++            return "ok";
++        });
++        assertEquals("ok", result.get());
++        assertEquals(2, attempts.get());
++    }
++
++    @Test
++    public void testInterruptBeforeCallSkipsTheAttempt() {
++        // restserver.request_timeout expired between two store calls of one request
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        AtomicInteger attempts = new AtomicInteger();
++        try {
++            Thread.currentThread().interrupt();
++            assertThrows(HgStoreClientException.class, () ->
++                    executor.retryingInvoke(() -> {
++                        attempts.incrementAndGet();
++                        return "ok";
++                    }));
++            assertEquals(0, attempts.get());
++            assertTrue(Thread.currentThread().isInterrupted());
++        } finally {
++            Thread.interrupted();
++        }
++    }
++
++    @Test
++    public void testMixedCommitFailuresAreNotRetried() {
++        // One partition on a store being replaced (UNAVAILABLE, retryable), one on a stalled
++        // store (DEADLINE_EXCEEDED). Whichever finishes first, the commit must not be retried.
++        HgStoreSession unavailable = mock(HgStoreSession.class);
++        HgStoreSession stalled = mock(HgStoreSession.class);
++        when(unavailable.isTx()).thenReturn(true);
++        when(stalled.isTx()).thenReturn(true);
++        // fresh exceptions on every attempt, as the real gRPC calls produce them
++        org.mockito.Mockito.doAnswer(i -> {
++            throw new RuntimeException(HgStoreClientException.of(
++                    "commit", Status.UNAVAILABLE.asRuntimeException()));
++        }).when(unavailable).commit();
++        org.mockito.Mockito.doAnswer(i -> {
++            throw new RuntimeException(HgStoreClientException.of(
++                    "commit", Status.DEADLINE_EXCEEDED.asRuntimeException()));
++        }).when(stalled).commit();
++        List<HgStoreSession> sessions = Arrays.asList(unavailable, stalled);
++
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        executor.setTx(true);
++        HgStoreClientException e = assertThrows(HgStoreClientException.class,
++                                                () -> executor.commitSessions(sessions));
++        assertEquals(1, e.getSuppressed().length);
++        assertFalse(NodeTxExecutor.isRetryable(e));
++        verify(unavailable).rollback();
++        verify(stalled).rollback();
++
++        AtomicInteger attempts = new AtomicInteger();
++        assertThrows(HgStoreClientException.class, () ->
++                executor.retryingInvoke(() -> {
++                    attempts.incrementAndGet();
++                    executor.commitSessions(sessions);
++                    return true;
++                }));
++        assertEquals(1, attempts.get());
++    }
++
++    @Test
++    public void testAllRetryableCommitFailuresAreRetried() {
++        HgStoreSession a = mock(HgStoreSession.class);
++        HgStoreSession b = mock(HgStoreSession.class);
++        when(a.isTx()).thenReturn(true);
++        when(b.isTx()).thenReturn(true);
++        org.mockito.Mockito.doThrow(new RuntimeException(Status.UNAVAILABLE.asRuntimeException()))
++                .when(a).commit();
++        org.mockito.Mockito.doThrow(new RuntimeException(Status.UNAVAILABLE.asRuntimeException()))
++                .when(b).commit();
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        HgStoreClientException e = assertThrows(HgStoreClientException.class,
++                                                () -> executor.commitSessions(Arrays.asList(a, b)));
++        assertEquals(1, e.getSuppressed().length);
++        assertTrue(NodeTxExecutor.isRetryable(e));
++    }
+ }
+-- 
+2.43.0
+

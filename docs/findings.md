@@ -342,6 +342,9 @@ on `HgStoreSessionGrpc$HgStoreSessionBlockingStub.batch` from `GrpcStoreNodeSess
 `NodeTxExecutor - Failed to sleep` (the swallowed interrupt), then the next attempt. `kill -CONT` restores the
 cluster instantly; the next upsert succeeds in 0.0 s.
 
+Reported as apache/hugegraph#3199, fix in apache/hugegraph#3204 (`patches/0002` is the squashed export of the PR branch; the
+review added: the retry decision looks at every failure of a parallel commit, not only the first one reported).
+
 ### Before/after measurement of the fix (2026-09-10, `patches/0002`, `results/f15/`)
 
 `cluster/repro_rate.py`: one single-vertex `POST /graph/vertices` per second for 300 s (each in its own thread,
