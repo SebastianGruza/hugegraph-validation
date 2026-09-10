@@ -306,3 +306,71 @@ Logs: `results/pd_watch_3152_{master,pr3157}_{drop,add}.log` (the `_add` variant
 graph-add observable turned out to be compensated by lazy loading — kept because its `Accept graph add signal`
 counts are the add-side evidence: master 1/0/0, PR 1/1/1).
 
+
+## F15
+
+**A stalled store node holds a REST worker for up to `11 × grpc.timeout.seconds + 38 s` on every write, and `restserver.request_timeout` cannot stop it**
+
+Status: **unreported**; patch is small.
+
+`NodeTxExecutor.retryingInvoke()` (hg-store-client) wraps the commit of a transaction in a retry loop with
+`NODE_MAX_RETRYING_TIMES = 10` — a constant in `HgStoreClientConst`, not a configuration option — and a sleep
+schedule of 1, 1, 1, 2, 3, 4, 5, 6, 7, 8 s between attempts. Each attempt is a blocking gRPC `batch` call with
+the stub deadline `grpc.timeout.seconds` (`HgStoreClientConfig`, default 100 s). When the partition leader does
+not answer, every attempt ends in `DEADLINE_EXCEEDED` and the loop runs to the end: 11 attempts × 100 s + 38 s
+of sleep ≈ 19 min per request on defaults, ≈ 12 min with `grpc.timeout.seconds=60`.
+
+The loop catches `InterruptedException` from `Thread.sleep`, logs `Failed to sleep` and continues. So the
+interrupt that `restserver.request_timeout` (default 30 s) sends to the Grizzly worker is swallowed, and the
+REST server's own request limit is ineffective on exactly the path where it is needed. A single frozen store
+therefore ties up REST workers for minutes each; with a multi-threaded writer this is the "the whole REST server
+stopped responding" report.
+
+Reproduction (`cluster/repro_deadline.py`, `results/deadline-repro-2026-09-09.log`): `kill -STOP` the store
+process on one node, run concurrent `PUT /graph/vertices/batch` upserts of existing ids spread over all
+partitions. One writer whose read phase happened to avoid the frozen store went on to the commit and hung
+for 300 s until the client gave up; the server log shows `DEADLINE_EXCEEDED: deadline exceeded after 99.999s`
+on `HgStoreSessionGrpc$HgStoreSessionBlockingStub.batch` from `GrpcStoreNodeSessionImpl.doCommit`, then
+`NodeTxExecutor - Failed to sleep` (the swallowed interrupt), then the next attempt. `kill -CONT` restores the
+cluster instantly; the next upsert succeeds in 0.0 s.
+
+Fix: in `retryingInvoke` restore the interrupt flag on `InterruptedException` and abort the loop with an
+error; stop retrying on `DEADLINE_EXCEEDED` at all (a second attempt only waits the full deadline again — the
+retry is only useful for `UNAVAILABLE` after a leader change, which is what PR #3130 relies on); expose the
+attempt count and schedule in `HgStoreClientConfig` with a much smaller default. Configuration-only
+mitigation until then: `grpc.timeout.seconds=10..15` (a healthy store answers these calls in milliseconds),
+which bounds the worst case to about 3 minutes.
+
+## F16
+
+**Multi-id reads (`getWithBatch` → `batchPrefix` → `scanBatchOneShot`) have no retry, no failover and no isolation of a single stalled store**
+
+Status: **unreported**; matches a production log of 2026-09-09 (`PUT /graph/vertices/batch` → 500
+`DEADLINE_EXCEEDED: deadline exceeded after 59.97s ... remote_addr=<one store>:8500`, in
+`HgStoreStreamGrpc$HgStoreStreamBlockingStub.scanBatchOneShot` via `blockingUnaryCall`).
+
+`PUT /graph/vertices/batch` (upsert) first reads the existing vertices with `g.vertices(ids)`. On HStore an
+`IdQuery` with more than one id goes through `HstoreTable.query()` → `session.getWithBatch()` →
+`HgKvStore.batchPrefix()`, which groups the keys by store node and issues **one blocking unary
+`scanBatchOneShot` per store** (`KvBatchOneShotScanner`), with the stub deadline `grpc.timeout.seconds` and no
+retry (`batchPrefix` does not go through `NotifyingExecutor`). The store side (`ScanBatchOneShotResponse`)
+collects the whole result before answering. One store that does not answer fails the entire read after the
+full deadline, including the ids that live on healthy stores, and the REST worker is blocked for that long.
+The 60 s in the production log is a non-default `grpc.timeout.seconds=60` (defaults are 100 s in 1.5.0,
+1.7.0 and master) combined with a `restserver.request_timeout` of 60 s or more.
+
+On the lab (defaults): with one store frozen, 12 concurrent upserts hung for 30.9 s and ended with 500
+`CANCELLED: Thread interrupted` (here `request_timeout=30` did fire, because the read path does not swallow
+the interrupt), 7 more were rejected immediately by the batch-write limit (`The rest server is too busy to
+write`, `batch.max_write_ratio`) or by `LoadDetectFilter` (503). Point reads (`GET /graph/vertices/"id"`)
+and `/versions` kept answering in milliseconds throughout; every scan crossing the frozen partition
+(`GET /graph/vertices?label=...&limit=1`) timed out.
+
+Related but not a fix: PR #3128 (each stub on its own channel, merged 2026-07-31) reduces queueing under load;
+PR #3130 (merged 2026-08-15) retries only `UNAVAILABLE` after a store replacement. Fix direction: issue the
+per-store one-shot scans in parallel with a short deadline of their own (these are point prefix lookups), on
+`DEADLINE_EXCEEDED` refresh the partition leader from PD once and retry that store only, and make the
+one-shot path honour the caller's deadline. Whether a partial result should ever be returned is a product
+decision — REST has no partial-success semantics today — so the safe change is a fast, complete failure.
+
+F12–F14 are tracked outside this repository.

@@ -1,0 +1,112 @@
+# repro_deadline.py, lab 2026-09-09: store on node3 frozen with SIGSTOP; server 2d53a55+#3184, 8 CPU, 16 REST workers, defaults
+# run 1: 6 writers (invalid bodies on purpose exposed the 400 path; the read phase still reproduces)
+== 11:52:55 baseline: one PUT batch with all stores up
+13:52:55 PUT#0     0.1s -> 400 {"exception":"class java.lang.IllegalArgumentException","message":"All non-null property keys [ts, age, score] of vertex label 'person' must be set, missed keys
+writers done
+== 11:52:55 freeze store on node3 (SIGSTOP)
+store pid 918825
+frozen
+== 11:52:55 6 concurrent PUT batches + probes
+# The maximum thread ratio for batch writing, only take effect if the batch.max_write_threads is 0
+batch.max_write_ratio=80
+batch.max_write_threads=0
+8
+13:52:56 probe GET versions                   0.02s -> 200
+13:52:56 probe GET vertex p00010              0.00s -> 200
+13:52:56 PUT#0     0.0s -> 400 {"exception":"class java.lang.IllegalArgumentException","message":"All non-null property keys [ts, age, score] of vertex label 'person' must be set, missed keys
+13:53:11 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+13:53:16 probe GET versions                   0.00s -> 200
+13:53:16 probe GET vertex p00010              0.00s -> 200
+13:53:27 PUT#2    31.0s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedException","trace":["io.grpc.stub.Cl
+13:53:27 PUT#1    31.0s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedException","trace":["io.grpc.stub.Cl
+13:53:27 PUT#4    31.0s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedException","trace":["io.grpc.stub.Cl
+13:53:27 PUT#5    31.0s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedException","trace":["io.grpc.stub.Cl
+13:53:27 PUT#3    31.0s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedException","trace":["io.grpc.stub.Cl
+writers done
+== 11:53:27 thaw store (SIGCONT)
+thawed
+== 11:53:27 after thaw: one PUT batch
+13:53:32 PUT#0     0.0s -> 400 {"exception":"class java.lang.IllegalArgumentException","message":"All non-null property keys [ts, age, score] of vertex label 'person' must be set, missed keys
+== server log: DEADLINE lines
+18
+io.grpc.StatusRuntimeException: DEADLINE_EXCEEDED: server wait time exceeds the threshold[3600] seconds.
+
+[exited with code 0]
+
+# run 2: 20 writers, valid bodies (lines de-duplicated with counts)
+== 11:54:36 baseline
+13:54:36 PUT#0     0.1s -> 200 
+== 11:54:36 freeze node3 store
+frozen
+== 11:54:36 20 concurrent PUT batches (workers=16) + probes
+      1 13:54:37 probe GET versions                   0.03s -> 200
+      1 13:54:37 probe GET vertex p00010              0.01s -> 200
+      1 13:54:37 PUT#13     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.
+      1 13:54:37 PUT#14     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.
+      1 13:54:37 PUT#15     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.
+      1 13:54:37 PUT#16     0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","message":"The server is too busy to process the request, you can c
+      1 13:54:37 PUT#17     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.
+      1 13:54:37 PUT#18     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.
+      1 13:54:37 PUT#19     0.0s -> 503 {"exception":"class jakarta.ws.rs.ServiceUnavailableException","message":"The server is too busy to process the request, you can c
+      1 13:54:37 PUT#4     0.0s -> 400 {"exception":"class org.apache.hugegraph.HugeException","message":"The rest server is too busy to write","cause":"","trace":["org.a
+      1 13:54:52 probe GET vertices person limit 1   15.02s -> ERR TimeoutError
+      1 13:54:57 probe GET versions                   0.00s -> 200
+      1 13:54:57 probe GET vertex p00010              0.00s -> 200
+      1 13:55:08 PUT#1    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#10    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcept
+      1 13:55:08 PUT#11    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcept
+      1 13:55:08 PUT#12    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcept
+      1 13:55:08 PUT#2    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#3    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#5    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#6    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#7    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#8    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:08 PUT#9    30.9s -> 500 {"exception":"class io.grpc.StatusRuntimeException","message":"CANCELLED: Thread interrupted","cause":"java.lang.InterruptedExcepti
+      1 13:55:12 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:55:17 probe GET versions                   0.00s -> 200
+      1 13:55:17 probe GET vertex p00010              0.00s -> 200
+      1 13:55:32 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:55:37 probe GET versions                   0.00s -> 200
+      1 13:55:37 probe GET vertex p00010              0.00s -> 200
+      1 13:55:52 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:55:57 probe GET versions                   0.00s -> 200
+      1 13:55:57 probe GET vertex p00010              0.00s -> 200
+      1 13:56:12 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:56:17 probe GET versions                   0.00s -> 200
+      1 13:56:17 probe GET vertex p00010              0.00s -> 200
+      1 13:56:32 probe GET vertices person limit 1   15.02s -> ERR TimeoutError
+      1 13:56:37 probe GET versions                   0.00s -> 200
+      1 13:56:37 probe GET vertex p00010              0.00s -> 200
+      1 13:56:52 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:56:57 probe GET versions                   0.00s -> 200
+      1 13:56:57 probe GET vertex p00010              0.00s -> 200
+      1 13:57:12 probe GET vertices person limit 1   15.02s -> ERR TimeoutError
+      1 13:57:17 probe GET versions                   0.00s -> 200
+      1 13:57:17 probe GET vertex p00010              0.00s -> 200
+      1 13:57:32 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:57:37 probe GET versions                   0.00s -> 200
+      1 13:57:37 probe GET vertex p00010              0.00s -> 200
+      1 13:57:52 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:57:57 probe GET versions                   0.00s -> 200
+      1 13:57:57 probe GET vertex p00010              0.00s -> 200
+      1 13:58:12 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:58:17 probe GET versions                   0.00s -> 200
+      1 13:58:17 probe GET vertex p00010              0.00s -> 200
+      1 13:58:32 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:58:37 probe GET versions                   0.00s -> 200
+      1 13:58:37 probe GET vertex p00010              0.00s -> 200
+      1 13:58:52 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:58:57 probe GET versions                   0.00s -> 200
+      1 13:58:57 probe GET vertex p00010              0.00s -> 200
+      1 13:59:12 probe GET vertices person limit 1   15.01s -> ERR TimeoutError
+      1 13:59:17 probe GET versions                   0.00s -> 200
+      1 13:59:17 probe GET vertex p00010              0.00s -> 200
+      1 13:59:32 probe GET vertices person limit 1   15.00s -> ERR TimeoutError
+      1 13:59:37 PUT#0   300.0s -> 0 timed out
+      1 writers done
+== 11:59:37 thaw
+thawed
+13:59:42 PUT#0     0.0s -> 200 
+
+[exited with code 0]

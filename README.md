@@ -50,7 +50,8 @@ cluster/pd_watch_exp2.sh     PD KV watch recovery experiment (issue #3152 / PR #
 cluster/legacy/              the original bash suite (#3090 sort-key reproducer with expected counts)
 docs/setup.md                lab topology, builds, JDKs, every config file that mattered
 docs/pitfalls.md             configuration and operational traps, with symptom -> cause -> fix
-docs/findings.md             bugs and observations, evidence, root causes, reporting status
+docs/findings.md             bugs and observations, evidence, root causes, reporting status (F15/F16: store-stall behaviour of batch writes)
+cluster/repro_deadline.py    F15/F16 reproduction: concurrent batch upserts + GET probes while one store is frozen with SIGSTOP
 docs/results.md              result matrix and how to read the reports
 patches/                     fixes as git format-patch against apache/hugegraph master
 results/                     JSON/text reports of the 2026-09-03 runs + results/README.md (file provenance)
