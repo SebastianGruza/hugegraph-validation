@@ -320,6 +320,14 @@ the stub deadline `grpc.timeout.seconds` (`HgStoreClientConfig`, default 100 s).
 not answer, every attempt ends in `DEADLINE_EXCEEDED` and the loop runs to the end: 11 attempts × 100 s + 38 s
 of sleep ≈ 19 min per request on defaults, ≈ 12 min with `grpc.timeout.seconds=60`.
 
+The same `retryingInvoke` loop wraps every store call that goes through `NodeTxSessionProxy` except the streaming
+scans: `get` (a point lookup, `limitOne`), `toList`, and all `put`/`delete`/`merge` (`isAllTrue`), not only the
+commit. A `g.V(id)` in a Gremlin script whose id lives on a stalled store therefore hangs the Gremlin worker the
+same way (`HugeGraphStep.vertices` → `queryVerticesByIds` → `HstoreTable.getById` → `NodeTxSessionProxy.get` →
+`NodeTxExecutor.limitOne` → `retryingInvoke`, observed 2026-09-10 on the POC), and the Gremlin Server's own
+`evaluationTimeout` interrupt is swallowed exactly like the REST one; the Gremlin pool is smaller than the REST
+pool, so `/gremlin` dies first.
+
 The loop catches `InterruptedException` from `Thread.sleep`, logs `Failed to sleep` and continues. So the
 interrupt that `restserver.request_timeout` (default 30 s) sends to the Grizzly worker is swallowed, and the
 REST server's own request limit is ineffective on exactly the path where it is needed. A single frozen store
