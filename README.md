@@ -54,6 +54,7 @@ docs/findings.md             bugs and observations, evidence, root causes, repor
 cluster/repro_deadline.py    F15/F16 reproduction: concurrent batch upserts + GET probes while one store is frozen with SIGSTOP
 cluster/repro_rate.py        F15 before/after measurement: 1 POST/s against a frozen store, REST availability probe (results/f15/)
 cluster/repro_rest_dead.py   F15 stress variant: writers in a tight retry loop
+cluster/rebuild_integration.sh  recreate the fork's `integration` branch = apache master + the open PR heads + our fix branches
 docs/results.md              result matrix and how to read the reports
 patches/                     fixes as git format-patch against apache/hugegraph master (0001 paging batch boundary, 0002 F15 store-client retry loop)
 results/                     JSON/text reports of the 2026-09-03 runs + results/README.md (file provenance)
