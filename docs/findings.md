@@ -343,7 +343,7 @@ on `HgStoreSessionGrpc$HgStoreSessionBlockingStub.batch` from `GrpcStoreNodeSess
 cluster instantly; the next upsert succeeds in 0.0 s.
 
 Reported as apache/hugegraph#3199, fix in apache/hugegraph#3204 (`patches/0002` is the squashed export of the PR branch; the
-review added: the retry decision looks at every failure of a parallel commit, not only the first one reported).
+review added: the retry decision looks at every failure of a parallel commit, and a `DEADLINE_EXCEEDED` is retried exactly once so that a moved partition leader is still reached on replicated clusters).
 
 ### Before/after measurement of the fix (2026-09-10, `patches/0002`, `results/f15/`)
 
