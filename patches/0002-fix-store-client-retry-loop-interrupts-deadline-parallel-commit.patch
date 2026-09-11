@@ -1,17 +1,17 @@
-From 20f080133618f885e374ca0b8593d90289e7e575 Mon Sep 17 00:00:00 2001
+From eace3d211cb675d5806abf6aafdcaa1072d88af3 Mon Sep 17 00:00:00 2001
 From: Sebastian Gruza <sebastian@gruzalab.pl>
-Date: Fri, 11 Sep 2026 10:09:51 +0000
+Date: Fri, 11 Sep 2026 16:59:08 +0000
 Subject: [PATCH] fix(store-client): retry loop honours interrupts, retries
  DEADLINE_EXCEEDED once, decides on every failure of a parallel commit
 
-Squashed export of apache/hugegraph#3204 at b588aa8.
+Squashed export of apache/hugegraph#3204 at 172b2d0.
 ---
- .../store/client/NodeTxExecutor.java          | 197 +++++++++++++-----
- .../store/client/NodeTxExecutorTest.java      | 173 +++++++++++++++
- 2 files changed, 323 insertions(+), 47 deletions(-)
+ .../store/client/NodeTxExecutor.java          | 202 ++++++++++++++----
+ .../store/client/NodeTxExecutorTest.java      | 185 ++++++++++++++++
+ 2 files changed, 340 insertions(+), 47 deletions(-)
 
 diff --git a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
-index 9393421..5a26b85 100644
+index 9393421..f0c647f 100644
 --- a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
 +++ b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
 @@ -22,13 +22,18 @@ import static org.apache.hugegraph.store.client.util.HgStoreClientConst.NODE_MAX
@@ -133,7 +133,7 @@ index 9393421..5a26b85 100644
      private boolean doAction(HgTriple<String, HgOwnerKey, Object> nodeParams,
                               Function<NodeTkv, Boolean> action) {
          if (nodeParams.getZ() == null) {
-@@ -373,35 +398,65 @@ final class NodeTxExecutor {
+@@ -373,35 +398,70 @@ final class NodeTxExecutor {
      }
  
      <T> Optional<T> retryingInvoke(Supplier<T> supplier) {
@@ -145,8 +145,12 @@ index 9393421..5a26b85 100644
 +                                        // The caller (e.g. a REST worker hitting
 +                                        // restserver.request_timeout) gave up: stop
 +                                        // retrying instead of holding its thread.
++                                        // InterruptedException as the root cause: the
++                                        // server's task cancel path recognises it
++                                        // (HugeException.isInterrupted()).
 +                                        throw HgStoreClientException.of(
-+                                                "Interrupted before retry " + i);
++                                                "Interrupted before retry " + i,
++                                                new InterruptedException());
 +                                    }
                                      T buffer = null;
                                      try {
@@ -209,14 +213,15 @@ index 9393421..5a26b85 100644
 +                                            Thread.sleep(sleepTime * 1000L);
 +                                        } catch (InterruptedException e) {
 +                                            Thread.currentThread().interrupt();
++                                            e.addSuppressed(t);
 +                                            throw HgStoreClientException.of(
 +                                                    "Interrupted while waiting to retry: " +
-+                                                    t.getMessage(), t);
++                                                    t.getMessage(), e);
 +                                        }
                                      }
                                      return buffer;
                                  }
-@@ -411,6 +466,54 @@ final class NodeTxExecutor {
+@@ -411,6 +471,54 @@ final class NodeTxExecutor {
  
      }
  
@@ -272,7 +277,7 @@ index 9393421..5a26b85 100644
          if (obj == null) {
              return false;
 diff --git a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
-index 00a05c6..534ee50 100644
+index 00a05c6..d39b079 100644
 --- a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
 +++ b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
 @@ -17,12 +17,17 @@
@@ -305,7 +310,7 @@ index 00a05c6..534ee50 100644
  public class NodeTxExecutorTest {
  
      @Test
-@@ -115,4 +123,169 @@ public class NodeTxExecutorTest {
+@@ -115,4 +123,181 @@ public class NodeTxExecutorTest {
              workers.shutdownNow();
          }
      }
@@ -372,7 +377,7 @@ index 00a05c6..534ee50 100644
 +        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
 +        AtomicInteger attempts = new AtomicInteger();
 +        try {
-+            assertThrows(HgStoreClientException.class, () ->
++            HgStoreClientException e = assertThrows(HgStoreClientException.class, () ->
 +                    executor.retryingInvoke(() -> {
 +                        attempts.incrementAndGet();
 +                        Thread.currentThread().interrupt();
@@ -381,10 +386,21 @@ index 00a05c6..534ee50 100644
 +            assertEquals(1, attempts.get());
 +            assertTrue("interrupt flag must be restored for the caller",
 +                       Thread.currentThread().isInterrupted());
++            // HugeException.isInterrupted() looks at the root cause
++            assertTrue(rootCause(e) instanceof InterruptedException);
++            assertEquals("simulated transport failure",
++                         rootCause(e).getSuppressed()[0].getMessage());
 +        } finally {
 +            // clear the flag so the test runner thread is not left interrupted
 +            Thread.interrupted();
 +        }
++    }
++
++    private static Throwable rootCause(Throwable t) {
++        while (t.getCause() != null && t.getCause() != t) {
++            t = t.getCause();
++        }
++        return t;
 +    }
 +
 +    @Test
@@ -408,13 +424,14 @@ index 00a05c6..534ee50 100644
 +        AtomicInteger attempts = new AtomicInteger();
 +        try {
 +            Thread.currentThread().interrupt();
-+            assertThrows(HgStoreClientException.class, () ->
++            HgStoreClientException e = assertThrows(HgStoreClientException.class, () ->
 +                    executor.retryingInvoke(() -> {
 +                        attempts.incrementAndGet();
 +                        return "ok";
 +                    }));
 +            assertEquals(0, attempts.get());
 +            assertTrue(Thread.currentThread().isInterrupted());
++            assertTrue(rootCause(e) instanceof InterruptedException);
 +        } finally {
 +            Thread.interrupted();
 +        }
