@@ -1,0 +1,32 @@
+== conf
+  host: 192.168.80.235   initial-store-count: 3   address: 192.168.80.235:8610   peers-list: 192.168.80.235:8610,192.168.80.236:8610,192.168.80.237:8610 
+  host: 192.168.80.236   initial-store-count: 3   address: 192.168.80.236:8610   peers-list: 192.168.80.235:8610,192.168.80.236:8610,192.168.80.237:8610 
+  host: 192.168.80.237   initial-store-count: 3   address: 192.168.80.237:8610   peers-list: 192.168.80.235:8610,192.168.80.236:8610,192.168.80.237:8610 
+== stop everything
+  235 stopped (ok)
+  236 stopped (ok)
+  237 stopped (ok)
+== fresh start 235 236 237
+  235 started 18:46:35 (8620 up)
+  236 started 18:46:43 (8620 up)
+  237 started 18:46:51 (8620 up)
+== check #1
+  235: leader="raftUrl":"192.168.80.235:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      2 "grpcUrl":"192.168.80.235:8686"       1 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=
+  236: leader="raftUrl":"192.168.80.235:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      2 "grpcUrl":"192.168.80.235:8686"       1 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=
+  237: leader="raftUrl":"192.168.80.235:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      2 "grpcUrl":"192.168.80.235:8686"       1 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=
+== leader was ; stop all, restart with  last
+  235 stopped (ok)
+  236 stopped (ok)
+  237 stopped (ok)
+order: 235 236 237  
+  235 started 18:47:33 (8620 up)
+  236 started 18:47:47 (8620 up)
+  237 started 18:48:00 (8620 up)
+== check #2 (after restart)
+  235: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=1 last-leader-marker=2026-09-12 18:46:40
+  236: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=
+  237: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=2026-09-12 18:47:12
+== check #3 (+30 s)
+  235: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=1 last-leader-marker=2026-09-12 18:46:40
+  236: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=
+  237: leader="raftUrl":"192.168.80.236:8610" counts="stateCountMap":{"Up":3} grpcUrls=[      1 "grpcUrl":"192.168.80.235:8686"       2 "grpcUrl":"192.168.80.236:8686"       1 "grpcUrl":"192.168.80.237:8686" ] /v1/stores=200 {"message":"OK","data":{"stores":[],"stateCountMap":{},"numOfService":0,"numOfNormalService":0},"status":0} | redirect-errors=0 rpc-failures=0 last-leader-marker=2026-09-12 18:47:12

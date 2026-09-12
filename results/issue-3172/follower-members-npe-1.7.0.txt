@@ -1,0 +1,14 @@
+2026-09-12 18:43:26 [qtp845119401-26] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+Caused by: java.util.concurrent.ExecutionException: java.lang.NullPointerException
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:242) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+Caused by: java.lang.NullPointerException
+	at com.alipay.sofa.jraft.rpc.impl.BoltRpcClient.getBoltInvokeCtx(BoltRpcClient.java:135) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.rpc.impl.BoltRpcClient.invokeAsync(BoltRpcClient.java:113) ~[jraft-core-1.3.13.jar!/:?]
+	at org.apache.hugegraph.pd.raft.RaftRpcClient.internalCallAsyncWithRpc(RaftRpcClient.java:80) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.raft.RaftRpcClient.getGrpcAddress(RaftRpcClient.java:56) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:242) ~[hg-pd-core-1.7.0.jar!/:1.7.0]

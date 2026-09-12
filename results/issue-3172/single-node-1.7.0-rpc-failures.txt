@@ -1,0 +1,6 @@
+Official apache-hugegraph-incubating-1.7.0 PD, single node (127.0.0.1, default conf), JDK 11, ~10 s after start
+(run of 2026-09-12 18:37, before the 3-node cycle overwrote the log):
+  grep -c "failed to call rpc to 127.0.0.1:8610. null" logs/hugegraph-pd.log         -> 4379
+  grep -c "failed to call rpc to 127.0.0.1:8610. null" logs/hugegraph-pd-stdout.log  -> 4992
+  every line is followed by "RaftEngine - failed to getGrpcAddress of 127.0.0.1:8610"
+The same single-node test on the lab's master build (60c8803): /v1/members -> {"Up":1}, grpcUrl filled.
