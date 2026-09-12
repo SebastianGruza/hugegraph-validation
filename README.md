@@ -59,6 +59,8 @@ docs/results.md              result matrix and how to read the reports
 patches/                     fixes as git format-patch against apache/hugegraph master (0001 paging batch boundary, 0002 F15 store-client retry loop)
 results/                     JSON/text reports of the 2026-09-03 runs + results/README.md (file provenance)
 reports/<pr>/                one directory per upstream PR: README with the tables posted upstream + every raw report
+reports/index-cost/          write cost of edge indexes (label + SECONDARY) on HStore, 1 M edges, 2 repetitions
+cluster/idx_bench.py         the index-cost load generator; cluster/sample_res.sh the per-node sampler; cluster/idx_summarize.py the table
 ```
 
 ## Quick start

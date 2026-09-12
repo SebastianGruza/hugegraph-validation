@@ -1,0 +1,1 @@
+{"variant": "index", "edges": 1000000, "requested": 1000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 26.2, "edges_per_s": 38100, "batch_ms": {"p50": 47, "p90": 67, "p99": 107, "max": 358}, "errors": {}}

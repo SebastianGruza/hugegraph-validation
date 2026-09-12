@@ -1,0 +1,69 @@
+== 10:50:46 [r1 noindex] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 10:54:10 [r1 noindex] load
+RESULT {"variant": "noindex", "edges": 1000000, "requested": 1000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 18.4, "edges_per_s": 54484, "batch_ms": {"p50": 32, "p90": 50, "p99": 90, "max": 235}, "errors": {}}
+  hugegraph-dev: storage=246 MB sst=12 samples=21
+  hugegraph-node2: storage=245 MB sst=12 samples=21
+  hugegraph-node3: storage=245 MB sst=12 samples=21
+== 10:55:33 [r1 index] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 10:58:58 [r1 index] load
+RESULT {"variant": "index", "edges": 1000000, "requested": 1000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 26.2, "edges_per_s": 38100, "batch_ms": {"p50": 47, "p90": 67, "p99": 107, "max": 358}, "errors": {}}
+  hugegraph-dev: storage=361 MB sst=12 samples=23
+  hugegraph-node2: storage=359 MB sst=12 samples=23
+  hugegraph-node3: storage=361 MB sst=12 samples=23
+== 11:00:31 [r2 noindex] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 11:03:57 [r2 noindex] load
+RESULT {"variant": "noindex", "edges": 1000000, "requested": 1000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 17.7, "edges_per_s": 56382, "batch_ms": {"p50": 31, "p90": 46, "p99": 73, "max": 226}, "errors": {}}
+  hugegraph-dev: storage=245 MB sst=12 samples=21
+  hugegraph-node2: storage=246 MB sst=12 samples=21
+  hugegraph-node3: storage=245 MB sst=12 samples=21
+== 11:05:20 [r2 index] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 11:08:46 [r2 index] load
+RESULT {"variant": "index", "edges": 1000000, "requested": 1000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 25.7, "edges_per_s": 38848, "batch_ms": {"p50": 45, "p90": 69, "p99": 115, "max": 313}, "errors": {}}
+  hugegraph-dev: storage=361 MB sst=12 samples=23
+  hugegraph-node2: storage=361 MB sst=12 samples=22
+  hugegraph-node3: storage=359 MB sst=12 samples=22
+== SUMMARY run 1
+                          |     no index | label+addr index |  ratio
+edges/s                   |        54484 |            38100 |   0.70
+seconds                   |         18.4 |             26.2 |   1.42
+p50 ms                    |           32 |               47 |   1.47
+p99 ms                    |           90 |              107 |   1.19
+max ms                    |          235 |              358 |   1.52
+errors                    |            0 |                0 |      -
+disk MB (3 stores)        |           12 |              356 |  29.67
+store CPU s (sum)         |           93 |              125 |   1.34
+server CPU s              |           50 |               67 |   1.34
+store RSS growth MB (sum) |         1255 |             1617 |   1.29
+server RSS growth MB      |          152 |              121 |   0.80
+avg node busy %           |            6 |                8 |   1.33
+== SUMMARY run 2
+                          |     no index | label+addr index |  ratio
+edges/s                   |        56382 |            38848 |   0.69
+seconds                   |         17.7 |             25.7 |   1.45
+p50 ms                    |           31 |               45 |   1.45
+p99 ms                    |           73 |              115 |   1.58
+max ms                    |          226 |              313 |   1.38
+errors                    |            0 |                0 |      -
+disk MB (3 stores)        |           12 |              356 |  29.67
+store CPU s (sum)         |           89 |              143 |   1.61
+server CPU s              |           50 |               70 |   1.40
+store RSS growth MB (sum) |         1228 |             1640 |   1.34
+server RSS growth MB      |          397 |              197 |   0.50
+avg node busy %           |            6 |                8 |   1.33
+== DONE 11:10:18
