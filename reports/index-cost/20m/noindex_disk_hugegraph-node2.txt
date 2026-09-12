@@ -1,0 +1,1 @@
+hugegraph-node2: db_MB=1071 raftlog_MB=2693 snapshot_MB=1021 sst=60 parts=12 ingest_GB=1.21 keys=13313000

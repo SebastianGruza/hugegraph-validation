@@ -1,0 +1,25 @@
+== 13:08:49 [20m-v3/index] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 13:12:15 [20m-v3/index] partitions per store: 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 
+== 13:12:16 [20m-v3/index] load 100k vertices + 20000000 edges 
+  15:13:49 edges 3900500/20000000 rate=44001/s p50=41ms
+  15:15:13 edges 7900500/20000000 rate=45860/s p50=39ms
+  15:16:35 edges 11900500/20000000 rate=46872/s p50=38ms
+  15:17:57 edges 15901000/20000000 rate=47304/s p50=38ms
+  15:19:19 edges 19900500/20000000 rate=47557/s p50=38ms
+RESULT {"variant": "index", "edges": 20000000, "requested": 20000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 420.4, "edges_per_s": 47576, "batch_ms": {"p50": 38, "p90": 51, "p99": 85, "max": 334}, "errors": {}}
+== 13:19:21 [20m-v3/index] settle 60 s, then compaction + disk split
+compacted=12/12 in 25 s
+hugegraph-dev: db_MB=1829 raftlog_MB=2608 snapshot_MB=1780 sst=61 parts=12 ingest_GB=0.08 keys=1037397
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=6704812,MB=443 g+index:keys=13359890,MB=741 g+oe:keys=6701488,MB=575 g+task:keys=1,MB=0 g+v:keys=33521,MB=1
+compacted=12/12 in 25 s
+hugegraph-node2: db_MB=1826 raftlog_MB=2611 snapshot_MB=1776 sst=61 parts=12 ingest_GB=0.08 keys=1018381
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=6667834,MB=439 g+index:keys=13393960,MB=742 g+oe:keys=6672040,MB=573 g+task:keys=1,MB=0 g+v:keys=33361,MB=1
+compacted=12/12 in 25 s
+hugegraph-node3: db_MB=1816 raftlog_MB=2575 snapshot_MB=1767 sst=60 parts=12 ingest_GB=0.08 keys=1015326
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=6627354,MB=438 g+index:keys=13346151,MB=741 g+oe:keys=6626472,MB=568 g+v:keys=33118,MB=1
+"data":[20000000]
+== 13:21:51 [20m-v3/index] done

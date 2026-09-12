@@ -1,0 +1,3 @@
+compacted=12/12 in 25 s
+hugegraph-node2: db_MB=3207 raftlog_MB=4142 snapshot_MB=3157 sst=62 parts=12 ingest_GB=0.72 keys=4089000
+KeyError: 'partitions'

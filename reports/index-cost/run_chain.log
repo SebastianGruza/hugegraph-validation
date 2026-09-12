@@ -1,0 +1,132 @@
+== 12:16:20 [20m-v2/index] wipe + boot cluster
+  hstore write smoke: {"exception":"clas
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 12:20:49 [20m-v2/index] partitions per store: 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 
+== 12:20:49 [20m-v2/index] load 100k vertices + 20000000 edges 
+  14:23:15 edges 3900500/20000000 rate=27678/s p50=65ms
+  14:25:36 edges 7900500/20000000 rate=27996/s p50=65ms
+  14:27:55 edges 11900000/20000000 rate=28290/s p50=64ms
+  14:30:23 edges 15901000/20000000 rate=27947/s p50=64ms
+  14:32:58 edges 19900000/20000000 rate=27504/s p50=65ms
+RESULT {"variant": "index", "edges": 20000000, "requested": 20000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 726.4, "edges_per_s": 27533, "batch_ms": {"p50": 65, "p90": 95, "p99": 162, "max": 373}, "errors": {}
+== 12:33:01 [20m-v2/index] settle 60 s, then compaction + disk split
+compacted=12/12 in 49 s
+hugegraph-dev: db_MB=3243 raftlog_MB=5162 snapshot_MB=3193 sst=61 parts=12 ingest_GB=3.21 keys=39378000
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=13228071,MB=874 g+index:keys=26527140,MB=1277 g+oe:keys=13236921,MB=1022 g+task:keys=1,MB=0 g+v:keys=33361,MB=1
+compacted=12/12 in 40 s
+hugegraph-node2: db_MB=3250 raftlog_MB=5136 snapshot_MB=3200 sst=61 parts=12 ingest_GB=3.22 keys=39438000
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=13301312,MB=880 g+index:keys=26480593,MB=1272 g+oe:keys=13294852,MB=1026 g+task:keys=1,MB=0 g+v:keys=33521,MB=1
+compacted=12/12 in 41 s
+hugegraph-node3: db_MB=3227 raftlog_MB=4717 snapshot_MB=3177 sst=60 parts=12 ingest_GB=3.20 keys=39202000
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=13148117,MB=872 g+index:keys=26447268,MB=1273 g+oe:keys=13145727,MB=1013 g+v:keys=33118,MB=1
+"data":[39677500]
+== 12:36:42 [20m-v2/index] done
+76:  default-shard-count: 1
+78:  # the initial number of partitions= store-max-shard-count * store-number / default-shard-count
+== 12:36:43 [sk4-r1/sk4-noindex] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 12:38:36 [sk4-r1/sk4-noindex] partitions per store: 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 
+== 12:38:37 [sk4-r1/sk4-noindex] load 100k vertices + 5000000 edges 
+  14:40:06 edges 3900500/5000000 rate=46513/s p50=37ms
+RESULT {"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 105.8, "edges_per_s": 47281, "batch_ms": {"p50": 36, "p90": 51, "p99": 85, "max": 258}, "errors":
+== 12:40:28 [sk4-r1/sk4-noindex] settle 60 s, then compaction + disk split
+compacted=12/12 in 12 s
+hugegraph-dev: db_MB=567 raftlog_MB=810 snapshot_MB=517 sst=60 parts=12 ingest_GB=0.08 keys=490234
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=1404923,MB=214 g+index:keys=33463,MB=2 g+oe:keys=1661084,MB=286 g+v:keys=33221,MB=2
+compacted=12/12 in 12 s
+hugegraph-node2: db_MB=655 raftlog_MB=957 snapshot_MB=605 sst=60 parts=12 ingest_GB=0.11 keys=584127
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=2009832,MB=300 g+index:keys=33112,MB=2 g+oe:keys=1670438,MB=289 g+v:keys=33410,MB=2
+compacted=12/12 in 13 s
+hugegraph-node3: db_MB=594 raftlog_MB=853 snapshot_MB=545 sst=60 parts=12 ingest_GB=0.11 keys=509992
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=1585245,MB=240 g+index:keys=33425,MB=2 g+oe:keys=1668478,MB=289 g+v:keys=33369,MB=2
+"data":[5000000]
+== 12:42:14 [sk4-r1/sk4-noindex] done
+== 12:42:14 [sk4-r1/sk4-index] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 12:45:40 [sk4-r1/sk4-index] partitions per store: 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 12 groups (leader 12, peers [1]); 
+== 12:45:41 [sk4-r1/sk4-index] load 100k vertices + 5000000 edges 
+  14:47:33 edges 3900500/5000000 rate=36750/s p50=48ms
+RESULT {"variant": "sk4-index", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 133.9, "edges_per_s": 37330, "batch_ms": {"p50": 47, "p90": 65, "p99": 108, "max": 300}, "errors": 
+== 12:48:01 [sk4-r1/sk4-index] settle 60 s, then compaction + disk split
+compacted=12/12 in 12 s
+hugegraph-dev: db_MB=1090 raftlog_MB=1446 snapshot_MB=1041 sst=61 parts=12 ingest_GB=0.13 keys=771828
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=1585333,MB=240 g+index:keys=3256543,MB=492 g+oe:keys=1668482,MB=289 g+task:keys=1,MB=0 g+v:keys=33369,MB=2
+compacted=12/12 in 12 s
+hugegraph-node2: db_MB=1084 raftlog_MB=1430 snapshot_MB=1035 sst=60 parts=12 ingest_GB=0.13 keys=773702
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=1404904,MB=214 g+index:keys=3381597,MB=513 g+oe:keys=1661113,MB=286 g+v:keys=33221,MB=2
+compacted=12/12 in 13 s
+hugegraph-node3: db_MB=1186 raftlog_MB=1578 snapshot_MB=1137 sst=61 parts=12 ingest_GB=0.14 keys=813604
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=2009763,MB=300 g+index:keys=3461861,MB=527 g+oe:keys=1670405,MB=289 g+task:keys=1,MB=0 g+v:keys=33410,MB=2
+"data":[5000000]
+== 12:49:47 [sk4-r1/sk4-index] done
+76:  default-shard-count: 3
+78:  # the initial number of partitions= store-max-shard-count * store-number / default-shard-count
+== 12:49:47 [sk4-r3/sk4-noindex] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 12:53:14 [sk4-r3/sk4-noindex] partitions per store: ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+== 12:53:15 [sk4-r3/sk4-noindex] load 100k vertices + 5000000 edges 
+  14:55:27 edges 3900500/5000000 rate=31202/s p50=56ms
+RESULT {"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 156.7, "edges_per_s": 31909, "batch_ms": {"p50": 55, "p90": 77, "p99": 130, "max": 278}, "errors"
+== 12:55:58 [sk4-r3/sk4-noindex] settle 60 s, then compaction + disk split
+compacted=12/12 in 19 s
+hugegraph-dev: db_MB=1714 raftlog_MB=2351 snapshot_MB=1665 sst=60 parts=12 ingest_GB=0.52 keys=2677000
+KeyError: 'partitions'
+compacted=12/12 in 20 s
+hugegraph-node2: db_MB=1714 raftlog_MB=2351 snapshot_MB=1665 sst=60 parts=12 ingest_GB=0.45 keys=2399000
+KeyError: 'partitions'
+compacted=12/12 in 20 s
+hugegraph-node3: db_MB=1714 raftlog_MB=2351 snapshot_MB=1665 sst=60 parts=12 ingest_GB=0.58 keys=2967000
+KeyError: 'partitions'
+"data":[5000000]
+== 12:58:06 [sk4-r3/sk4-noindex] done
+== 12:58:06 [sk4-r3/sk4-index] wipe + boot cluster
+  hstore write smoke: {"property_key": {
+  sampler on hugegraph-dev
+  sampler on hugegraph-node2
+  sampler on hugegraph-node3
+== 13:01:33 [sk4-r3/sk4-index] partitions per store: ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+ecent call last):
+  File "<string>", line 1, in <module>
+KeyError: 'partitions'
+== 13:01:34 [sk4-r3/sk4-index] load 100k vertices + 5000000 edges 
+  15:04:12 edges 3901000/5000000 rate=25863/s p50=68ms
+RESULT {"variant": "sk4-index", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 190.1, "edges_per_s": 26296, "batch_ms": {"p50": 67, "p90": 93, "p99": 156, "max": 433}, "errors": 
+== 13:04:51 [sk4-r3/sk4-index] settle 60 s, then compaction + disk split
+compacted=12/12 in 27 s
+hugegraph-dev: db_MB=3207 raftlog_MB=4142 snapshot_MB=3157 sst=62 parts=12 ingest_GB=0.79 keys=4351000
+KeyError: 'partitions'
+compacted=12/12 in 25 s
+hugegraph-node2: db_MB=3207 raftlog_MB=4142 snapshot_MB=3157 sst=62 parts=12 ingest_GB=0.72 keys=4089000
+KeyError: 'partitions'
+compacted=12/12 in 27 s
+hugegraph-node3: db_MB=3207 raftlog_MB=4142 snapshot_MB=3157 sst=62 parts=12 ingest_GB=0.78 keys=4418000
+KeyError: 'partitions'
+"data":[5000000]
+== 13:07:20 [sk4-r3/sk4-index] done
+76:  default-shard-count: 1
+78:  # the initial number of partitions= store-max-shard-count * store-number / default-shard-count
+== CHAIN DONE 13:07:20

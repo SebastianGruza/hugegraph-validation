@@ -1,0 +1,3 @@
+compacted=12/12 in 13 s
+hugegraph-node3: db_MB=1186 raftlog_MB=1578 snapshot_MB=1137 sst=61 parts=12 ingest_GB=0.14 keys=813604
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=2009763,MB=300 g+index:keys=3461861,MB=527 g+oe:keys=1670405,MB=289 g+task:keys=1,MB=0 g+v:keys=33410,MB=2

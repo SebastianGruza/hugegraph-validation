@@ -1,0 +1,2 @@
+hugegraph-dev: db_MB=1082 raftlog_MB=2700 snapshot_MB=1033 sst=60 parts=12 ingest_GB=1.22 keys=13466000
+tables partitions=12 default:keys=60,MB=0 g+ie:keys=6704769,MB=443 g+index:keys=32990,MB=1 g+oe:keys=6701445,MB=575 g+v:keys=33521,MB=1

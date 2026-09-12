@@ -1,0 +1,1 @@
+{"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000, "seconds": 156.7, "edges_per_s": 31909, "batch_ms": {"p50": 55, "p90": 77, "p99": 130, "max": 278}, "errors": {}}
