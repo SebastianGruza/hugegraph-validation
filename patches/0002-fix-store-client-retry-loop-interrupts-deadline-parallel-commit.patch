@@ -1,20 +1,21 @@
-From eace3d211cb675d5806abf6aafdcaa1072d88af3 Mon Sep 17 00:00:00 2001
+From ea506365c081dcd74af3080c274360779f4a9466 Mon Sep 17 00:00:00 2001
 From: Sebastian Gruza <sebastian@gruzalab.pl>
-Date: Fri, 11 Sep 2026 16:59:08 +0000
+Date: Sat, 12 Sep 2026 08:05:50 +0000
 Subject: [PATCH] fix(store-client): retry loop honours interrupts, retries
- DEADLINE_EXCEEDED once, decides on every failure of a parallel commit
+ DEADLINE_EXCEEDED once in a row, decides on every failure of a parallel
+ commit
 
-Squashed export of apache/hugegraph#3204 at 172b2d0.
+Squashed export of apache/hugegraph#3204 at 35e0a6d.
 ---
- .../store/client/NodeTxExecutor.java          | 202 ++++++++++++++----
- .../store/client/NodeTxExecutorTest.java      | 185 ++++++++++++++++
- 2 files changed, 340 insertions(+), 47 deletions(-)
+ .../store/client/NodeTxExecutor.java          | 214 +++++++++++++-----
+ .../store/client/NodeTxExecutorTest.java      | 206 +++++++++++++++++
+ 2 files changed, 366 insertions(+), 54 deletions(-)
 
 diff --git a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
-index 9393421..f0c647f 100644
+index 9393421..1ec2f97 100644
 --- a/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
 +++ b/hugegraph-store/hg-store-client/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutor.java
-@@ -22,13 +22,18 @@ import static org.apache.hugegraph.store.client.util.HgStoreClientConst.NODE_MAX
+@@ -22,13 +22,17 @@ import static org.apache.hugegraph.store.client.util.HgStoreClientConst.NODE_MAX
  import static org.apache.hugegraph.store.client.util.HgStoreClientConst.TX_SESSIONS_MAP_CAPACITY;
  
  import java.util.Collection;
@@ -26,15 +27,15 @@ index 9393421..f0c647f 100644
  import java.util.List;
  import java.util.Map;
  import java.util.Optional;
+-import java.util.concurrent.atomic.AtomicBoolean;
+-import java.util.concurrent.atomic.AtomicReference;
 +import java.util.Queue;
 +import java.util.Set;
 +import java.util.concurrent.ConcurrentLinkedQueue;
- import java.util.concurrent.atomic.AtomicBoolean;
--import java.util.concurrent.atomic.AtomicReference;
  import java.util.function.Function;
  import java.util.function.Supplier;
  import java.util.stream.Collector;
-@@ -46,6 +51,8 @@ import org.apache.hugegraph.store.client.util.HgStoreClientConst;
+@@ -46,6 +50,8 @@ import org.apache.hugegraph.store.client.util.HgStoreClientConst;
  import org.apache.hugegraph.store.term.HgPair;
  import org.apache.hugegraph.store.term.HgTriple;
  
@@ -43,10 +44,27 @@ index 9393421..f0c647f 100644
  import lombok.extern.slf4j.Slf4j;
  
  /**
-@@ -129,35 +136,7 @@ final class NodeTxExecutor {
-                 if (!allSuccess.get()) {
-                     throw HgStoreClientException.of(msg);
+@@ -58,8 +64,6 @@ final class NodeTxExecutor {
+     private static final String maxTryMsg =
+             "the number of retries reached the upper limit : " + NODE_MAX_RETRYING_TIMES +
+             ",caused by:";
+-    private static final String msg =
+-            "Not all tx-data delivered to real-node-session successfully.";
+ 
+     static {
+         System.setProperty("java.util.concurrent.ForkJoinPool.common.parallelism",
+@@ -121,43 +125,11 @@ final class NodeTxExecutor {
+                 if (this.entries.isEmpty()) {
+                     return true;
                  }
+-                AtomicBoolean allSuccess = new AtomicBoolean(true);
+                 for (HgPair<HgTriple<String, HgOwnerKey, Object>, Function<NodeTkv, Boolean>> e :
+                         this.entries) {
+                     doAction(e.getKey(), e.getValue());
+                 }
+-                if (!allSuccess.get()) {
+-                    throw HgStoreClientException.of(msg);
+-                }
 -                AtomicReference<Throwable> throwable = new AtomicReference<>();
 -                Collection<HgStoreSession> sessions = this.sessions.values();
 -                sessions.parallelStream().forEach(e -> {
@@ -80,7 +98,7 @@ index 9393421..f0c647f 100644
                  return true;
              });
  
-@@ -232,6 +211,52 @@ final class NodeTxExecutor {
+@@ -232,6 +204,52 @@ final class NodeTxExecutor {
      //    }
      // };
  
@@ -133,7 +151,7 @@ index 9393421..f0c647f 100644
      private boolean doAction(HgTriple<String, HgOwnerKey, Object> nodeParams,
                               Function<NodeTkv, Boolean> action) {
          if (nodeParams.getZ() == null) {
-@@ -373,35 +398,70 @@ final class NodeTxExecutor {
+@@ -373,35 +391,75 @@ final class NodeTxExecutor {
      }
  
      <T> Optional<T> retryingInvoke(Supplier<T> supplier) {
@@ -173,6 +191,11 @@ index 9393421..f0c647f 100644
 -                                            } catch (InterruptedException e) {
 -                                                log.error("Failed to sleep", e);
 +                                        Failure failure = classify(t);
++                                        if (failure != Failure.DEADLINE) {
++                                            // a different failure in between means the
++                                            // next deadline is not "in a row" again
++                                            deadlineRetried[0] = false;
++                                        }
 +                                        if (failure == Failure.FATAL) {
 +                                            // The caller's thread was interrupted or the
 +                                            // call was cancelled: fail fast.
@@ -221,7 +244,7 @@ index 9393421..f0c647f 100644
                                      }
                                      return buffer;
                                  }
-@@ -411,6 +471,54 @@ final class NodeTxExecutor {
+@@ -411,6 +469,54 @@ final class NodeTxExecutor {
  
      }
  
@@ -277,7 +300,7 @@ index 9393421..f0c647f 100644
          if (obj == null) {
              return false;
 diff --git a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
-index 00a05c6..d39b079 100644
+index 00a05c6..b8959c0 100644
 --- a/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
 +++ b/hugegraph-store/hg-store-test/src/main/java/org/apache/hugegraph/store/client/NodeTxExecutorTest.java
 @@ -17,12 +17,17 @@
@@ -310,7 +333,7 @@ index 00a05c6..d39b079 100644
  public class NodeTxExecutorTest {
  
      @Test
-@@ -115,4 +123,181 @@ public class NodeTxExecutorTest {
+@@ -115,4 +123,202 @@ public class NodeTxExecutorTest {
              workers.shutdownNow();
          }
      }
@@ -490,6 +513,27 @@ index 00a05c6..d39b079 100644
 +                                                () -> executor.commitSessions(Arrays.asList(a, b)));
 +        assertEquals(1, e.getSuppressed().length);
 +        assertEquals(NodeTxExecutor.Failure.RETRYABLE, NodeTxExecutor.classify(e));
++    }
++
++    @Test
++    public void testDeadlineBudgetResetsAfterAnotherFailure() {
++        // deadline, then a transport error (leaders reloaded again), then a deadline:
++        // the two deadlines are not "in a row", so the second one is retried as well
++        NodeTxExecutor executor = NodeTxExecutor.graphOf("graph", null);
++        AtomicInteger attempts = new AtomicInteger();
++        Optional<String> result = executor.retryingInvoke(() -> {
++            switch (attempts.getAndIncrement()) {
++                case 0:
++                case 2:
++                    throw Status.DEADLINE_EXCEEDED.asRuntimeException();
++                case 1:
++                    throw Status.UNAVAILABLE.asRuntimeException();
++                default:
++                    return "ok";
++            }
++        });
++        assertEquals("ok", result.get());
++        assertEquals(4, attempts.get());
 +    }
  }
 -- 

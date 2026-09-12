@@ -354,13 +354,18 @@ roughly one third of them land on the frozen store's partitions), then no more w
 default 30 s, `grpc.timeout.seconds=20` written into both client jars so that one run fits in minutes
 (with the default 100 s the "before" numbers are 5× longer).
 
-| | before (`hg-store-client` as in master) | after (`patches/0002` applied) |
-|---|---|---|
-| REST unavailable (probe gets 503 from `LoadDetectFilter`) | from 28 s to 254 s and from 285 s to 503 s: **431 of 503 s** | four blips of 2–6 s, **12 s of 300** |
-| REST still dead after the writer stopped | **200 s** | 0 s |
-| POST outcomes, 300 sent | 27 × 201, **243 × 503 rejected**, 23 × 500 | 131 × 201, 152 × 500 after exactly 20.0 s, 7 × 503 |
-| slowest POST | **257 s** (= 11 × 20 s + 38 s of sleep) | 20.1 s (one deadline) |
-| server log | `Failed to sleep` 30, `reached the upper limit` 30, `for the next try` 300 | `Failed to sleep` 0, `Not retrying after` 152 |
+| | before (`hg-store-client` as in master) | never retry a deadline (`920bbbd`, superseded) | **retry a deadline once (`35e0a6d`, the #3204 head)** |
+|---|---|---|---|
+| REST unavailable (probe gets 503 from `LoadDetectFilter`) | from 28 s to 254 s and from 285 s to 503 s: **431 of 503 s** | four blips of 2–6 s, **12 s of 300** | 20 windows of 2–16 s, **128 s of 300** |
+| REST still dead after the writer stopped | **200 s** | 0 s | 0 s |
+| POST outcomes, 300 sent | 27 × 201, **243 × 503 rejected**, 23 × 500 | 131 × 201, 152 × 500 after exactly 20.0 s, 7 × 503 | 90 × 201, 117 × 500, 89 × 503 |
+| slowest POST | **257 s** (= 11 × 20 s + 38 s of sleep) | 20.1 s (one deadline) | 45 s (two deadlines + backoff) |
+| server log | `Failed to sleep` 30, `reached the upper limit` 30, `for the next try` 300 | `Failed to sleep` 0, `Not retrying after` 152 | `retrying once` 119, `second deadline` 54, `Failed to sleep` 0 |
+
+The review of #3204 asked for one `DEADLINE_EXCEEDED` retry (the failed RPC reloads the partition leaders, so on
+replicated clusters the next attempt can reach a new raft leader); on this replica-less lab that costs availability
+under sustained load (a stalled partition holds a worker for two deadlines instead of one) but keeps the failover
+recovery, and the server is still healthy the moment the writer stops.
 
 So without the fix a writer at 1 request/s turns a single frozen store into a REST server that answers 503 to
 everything for as long as the writes last plus another 3–4 minutes (19 minutes with the default deadline), and
