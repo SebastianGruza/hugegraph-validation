@@ -1,0 +1,13 @@
+== 14:54:36 [usepd-x5-x70] wipe
+== 14:56:29 [usepd-x5-x70] PD listening; stores start in 5 s; server step: server
+step=start-hugegraph exit=1 duration=49 s (started 1 s after PD)
+........................Starting HugeGraphServer failed
+See /home/seba/hg-master/hugegraph-server/dist-master-hstore/logs/hugegraph-server.log for HugeGraphServer log output.
+  store Up in PD log: 
+  105: count=17 first=16:56:41 last=by: sleeps=1,1,1,2,3,4,5,6,7,8,
+  upper limit: 16:57:16  other errors: 14 (2026-09-12 16:56:38 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |2026-09-12 16:56:39 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |)
+  REST: 000  PD says: 
+  hugegraph-dev: store start at +5 s after PD; 
+  hugegraph-node2: store start at +71 s after PD; 
+  hugegraph-node3: store start at +71 s after PD; 
+== 14:58:56 [usepd-x5-x70] done

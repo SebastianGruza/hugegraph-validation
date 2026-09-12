@@ -1,0 +1,14 @@
+== 14:41:54 [x60-server] wipe
+== 14:42:18 [x60-server] PD listening; stores start in 60 s; server step: server
+step=start-hugegraph exit=0 duration=10 s (started 1 s after PD)
+.....OK
+Started [pid 1805398]
+bash: linia 1: [: 10,811: oczekiwano wyrażenia całkowitego
+  store Up in PD log: 
+  105: count=0 first= last= sleeps=
+  upper limit:   other errors: 0 ()
+  REST: 200  PD says: 
+  hugegraph-dev: store start at +-18 s after PD; 
+  hugegraph-node2: store start at +-18 s after PD; 
+  hugegraph-node3: store start at +-17 s after PD; 
+== 14:42:30 [x60-server] done

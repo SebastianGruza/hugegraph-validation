@@ -1,0 +1,11 @@
+== 14:38:49 [x60-init] wipe
+== 14:41:00 [x60-init] PD listening; stores start in 60 s; server step: init
+step=init-store exit=0 duration=1 s (started 1 s after PD)
+  store Up in PD log: 
+  105: count=0 first= last= sleeps=
+  upper limit:   other errors: 0 ()
+  REST: 000  PD says: 
+  hugegraph-dev: store start at +-1789224060 s after PD; 
+  hugegraph-node2: store start at +-1789224060 s after PD; 
+  hugegraph-node3: store start at +-1789224060 s after PD; 
+== 14:41:03 [x60-init] done
