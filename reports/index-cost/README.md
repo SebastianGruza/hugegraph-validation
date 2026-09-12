@@ -79,7 +79,7 @@ script was extended between the runs); its key counts are exactly one third of t
 | `g+oe` / `g+ie` (edge rows) | 1 725 / 1 329 MB (20.0 M + 20.0 M keys) | 1 716 / 1 320 MB | 1.00 |
 | `g+index` | 3 MB (vertex label index only) | **2 224 MB, 40.1 M keys** | |
 | raft log (3 nodes) | 8 089 MB | 7 794 MB | copy of every write until the next snapshot |
-| raft snapshot (3 nodes) | 3 081 MB | 5 323 MB | copy of the SST files |
+| raft snapshot (3 nodes) | 3 081 MB | 5 323 MB | RocksDB checkpoint = **hard links** to the `db/` SSTs (link count 2), so `du` counts them twice; the real extra space is only the SSTs compacted away since the snapshot |
 | store CPU (sum of 3, load + settle + compaction) | 922 s | 1 968 s | 2.13 |
 | server CPU | 370 s | 728 s | 1.97 |
 | store RSS growth (sum of 3) | 6.2 GB | 17.2 GB | 2.75 |
