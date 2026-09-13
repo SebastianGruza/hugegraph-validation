@@ -1,0 +1,11 @@
+== 11:10:02 load hstore (master dists, wipe)
+RESULT {"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000
+"data":[5000000]
+== 11:17:10 [sk3184b/sk4-noindex] done
+== 11:17:10 load rocksdb oracle
+RESULT {"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000
+== 11:18:18 probes on master
+== 11:18:20 swap to pr3184
+jars: hstore=a935012f core=2ba14364
+== 11:19:01 probes on pr3184
+== 11:19:05 done

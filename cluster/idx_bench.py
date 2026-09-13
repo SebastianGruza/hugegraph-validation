@@ -9,7 +9,7 @@ import json, os, random, sys, threading, time, urllib.request, urllib.error
 sys.path.insert(0, os.path.expanduser("~")); from hg_suite import HG
 V, E, T, B, NV = sys.argv[1], int(sys.argv[2]), int(sys.argv[3]) if len(sys.argv) > 3 else 4, int(sys.argv[4]) if len(sys.argv) > 4 else 500, int(sys.argv[5]) if len(sys.argv) > 5 else 100000
 OUT = sys.argv[6] if len(sys.argv) > 6 else None
-hg = HG("localhost", 8080, "DEFAULT", "hugegraph"); print("server:", hg.info(), "variant:", V, flush=True)
+hg = HG("localhost", int(os.environ.get("HG_PORT", "8080")), "DEFAULT", "hugegraph"); print("server:", hg.info(), "variant:", V, flush=True)
 def task(r):
     try: return json.loads(r)
     except Exception: return {}
@@ -63,10 +63,10 @@ def take():
         if s >= E: return None
         next_start[0] = s + B; return s
 def writer(w):
-    r = random.Random(1000 + w)
     while True:
         s = take()
         if s is None: return
+        r = random.Random(1000 + s // B)   # deterministic per batch, whichever writer takes it
         edges = []
         for i in range(s, min(E, s + B)):
             src = r.randrange(NV)
