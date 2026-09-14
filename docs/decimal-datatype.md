@@ -51,8 +51,31 @@ Results 2026-09-14: struct 4/4; `unit-test` 687/688 (`SecurityManagerTest.testFi
 master on a Polish locale, unrelated); `core-test,rocksdb` and `core-test,memory` for the four touched classes all
 green (383 tests on rocksdb); `api-test,rocksdb` via `run-api-test.sh`: 162 tests, 0 failures.
 
+## Cluster check on HStore and RocksDB (2026-09-14, `cluster/decimal_sum_bench.py`)
+
+Branch dists on the lab (PD + 3 stores, hstore server :8080, rocksdb oracle server :8081), 10 000 `account`
+vertices with `balance/hi/lo DECIMAL`, 5 rounds of `PUT /graph/vertices/batch` with
+`update_strategies: {balance: SUM, hi: BIGGER, lo: SMALLER}`, random increments up to 2^255 with 18 fraction
+digits, 30 % negative, batches of 500, 4 writer threads, 50 accounts per round appearing twice in one request;
+2 000 `transfer` edges with a decimal `amount` behind an INT sort key. Every value is then read back and compared
+exactly with a Python `Decimal` oracle (`results/decimal/`).
+
+| | hstore | rocksdb |
+|---|---|---|
+| 50 250 upserts, errors | 0 | 0 |
+| mismatches vs the oracle (balance, hi, lo) | **0 / 10 000** | **0 / 10 000** |
+| in-request duplicates combined then added | correct | correct |
+| decimal edge property through a sort-key traversal | exact | exact |
+| decimal sort key / range index | rejected with the intended message | same |
+| batch p50 / p99 | 119 / 1 019 ms | 52 / 348 ms |
+
+One trap, independent of the type: the same account updated by **two concurrent requests** is a lost update
+(`sum-bench-crossbatch.log`: 47 and 42 of 10 000 accounts wrong, exactly the ones whose duplicate landed in another
+batch). Batch upsert is read-modify-write without a per-vertex lock across transactions, for every data type.
+An importer accumulating balances must route all updates of one account through one writer, or put them in one
+request.
+
 ## Not measured yet
 
-Write throughput and disk of a decimal property vs `DOUBLE`/`TEXT` on HStore (the encoding is 3–33 bytes per value
-depending on magnitude; expected to sit between the two); behaviour on HStore with a decimal condition pushed down
-(the #3090 codec mismatch applies to every type, #3184 keeps sort-key traversals off that path).
+Write throughput and disk of a decimal property vs `DOUBLE`/`TEXT` on HStore at scale (the encoding is 3–33 bytes per
+value depending on magnitude; expected to sit between the two).

@@ -1,0 +1,16 @@
+== 15:51:01 wipe + boot
+  8080: {"name":"hugegraph","backend":"hstore"}
+  8081: {"name":"hugegraph","backend":"rocksdb"}
+== 15:54:11 :8080 samechunk, 10000 accounts, 5 rounds, 4 threads
+decimal sort key rejected: 400 The sort key 'amount' of edge label 'bad' can't be a decimal property
+decimal range index rejected: 400 Not allowed to build index on property key 'balance' whose data type is decimal
+verified 10000/10000 accounts, mismatches=0 (of which in the duplicated set: 0), verify 1.8s
+edge amount via sort-key traversal: 2782676153706958308.099090414712738008 expected 2782676153706958308.099090414712738008
+{"accounts": 10000, "rounds": 5, "batches": 105, "batch_ms": {"p50": 119, "p99": 1019, "max": 1025}, "errors": {}, "mismatches": 0}
+== 15:54:19 :8081 samechunk, 10000 accounts, 5 rounds, 4 threads
+decimal sort key rejected: 400 The sort key 'amount' of edge label 'bad' can't be a decimal property
+decimal range index rejected: 400 Not allowed to build index on property key 'balance' whose data type is decimal
+verified 10000/10000 accounts, mismatches=0 (of which in the duplicated set: 0), verify 0.8s
+edge amount via sort-key traversal: 2782676153706958308.099090414712738008 expected 2782676153706958308.099090414712738008
+{"accounts": 10000, "rounds": 5, "batches": 105, "batch_ms": {"p50": 52, "p99": 348, "max": 355}, "errors": {}, "mismatches": 0}
+== 15:54:23 done

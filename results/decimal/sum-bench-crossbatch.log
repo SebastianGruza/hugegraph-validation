@@ -1,0 +1,46 @@
+== 15:46:14 make dists
+1982497 
+79510 
+/home/seba/hg-decimal/hugegraph-server/dist-decimal-hstore core=43188473
+/home/seba/hg-decimal/hugegraph-server/dist-decimal-rocksdb core=43188473
+== 15:46:16 wipe + boot
+  8080: {"name":"hugegraph","backend":"hstore"}
+  8081: {"name":"hugegraph","backend":"rocksdb"}
+  hstore write smoke: {"property_key": {"id":1,"name":"_smok
+== 15:49:20 hstore :8080
+decimal sort key rejected: 400 The sort key 'amount' of edge label 'bad' can't be a decimal property
+decimal range index rejected: 400 Not allowed to build index on property key 'balance' whose data type is decimal
+round 0: 10050 upserts, 2.1s so far, errors={}
+round 1: 10050 upserts, 3.5s so far, errors={}
+round 2: 10050 upserts, 4.1s so far, errors={}
+round 3: 10050 upserts, 4.7s so far, errors={}
+round 4: 10050 upserts, 5.1s so far, errors={}
+Traceback (most recent call last):
+  File "/home/seba/decimal_sum_bench.py", line 86, in <module>
+    st, body = call("GET", "/graph/vertices?label=account&limit=100000"); data = must(st, body)["vertices"]
+                                                                                 ~~~~^^^^^^^^^^
+  File "/home/seba/decimal_sum_bench.py", line 22, in must
+    return json.loads(body) if body else None
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/json/__init__.py", line 341, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+== 15:49:28 rocksdb :8081
+decimal sort key rejected: 400 The sort key 'amount' of edge label 'bad' can't be a decimal property
+decimal range index rejected: 400 Not allowed to build index on property key 'balance' whose data type is decimal
+round 0: 10050 upserts, 0.7s so far, errors={}
+round 1: 10050 upserts, 1.3s so far, errors={}
+round 2: 10050 upserts, 1.6s so far, errors={}
+round 3: 10050 upserts, 2.0s so far, errors={}
+round 4: 10050 upserts, 2.3s so far, errors={}
+Traceback (most recent call last):
+  File "/home/seba/decimal_sum_bench.py", line 86, in <module>
+    st, body = call("GET", "/graph/vertices?label=account&limit=100000"); data = must(st, body)["vertices"]
+                                                                                 ~~~~^^^^^^^^^^
+  File "/home/seba/decimal_sum_bench.py", line 22, in must
+    return json.loads(body) if body else None
+           ~~~~~~~~~~^^^^^^
+  File "/usr/lib/python3.13/json/__init__.py", line 341, in loads
+    s = s.decode(detect_encoding(s), 'surrogatepass')
+UnicodeDecodeError: 'utf-8' codec can't decode byte 0x8b in position 1: invalid start byte
+== 15:49:32 done
