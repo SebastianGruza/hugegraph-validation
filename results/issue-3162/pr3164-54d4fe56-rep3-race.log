@@ -1,0 +1,45 @@
+== 06:38:00 [pr-rep3] jar=pr shards=3
+  hugegraph-dev jar=2e888e4d
+  hugegraph-node2 jar=2e888e4d
+  hugegraph-node3 jar=2e888e4d
+76:  default-shard-count: 3
+78:  # the initial number of partitions= store-max-shard-count * store-number / default-shard-count
+  8080: {"name":"hugegraph","backend":"hstore"}
+== 06:39:21 [pr-rep3] partitions per store
+  235: /v1/partitions unavailable
+  236: /v1/partitions unavailable
+  237: /v1/partitions unavailable
+== 06:39:22 [pr-rep3] load 5M + 20M
+RESULT {"variant": "sk4-noindex", "edges": 5000000, "requested": 5000000, "threads": 4, "batch": 500, "vertices": 100000
+RESULT {"variant": "sk4-noindex", "edges": 20000000, "requested": 20000000, "threads": 4, "batch": 500, "vertices": 1000
+== 06:51:32 [pr-rep3] pick a partition led by .235 with the most data
+  partition 6
+== 06:51:33 [pr-rep3] race on partition 6 (300 ms gap)
+partition 6: db=5 MB, snapshots before: 
+compaction submitted at +0, snapshot requested at +0.30s (returned +0.33s), compaction REST returned at +0.33s: {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+-- store log for partition 6 since the experiment:
+2026-09-15 08:51:34 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 6 dbCompaction started
+2026-09-15 08:51:34 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 6-/home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.
+2026-09-15 08:51:34 [qtp1531175283-28] [INFO] o.a.h.s.PartitionEngine - Raft 6 send snapshot command. 
+2026-09-15 08:51:34 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.PartitionEngine - Raft 6 doSnapshot. 
+2026-09-15 08:51:34 [hg-u-job-1] [ERROR] o.a.h.s.r.PartitionStateMachine - Raft 6 onSnapshotSave failed. {}
+org.apache.hugegraph.store.util.HgStoreException: Partition 6 snapshot save failed: compaction in progress
+2026-09-15 08:51:34 [JRaft-Group-Default-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 6  snapshot OK. 
+2026-09-15 08:51:47 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 6 dbCompaction end and start to do snapshot
+2026-09-15 08:51:47 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 6-/home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.
+2026-09-15 08:51:47 [hg-u-job-4] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 onSnapshotSave success
+-- snapshot dirs now:
+  snapshot_50206: meta=yes data_dir=yes(8 files) should_not_load=yes
+== 06:51:49 [pr-rep3] what the other replicas logged for partition 6
+-- hugegraph-node2
+2026-09-15 08:51:33 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.PartitionEngine - Raft 6 doSnapshot. 
+2026-09-15 08:51:46 [hg-u-job-1] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 onSnapshotSave success
+2026-09-15 08:51:46 [JRaft-Group-Default-Executor-4] [INFO] o.a.h.s.PartitionEngine - Raft 6  snapshot OK. 
+2026-09-15 08:39:21 [JRaft-RPC-Processor-1] [WARN] c.a.s.j.c.NodeImpl - Node <hg_6/192.168.80.236:8510> received invalid PreVoteResponse from 192.168.80.235:8510::100, state not in STATE_FOLLOWER but 
+   snapshot dirs: snapshot_50205:meta=y,data=y 
+-- hugegraph-node3
+2026-09-15 08:51:34 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.PartitionEngine - Raft 6 doSnapshot. 
+2026-09-15 08:51:49 [hg-u-job-3] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 onSnapshotSave success
+2026-09-15 08:51:49 [JRaft-Group-Default-Executor-2] [INFO] o.a.h.s.PartitionEngine - Raft 6  snapshot OK. 
+   snapshot dirs: snapshot_50205:meta=y,data=y 
+== 06:51:50 [pr-rep3] done

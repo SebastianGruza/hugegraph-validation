@@ -1,0 +1,82 @@
+235 leads 8 partitions
+EXIT=0
+== 07:33:08 [master-rep3-kill4] ensure jar master on all nodes (no wipe)
+  hugegraph-dev: already on the requested jar and up
+  hugegraph-node2: already on the requested jar and up
+  hugegraph-node3: already on the requested jar and up
+== 07:33:55 [master-rep3-kill4] edge count before: "message":"java.net.SocketTimeoutException: Read timed out
+bash: linia 1: 10#00003_50211: wartość za duża na podstawę (błędny znacznik to "10#00003_50211")
+  partition led by .235: 0
+== 07:34:26 [master-rep3-kill4] race + SIGKILL + restart on .235, partition 0
+partition 0: db=1623 MB, snapshots before:
+    temp: meta=NO data_dir=NO should_not_load=no
+snapshot dirs 1.3 s after the compaction started (compaction still running):
+    snapshot_50213: meta=yes data_dir=NO should_not_load=no
+store pid 21421 killed at +4.4 s
+snapshot dirs after the kill:
+    snapshot_50213: meta=yes data_dir=NO should_not_load=no
+store restarted (port 8500 up)
+-- store log for partition 0 after the restart:
+2026-09-15 09:34:26 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 0 dbCompaction started
+2026-09-15 09:34:26 [hg-compact-1] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 0-/home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.0/./storage got lock
+2026-09-15 09:34:26 [qtp1154941313-34] [INFO] o.a.h.s.PartitionEngine - Raft 0 send snapshot command. 
+2026-09-15 09:34:26 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.PartitionEngine - Raft 0 doSnapshot. 
+2026-09-15 09:34:26 [hg-u-job-4] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 0 onSnapshotSave success
+2026-09-15 09:34:26 [JRaft-Group-Default-Executor-1] [INFO] o.a.h.s.PartitionEngine - Raft 0  snapshot OK. 
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - Raft 0 begin loadSnapshot, /home/seba/hugegraph/hugegraph-store/apache-hugegraph-stor
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.r.a.RocksDBSession - begin load snapshot from /home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.r.a.RocksDBSession - Snapshot file /home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.0/./sto
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.s.r.PartitionStateMachine - Raft 0  onSnapshotLoad failed. 
+org.apache.hugegraph.store.util.HgStoreException: org.apache.hugegraph.rocksdb.access.DBStoreException: Snapshot file /home/seba/hugegraph/hugegraph-store/apache-hugegrap
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.s.r.PartitionStateMachine - Raft 0 StateMachine on error {}
+2026-09-15 09:34:40 [JRaft-Closure-Executor-1] [ERROR] o.a.h.s.PartitionEngine - Raft 0 is restarting !!!
+-- partition 0 state from the store REST:
+KeyError: 'partitions'
+-- errors in the log after the restart:
+5
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.r.a.RocksDBSession - Snapshot file /home/seba/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.0/./sto
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.s.r.PartitionStateMachine - Raft 0  onSnapshotLoad failed. 
+2026-09-15 09:34:40 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.s.r.PartitionStateMachine - Raft 0 StateMachine on error {}
+2026-09-15 09:34:40 [JRaft-Closure-Executor-0] [ERROR] o.a.h.s.HgStoreEngine - Partition DEFAULT/hugegraph/g-0 restore  exception java.lang.IllegalStateException: Fail to
+2026-09-15 09:34:40 [JRaft-Closure-Executor-1] [ERROR] o.a.h.s.PartitionEngine - Raft 0 is restarting !!!
+== 07:35:26 [master-rep3-kill4] partition 0 state on every node
+  235: [] None conf=
+  236: [(0, 'PState_Normal')] STATE_FOLLOWER conf=None
+  237: [(0, 'PState_Normal')] STATE_LEADER conf=None
+== 07:35:26 [master-rep3-kill4] edge count with .235's replica broken: "message":"
+"data":[20000000]
+-- hugegraph-node2 raft log for hg_0 (last 5):
+2026-09-15 09:15:01 [JRaft-Global-ElectionTimer4] [WARN] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.236:8510> channel init failed, address=192.168.80.235:8510.
+2026-09-15 09:15:01 [JRaft-RPC-Processor-0] [WARN] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.236:8510> channel init failed, address=192.168.80.235:8510.
+2026-09-15 09:15:01 [JRaft-RPC-Processor-1] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.236:8510> become leader of group, term=3, conf=192.168.80.235:8510::100,192.168.80.236:8510::80,
+2026-09-15 09:20:50 [qtp65438140-31] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.236:8510> starts to transfer leadership to any peer.
+2026-09-15 09:20:50 [qtp65438140-31] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.236:8510> starts to transfer leadership to peer 0.0.0.0:0.
+-- hugegraph-node3 raft log for hg_0 (last 5):
+2026-09-15 09:32:37 [qtp1353838640-27] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.237:8510> starts to transfer leadership to any peer.
+2026-09-15 09:32:37 [qtp1353838640-27] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.237:8510> starts to transfer leadership to peer 0.0.0.0:0.
+2026-09-15 09:34:36 [JRaft-Global-ElectionTimer4] [WARN] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.237:8510> channel init failed, address=192.168.80.235:8510.
+2026-09-15 09:34:36 [JRaft-RPC-Processor-3] [WARN] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.237:8510> channel init failed, address=192.168.80.235:8510.
+2026-09-15 09:34:36 [JRaft-RPC-Processor-4] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.237:8510> become leader of group, term=6, conf=192.168.80.235:8510::100,192.168.80.236:8510::80,
+== 07:35:47 [master-rep3-kill4] recovery: wipe raft/00000 AND db/00000 on .235 only, restart
+-- store log for partition 0 after the wipe+restart:
+2026-09-15 09:36:30 [main] [INFO] o.a.h.s.n.g.HgStoreNodeService - HgStoreEngine init HgStoreEngineOptions(storeHBInterval=30, partitionHBInterval=5, waitLeaderTimeout=30, raftRpcT
+2026-09-15 09:36:31 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =0, isLeader=false, options=PartitionEngineOptions
+2026-09-15 09:36:31 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =1, isLeader=false, options=PartitionEngineOptions
+2026-09-15 09:36:31 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =2, isLeader=false, options=PartitionEngineOptions
+2026-09-15 09:36:31 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 0 start following: LeaderChangeContext [leaderId=192.168.80.237:8510, term=6, status
+2026-09-15 09:36:31 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =3, isLeader=false, options=PartitionEngineOptions
+2026-09-15 09:36:32 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-15 09:36:32 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =4, isLeader=false, options=PartitionEngineOptions
+-- raft log:
+2026-09-15 09:36:31 [JRaft-Closure-Executor-0] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.235:8510> init, term=0, lastLogId=LogId [index=0, term=0], conf=192.168.80.235:8510::100,192.
+2026-09-15 09:36:31 [RAFT-BASIC-RPC-39] [INFO] c.a.s.j.c.NodeImpl - Node <hg_0/192.168.80.235:8510> received InstallSnapshotRequest from 192.168.80.237:8510, lastIncludedLogIndex=50213, last
+-- db/00000 now: 5 MB
+== 07:37:32 [master-rep3-kill4] partition 0 state after recovery
+  235: [(0, 'PState_Normal')] STATE_FOLLOWER conf=None
+  236: [(0, 'PState_Normal')] STATE_FOLLOWER conf=None
+  237: [(0, 'PState_Normal')] STATE_LEADER conf=None
+== 07:37:33 [master-rep3-kill4] edge count after recovery: "message":"
+"data":[20000000]
+== 07:37:57 [master-rep3-kill4] done
+
+[exited with code 0]

@@ -23,3 +23,25 @@ compaction is still running, restart without wiping, report). Logs: `store-3162.
 Timings for the 10 s lock-wait discussion in the PR: `onSnapshotSave` on a 274 MB partition completes within the same
 log second (checkpoint = hard links, CRC64 over the first/last 4 KB of each file); `compactRange` of a partition with
 ~250 MB of unflushed data takes 7 s, of an already compacted 62 MB partition 0.1 s.
+
+## Replication 3 (2026-09-15, PD `default-shard-count: 3`, 12 partitions × 3 replicas, 20 M edges)
+
+Scripts: `cluster/race_rep3_setup.sh` (wipe/boot with a given store jar and shard count, load, race on a partition led
+by .235, print what the other replicas logged), `cluster/race_rep3_kill.sh` (race + `SIGKILL` of the leader's store,
+restart, per-node partition state, cluster-level edge count, then the per-partition wipe recovery),
+`race_snapshot_compaction_kill.sh` now takes a third argument: seconds between the snapshot request and the kill.
+
+| step | PR #3164 head `54d4fe56` (`pr3164-54d4fe56-rep3-race.log`) | master `60c8803` (`master-rep3-kill-recovery.log`) |
+|---|---|---|
+| snapshot 300 ms into the leader's compaction | leader: `snapshot save failed: compaction in progress` (EBUSY), no directory; **the two followers run their own `doSnapshot` and save fine** (the snapshot command is a replicated raft task, every replica snapshots its own state machine) | leader commits `snapshot_50213` with `__raft_snapshot_meta` and **no `data/`**, followers save fine |
+| `SIGKILL` the leader's store 4 s later, restart without wiping | n/a (nothing to corrupt) | `onSnapshotLoad failed` → `Raft 0 is restarting !!!` once; partition 0 on that node dead (`/v1/partition/0` empty); leadership moved to .237 |
+| cluster while one replica is dead | | `g.E().count()` = 20 000 000, complete: the two healthy replicas serve |
+| does the dead replica heal itself? | | **no**: its raft node never initialises, so it never asks the leader for a snapshot; the `is restarting` loop ends after one attempt |
+| operator recovery: `rm -rf raft/00000 db/00000` on the dead node only, restart | | the node joins with `term=0, index=0`, the leader sends `InstallSnapshotRequest` (`lastIncludedLogIndex=50213`), follower `PState_Normal` within a minute, count still 20 000 000 |
+
+So with three replicas the master bug costs one replica and a manual per-partition wipe, not data; with one replica
+(the run of 2026-09-12) it costs the partition and, after the only possible cleanup, the unflushed writes. The PR's
+save-side fix removes the cause in both cases.
+
+Side effect met on the way (F18 in `docs/findings.md`): the lab's root disk hit 98 %, PD's own 5-minute raft
+snapshot failed once, and the single-node PD stayed leaderless (`Error code = 100` on every call) until restarted.
