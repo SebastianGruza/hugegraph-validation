@@ -1,0 +1,71 @@
+}
+state: PState_Normal
+
+2026-09-15 09:20:54 [hg-grpc-2-thread-223] [INFO] o.a.h.p.StoreNodeService - Raft 11 updateShardGroup id: 11
+version: 4
+conf_ver: 4
+shards {
+  store_id: 6691555292477565672
+  role: Follower
+}
+shards {
+  store_id: 6225343315433424007
+  role: Leader
+}
+shards {
+  store_id: 8901147288975482838
+  role: Follower
+}
+state: PState_Normal
+
+2026-09-15 09:20:58 [hg-grpc-2-thread-231] [INFO] o.a.h.p.m.PartitionMeta - updateGraph graph_name: "DEFAULT/hugegraph/g"
+partition_count: 12
+state: PState_Warn
+
+2026-09-15 09:20:58 [hg-grpc-2-thread-231] [INFO] o.a.h.p.StoreNodeService - update cluster state: Cluster_Warn
+2026-09-15 09:21:54 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.p.r.RaftStateMachine - Raft StateMachine on error {}
+com.alipay.sofa.jraft.error.RaftException: ERROR_TYPE_SNAPSHOT
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.reportError(SnapshotExecutorImpl.java:731) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:380) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:309) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.core.NodeImpl.doSnapshot(NodeImpl.java:3163) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.core.NodeImpl.lambda$handleSnapshotTimeout$0(NodeImpl.java:616) ~[jraft-core-1.3.13.jar!/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:539) ~[?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) ~[?:?]
+2026-09-15 09:21:54 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.p.r.RaftStateMachine - Raft  lost leader 
+2026-09-15 09:22:45 [hg-grpc-2-thread-519] [INFO] o.a.h.p.w.AbstractWatchSubject - Removing a WATCH_TYPE_STORE_NODE_CHANGE's watcher, watcher-id is [1789456633828].
+2026-09-15 09:22:45 [hg-grpc-2-thread-522] [INFO] o.a.h.p.w.AbstractWatchSubject - Removing a WATCH_TYPE_SHARD_GROUP_CHANGE's watcher, watcher-id is [1789456633826].
+2026-09-15 09:22:45 [hg-grpc-2-thread-520] [INFO] o.a.h.p.w.AbstractWatchSubject - Removing a WATCH_TYPE_STORE_NODE_CHANGE's watcher, watcher-id is [1789456633824].
+2026-09-15 09:22:45 [hg-grpc-2-thread-516] [ERROR] o.a.h.p.p.PDPulseSubject - cancelObserver : 
+io.grpc.StatusRuntimeException: CANCELLED: client cancelled
+	at io.grpc.Status.asRuntimeException(Status.java:526) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onCancel(ServerCalls.java:284) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.closedInternal(ServerCallImpl.java:353) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.closed(ServerCallImpl.java:341) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1Closed.runInContext(ServerImpl.java:844) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[?:?]
+	at java.lang.Thread.run(Thread.java:840) ~[?:?]
+2026-09-15 09:22:45 [hg-grpc-2-thread-516] [INFO] o.a.h.p.p.AbstractObserverSubject - Removing a PULSE_TYPE_PARTITION_HEARTBEAT's observer, observer-id is [1789456634438].
+2026-09-15 09:22:45 [hg-grpc-2-thread-517] [INFO] o.a.h.p.w.AbstractWatchSubject - Removing a WATCH_TYPE_PARTITION_CHANGE's watcher, watcher-id is [1789456633827].
+2026-09-15 09:22:48 [hg-grpc-2-thread-530] [ERROR] o.a.h.p.PartitionService - checkShardState 0 failed, error: 
+org.apache.hugegraph.pd.common.PDException: org.apache.hugegraph.pd.common.PDException: org.apache.hugegraph.pd.common.PDException: Error code = 100
+	at org.apache.hugegraph.pd.meta.MetadataRocksDBStore.put(MetadataRocksDBStore.java:79) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.meta.StoreInfoMeta.updateShardGroup(StoreInfoMeta.java:157) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.StoreNodeService.updateShardGroupState(StoreNodeService.java:699) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.PartitionService.checkShardState(PartitionService.java:1015) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.PartitionService.partitionHeartbeat(PartitionService.java:965) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.PDService$1.onNext(PDService.java:203) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.PDService$1.onNext(PDService.java:200) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.pulse.AbstractObserverSubject.handleClientNotice(AbstractObserverSubject.java:224) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.pulse.PDPulseSubject$PDPulseStreamObserver.handleNotice(PDPulseSubject.java:386) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.pulse.PDPulseSubject$PDPulseStreamObserver.onNext(PDPulseSubject.java:423) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.pulse.PDPulseSubject$PDPulseStreamObserver.onNext(PDPulseSubject.java:318) ~[classes!/:1.7.0]
+	at io.grpc.stub.ServerCalls$StreamingServerCallHandler$StreamingServerCallListener.onMessage(ServerCalls.java:255) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailableInternal(ServerCallImpl.java:309) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.messagesAvailable(ServerCallImpl.java:292) ~[grpc-core-1.39.0.jar!/:1.39.0]

@@ -417,3 +417,26 @@ one-shot path honour the caller's deadline. Whether a partial result should ever
 decision — REST has no partial-success semantics today — so the safe change is a fast, complete failure.
 
 F12–F14 are tracked outside this repository.
+
+## F18
+
+**A single-node PD that fails one periodic raft snapshot stays leaderless forever (every RPC answers code 100), and every store loses registration**
+
+Status: **unreported**; observed 2026-09-15 on the lab, caused by a full root disk (98 %), but the failure mode is
+independent of the cause.
+
+PD's own jraft node snapshots every 5 minutes (`hg-u-job` `Raft onSnapshotSave success` at :56:54, :01:54, ...).
+When the save failed at 09:21:54 (`RaftException: ERROR_TYPE_SNAPSHOT` from `SnapshotExecutorImpl.reportError` via
+`NodeImpl.handleSnapshotTimeout`), jraft put the node into `STATE_ERROR` and `RaftStateMachine` logged
+`Raft  lost leader`. With one PD peer there is nobody to elect, and nothing in PD restarts its raft node (HStore's
+`PartitionEngine` does exactly that for store partitions, `Raft N is restarting !!!`; PD has no equivalent). From that
+moment every leader-only PD call fails with `PDException: Error code = 100`: `checkShardState N failed` for every
+partition on every heartbeat, `/v1/members` HTTP 500 after 10 s, a restarting store cannot register
+(`PDClient connect ... DEADLINE_EXCEEDED after 60 s`) and stays down in Spring bootstrap. The existing stores keep
+serving until they need PD. `results/pd-single-node-snapshot-error/`: PD log excerpt and a thread dump (600 gRPC
+worker threads idle, nothing blocked: the process is healthy, only leaderless). Recovery: restart PD; `pd_data` loads
+the previous snapshot and log, nothing is lost.
+
+What to report upstream: on a single-peer configuration a snapshot error should not be terminal (retry the snapshot,
+or restart the raft node as the store does), and the store's heartbeat should surface "PD has no leader" instead of
+per-partition `checkShardState` stack traces every 30 s.
