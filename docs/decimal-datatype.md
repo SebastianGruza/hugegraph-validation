@@ -29,6 +29,7 @@ Branch: `feat/decimal-datatype` in `SebastianGruza/hugegraph`, one commit on top
 | limit | reason |
 |---|---|
 | not a sort key, not an index field of any type, not an OLAP range property; the schema builders reject these | no fixed-width byte-order encoding exists for a decimal; `isNumber()` stays `false` on purpose |
+| at most 128 significant digits and an absolute scale of at most 128 (`DataType.DECIMAL_MAX_PRECISION` / `DECIMAL_MAX_SCALE`), checked in `valueToDecimal()` in both copies, so also on the `SUM` result in `BatchAPI` | a value such as `1E+999999999` is a few bytes on disk but a billion characters from `toPlainString()` on every read (review round 2, bitflicker64: OOM at `-Xmx512m`); uint256 with 18 fraction digits is 96 digits, well inside |
 | fractions in `PUT .../batch` must be sent as **strings** | the batch request's `properties` map is parsed by Jackson before any schema is known, and a JSON fraction literal becomes a `double` there (`0.000000000000000001` → `1.0E-18`); integral literals are exact (`Integer`/`Long`/`BigInteger`) |
 | Gremlin `sum()/max()/min()` work on the returned `BigDecimal` values (TinkerPop `NumberHelper`), but in the server JVM after fetching the elements | unchanged from other types |
 | `hugegraph-client` / loader / Hubble do not know the type yet | separate change in the toolchain repository |
@@ -109,6 +110,8 @@ Run on the lab (hstore server on PD + 3 stores, rocksdb server), dists built fro
 | the 9 failures before | `OLAP_SECONDARY` accepted on a decimal key; all 8 typed Gremlin answers (v2 and v3 × 4 queries) `HTTP 500 Type id handling not implemented for type java.math.BigDecimal` | |
 | typed Gremlin after | `{"@type":"gx:BigDecimal","@value":"115792089237316195423570985008687907853269984665640564039457584007913129639935"}`, `sum()` exact to the 18th fraction digit | |
 | N-A | the lab's `gremlin-server.yaml` answers `Accept: application/vnd.gremlin-v1.0+json` with `400 no serializer for requested Accept header`, before and after alike; `/gremlin` through the REST proxy (`application/json`) is untyped and passed on both heads | |
+
+Review round 2 (2026-09-16, bitflicker64): no bound on the exponent (`1E+999999999` stored in a few bytes, a billion characters from `toPlainString()` on every read, OOM at `-Xmx512m`), and the global `BigDecimal` serializer changing existing Gremlin literals from numbers to strings. Fixed by the 128/128 bound above (also for ready-made `BigDecimal`s: `PropertyKey.convValue()` no longer short-circuits decimals, which the struct test caught) and documented in the PR's compatibility note. `decimal_e2e.py` gained three R4 checks (create with `1E+999999999` → 400, 128 significant digits → 201, a `SUM` whose result has 129 digits → 400); on rocksdb with the round-2 dist: 37 PASS, 0 FAIL, 4 N-A (`results/decimal/e2e/after2-rocksdb.log`).
 
 One side effect worth knowing: once a graph contains a DECIMAL property key, a server built without this change
 cannot open it (`No enum constant org.apache.hugegraph.type.define.DataType.DECIMAL` at startup). On the lab the

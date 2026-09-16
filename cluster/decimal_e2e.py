@@ -22,6 +22,7 @@ BASE = f"http://127.0.0.1:{REST}/graphspaces/DEFAULT/graphs/hugegraph"
 UINT256_MAX = Decimal(2) ** 256 - 1
 WEI = Decimal("0.000000000000000001")
 FEE_DEFAULT = Decimal("0.000000000000000001")
+NINES128 = "9" * 128
 RESULTS = []
 
 
@@ -172,6 +173,20 @@ def rest_rw():
         st, props = get_props(ids[name])
         record(f"R4 batch SUM result {name} exact", props.get(P + "balance") == dstr(val),
                f"balance={props.get(P + 'balance')!r} expected {dstr(val)}")
+    # bounds: a huge exponent must be rejected on create and when a SUM crosses the limit
+    st, b = vertex("huge", {P + "balance": "1E+999999999"})
+    record("R4 huge exponent rejected on create", st == 400 and "out of bounds" in jbody(b).get("message", ""),
+           f"HTTP {st} {jbody(b).get('message', '')[:100]}")
+    st, b = vertex("edge128", {P + "balance": "1E+128"})
+    record("R4 scale 128 accepted on create", st == 201, f"HTTP {st}")
+    st, b = vertex("nines", {P + "balance": NINES128})
+    record("R4 128 significant digits accepted on create", st == 201, f"HTTP {st}")
+    # 128 nines + 1 = 129 significant digits: the SUM result itself is out of bounds
+    st, b = rest("PUT", "/graph/vertices/batch",
+                 {"vertices": [{"label": P + "acct", "properties": {P + "name": "nines", P + "balance": 1}}],
+                  "update_strategies": {P + "balance": "SUM"}, "create_if_not_exist": True})
+    record("R4 SUM result crossing the bound rejected", st == 400 and "out of bounds" in jbody(b).get("message", ""),
+           f"HTTP {st} {jbody(b).get('message', '')[:100]}")
     # default value applied when the key is absent
     st, b = vertex("e", {})
     d = jbody(b); ids["e"] = d.get("id")
@@ -241,7 +256,7 @@ def gremlin_checks(ids):
         "g.inject(1.5) Groovy literal": ("g.inject(1.5)", Decimal("1.5")),
         "values(fee) default": (f"g.V({json.dumps(ids['e'])}).values('{P}fee')", FEE_DEFAULT),
         "sum() over balances": (f"g.V().hasLabel('{P}acct').values('{P}balance').sum()",
-                                UINT256_MAX + WEI * 2 + Decimal("-1.50")),
+                                UINT256_MAX + WEI * 2 + Decimal("-1.50") + Decimal("1E+128") + Decimal(NINES128)),
     }
     for label, (script, want) in scripts.items():
         st, got = gremlin_rest(script)
