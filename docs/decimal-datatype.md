@@ -6,7 +6,7 @@ the property's data type, so with `DOUBLE` a balance of `10^18 + 1` wei becomes 
 type: `LONG` stops at 2^63 (about 9.2 ETH in wei), `TEXT` fails the strategy's `Number` type check.
 
 Branch: `feat/decimal-datatype` in `SebastianGruza/hugegraph`, one commit on top of apache `master` `60c8803`
-(head `a28554e` at the time of writing). Upstream: issue apache/hugegraph#3206 (2026-09-14, design points to confirm); PR to follow 24 h later. The fork's
+(head `a28554e` at the time of writing). Upstream: issue apache/hugegraph#3206 (2026-09-14, design points to confirm); PR apache/hugegraph#3209 (2026-09-16). The fork's
 `integration` branch carries the branch for the POC.
 
 ## What it adds
