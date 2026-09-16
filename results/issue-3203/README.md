@@ -21,7 +21,7 @@ Side finding, not part of the issue: with a comma-decimal JVM locale (`pl_PL` he
 this with `Can't write json: For input string: "0,00"` from `GraphSpace.info()`
 (`Float.parseFloat(String.format("%.2f", ...))`); the runs above use `-Duser.language=en -Duser.country=US`.
 
-## Fix, 2026-09-16: wait for the stores at startup (`fix/server-wait-for-stores`, `0084e77d` on master `1a15e762`)
+## Fix, 2026-09-16: wait for the stores at startup (PR apache/hugegraph#3210, `fix/server-wait-for-stores`, `0084e77d` on master `1a15e762`)
 
 `GraphManager` polls PD for the active store count before any hstore graph is opened, bounded by the new server
 option `pd.stores_wait_timeout` (seconds, default 300, 0 = old behaviour), logging progress every 5 s and naming the
