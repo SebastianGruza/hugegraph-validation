@@ -142,7 +142,7 @@ Example: `VertexCoreTest.testScanVertexInPaging` (`VertexCoreTest.java:7739`).
 
 **#3090 — hstore pushdown reads properties the server never wrote with a header**
 
-Status: **reported** (issue #3090), interim mitigation **PR #3184** (ours).
+Status: **reported** (issue #3090), interim mitigation **PR #3184** (ours), **merged into master 2026-09-16 as `1a15e762`**; the codec itself, the unguarded `queryAll()` / shard-scan pushdown and the excluded core tests stay open in #3090.
 
 Background of section S. The server serialises property values raw (core `BytesBuffer` ~L596)
 while the store-side reader expects `(cardinality << 6) | dataType` (`hugegraph-struct`
