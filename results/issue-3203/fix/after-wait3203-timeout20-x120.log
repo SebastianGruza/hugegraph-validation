@@ -1,0 +1,98 @@
+2026-09-16 23:32:22 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-16 23:32:22 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-16 23:32:22 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-16 23:32:22 [main] [INFO] c.j.m.Manifests - 103 attributes loaded from 324 stream(s) in 233ms, 103 saved, 4677 ignored: ["Agent-Class", "Ant-Version", "Archiver-Version", "Automatic-Module-Name", "Bnd-LastModified", "Build-Date", "Build-Id", "Build-Jdk", "Build-Jdk-Spec", "Build-Number", "Build-Tag", "Build-Timestamp", "Build-Version", "Built-By", "Built-JDK", "Bundle-ActivationPolicy", "Bundle-Activator", "Bundle-Category", "Bundle-ClassPath", "Bundle-ContactAddress", "Bundle-Description", "Bundle-Developers", "Bundle-DocURL", "Bundle-License", "Bundle-ManifestVersion", "Bundle-Name", "Bundle-NativeCode", "Bundle-RequiredExecutionEnvironment", "Bundle-SCM", "Bundle-SymbolicName", "Bundle-Vendor", "Bundle-Version", "Can-Redefine-Classes", "Can-Retransform-Classes", "Can-Set-Native-Method-Prefix", "Carl-Is-Awesome", "Class-Path", "Created-By", "DynamicImport-Package", "Eclipse-BuddyPolicy", "Eclipse-ExtensibleAPI", "Embed-Dependency", "Export-Package", "Extension-Name", "Extension-name", "Fragment-Host", "Git-Revision", "Git-Url", "Implementation-Build", "Implementation-Build-Date", "Implementation-Build-Id", "Implementation-Title", "Implementation-URL", "Implementation-Vendor", "Implementation-Vendor-Id", "Implementation-Version", "Import-Package", "Include-Resource", "JCabi-Build", "JCabi-Date", "JCabi-Version", "Java-Vendor", "Java-Version", "Log4jReleaseKey", "Log4jReleaseManager", "Log4jReleaseVersion", "Log4jReleaseVersionJava6", "Log4jReleaseVersionJava7", "Log4jSigningUserName", "Main-Class", "Major-Version", "Manifest-Version", "Multi-Release", "Originally-Created-By", "Os-Arch", "Os-Name", "Os-Version", "Package", "Premain-Class", "Private-Package", "Provide-Capability", "Require-Capability", "Scm-Connection", "Scm-Revision", "Scm-Url", "Source-Compatibility", "Specification-Title", "Specification-Vendor", "Specification-Version", "Target-Compatibility", "Time-Zone-Database-Version", "Tool", "X-Compile-Source-JDK", "X-Compile-Target-JDK", "artifactId", "groupId", "hash", "implementation-version", "mode", "package", "service", "url", "version"]
+2026-09-16 23:32:22 [main] [INFO] o.a.h.d.HugeGremlinServer - 3.5.1
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+2026-09-16 23:32:22 [main] [INFO] o.a.h.u.ConfigUtil - Scanning option 'graphs' directory './conf/graphs'
+2026-09-16 23:32:22 [main] [INFO] o.a.h.d.HugeGremlinServer - Configuring Gremlin Server from /home/seba/hg-3203/hugegraph-server/dist-wait3203-hstore/conf/gremlin-server.yaml
+2026-09-16 23:32:22 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-id-DEFAULT-hugegraph' with capacity 10000
+2026-09-16 23:32:22 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-name-DEFAULT-hugegraph' with capacity 10000
+2026-09-16 23:32:22 [main] [INFO] o.a.h.p.c.KvClient - wait for client starting....
+2026-09-16 23:32:23 [main] [INFO] o.a.h.p.c.AbstractClient - AbstractClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:32:23 [grpc-default-executor-0] [INFO] o.a.h.p.c.KvClient - set watch client id to :-1542900703701533880
+2026-09-16 23:32:23 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:32:23 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-16 23:32:23 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+2026-09-16 23:32:23 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-16 23:32:23 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-16 23:32:23 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-16 23:32:23 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-16 23:32:23 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-16 23:32:24 [main] [INFO] o.c.o.l.Uns - OHC using JNA OS native malloc/free
+2026-09-16 23:32:24 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'vertex-DEFAULT-hugegraph' with capacity 10000:10000000
+2026-09-16 23:32:24 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'edge-DEFAULT-hugegraph' with capacity 1000:1000000
+2026-09-16 23:32:24 [main] [INFO] o.a.h.t.TaskManager - Use distributed as the scheduler of graph (hugegraph)
+2026-09-16 23:32:24 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users-auth' with capacity 10240
+2026-09-16 23:32:24 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users_pwd-auth' with capacity 10240
+2026-09-16 23:32:24 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'token-auth' with capacity 10240
+2026-09-16 23:32:24 [main] [INFO] o.a.t.g.s.u.DefaultGraphManager - Graph [DEFAULT-hugegraph] was successfully configured via [/home/seba/hg-3203/hugegraph-server/dist-wait3203-hstore/conf/graphs/hugegraph.properties].
+2026-09-16 23:32:24 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+2026-09-16 23:32:24 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+2026-09-16 23:32:26 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+2026-09-16 23:32:26 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the cypher OpProcessor.
+2026-09-16 23:32:26 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the standard OpProcessor.
+2026-09-16 23:32:26 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the session OpProcessor.
+2026-09-16 23:32:26 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the traversal OpProcessor.
+2026-09-16 23:32:26 [main] [INFO] o.a.h.s.RestServer - RestServer starting...
+2026-09-16 23:32:26 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-16 23:32:26 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-16 23:32:26 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-16 23:32:28 [main] [INFO] o.a.h.c.GraphManager - Init graph manager
+2026-09-16 23:32:28 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:32:28 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-16 23:32:28 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+2026-09-16 23:32:28 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-16 23:32:28 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-16 23:32:28 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-16 23:32:28 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-16 23:32:28 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-16 23:32:28 [main] [INFO] o.a.h.c.GraphManager - PD needs 3 active store(s) (min_store_count=0, shard_count=3); waiting up to 20s
+2026-09-16 23:32:28 [main] [INFO] o.a.h.c.GraphManager - Waiting for 0/3 active store(s) in PD, 19s left
+2026-09-16 23:32:33 [main] [INFO] o.a.h.c.GraphManager - Waiting for 0/3 active store(s) in PD, 14s left
+2026-09-16 23:32:38 [main] [INFO] o.a.h.c.GraphManager - Waiting for 0/3 active store(s) in PD, 9s left
+2026-09-16 23:32:43 [main] [INFO] o.a.h.c.GraphManager - Waiting for 0/3 active store(s) in PD, 4s left
+2026-09-16 23:32:48 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[]
+2026-09-16 23:32:48 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[cypher]
+2026-09-16 23:32:48 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[session]
+2026-09-16 23:32:48 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[traversal]
+2026-09-16 23:32:48 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down thread pools.
+2026-09-16 23:32:48 [main] [ERROR] o.a.h.d.HugeGraphServer - HugeRestServer start error: 
+org.apache.hugegraph.HugeException: Timed out after 20s waiting for 3 active store(s) in PD (0 registered); start the stores first or raise pd.stores_wait_timeout
+	at org.apache.hugegraph.core.GraphManager.waitForStores(GraphManager.java:554) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.waitForActiveStores(GraphManager.java:516) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:248) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.ApplicationConfig$GraphManagerFactory$1.onEvent(ApplicationConfig.java:184) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.glassfish.jersey.server.internal.monitoring.CompositeApplicationEventListener.onEvent(CompositeApplicationEventListener.java:49) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.internal.monitoring.MonitoringContainerListener.onStartup(MonitoringContainerListener.java:56) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.onStartup(ApplicationHandler.java:711) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.start(GrizzlyHttpContainer.java:330) ~[jersey-container-grizzly2-http-3.0.3.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandlerChain.start(HttpHandlerChain.java:376) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.setupHttpHandler(HttpServer.java:268) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.start(HttpServer.java:245) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:70) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:177) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.dist.HugeRestServer.start(HugeRestServer.java:31) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.<init>(HugeGraphServer.java:86) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.main(HugeGraphServer.java:196) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.bootstrap.HugeGraphServerBootstrap.main(HugeGraphServerBootstrap.java:77) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+2026-09-16 23:32:48 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Executing shutdown LifeCycleHook
+2026-09-16 23:32:48 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Executed once at shutdown of Gremlin Server.
+2026-09-16 23:32:50 [gremlin-server-stop] [INFO] o.a.h.StandardHugeGraph - Close graph standardhugegraph[DEFAULT-hugegraph]
+2026-09-16 23:32:50 [gremlin-server-stop] [WARN] o.a.h.StandardHugeGraph - thread [main] did not close transaction
+2026-09-16 23:32:50 [gremlin-server-stop] [WARN] o.a.t.g.s.GremlinServer - Exception while closing Graph instance [DEFAULT-hugegraph]
+java.lang.IllegalStateException: Ensure tx closed in all threads when closing graph 'DEFAULT-hugegraph'
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:534) ~[guava-31.0.1-android.jar:?]
+	at org.apache.hugegraph.util.E.checkState(E.java:64) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.close(StandardHugeGraph.java:1129) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.server.GremlinServer.lambda$null$7(GremlinServer.java:307) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at java.util.concurrent.ConcurrentHashMap$KeySetView.forEach(ConcurrentHashMap.java:4696) ~[?:?]
+	at org.apache.tinkerpop.gremlin.server.GremlinServer.lambda$stop$8(GremlinServer.java:304) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-16 23:32:50 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Closed Graph instance [DEFAULT-hugegraph]
+2026-09-16 23:32:50 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Gremlin Server - shutdown complete
+2026-09-16 23:32:50 [main] [INFO] o.a.h.HugeFactory - HugeFactory shutdown
+2026-09-16 23:32:50 [hugegraph-shutdown] [INFO] o.a.h.HugeFactory - HugeGraph is shutting down

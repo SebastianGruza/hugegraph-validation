@@ -1,0 +1,63 @@
+##### BEFORE master1a15 usePD 21:13:22
+== 21:13:22 [before-1a15-usepd] wipe
+== 21:15:25 [before-1a15-usepd] PD listening; stores start in 5 s; server step: server
+step=start-hugegraph exit=1 duration=51 s (started 1 s after PD)
+.........................Starting HugeGraphServer failed
+See /home/seba/hg-master/hugegraph-server/dist-master1a15-hstore/logs/hugegraph-server.log for HugeGraphServer log output.
+  store Up in PD log: 
+  105: count=18 first=23:15:37 last=by: sleeps=1,1,1,2,3,4,5,6,7,8,
+  wait-for-stores: 0 lines, first= done=
+  upper limit: 23:16:13  other errors: 14 (2026-09-16 23:15:34 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |2026-09-16 23:15:35 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |)
+  REST: 000  PD says: 
+  hugegraph-dev: store start at +5 s after PD; 
+  hugegraph-node2: store start at +71 s after PD; 
+  hugegraph-node3: store start at +71 s after PD; 
+== 21:17:54 [before-1a15-usepd] done
+##### AFTER wait3203 usePD 21:17:54
+== 21:17:54 [after-wait3203-usepd] wipe
+== 21:19:48 [after-wait3203-usepd] PD listening; stores start in 5 s; server step: server
+step=start-hugegraph exit=1 duration=51 s (started 1 s after PD)
+.........................Starting HugeGraphServer failed
+See /home/seba/hg-3203/hugegraph-server/dist-wait3203-hstore/logs/hugegraph-server.log for HugeGraphServer log output.
+  store Up in PD log: 
+  105: count=18 first=23:20:00 last=by: sleeps=1,1,1,2,3,4,5,6,7,8,
+  wait-for-stores: 0 lines, first= done=
+  upper limit: 23:20:37  other errors: 14 (2026-09-16 23:19:58 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |2026-09-16 23:19:59 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request |)
+  REST: 000  PD says: 
+  hugegraph-dev: store start at +6 s after PD; 
+  hugegraph-node2: store start at +71 s after PD; 
+  hugegraph-node3: store start at +71 s after PD; 
+== 21:22:16 [after-wait3203-usepd] done
+##### REPRO DONE 21:22:16
+##### AFTER wait3203 usePD (wait in constructor) 21:25:31
+== 21:25:31 [after-wait3203-usepd] wipe
+== 21:27:27 [after-wait3203-usepd] PD listening; stores start in 5 s; server step: server
+step=start-hugegraph exit=0 duration=81 s (started 1 s after PD)
+........................................OK
+Started [pid 298060]
+  store Up in PD log: 
+  105: count=0 first= last= sleeps=
+  wait-for-stores: 15 lines, first=23:27:36 done=2026-09-16 23:28:46 [main] [INFO] o.a.h.c.GraphManager - 3 active store(s) in PD after 70s
+  upper limit:   other errors: 0 ()
+  REST: 200  PD says: 
+  hugegraph-dev: store start at +5 s after PD; 
+  hugegraph-node2: store start at +71 s after PD; 
+  hugegraph-node3: store start at +71 s after PD; 
+== 21:29:55 [after-wait3203-usepd] done
+##### REPRO DONE 21:29:55
+##### AFTER wait3203, timeout 20 s, stores at 120 s 21:30:15
+== 21:30:15 [after-wait3203-timeout20] wipe
+== 21:32:19 [after-wait3203-timeout20] PD listening; stores start in 120 s; server step: server
+step=start-hugegraph exit=1 duration=31 s (started 1 s after PD)
+...............Starting HugeGraphServer failed
+See /home/seba/hg-3203/hugegraph-server/dist-wait3203-hstore/logs/hugegraph-server.log for HugeGraphServer log output.
+  store Up in PD log: 
+  105: count=0 first= last= sleeps=
+  wait-for-stores: 5 lines, first=23:32:28 done=
+  upper limit:   other errors: 1 (2026-09-16 23:32:48 [main] [ERROR] o.a.h.d.HugeGraphServer - HugeRestServer start error: |)
+  REST: 000  PD says: 
+  hugegraph-dev: store start at +120 s after PD; 
+  hugegraph-node2: store start at +120 s after PD; 
+  hugegraph-node3: store start at +120 s after PD; 
+== 21:35:36 [after-wait3203-timeout20] done
+##### REPRO DONE 21:35:36

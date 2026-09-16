@@ -1,0 +1,331 @@
+2026-09-16 23:15:27 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-16 23:15:27 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-16 23:15:27 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-16 23:15:27 [main] [INFO] c.j.m.Manifests - 103 attributes loaded from 324 stream(s) in 237ms, 103 saved, 4677 ignored: ["Agent-Class", "Ant-Version", "Archiver-Version", "Automatic-Module-Name", "Bnd-LastModified", "Build-Date", "Build-Id", "Build-Jdk", "Build-Jdk-Spec", "Build-Number", "Build-Tag", "Build-Timestamp", "Build-Version", "Built-By", "Built-JDK", "Bundle-ActivationPolicy", "Bundle-Activator", "Bundle-Category", "Bundle-ClassPath", "Bundle-ContactAddress", "Bundle-Description", "Bundle-Developers", "Bundle-DocURL", "Bundle-License", "Bundle-ManifestVersion", "Bundle-Name", "Bundle-NativeCode", "Bundle-RequiredExecutionEnvironment", "Bundle-SCM", "Bundle-SymbolicName", "Bundle-Vendor", "Bundle-Version", "Can-Redefine-Classes", "Can-Retransform-Classes", "Can-Set-Native-Method-Prefix", "Carl-Is-Awesome", "Class-Path", "Created-By", "DynamicImport-Package", "Eclipse-BuddyPolicy", "Eclipse-ExtensibleAPI", "Embed-Dependency", "Export-Package", "Extension-Name", "Extension-name", "Fragment-Host", "Git-Revision", "Git-Url", "Implementation-Build", "Implementation-Build-Date", "Implementation-Build-Id", "Implementation-Title", "Implementation-URL", "Implementation-Vendor", "Implementation-Vendor-Id", "Implementation-Version", "Import-Package", "Include-Resource", "JCabi-Build", "JCabi-Date", "JCabi-Version", "Java-Vendor", "Java-Version", "Log4jReleaseKey", "Log4jReleaseManager", "Log4jReleaseVersion", "Log4jReleaseVersionJava6", "Log4jReleaseVersionJava7", "Log4jSigningUserName", "Main-Class", "Major-Version", "Manifest-Version", "Multi-Release", "Originally-Created-By", "Os-Arch", "Os-Name", "Os-Version", "Package", "Premain-Class", "Private-Package", "Provide-Capability", "Require-Capability", "Scm-Connection", "Scm-Revision", "Scm-Url", "Source-Compatibility", "Specification-Title", "Specification-Vendor", "Specification-Version", "Target-Compatibility", "Time-Zone-Database-Version", "Tool", "X-Compile-Source-JDK", "X-Compile-Target-JDK", "artifactId", "groupId", "hash", "implementation-version", "mode", "package", "service", "url", "version"]
+2026-09-16 23:15:27 [main] [INFO] o.a.h.d.HugeGremlinServer - 3.5.1
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+2026-09-16 23:15:27 [main] [INFO] o.a.h.u.ConfigUtil - Scanning option 'graphs' directory './conf/graphs'
+2026-09-16 23:15:27 [main] [INFO] o.a.h.d.HugeGremlinServer - Configuring Gremlin Server from /home/seba/hg-master/hugegraph-server/dist-master1a15-hstore/conf/gremlin-server.yaml
+2026-09-16 23:15:28 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-id-DEFAULT-hugegraph' with capacity 10000
+2026-09-16 23:15:28 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-name-DEFAULT-hugegraph' with capacity 10000
+2026-09-16 23:15:28 [main] [INFO] o.a.h.p.c.KvClient - wait for client starting....
+2026-09-16 23:15:29 [main] [INFO] o.a.h.p.c.AbstractClient - AbstractClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:15:29 [grpc-default-executor-0] [INFO] o.a.h.p.c.KvClient - set watch client id to :-3531463886715498620
+2026-09-16 23:15:29 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:15:29 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-16 23:15:29 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+2026-09-16 23:15:29 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-16 23:15:29 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-16 23:15:29 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-16 23:15:29 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-16 23:15:29 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-16 23:15:30 [main] [INFO] o.c.o.l.Uns - OHC using JNA OS native malloc/free
+2026-09-16 23:15:30 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'vertex-DEFAULT-hugegraph' with capacity 10000:10000000
+2026-09-16 23:15:30 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'edge-DEFAULT-hugegraph' with capacity 1000:1000000
+2026-09-16 23:15:30 [main] [INFO] o.a.h.t.TaskManager - Use distributed as the scheduler of graph (hugegraph)
+2026-09-16 23:15:30 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users-auth' with capacity 10240
+2026-09-16 23:15:30 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users_pwd-auth' with capacity 10240
+2026-09-16 23:15:30 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'token-auth' with capacity 10240
+2026-09-16 23:15:30 [main] [INFO] o.a.t.g.s.u.DefaultGraphManager - Graph [DEFAULT-hugegraph] was successfully configured via [/home/seba/hg-master/hugegraph-server/dist-master1a15-hstore/conf/graphs/hugegraph.properties].
+2026-09-16 23:15:30 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+2026-09-16 23:15:30 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+2026-09-16 23:15:32 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+2026-09-16 23:15:32 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the cypher OpProcessor.
+2026-09-16 23:15:32 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the standard OpProcessor.
+2026-09-16 23:15:32 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the session OpProcessor.
+2026-09-16 23:15:32 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the traversal OpProcessor.
+2026-09-16 23:15:32 [main] [INFO] o.a.h.s.RestServer - RestServer starting...
+2026-09-16 23:15:32 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-16 23:15:32 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-16 23:15:32 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-16 23:15:34 [main] [INFO] o.a.h.c.GraphManager - Init graph manager
+2026-09-16 23:15:34 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+2026-09-16 23:15:34 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-16 23:15:34 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+2026-09-16 23:15:34 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-16 23:15:34 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-16 23:15:34 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-16 23:15:34 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-16 23:15:34 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-16 23:15:34 [main] [WARN] o.a.h.c.HugeConfig - The config option 'creator' is redundant, please ensure it has been registered
+2026-09-16 23:15:34 [main] [WARN] o.a.h.c.HugeConfig - The config option 'create_time' is redundant, please ensure it has been registered
+2026-09-16 23:15:34 [main] [WARN] o.a.h.c.HugeConfig - The config option 'update_time' is redundant, please ensure it has been registered
+2026-09-16 23:15:34 [main] [WARN] o.a.h.c.HugeConfig - The config option 'nickname' is redundant, please ensure it has been registered
+2026-09-16 23:15:34 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-id-DEFAULT-~sys_graph' with capacity 10000
+2026-09-16 23:15:34 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-name-DEFAULT-~sys_graph' with capacity 10000
+2026-09-16 23:15:34 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'vertex-DEFAULT-~sys_graph' with capacity 10000:10000000
+2026-09-16 23:15:34 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'edge-DEFAULT-~sys_graph' with capacity 1000:1000000
+2026-09-16 23:15:34 [main] [INFO] o.a.h.t.TaskManager - Use distributed as the scheduler of graph (~sys_graph)
+2026-09-16 23:15:34 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 102, msg = There is no any online store
+2026-09-16 23:15:34 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 1 seconds for the next try.
+2026-09-16 23:15:35 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 102, msg = There is no any online store
+2026-09-16 23:15:35 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 1 seconds for the next try.
+2026-09-16 23:15:36 [grpc-default-executor-1] [INFO] o.a.h.p.c.PDClient - PDClient receive store event NODE_ONLINE 2234fcf0d756e743
+2026-09-16 23:15:36 [grpc-default-executor-2] [INFO] o.a.h.p.c.PDClient - PDClient receive store event NODE_ONLINE 2234fcf0d756e743
+2026-09-16 23:15:37 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:37 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 1 seconds for the next try.
+2026-09-16 23:15:38 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:38 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 2 seconds for the next try.
+2026-09-16 23:15:40 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:40 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 3 seconds for the next try.
+2026-09-16 23:15:43 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:43 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 4 seconds for the next try.
+2026-09-16 23:15:47 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:47 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 5 seconds for the next try.
+2026-09-16 23:15:52 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:52 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 6 seconds for the next try.
+2026-09-16 23:15:58 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:15:58 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 7 seconds for the next try.
+2026-09-16 23:16:05 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:16:05 [main] [INFO] o.a.h.s.c.NodeTxExecutor - Waiting 8 seconds for the next try.
+2026-09-16 23:16:13 [main] [ERROR] o.a.h.s.c.HgStoreNodePartitionerImpl - An error occurred while getting partition information :PD request error, error code = 105, msg = The number of active stores is less then 3
+2026-09-16 23:16:13 [main] [ERROR] o.a.h.s.c.NodeTxExecutor - the number of retries reached the upper limit : 10,caused by:
+java.lang.RuntimeException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:87) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.doPartition(NodeTxSessionProxy.java:865) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.toNodeTkvList(NodeTxSessionProxy.java:778) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.getNodeStream(NodeTxSessionProxy.java:921) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.lambda$createTable$20(NodeTxSessionProxy.java:321) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$isAllTrue$12(NodeTxExecutor.java:362) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:415) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180) ~[?:?]
+	at java.util.stream.Streams$RangeIntSpliterator.tryAdvance(Streams.java:87) ~[?:?]
+	at java.util.stream.IntPipeline.forEachWithCancel(IntPipeline.java:163) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543) ~[?:?]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.retryingInvoke(NodeTxExecutor.java:467) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.isAllTrue(NodeTxExecutor.java:361) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.createTable(NodeTxSessionProxy.java:320) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.createTable(HstoreSessionsImpl.java:483) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl.createTable(HstoreSessionsImpl.java:157) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.init(HstoreStore.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.AbstractBackendStoreProvider.init(AbstractBackendStoreProvider.java:117) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.initBackend(StandardHugeGraph.java:497) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1913) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.createSysGraphIfNeed(GraphManager.java:475) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.kvStoreInit(GraphManager.java:444) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:367) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.ApplicationConfig$GraphManagerFactory$1.onEvent(ApplicationConfig.java:184) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.glassfish.jersey.server.internal.monitoring.CompositeApplicationEventListener.onEvent(CompositeApplicationEventListener.java:49) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.internal.monitoring.MonitoringContainerListener.onStartup(MonitoringContainerListener.java:56) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.onStartup(ApplicationHandler.java:711) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.start(GrizzlyHttpContainer.java:330) ~[jersey-container-grizzly2-http-3.0.3.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandlerChain.start(HttpHandlerChain.java:376) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.setupHttpHandler(HttpServer.java:268) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.start(HttpServer.java:245) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:70) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:177) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.dist.HugeRestServer.start(HugeRestServer.java:31) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.<init>(HugeGraphServer.java:86) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.main(HugeGraphServer.java:196) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.bootstrap.HugeGraphServerBootstrap.main(HugeGraphServerBootstrap.java:77) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+Caused by: org.apache.hugegraph.pd.common.PDException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.pd.client.PDClient.handleResponseError(PDClient.java:984) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getPartitionByCode(PDClient.java:565) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getActiveStores(PDClient.java:446) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:60) ~[hg-store-client-1.7.0.jar:1.7.0]
+	... 43 more
+2026-09-16 23:16:13 [main] [ERROR] o.a.h.c.GraphManager - Unable to load meta for PD server and usePD = true in server options
+org.apache.hugegraph.store.client.type.HgStoreClientException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.store.client.type.HgStoreClientException.of(HgStoreClientException.java:42) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:445) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180) ~[?:?]
+	at java.util.stream.Streams$RangeIntSpliterator.tryAdvance(Streams.java:87) ~[?:?]
+	at java.util.stream.IntPipeline.forEachWithCancel(IntPipeline.java:163) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543) ~[?:?]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.retryingInvoke(NodeTxExecutor.java:467) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.isAllTrue(NodeTxExecutor.java:361) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.createTable(NodeTxSessionProxy.java:320) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.createTable(HstoreSessionsImpl.java:483) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl.createTable(HstoreSessionsImpl.java:157) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.init(HstoreStore.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.AbstractBackendStoreProvider.init(AbstractBackendStoreProvider.java:117) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.initBackend(StandardHugeGraph.java:497) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1913) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.createSysGraphIfNeed(GraphManager.java:475) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.kvStoreInit(GraphManager.java:444) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:367) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.ApplicationConfig$GraphManagerFactory$1.onEvent(ApplicationConfig.java:184) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.glassfish.jersey.server.internal.monitoring.CompositeApplicationEventListener.onEvent(CompositeApplicationEventListener.java:49) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.internal.monitoring.MonitoringContainerListener.onStartup(MonitoringContainerListener.java:56) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.onStartup(ApplicationHandler.java:711) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.start(GrizzlyHttpContainer.java:330) ~[jersey-container-grizzly2-http-3.0.3.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandlerChain.start(HttpHandlerChain.java:376) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.setupHttpHandler(HttpServer.java:268) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.start(HttpServer.java:245) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:70) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:177) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.dist.HugeRestServer.start(HugeRestServer.java:31) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.<init>(HugeGraphServer.java:86) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.main(HugeGraphServer.java:196) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.bootstrap.HugeGraphServerBootstrap.main(HugeGraphServerBootstrap.java:77) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+Caused by: java.lang.RuntimeException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:87) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.doPartition(NodeTxSessionProxy.java:865) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.toNodeTkvList(NodeTxSessionProxy.java:778) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.getNodeStream(NodeTxSessionProxy.java:921) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.lambda$createTable$20(NodeTxSessionProxy.java:321) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$isAllTrue$12(NodeTxExecutor.java:362) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:415) ~[hg-store-client-1.7.0.jar:1.7.0]
+	... 37 more
+Caused by: org.apache.hugegraph.pd.common.PDException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.pd.client.PDClient.handleResponseError(PDClient.java:984) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getPartitionByCode(PDClient.java:565) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getActiveStores(PDClient.java:446) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:60) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.doPartition(NodeTxSessionProxy.java:865) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.toNodeTkvList(NodeTxSessionProxy.java:778) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.getNodeStream(NodeTxSessionProxy.java:921) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.lambda$createTable$20(NodeTxSessionProxy.java:321) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$isAllTrue$12(NodeTxExecutor.java:362) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:415) ~[hg-store-client-1.7.0.jar:1.7.0]
+	... 37 more
+2026-09-16 23:16:13 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[]
+2026-09-16 23:16:13 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[cypher]
+2026-09-16 23:16:13 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[session]
+2026-09-16 23:16:13 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down OpProcessor[traversal]
+2026-09-16 23:16:13 [main] [INFO] o.a.t.g.s.GremlinServer - Shutting down thread pools.
+2026-09-16 23:16:13 [main] [ERROR] o.a.h.d.HugeGraphServer - HugeRestServer start error: 
+java.lang.IllegalStateException: org.apache.hugegraph.store.client.type.HgStoreClientException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:258) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.ApplicationConfig$GraphManagerFactory$1.onEvent(ApplicationConfig.java:184) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.glassfish.jersey.server.internal.monitoring.CompositeApplicationEventListener.onEvent(CompositeApplicationEventListener.java:49) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.internal.monitoring.MonitoringContainerListener.onStartup(MonitoringContainerListener.java:56) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.server.ApplicationHandler.onStartup(ApplicationHandler.java:711) ~[jersey-server-3.0.3.jar:?]
+	at org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.start(GrizzlyHttpContainer.java:330) ~[jersey-container-grizzly2-http-3.0.3.jar:?]
+	at org.glassfish.grizzly.http.server.HttpHandlerChain.start(HttpHandlerChain.java:376) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.setupHttpHandler(HttpServer.java:268) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.glassfish.grizzly.http.server.HttpServer.start(HttpServer.java:245) ~[grizzly-http-server-3.0.1.jar:3.0.1]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:70) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.server.RestServer.start(RestServer.java:177) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.dist.HugeRestServer.start(HugeRestServer.java:31) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.<init>(HugeGraphServer.java:86) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.dist.HugeGraphServer.main(HugeGraphServer.java:196) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.bootstrap.HugeGraphServerBootstrap.main(HugeGraphServerBootstrap.java:77) ~[hugegraph-dist-1.7.0.jar:1.7.0]
+Caused by: org.apache.hugegraph.store.client.type.HgStoreClientException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.store.client.type.HgStoreClientException.of(HgStoreClientException.java:42) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:445) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180) ~[?:?]
+	at java.util.stream.Streams$RangeIntSpliterator.tryAdvance(Streams.java:87) ~[?:?]
+	at java.util.stream.IntPipeline.forEachWithCancel(IntPipeline.java:163) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543) ~[?:?]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.retryingInvoke(NodeTxExecutor.java:467) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.isAllTrue(NodeTxExecutor.java:361) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.createTable(NodeTxSessionProxy.java:320) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.createTable(HstoreSessionsImpl.java:483) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl.createTable(HstoreSessionsImpl.java:157) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.init(HstoreStore.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.AbstractBackendStoreProvider.init(AbstractBackendStoreProvider.java:117) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.initBackend(StandardHugeGraph.java:497) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1913) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.createSysGraphIfNeed(GraphManager.java:475) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.kvStoreInit(GraphManager.java:444) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:367) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	... 14 more
+Caused by: java.lang.RuntimeException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:87) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.doPartition(NodeTxSessionProxy.java:865) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.toNodeTkvList(NodeTxSessionProxy.java:778) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.getNodeStream(NodeTxSessionProxy.java:921) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.lambda$createTable$20(NodeTxSessionProxy.java:321) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$isAllTrue$12(NodeTxExecutor.java:362) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:415) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180) ~[?:?]
+	at java.util.stream.Streams$RangeIntSpliterator.tryAdvance(Streams.java:87) ~[?:?]
+	at java.util.stream.IntPipeline.forEachWithCancel(IntPipeline.java:163) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543) ~[?:?]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.retryingInvoke(NodeTxExecutor.java:467) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.isAllTrue(NodeTxExecutor.java:361) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.createTable(NodeTxSessionProxy.java:320) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.createTable(HstoreSessionsImpl.java:483) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl.createTable(HstoreSessionsImpl.java:157) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.init(HstoreStore.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.AbstractBackendStoreProvider.init(AbstractBackendStoreProvider.java:117) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.initBackend(StandardHugeGraph.java:497) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1913) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.createSysGraphIfNeed(GraphManager.java:475) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.kvStoreInit(GraphManager.java:444) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:367) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	... 14 more
+Caused by: org.apache.hugegraph.pd.common.PDException: PD request error, error code = 105, msg = The number of active stores is less then 3
+	at org.apache.hugegraph.pd.client.PDClient.handleResponseError(PDClient.java:984) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getPartitionByCode(PDClient.java:565) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.pd.client.PDClient.getActiveStores(PDClient.java:446) ~[hg-pd-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.HgStoreNodePartitionerImpl.partition(HgStoreNodePartitionerImpl.java:60) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.doPartition(NodeTxSessionProxy.java:865) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.toNodeTkvList(NodeTxSessionProxy.java:778) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.getNodeStream(NodeTxSessionProxy.java:921) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.lambda$createTable$20(NodeTxSessionProxy.java:321) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$isAllTrue$12(NodeTxExecutor.java:362) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.lambda$retryingInvoke$15(NodeTxExecutor.java:415) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:195) ~[?:?]
+	at java.util.stream.IntPipeline$1$1.accept(IntPipeline.java:180) ~[?:?]
+	at java.util.stream.Streams$RangeIntSpliterator.tryAdvance(Streams.java:87) ~[?:?]
+	at java.util.stream.IntPipeline.forEachWithCancel(IntPipeline.java:163) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyIntoWithCancel(AbstractPipeline.java:502) ~[?:?]
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:488) ~[?:?]
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:474) ~[?:?]
+	at java.util.stream.FindOps$FindOp.evaluateSequential(FindOps.java:150) ~[?:?]
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.util.stream.ReferencePipeline.findFirst(ReferencePipeline.java:543) ~[?:?]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.retryingInvoke(NodeTxExecutor.java:467) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxExecutor.isAllTrue(NodeTxExecutor.java:361) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.NodeTxSessionProxy.createTable(NodeTxSessionProxy.java:320) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.createTable(HstoreSessionsImpl.java:483) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl.createTable(HstoreSessionsImpl.java:157) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.init(HstoreStore.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.AbstractBackendStoreProvider.init(AbstractBackendStoreProvider.java:117) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.initBackend(StandardHugeGraph.java:497) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.core.GraphManager.createGraph(GraphManager.java:1913) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.createSysGraphIfNeed(GraphManager.java:475) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.kvStoreInit(GraphManager.java:444) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.loadMetaFromPD(GraphManager.java:367) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	at org.apache.hugegraph.core.GraphManager.<init>(GraphManager.java:254) ~[hugegraph-api-1.7.0.jar:0.72.0.0]
+	... 14 more
+2026-09-16 23:16:13 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Executing shutdown LifeCycleHook
+2026-09-16 23:16:13 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Executed once at shutdown of Gremlin Server.
+2026-09-16 23:16:15 [gremlin-server-stop] [INFO] o.a.h.StandardHugeGraph - Close graph standardhugegraph[DEFAULT-hugegraph]
+2026-09-16 23:16:15 [gremlin-server-stop] [WARN] o.a.h.StandardHugeGraph - thread [main] did not close transaction
+2026-09-16 23:16:15 [gremlin-server-stop] [WARN] o.a.t.g.s.GremlinServer - Exception while closing Graph instance [DEFAULT-hugegraph]
+java.lang.IllegalStateException: Ensure tx closed in all threads when closing graph 'DEFAULT-hugegraph'
+	at com.google.common.base.Preconditions.checkState(Preconditions.java:534) ~[guava-31.0.1-android.jar:?]
+	at org.apache.hugegraph.util.E.checkState(E.java:64) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.close(StandardHugeGraph.java:1129) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.server.GremlinServer.lambda$null$7(GremlinServer.java:307) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at java.util.concurrent.ConcurrentHashMap$KeySetView.forEach(ConcurrentHashMap.java:4696) ~[?:?]
+	at org.apache.tinkerpop.gremlin.server.GremlinServer.lambda$stop$8(GremlinServer.java:304) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-16 23:16:15 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Closed Graph instance [DEFAULT-hugegraph]
+2026-09-16 23:16:15 [gremlin-server-stop] [INFO] o.a.t.g.s.GremlinServer - Gremlin Server - shutdown complete
+2026-09-16 23:16:15 [main] [INFO] o.a.h.HugeFactory - HugeFactory shutdown
+2026-09-16 23:16:15 [hugegraph-shutdown] [INFO] o.a.h.HugeFactory - HugeGraph is shutting down

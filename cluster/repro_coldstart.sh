@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # repro_coldstart.sh <store-delay-s> <init|server> [tag] — apache/hugegraph#3203 reproduction on the 3-node lab.
+# env SV=<server dist dir> selects the server build (default: dist-master-hstore), X2=<s> the delay of stores 2 and 3.
 # Wipes PD + stores + server, starts PD, starts the server-side step immediately (init-store.sh, or start-hugegraph.sh
 # without init-store), and starts the 3 stores <delay> seconds after PD is listening. Prints one summary line with the
 # store registration times (PD log "from Offline to Up"), the first/last "error code = 105", the retry sleeps, the
@@ -7,7 +8,7 @@
 set -u
 X=$1; MODE=$2; TAG=${3:-x${X}-${MODE}}; X2=${X2:-$X}   # X2: delay of the 2nd/3rd store (env)
 SSH="ssh -n -o ConnectTimeout=15 -o BatchMode=yes"; N1=seba@192.168.80.235; N2=seba@192.168.80.236; N3=seba@192.168.80.237
-H=/home/seba; PD=$H/hugegraph/hugegraph-pd/apache-hugegraph-pd-1.7.0; SV=$H/hg-master/hugegraph-server/dist-master-hstore
+H=/home/seba; PD=$H/hugegraph/hugegraph-pd/apache-hugegraph-pd-1.7.0; SV=${SV:-$H/hg-master/hugegraph-server/dist-master-hstore}   # SV: server dist under test (env)
 J17="export JAVA_HOME=$H/tools/jdk17 PATH=$H/tools/jdk17/bin:/usr/bin:/bin:/usr/sbin"; J11="export JAVA_HOME=$H/tools/jdk11 PATH=$H/tools/jdk11/bin:/usr/bin:/bin:/usr/sbin"
 DISTS="HG_SV=$SV HG_RD=$H/hg-master/hugegraph-server/dist-master-rocksdb"
 echo "== $(date +%T) [$TAG] wipe"
@@ -22,6 +23,6 @@ else
 fi
 # wait until the stores had time to register (X s delay + up to 60 s boot), then summarise
 $SSH $N1 "while [ \$(LC_ALL=C awk -v p=$TPD 'BEGIN{print int(systime()-p)}') -lt $(( (X>X2?X:X2)+75 )) ]; do sleep 2; done"
-$SSH $N1 "L=$SV/logs/hugegraph-server.log; P=\$(ls $PD/logs/*.log | head -1); echo \"  store Up in PD log: \$(grep -h 'from Offline to Up\|from Unknown to Up' \$P | awk '{print \$2}' | tr '\n' ' ')\"; echo \"  105: count=\$(grep -c 'code = 105' \$L) first=\$(grep -m1 'code = 105' \$L | awk '{print \$2}') last=\$(grep 'code = 105' \$L | tail -1 | awk '{print \$2}') sleeps=\$(grep -o 'Waiting [0-9]* seconds' \$L | awk '{print \$2}' | tr '\n' ',')\"; echo \"  upper limit: \$(grep -m1 'upper limit' \$L | awk '{print \$2}')  other errors: \$(grep -c '\[ERROR\]' \$L) (\$(grep '\[ERROR\]' \$L | grep -v 'code = 105\|upper limit' | head -2 | cut -c1-140 | tr '\n' '|'))\"; echo \"  REST: \$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/graphs)  PD says: \$(grep -h 'Offline to Up\|Not_Ready' \$P | tail -1 | cut -c1-120)\""
+$SSH $N1 "L=$SV/logs/hugegraph-server.log; P=\$(ls $PD/logs/*.log | head -1); echo \"  store Up in PD log: \$(grep -h 'from Offline to Up\|from Unknown to Up' \$P | awk '{print \$2}' | tr '\n' ' ')\"; echo \"  105: count=\$(grep -c 'code = 105' \$L) first=\$(grep -m1 'code = 105' \$L | awk '{print \$2}') last=\$(grep 'code = 105' \$L | tail -1 | awk '{print \$2}') sleeps=\$(grep -o 'Waiting [0-9]* seconds' \$L | awk '{print \$2}' | tr '\n' ',')\"; echo \"  wait-for-stores: \$(grep -c 'active store(s) in PD' \$L) lines, first=\$(grep -m1 'Waiting for .* active store' \$L | awk '{print \$2}') done=\$(grep -m1 'active store(s) in PD after' \$L | cut -c1-90)\"; echo \"  upper limit: \$(grep -m1 'upper limit' \$L | awk '{print \$2}')  other errors: \$(grep -c '\[ERROR\]' \$L) (\$(grep '\[ERROR\]' \$L | grep -v 'code = 105\|upper limit' | head -2 | cut -c1-140 | tr '\n' '|'))\"; echo \"  REST: \$(curl -s -m 5 -o /dev/null -w '%{http_code}' http://127.0.0.1:8080/graphs)  PD says: \$(grep -h 'Offline to Up\|Not_Ready' \$P | tail -1 | cut -c1-120)\""
 for N in $N1 $N2 $N3; do $SSH $N "echo \"  \$(hostname): store start at +\$(awk -v a=\$(cat /tmp/repro_tstore 2>/dev/null || echo 0) -v p=$TPD 'BEGIN{printf \"%.0f\", a-p}') s after PD; \$(grep -h -m1 'Store register\|onStoreStatusChanged' ~/hugegraph/hugegraph-store/apache-hugegraph-store-1.7.0/logs/hugegraph-store-server.log 2>/dev/null | cut -c1-80)\""; done
 echo "== $(date +%T) [$TAG] done"
