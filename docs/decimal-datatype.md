@@ -75,6 +75,46 @@ batch). Batch upsert is read-modify-write without a per-vertex lock across trans
 An importer accumulating balances must route all updates of one account through one writer, or put them in one
 request.
 
+## Review round 1 (2026-09-16) and the E2E suite `cluster/decimal_e2e.py`
+
+The first review of apache/hugegraph#3209 (imbajin, bitflicker64) found three blocking gaps: the `hugegraph-struct`
+copy of `PropertyKey` had no DECIMAL conversion (a decimal default value reloaded from JSON as a string could not be
+normalised), the new `BigDecimalSerializer` broke the typed GraphSON v2/v3 mappers of gremlin-server
+(`serializeWithType` missing, so every BigDecimal Gremlin result failed, including a plain Groovy literal), and an
+`OLAP_SECONDARY` decimal key still got a secondary index through `createIndexLabelForOlapPk()`, which skips the
+index-label guard. Fixed in commit `9d5eaab` of the branch (struct `valueToDecimal()` + builder + `convSingleValue`
+branch; `serializeWithType` with TinkerPop's own `gx:BigDecimal` type id and the plain string in `@value`;
+`OLAP_SECONDARY`/`OLAP_RANGE` rejected for decimals in `checkOlap()` and a second guard in
+`IndexLabelBuilder.build()`), with a struct test, a GraphSON v1/v2/v3 round-trip unit test and a core OLAP test.
+
+`cluster/decimal_e2e.py <rest_port> <gremlin_port> <tag> [prefix]` runs the same paths end to end against a live
+server, on any backend, and compares every value exactly with Python's `Decimal`:
+
+| group | checks |
+|---|---|
+| R1 schema | DECIMAL keys, a decimal `~default_value` in `user_data`, vertex/edge labels |
+| R2 no index | secondary and range index labels on a decimal, decimal sort key: all rejected |
+| R3 OLAP | `OLAP_SECONDARY` and `OLAP_RANGE` on a decimal key rejected, `OLAP_COMMON` (no index) allowed |
+| R4 REST | create/read uint256 max, 18-digit fraction, negative, zero; `PUT /graph/vertices/batch` with `SUM` and two entries of one vertex in one request; the default value applied to a vertex created without the key |
+| R5 Gremlin via the server's `/gremlin` proxy | `values()`, `g.inject(1.5)`, `values()` of the default, `sum()` |
+| R6 Gremlin straight on gremlin-server HTTP | the same four with `Accept: application/vnd.gremlin-v1.0+json`, `v2.0`, `v3.0`; typed answers must carry `gx:BigDecimal` and an exact value |
+
+Run on the lab (hstore server on PD + 3 stores, rocksdb server), dists built from the PR head before the fixes
+(`a28554e`) and after (`9d5eaab`), logs in `results/decimal/e2e/`:
+
+| | before `a28554e` | after `9d5eaab` |
+|---|---|---|
+| hstore | 24 PASS, **9 FAIL**, 4 N-A | **33 PASS**, 0 FAIL, 4 N-A |
+| rocksdb | 24 PASS, **9 FAIL**, 4 N-A | **33 PASS**, 0 FAIL, 4 N-A |
+| the 9 failures before | `OLAP_SECONDARY` accepted on a decimal key; all 8 typed Gremlin answers (v2 and v3 × 4 queries) `HTTP 500 Type id handling not implemented for type java.math.BigDecimal` | |
+| typed Gremlin after | `{"@type":"gx:BigDecimal","@value":"115792089237316195423570985008687907853269984665640564039457584007913129639935"}`, `sum()` exact to the 18th fraction digit | |
+| N-A | the lab's `gremlin-server.yaml` answers `Accept: application/vnd.gremlin-v1.0+json` with `400 no serializer for requested Accept header`, before and after alike; `/gremlin` through the REST proxy (`application/json`) is untyped and passed on both heads | |
+
+One side effect worth knowing: once a graph contains a DECIMAL property key, a server built without this change
+cannot open it (`No enum constant org.apache.hugegraph.type.define.DataType.DECIMAL` at startup). On the lab the
+master server on the shared hstore graph only came back after the `d2*_` schema had been deleted through the branch
+server. Expected for any new data type, but it belongs in the release notes.
+
 ## Not measured yet
 
 Write throughput and disk of a decimal property vs `DOUBLE`/`TEXT` on HStore at scale (the encoding is 3–33 bytes per
