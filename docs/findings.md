@@ -8,7 +8,7 @@ master `98477f0` unless stated otherwise.
 
 **Page cursor re-emits the boundary record when the page limit is a multiple of 500**
 
-Status: **reported — apache/hugegraph#3191** (2026-09-03); fixed locally, red/green validated — `patches/0001-fix-core-paging-*.patch`; **PR apache/hugegraph#3207** (2026-09-14, `EdgeCoreTest`/`VertexCoreTest` green on rocksdb and memory).
+Status: **reported — apache/hugegraph#3191** (2026-09-03); fixed locally, red/green validated — `patches/0001-fix-core-paging-*.patch`; **PR apache/hugegraph#3207** (2026-09-14, `EdgeCoreTest`/`VertexCoreTest` green on rocksdb and memory), **merged into master 2026-09-16 as `f0056b1d`**.
 
 ### Symptom
 Following the `page` token with `limit=500` or `limit=1000`, the last element of page *k* is
