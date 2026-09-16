@@ -1,0 +1,35 @@
+{
+ "scenario": "store-crash",
+ "verdict": "PASS",
+ "blame": "chart",
+ "evidence": {
+  "victim": "hugegraph-store-1",
+  "uid_before": "69016bdf-0ef3-48a5-9b46-1f629fbdb69b",
+  "uid_after": "8773b962-9c4d-4b30-b2a5-be8c160a1ac0",
+  "node_after": "hg-k3s-1",
+  "store_ready_again_s": 23.0,
+  "pd_leader": "hugegraph-pd-2",
+  "verify_mismatches": 0,
+  "acked_lost": 0
+ },
+ "load": {
+  "writes": {
+   "requests": 354,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 5.2,
+   "codes": []
+  },
+  "reads": {
+   "requests": 354,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 0.0,
+   "codes": []
+  }
+ },
+ "extra": null,
+ "time": "2026-09-16 18:27:45"
+}

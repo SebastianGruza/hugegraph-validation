@@ -1,0 +1,73 @@
+{
+ "scenario": "store-stall",
+ "verdict": "PASS",
+ "blame": "chart",
+ "evidence": {
+  "victim": "hugegraph-store-1",
+  "java_pid": "16",
+  "proc_state_after_stop": "T",
+  "stall_s": 120,
+  "restarts_before": 0,
+  "restarts_after": 1,
+  "uid_changed": false,
+  "verify_mismatches": 0,
+  "acked_lost": 0
+ },
+ "load": {
+  "writes": {
+   "requests": 916,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 0.5,
+   "codes": []
+  },
+  "reads": {
+   "requests": 916,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 0.0,
+   "codes": []
+  }
+ },
+ "extra": {
+  "during": {
+   "writes": {
+    "requests": 537,
+    "failed": 0,
+    "first_failure_s": null,
+    "last_failure_s": null,
+    "max_latency_s": 0.5,
+    "codes": []
+   },
+   "reads": {
+    "requests": 537,
+    "failed": 0,
+    "first_failure_s": null,
+    "last_failure_s": null,
+    "max_latency_s": 0.0,
+    "codes": []
+   }
+  },
+  "after_cont": {
+   "writes": {
+    "requests": 379,
+    "failed": 0,
+    "first_failure_s": null,
+    "last_failure_s": null,
+    "max_latency_s": 0.3,
+    "codes": []
+   },
+   "reads": {
+    "requests": 379,
+    "failed": 0,
+    "first_failure_s": null,
+    "last_failure_s": null,
+    "max_latency_s": 0.0,
+    "codes": []
+   }
+  }
+ },
+ "time": "2026-09-16 18:33:16"
+}

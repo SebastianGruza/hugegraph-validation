@@ -1,0 +1,41 @@
+{
+ "scenario": "pd-restart",
+ "verdict": "PASS",
+ "blame": "chart",
+ "evidence": {
+  "leader_before": "hugegraph-pd-2",
+  "uid_before": "cd6964b4-f669-4bc4-8c8c-c52aa32af4ee",
+  "uid_after": "ae8d499e-6250-48c2-a87e-8390de2aef73",
+  "new_leader_after_s": 31.9,
+  "pd_ready_again_s": 9.492482423782349,
+  "schema_create_http": 202,
+  "schema_seen_on_other_servers": {
+   "10.42.1.7": 200,
+   "10.42.3.7": 200
+  },
+  "verify_mismatches": 0,
+  "acked_lost": 0
+ },
+ "load": {
+  "writes": {
+   "requests": 185,
+   "failed": 1,
+   "first_failure_s": 30.8,
+   "last_failure_s": 30.8,
+   "max_latency_s": 30.5,
+   "codes": [
+    500
+   ]
+  },
+  "reads": {
+   "requests": 185,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 0.8,
+   "codes": []
+  }
+ },
+ "extra": null,
+ "time": "2026-09-16 18:37:02"
+}

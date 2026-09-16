@@ -1,0 +1,28 @@
+##### A readiness-without-stores 18:49:31
+statefulset.apps/hugegraph-store scaled
+NAME                               READY   RESTARTS
+hugegraph-server-8d57659d6-2blx4   true    0
+hugegraph-server-8d57659d6-q2nt8   true    0
+hugegraph-server-8d57659d6-w4dgr   true    0
+GET vertex -> 500 in 30.715333s
+{"exception":"class org.apache.hugegraph.store.client.type.HgStoreClientException","message":"Interrupted while waiting to retry: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-sto
+GET vertex -> 500 in 30.111433s
+{"exception":"class org.apache.hugegraph.store.client.type.HgStoreClientException","message":"Interrupted while waiting to retry: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-sto
+GET vertex -> 500 in 30.183922s
+{"exception":"class org.apache.hugegraph.store.client.type.HgStoreClientException","message":"Interrupted while waiting to retry: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-sto
+GET /versions -> 200
+statefulset.apps/hugegraph-store scaled
+statefulset rolling update complete 3 pods at revision hugegraph-store-699dc454bb...
+##### B store-stall (busiest) 18:52:09
+18:52:11 store-stall: partition leaders {'hugegraph-store-2': 14, 'hugegraph-store-0': 10}, victim hugegraph-store-2
+18:52:31 store-stall: SIGSTOP java pid 16 in hugegraph-store-2, /proc state 'T', holding 120s
+18:54:31 store-stall: SIGCONT sent
+18:58:02 RESULT store-stall: PASS (chart) {'victim': 'hugegraph-store-2', 'leaders_before': {'hugegraph-store-2': 14, 'hugegraph-store-0': 10}, 'leaders_after': {'hugegraph-store-1': 12, 'hugegraph-store-0': 12}, 'java_pid': '16', 'proc_state_after_stop': 'T', 'stall_s': 120, 'restarts_before': 0, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
+##### C pd-freeze with raft.rpc-timeout=3000 18:58:02
+  curl --user "admin:${PASSWORD}" http://127.0.0.1:8080/versions
+-Dpartition.default-shard-count=3 -Draft.ip-whitelist.enabled=false -Draft.rpc-timeout=3000
+-Draft.rpc-timeout=3000
+19:00:51 pd-freeze: SIGSTOP java pid 19 in PD leader hugegraph-pd-2, state 'T', 90s
+19:02:22 pd-freeze: SIGCONT sent
+19:05:16 RESULT pd-freeze: PASS (chart) {'leader_before': 'hugegraph-pd-2', 'java_pid': '19', 'proc_state_after_stop': 'T', 'freeze_s': 90, 'new_leader_after_s': 8.5, 'leaderless_samples': 0, 'leaderless_first_s': None, 'leaderless_last_s': None, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
+##### ALL DONE 19:05:16

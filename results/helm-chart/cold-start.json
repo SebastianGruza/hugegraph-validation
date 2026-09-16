@@ -1,0 +1,38 @@
+{
+ "scenario": "cold-start",
+ "verdict": "PASS",
+ "blame": "chart",
+ "evidence": {
+  "stores_scaled_down": true,
+  "servers_after_150s_without_stores": {
+   "hugegraph-server-8d57659d6-2blx4": [
+    "Running",
+    true,
+    0
+   ],
+   "hugegraph-server-8d57659d6-q2nt8": [
+    "Running",
+    true,
+    0
+   ],
+   "hugegraph-server-8d57659d6-w4dgr": [
+    "Running",
+    true,
+    0
+   ]
+  },
+  "stores_ready_again_s": 23.02484679222107,
+  "servers_ready_s_after_stores": 0.10716724395751953,
+  "new_server_restarts": {
+   "hugegraph-server-8d57659d6-2blx4": 0,
+   "hugegraph-server-8d57659d6-q2nt8": 0,
+   "hugegraph-server-8d57659d6-w4dgr": 0
+  },
+  "startup_timeout_env": "450",
+  "verify_mismatches": 0,
+  "acked_lost": 0
+ },
+ "load": null,
+ "extra": null,
+ "time": "2026-09-16 18:48:12"
+}

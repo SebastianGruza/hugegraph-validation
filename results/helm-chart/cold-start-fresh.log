@@ -1,0 +1,58 @@
+## 19:18:25 install hg-cold with store.replicas=0 (chart 8950191)
+  curl --user "admin:${PASSWORD}" http://127.0.0.1:8080/versions
+statefulset.apps/hgcold-hugegraph-store scaled
+19:18:26 stores scaled to 0 right after install; store pods now: 0
+19:18:41 t+15s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:18:57 t+31s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:19:12 t+46s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:19:27 t+61s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:19:42 t+76s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:19:57 t+91s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:20:13 t+107s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:20:28 t+122s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:20:43 t+137s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:20:58 t+152s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:21:13 t+167s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:21:29 t+183s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:21:44 t+198s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:21:59 t+213s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:22:14 t+228s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+19:22:29 t+243s hgcold-hugegraph-server-f8db876f7-bs52n:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-g9xfl:Running/ready=false/restarts=0/state=running  hgcold-hugegraph-server-f8db876f7-zftdz:Running/ready=false/restarts=0/state=running  
+## 19:22:30 server log tail (first server pod) before scaling stores:
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+[wait-storage] No Up store yet, retrying in 5s
+## 19:22:30 scaling stores to 3
+statefulset.apps/hgcold-hugegraph-store scaled
+statefulset rolling update complete 3 pods at revision hgcold-hugegraph-store-6d756b9fb6...
+19:23:07 servers ready 20s after stores
+NAME                                      READY   RESTARTS   NODE
+hgcold-hugegraph-pd-0                     true    0          hg-k3s-1
+hgcold-hugegraph-pd-1                     true    0          hg-k3s-2
+hgcold-hugegraph-pd-2                     true    0          hg-k3s-3
+hgcold-hugegraph-server-f8db876f7-bs52n   true    0          hg-k3s-3
+hgcold-hugegraph-server-f8db876f7-g9xfl   true    0          hg-k3s-2
+hgcold-hugegraph-server-f8db876f7-zftdz   true    0          hg-k3s-1
+hgcold-hugegraph-store-0                  true    0          hg-k3s-2
+hgcold-hugegraph-store-1                  true    0          hg-k3s-3
+hgcold-hugegraph-store-2                  true    0          hg-k3s-1
+Error from server (NotFound): secrets "hgcold-hugegraph-admin" not found
+GET /graphs -> 400
+POST propertykey -> 400
+## 19:23:08 done; uninstall with: helm uninstall hgcold -n hg-cold && kubectl delete ns hg-cold
+## REST check with the right secret (hgcold-admin), after the stores came back:
+{"graphs":["hugegraph"]} -> 200
+POST propertykey -> 202
+POST vertexlabel -> 201
+{"id":1164977185543421952,"label":"cold_v","type":"vertex","properties":{"cold_pk":1}} -> 201
+release "hgcold" uninstalled
+namespace "hg-cold" deleted

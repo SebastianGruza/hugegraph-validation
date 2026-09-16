@@ -1,0 +1,162 @@
+{
+ "scenario": "pd-freeze",
+ "verdict": "PASS",
+ "blame": "chart",
+ "evidence": {
+  "leader_before": "hugegraph-pd-2",
+  "java_pid": "19",
+  "proc_state_after_stop": "T",
+  "freeze_s": 90,
+  "new_leader_after_s": 8.5,
+  "leaderless_samples": 0,
+  "leaderless_first_s": null,
+  "leaderless_last_s": null,
+  "restarts_after": 1,
+  "uid_changed": false,
+  "verify_mismatches": 0,
+  "acked_lost": 0
+ },
+ "load": {
+  "writes": {
+   "requests": 671,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 3.4,
+   "codes": []
+  },
+  "reads": {
+   "requests": 671,
+   "failed": 0,
+   "first_failure_s": null,
+   "last_failure_s": null,
+   "max_latency_s": 2.6,
+   "codes": []
+  }
+ },
+ "extra": {
+  "samples": [
+   [
+    8.5,
+    "hugegraph-pd-0",
+    "hugegraph-pd-1"
+   ],
+   [
+    14.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    19.7,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    24.9,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    30.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    35.4,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    40.6,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    45.8,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    51.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    54.9,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    58.5,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    60.8,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    63.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    65.4,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    68.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    70.3,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    73.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    75.3,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    78.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    80.3,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    83.1,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    85.3,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    87.5,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ],
+   [
+    89.9,
+    "hugegraph-pd-0",
+    "hugegraph-pd-0"
+   ]
+  ]
+ },
+ "time": "2026-09-16 19:05:16"
+}

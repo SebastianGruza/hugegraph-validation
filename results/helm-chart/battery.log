@@ -1,0 +1,39 @@
+18:24:45 setup: 20000 vertices in 3s
+18:25:24 setup: 100000 edges in 38s
+18:25:24 --- verify: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r0), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-2
+18:25:29 verify: sampled 400 vertices, 0 mismatches; acked writes 0, lost 0
+18:25:39 --- store-crash: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r0), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-2
+18:26:00 store-crash: deleting hugegraph-store-1 (uid 69016bdf, node hg-k3s-1)
+18:27:45 store-crash/after: sampled 400 vertices, 0 mismatches; acked writes 8900, lost 0
+18:27:45 RESULT store-crash: PASS (chart) {'victim': 'hugegraph-store-1', 'uid_before': '69016bdf-0ef3-48a5-9b46-1f629fbdb69b', 'uid_after': '8773b962-9c4d-4b30-b2a5-be8c160a1ac0', 'node_after': 'hg-k3s-1', 'store_ready_again_s': 23.0, 'pd_leader': 'hugegraph-pd-2', 'verify_mismatches': 0, 'acked_lost': 0}
+18:28:16 --- store-stall: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r0), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-2
+18:28:36 store-stall: SIGSTOP java pid 16 in hugegraph-store-1, /proc state 'T', holding 120s
+18:30:36 store-stall: SIGCONT sent
+18:33:16 store-stall/after: sampled 400 vertices, 0 mismatches; acked writes 29060, lost 0
+18:33:16 RESULT store-stall: PASS (chart) {'victim': 'hugegraph-store-1', 'java_pid': '16', 'proc_state_after_stop': 'T', 'stall_s': 120, 'restarts_before': 0, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
+18:33:47 --- pd-restart: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r1), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-2
+18:34:08 pd-restart: deleting PD leader hugegraph-pd-2 (uid cd6964b4)
+18:37:02 pd-restart/after: sampled 400 vertices, 0 mismatches; acked writes 34580, lost 0
+18:37:02 RESULT pd-restart: PASS (chart) {'leader_before': 'hugegraph-pd-2', 'uid_before': 'cd6964b4-f669-4bc4-8c8c-c52aa32af4ee', 'uid_after': 'ae8d499e-6250-48c2-a87e-8390de2aef73', 'new_leader_after_s': 31.9, 'pd_ready_again_s': 9.492482423782349, 'schema_create_http': 202, 'schema_seen_on_other_servers': {'10.42.1.7': 200, '10.42.3.7': 200}, 'verify_mismatches': 0, 'acked_lost': 0}
+18:37:33 --- pd-freeze: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r1), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-0
+18:37:54 pd-freeze: SIGSTOP java pid 19 in PD leader hugegraph-pd-0, state 'T', 90s
+18:39:24 pd-freeze: SIGCONT sent
+18:42:21 pd-freeze/after: sampled 400 vertices, 0 mismatches; acked writes 49600, lost 0
+18:42:21 RESULT pd-freeze: PASS (chart) {'leader_before': 'hugegraph-pd-0', 'java_pid': '19', 'proc_state_after_stop': 'T', 'freeze_s': 90, 'new_leader_after_s': 60.6, 'leaderless_samples': 4, 'leaderless_first_s': 12.8, 'leaderless_last_s': 56.2, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
+18:42:53 --- cold-start: pods hugegraph-pd-0(hg-k3s-2,r1), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-6cf57787d9-h9bgg(hg-k3s-1,r0), hugegraph-server-6cf57787d9-pdg5l(hg-k3s-2,r0), hugegraph-server-6cf57787d9-xlv2x(hg-k3s-3,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r1), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-1
+18:42:53 cold-start: scaling stores to 0
+18:42:56 cold-start: rolling the server deployment with no stores
+18:45:26 cold-start: after 150s without stores: hugegraph-server-8d57659d6-2blx4:Running/ready=True/restarts=0, hugegraph-server-8d57659d6-q2nt8:Running/ready=True/restarts=0, hugegraph-server-8d57659d6-w4dgr:Running/ready=True/restarts=0
+18:48:12 cold-start/after: sampled 400 vertices, 0 mismatches; acked writes 49600, lost 0
+18:48:12 RESULT cold-start: PASS (chart) {'stores_scaled_down': True, 'servers_after_150s_without_stores': {'hugegraph-server-8d57659d6-2blx4': ('Running', True, 0), 'hugegraph-server-8d57659d6-q2nt8': ('Running', True, 0), 'hugegraph-server-8d57659d6-w4dgr': ('Running', True, 0)}, 'stores_ready_again_s': 23.02484679222107, 'servers_ready_s_after_stores': 0.10716724395751953, 'new_server_restarts': {'hugegraph-server-8d57659d6-2blx4': 0, 'hugegraph-server-8d57659d6-q2nt8': 0, 'hugegraph-server-8d57659d6-w4dgr': 0}, 'startup_timeout_env': '450', 'verify_mismatches': 0, 'acked_lost': 0}
+18:52:10 --- store-stall: pods hugegraph-pd-0(hg-k3s-2,r1), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-8d57659d6-2blx4(hg-k3s-1,r0), hugegraph-server-8d57659d6-q2nt8(hg-k3s-3,r0), hugegraph-server-8d57659d6-w4dgr(hg-k3s-2,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r0), hugegraph-store-2(hg-k3s-2,r0); PD leader hugegraph-pd-1
+18:52:11 store-stall: partition leaders {'hugegraph-store-2': 14, 'hugegraph-store-0': 10}, victim hugegraph-store-2
+18:52:31 store-stall: SIGSTOP java pid 16 in hugegraph-store-2, /proc state 'T', holding 120s
+18:54:31 store-stall: SIGCONT sent
+18:58:02 store-stall/after: sampled 400 vertices, 0 mismatches; acked writes 49600, lost 0
+18:58:02 RESULT store-stall: PASS (chart) {'victim': 'hugegraph-store-2', 'leaders_before': {'hugegraph-store-2': 14, 'hugegraph-store-0': 10}, 'leaders_after': {'hugegraph-store-1': 12, 'hugegraph-store-0': 12}, 'java_pid': '16', 'proc_state_after_stop': 'T', 'stall_s': 120, 'restarts_before': 0, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
+19:00:30 --- pd-freeze: pods hugegraph-pd-0(hg-k3s-2,r0), hugegraph-pd-1(hg-k3s-3,r0), hugegraph-pd-2(hg-k3s-1,r0), hugegraph-server-8d57659d6-2blx4(hg-k3s-1,r0), hugegraph-server-8d57659d6-q2nt8(hg-k3s-3,r0), hugegraph-server-8d57659d6-w4dgr(hg-k3s-2,r0), hugegraph-store-0(hg-k3s-3,r0), hugegraph-store-1(hg-k3s-1,r0), hugegraph-store-2(hg-k3s-2,r1); PD leader hugegraph-pd-2
+19:00:51 pd-freeze: SIGSTOP java pid 19 in PD leader hugegraph-pd-2, state 'T', 90s
+19:02:22 pd-freeze: SIGCONT sent
+19:05:16 pd-freeze/after: sampled 400 vertices, 0 mismatches; acked writes 49880, lost 0
+19:05:16 RESULT pd-freeze: PASS (chart) {'leader_before': 'hugegraph-pd-2', 'java_pid': '19', 'proc_state_after_stop': 'T', 'freeze_s': 90, 'new_leader_after_s': 8.5, 'leaderless_samples': 0, 'leaderless_first_s': None, 'leaderless_last_s': None, 'restarts_after': 1, 'uid_changed': False, 'verify_mismatches': 0, 'acked_lost': 0}
