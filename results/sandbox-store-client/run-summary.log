@@ -1,0 +1,23 @@
+##### F10 before (master head) 14:54:35
+[before-master] start exit=0 in 8 s; locale in log: 
+[before-master] startup log: 0 x '0,00', 0 x NumberFormatException, 0 x 'Failed to load graph'
+[before-master] GET /graphspaces/DEFAULT -> 400; body: {"exception":"class org.apache.hugegraph.HugeException","message":"Can't write json: For input string: \"0,00\"","cause":"org.apache.tinkerpop.shaded.jackson.databind.JsonMappingException: For input string: \"0,00\"","tr
+[before-master] GET /graphs -> {"graphs":["hugegraph"]} 200
+##### F10 after (fix) 14:54:49
+[after-f10] start exit=0 in 8 s; locale in log: 
+[after-f10] startup log: 0 x '0,00', 0 x NumberFormatException, 0 x 'Failed to load graph'
+[after-f10] GET /graphspaces/DEFAULT -> 200; body: {"name":"DEFAULT","nickname":"默认图空间","description":"The system default graph space","cpu_limit":2147483647,"memory_limit":2147483647,"storage_limit":2147483647,"compute_cpu_limit":0,"compute_memory_limit":0,"ol
+[after-f10] GET /graphs -> {"graphs":["hugegraph"]} 200
+##### SBX load suite data on pr2994m 14:55:04
+raport: /home/seba/validation/sbx_load.json
+##### SBX before (pr2994m) 14:55:53
+[before-pr2994m] cases=207 time=77s
+[before-pr2994m] G controls:       6 [MISMATCH       6 [TARGET-ERR 
+[before-pr2994m] sandbox errors in server log: 16
+##### SBX after (pr2994m + fix) 14:57:25
+[after-pr2994ms] cases=207 time=85s
+[after-pr2994ms] G controls:      12 [OK 
+[after-pr2994ms] sandbox errors in server log: 0
+##### restore 14:59:05
+8080 200
+##### ALL DONE 14:59:14

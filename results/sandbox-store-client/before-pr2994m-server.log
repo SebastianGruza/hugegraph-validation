@@ -1,0 +1,641 @@
+2026-09-17 14:55:57 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-17 14:55:57 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-17 14:55:57 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-17 14:55:57 [main] [INFO] c.j.m.Manifests - 103 attributes loaded from 324 stream(s) in 244ms, 103 saved, 4677 ignored: ["Agent-Class", "Ant-Version", "Archiver-Version", "Automatic-Module-Name", "Bnd-LastModified", "Build-Date", "Build-Id", "Build-Jdk", "Build-Jdk-Spec", "Build-Number", "Build-Tag", "Build-Timestamp", "Build-Version", "Built-By", "Built-JDK", "Bundle-ActivationPolicy", "Bundle-Activator", "Bundle-Category", "Bundle-ClassPath", "Bundle-ContactAddress", "Bundle-Description", "Bundle-Developers", "Bundle-DocURL", "Bundle-License", "Bundle-ManifestVersion", "Bundle-Name", "Bundle-NativeCode", "Bundle-RequiredExecutionEnvironment", "Bundle-SCM", "Bundle-SymbolicName", "Bundle-Vendor", "Bundle-Version", "Can-Redefine-Classes", "Can-Retransform-Classes", "Can-Set-Native-Method-Prefix", "Carl-Is-Awesome", "Class-Path", "Created-By", "DynamicImport-Package", "Eclipse-BuddyPolicy", "Eclipse-ExtensibleAPI", "Embed-Dependency", "Export-Package", "Extension-Name", "Extension-name", "Fragment-Host", "Git-Revision", "Git-Url", "Implementation-Build", "Implementation-Build-Date", "Implementation-Build-Id", "Implementation-Title", "Implementation-URL", "Implementation-Vendor", "Implementation-Vendor-Id", "Implementation-Version", "Import-Package", "Include-Resource", "JCabi-Build", "JCabi-Date", "JCabi-Version", "Java-Vendor", "Java-Version", "Log4jReleaseKey", "Log4jReleaseManager", "Log4jReleaseVersion", "Log4jReleaseVersionJava6", "Log4jReleaseVersionJava7", "Log4jSigningUserName", "Main-Class", "Major-Version", "Manifest-Version", "Multi-Release", "Originally-Created-By", "Os-Arch", "Os-Name", "Os-Version", "Package", "Premain-Class", "Private-Package", "Provide-Capability", "Require-Capability", "Scm-Connection", "Scm-Revision", "Scm-Url", "Source-Compatibility", "Specification-Title", "Specification-Vendor", "Specification-Version", "Target-Compatibility", "Time-Zone-Database-Version", "Tool", "X-Compile-Source-JDK", "X-Compile-Target-JDK", "artifactId", "groupId", "hash", "implementation-version", "mode", "package", "service", "url", "version"]
+2026-09-17 14:55:57 [main] [INFO] o.a.h.d.HugeGremlinServer - 3.5.1
+         \,,,/
+         (o o)
+-----oOOo-(3)-oOOo-----
+
+2026-09-17 14:55:57 [main] [INFO] o.a.h.u.ConfigUtil - Scanning option 'graphs' directory './conf/graphs'
+2026-09-17 14:55:57 [main] [INFO] o.a.h.d.HugeGremlinServer - Configuring Gremlin Server from /home/seba/hg-pr2994m/hugegraph-server/dist-pr2994m-hstore/conf/gremlin-server.yaml
+2026-09-17 14:55:57 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-id-DEFAULT-hugegraph' with capacity 10000
+2026-09-17 14:55:57 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'schema-v2-name-DEFAULT-hugegraph' with capacity 10000
+2026-09-17 14:55:58 [main] [INFO] o.a.h.p.c.KvClient - wait for client starting....
+2026-09-17 14:55:58 [main] [INFO] o.a.h.p.c.AbstractClient - AbstractClient connect to host = 192.168.80.235:8686 success
+2026-09-17 14:55:58 [grpc-default-executor-0] [INFO] o.a.h.p.c.KvClient - set watch client id to :807440762549857761
+2026-09-17 14:55:58 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+2026-09-17 14:55:58 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-17 14:55:58 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+2026-09-17 14:55:58 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-17 14:55:58 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-17 14:55:58 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-17 14:55:58 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-17 14:55:58 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-17 14:55:59 [main] [INFO] o.c.o.l.Uns - OHC using JNA OS native malloc/free
+2026-09-17 14:55:59 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'vertex-DEFAULT-hugegraph' with capacity 10000:10000000
+2026-09-17 14:55:59 [main] [INFO] o.a.h.b.c.CacheManager - Init LevelCache for 'edge-DEFAULT-hugegraph' with capacity 1000:1000000
+2026-09-17 14:55:59 [main] [INFO] o.a.h.t.TaskManager - Use distributed as the scheduler of graph (hugegraph)
+2026-09-17 14:55:59 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users-auth' with capacity 10240
+2026-09-17 14:55:59 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'users_pwd-auth' with capacity 10240
+2026-09-17 14:55:59 [main] [INFO] o.a.h.b.c.CacheManager - Init RamCache for 'token-auth' with capacity 10240
+2026-09-17 14:55:59 [main] [INFO] o.a.t.g.s.u.DefaultGraphManager - Graph [DEFAULT-hugegraph] was successfully configured via [/home/seba/hg-pr2994m/hugegraph-server/dist-pr2994m-hstore/conf/graphs/hugegraph.properties].
+2026-09-17 14:55:59 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized Gremlin thread pool.  Threads in pool named with pattern gremlin-*
+2026-09-17 14:55:59 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized GremlinExecutor and preparing GremlinScriptEngines instances.
+2026-09-17 14:56:01 [main] [INFO] o.a.t.g.s.u.ServerGremlinExecutor - Initialized gremlin-groovy GremlinScriptEngine and registered metrics
+2026-09-17 14:56:01 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the cypher OpProcessor.
+2026-09-17 14:56:01 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the standard OpProcessor.
+2026-09-17 14:56:01 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the session OpProcessor.
+2026-09-17 14:56:01 [main] [INFO] o.a.t.g.s.o.OpLoader - Adding the traversal OpProcessor.
+2026-09-17 14:56:01 [main] [INFO] o.a.h.s.RestServer - RestServer starting...
+2026-09-17 14:56:01 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-17 14:56:01 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-17 14:56:01 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - Init graph manager
+2026-09-17 14:56:03 [main] [INFO] o.a.h.u.ConfigUtil - Scanning option 'graphs' directory './conf/graphs'
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - Graph 'hugegraph' was successfully configured via '/home/seba/hg-pr2994m/hugegraph-server/dist-pr2994m-hstore/conf/graphs/hugegraph.properties'
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - RpcServer is not enabled, skip starting rpc service
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - RpcServer is not enabled, skip wait graphs ready
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - Check backend version
+2026-09-17 14:56:03 [main] [INFO] o.a.h.StandardHugeGraph - Init system info for graph 'DEFAULT-hugegraph'
+2026-09-17 14:56:03 [main] [INFO] o.a.h.StandardHugeGraph - Check olap property-key tables for graph 'DEFAULT-hugegraph'
+2026-09-17 14:56:03 [main] [INFO] o.a.h.StandardHugeGraph - Restoring incomplete tasks for graph 'DEFAULT-hugegraph'...
+2026-09-17 14:56:03 [main] [INFO] o.a.h.c.GraphManager - Unconfigured authenticator, please config auth.authenticator option in rest-server.properties, does not support role election currently
+2026-09-17 14:56:03 [main] [INFO] o.a.h.s.RestServer - The maximum batch writing threads is 9 (total threads 12)
+2026-09-17 14:56:03 [main] [INFO] o.a.h.s.RestServer - RestServer started
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.GremlinServer - Executing start up LifeCycleHook
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.GremlinServer - Executed once at startup of Gremlin Server.
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.GremlinServer - idleConnectionTimeout was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.GremlinServer - keepAliveInterval was set to 0 which resolves to 0 seconds when configuring this value - this feature will be disabled
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.graphbinary-v1.0 with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.gremlin-v2.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - application/json already has org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0 configured - it will not be replaced by org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, change order of serialization configuration if this is not desired.
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.gremlin-v3.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - application/json already has org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0 configured - it will not be replaced by org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0, change order of serialization configuration if this is not desired.
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.graphbinary-v1.0 with org.apache.tinkerpop.gremlin.driver.ser.GraphBinaryMessageSerializerV1
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.gremlin-v2.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - application/json already has org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0 configured - it will not be replaced by org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV2d0, change order of serialization configuration if this is not desired.
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - Configured application/vnd.gremlin-v3.0+json with org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0
+2026-09-17 14:56:03 [main] [INFO] o.a.t.g.s.AbstractChannelizer - application/json already has org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV1d0 configured - it will not be replaced by org.apache.tinkerpop.gremlin.driver.ser.GraphSONMessageSerializerV3d0, change order of serialization configuration if this is not desired.
+2026-09-17 14:56:03 [gremlin-server-boss-1] [INFO] o.a.t.g.s.GremlinServer - Gremlin Server configured with worker thread pool of 1, gremlin pool of 6 and boss thread pool of 1.
+2026-09-17 14:56:03 [gremlin-server-boss-1] [INFO] o.a.t.g.s.GremlinServer - Channel started at port 8182.
+2026-09-17 14:56:03 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.telnet_port' is redundant, please ensure it has been registered
+2026-09-17 14:56:03 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.http_port' is redundant, please ensure it has been registered
+2026-09-17 14:56:03 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+2026-09-17 14:56:03 [main] [INFO] o.a.h.d.MemoryMonitor - Memory monitoring started.
+2026-09-17 14:56:04 [grizzly-http-server-2] [INFO] o.a.h.s.c.u.HgStoreClientConfig - grpc.timeout.seconds = 100
+2026-09-17 14:56:04 [grizzly-http-server-2] [INFO] o.a.h.s.c.u.HgStoreClientConfig - grpc.max.inbound.message.size = 1073741824
+2026-09-17 14:56:04 [grizzly-http-server-2] [INFO] o.a.h.s.c.u.HgStoreClientConfig - grpc.max.outbound.message.size = 1073741824
+2026-09-17 14:56:04 [grizzly-http-server-2] [INFO] o.a.h.s.c.u.HgStoreClientConfig - net.kv.scanner.page.size = 10000
+2026-09-17 14:56:04 [grizzly-http-server-2] [INFO] o.a.h.s.c.u.HgStoreClientConfig - net.kv.scanner.have.next.timeout = 1800
+2026-09-17 14:56:06 [gremlin-server-exec-6] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Don't accept query based on properties [score] that are not indexed in label 'robot', may not match secondary/range condition
+org.apache.hugegraph.exception.NoIndexException: Don't accept query based on properties [score] that are not indexed in label 'robot', may not match secondary/range condition
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.noIndexException(GraphIndexTransaction.java:1574) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.queryByUserprop(GraphIndexTransaction.java:496) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.queryIndex(GraphIndexTransaction.java:411) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.indexQuery(GraphTransaction.java:1681) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.optimizeQueries(GraphTransaction.java:1521) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.query(GraphTransaction.java:542) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:858) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.ScalarMapStep.processNextStart(ScalarMapStep.java:39) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [gremlin-server-exec-1] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+io.grpc.StatusRuntimeException: INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+	at io.grpc.Status.asRuntimeException(Status.java:535) ~[grpc-api-1.47.0.jar:1.47.0]
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:487) ~[grpc-stub-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:562) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:743) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:722) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.47.0.jar:1.47.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [grpc-default-executor-4] [ERROR] o.a.h.s.c.g.KvPageScanner - failed to complete scan of session: storeNodeSession: {storeNode: {address: "192.168.80.235:8500", nodeId: 5780182187377761090}, graphName: "DEFAULT/hugegraph/g"}
+io.grpc.StatusRuntimeException: INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+	at io.grpc.Status.asRuntimeException(Status.java:535) ~[grpc-api-1.47.0.jar:1.47.0]
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:487) ~[grpc-stub-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:562) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:743) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:722) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.47.0.jar:1.47.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [gremlin-server-exec-4] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and CONTAINS query with relation 'within' is not supported
+java.lang.IllegalArgumentException: CONTAINS query with relation 'within' is not supported
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:167) ~[guava-31.0.1-android.jar:?]
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.TraversalUtil$LocalContainsStep.<init>(TraversalUtil.java:910) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.TraversalUtil.prepareLocalHasContainers(TraversalUtil.java:738) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.TraversalUtil.extractHasContainer(TraversalUtil.java:193) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:61) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [gremlin-server-exec-1] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Undefined property key: 'nope'
+java.lang.IllegalArgumentException: Undefined property key: 'nope'
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:167) ~[guava-31.0.1-android.jar:?]
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:928) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.TraversalUtil.convContains2Relation(TraversalUtil.java:1629) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.TraversalUtil$LocalContainsStep.filter(TraversalUtil.java:926) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:38) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.ScalarMapStep.processNextStart(ScalarMapStep.java:39) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221) ~[gremlin-server-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [grpc-default-executor-4] [ERROR] o.a.h.s.c.g.KvPageScanner - failed to complete scan of session: storeNodeSession: {storeNode: {address: "192.168.80.235:8500", nodeId: 5780182187377761090}, graphName: "DEFAULT/hugegraph/g"}
+io.grpc.StatusRuntimeException: INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+	at io.grpc.Status.asRuntimeException(Status.java:535) ~[grpc-api-1.47.0.jar:1.47.0]
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:487) ~[grpc-stub-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:562) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:743) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:722) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.47.0.jar:1.47.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) ~[?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:20 [gremlin-server-exec-2] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+io.grpc.StatusRuntimeException: INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0
+	at com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)
+	at org.apache.hugegraph.util.E.checkArgument(E.java:52)
+	at org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)
+	at org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)
+	at org.apache.hugegraph.serializer.BinaryElementSerializer.parseVertex(BinaryElementSerializer.java:169)
+	at org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:63)
+	at org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)
+	at org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+	at io.grpc.Status.asRuntimeException(Status.java:535) ~[grpc-api-1.47.0.jar:1.47.0]
+	at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:487) ~[grpc-stub-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:562) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:743) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:722) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.47.0.jar:1.47.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133) ~[grpc-core-1.47.0.jar:1.47.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-2] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin
+2026-09-17 14:56:54 [gremlin-server-exec-2] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Not allowed to access thread group via Gremlin
+java.lang.SecurityException: Not allowed to access thread group via Gremlin
+	at org.apache.hugegraph.security.HugeSecurityManager.newSecurityException(HugeSecurityManager.java:358) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.security.HugeSecurityManager.checkAccess(HugeSecurityManager.java:169) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at java.lang.ThreadGroup.checkAccess(ThreadGroup.java:313) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:418) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:704) ~[?:?]
+	at org.apache.hugegraph.store.client.util.ExecutorPool$DefaultThreadFactory.newThread(ExecutorPool.java:64) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.<init>(ThreadPoolExecutor.java:623) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:912) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1354) ~[?:?]
+	at java.util.concurrent.ExecutorCompletionService.submit(ExecutorCompletionService.java:184) ~[?:?]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.initialize(OrderedKvIterator.java:200) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.hasNext(OrderedKvIterator.java:93) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scanOrdered(HstoreSessionsImpl.java:745) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryByRange(HstoreTable.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:422) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.doIndexQueryOnce(GraphIndexTransaction.java:746) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.lambda$doIndexQuery$0(GraphIndexTransaction.java:664) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.IdHolder$PagingIdHolder.fetchNext(IdHolder.java:132) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList$IndexQuery.iterator(QueryList.java:274) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList.fetchNext(QueryList.java:120) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.fetch(PageEntryIterator.java:77) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.hasNext(PageEntryIterator.java:63) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.MapperIterator.fetch(MapperIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.query.QueryResults.keepInputOrderIfNeeded(QueryResults.java:109) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:868) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:135) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:40) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.fill(Traversal.java:184) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.toList(Traversal.java:122) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal$toList$0.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:119) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at Script1328.run(Script1328.groovy:1) ~[?:?]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:676) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:378) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233) ~[java.scripting:?]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:272) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-1] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin
+2026-09-17 14:56:54 [gremlin-server-exec-1] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Not allowed to access thread group via Gremlin
+java.lang.SecurityException: Not allowed to access thread group via Gremlin
+	at org.apache.hugegraph.security.HugeSecurityManager.newSecurityException(HugeSecurityManager.java:358) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.security.HugeSecurityManager.checkAccess(HugeSecurityManager.java:169) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at java.lang.ThreadGroup.checkAccess(ThreadGroup.java:313) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:418) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:704) ~[?:?]
+	at org.apache.hugegraph.store.client.util.ExecutorPool$DefaultThreadFactory.newThread(ExecutorPool.java:64) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.<init>(ThreadPoolExecutor.java:623) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:912) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1354) ~[?:?]
+	at java.util.concurrent.ExecutorCompletionService.submit(ExecutorCompletionService.java:184) ~[?:?]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.initialize(OrderedKvIterator.java:200) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.hasNext(OrderedKvIterator.java:93) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scanOrdered(HstoreSessionsImpl.java:745) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryByRange(HstoreTable.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:422) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.doIndexQueryOnce(GraphIndexTransaction.java:746) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.lambda$doIndexQuery$0(GraphIndexTransaction.java:664) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.IdHolder$PagingIdHolder.fetchNext(IdHolder.java:132) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList$IndexQuery.iterator(QueryList.java:274) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList.fetchNext(QueryList.java:120) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.fetch(PageEntryIterator.java:77) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.hasNext(PageEntryIterator.java:63) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.MapperIterator.fetch(MapperIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.query.QueryResults.keepInputOrderIfNeeded(QueryResults.java:109) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:868) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:135) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:40) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.fill(Traversal.java:184) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.toList(Traversal.java:122) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal$toList$0.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:119) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at Script1329.run(Script1329.groovy:1) ~[?:?]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:676) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:378) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233) ~[java.scripting:?]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:272) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-3] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin
+2026-09-17 14:56:54 [gremlin-server-exec-3] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Not allowed to access thread group via Gremlin
+java.lang.SecurityException: Not allowed to access thread group via Gremlin
+	at org.apache.hugegraph.security.HugeSecurityManager.newSecurityException(HugeSecurityManager.java:358) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.security.HugeSecurityManager.checkAccess(HugeSecurityManager.java:169) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at java.lang.ThreadGroup.checkAccess(ThreadGroup.java:313) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:418) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:704) ~[?:?]
+	at org.apache.hugegraph.store.client.util.ExecutorPool$DefaultThreadFactory.newThread(ExecutorPool.java:64) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.<init>(ThreadPoolExecutor.java:623) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:912) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1354) ~[?:?]
+	at java.util.concurrent.ExecutorCompletionService.submit(ExecutorCompletionService.java:184) ~[?:?]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.initialize(OrderedKvIterator.java:200) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.hasNext(OrderedKvIterator.java:93) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scanOrdered(HstoreSessionsImpl.java:745) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryByRange(HstoreTable.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:422) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.doIndexQueryOnce(GraphIndexTransaction.java:746) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.lambda$doIndexQuery$0(GraphIndexTransaction.java:664) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.IdHolder$PagingIdHolder.fetchNext(IdHolder.java:132) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList$IndexQuery.iterator(QueryList.java:274) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList.fetchNext(QueryList.java:120) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.fetch(PageEntryIterator.java:77) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.hasNext(PageEntryIterator.java:63) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.MapperIterator.fetch(MapperIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.query.QueryResults.keepInputOrderIfNeeded(QueryResults.java:109) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:868) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:135) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:40) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.fill(Traversal.java:184) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.toList(Traversal.java:122) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal$toList$0.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:119) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at Script1330.run(Script1330.groovy:1) ~[?:?]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:676) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:378) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233) ~[java.scripting:?]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:272) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-4] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin
+2026-09-17 14:56:54 [gremlin-server-exec-4] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Not allowed to access thread group via Gremlin
+java.lang.SecurityException: Not allowed to access thread group via Gremlin
+	at org.apache.hugegraph.security.HugeSecurityManager.newSecurityException(HugeSecurityManager.java:358) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.security.HugeSecurityManager.checkAccess(HugeSecurityManager.java:169) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at java.lang.ThreadGroup.checkAccess(ThreadGroup.java:313) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:418) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:704) ~[?:?]
+	at org.apache.hugegraph.store.client.util.ExecutorPool$DefaultThreadFactory.newThread(ExecutorPool.java:64) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.<init>(ThreadPoolExecutor.java:623) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:912) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1354) ~[?:?]
+	at java.util.concurrent.ExecutorCompletionService.submit(ExecutorCompletionService.java:184) ~[?:?]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.initialize(OrderedKvIterator.java:200) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.hasNext(OrderedKvIterator.java:93) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scanOrdered(HstoreSessionsImpl.java:745) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryByRange(HstoreTable.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:422) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.doIndexQueryOnce(GraphIndexTransaction.java:746) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.lambda$doIndexQuery$0(GraphIndexTransaction.java:664) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.IdHolder$PagingIdHolder.fetchNext(IdHolder.java:132) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList$IndexQuery.iterator(QueryList.java:274) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList.fetchNext(QueryList.java:120) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.fetch(PageEntryIterator.java:77) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.hasNext(PageEntryIterator.java:63) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.MapperIterator.fetch(MapperIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.query.QueryResults.keepInputOrderIfNeeded(QueryResults.java:109) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:868) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:135) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:40) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.fill(Traversal.java:184) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.toList(Traversal.java:122) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal$toList$0.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:119) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at Script1332.run(Script1332.groovy:1) ~[?:?]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:676) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:378) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233) ~[java.scripting:?]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:272) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-2] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin
+2026-09-17 14:56:54 [gremlin-server-exec-2] [WARN] o.a.t.g.s.h.HttpHandlerUtil - Invalid request - responding with 500 Internal Server Error and Not allowed to access thread group via Gremlin
+java.lang.SecurityException: Not allowed to access thread group via Gremlin
+	at org.apache.hugegraph.security.HugeSecurityManager.newSecurityException(HugeSecurityManager.java:358) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.security.HugeSecurityManager.checkAccess(HugeSecurityManager.java:169) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at java.lang.ThreadGroup.checkAccess(ThreadGroup.java:313) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:418) ~[?:?]
+	at java.lang.Thread.<init>(Thread.java:704) ~[?:?]
+	at org.apache.hugegraph.store.client.util.ExecutorPool$DefaultThreadFactory.newThread(ExecutorPool.java:64) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.<init>(ThreadPoolExecutor.java:623) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.addWorker(ThreadPoolExecutor.java:912) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1354) ~[?:?]
+	at java.util.concurrent.ExecutorCompletionService.submit(ExecutorCompletionService.java:184) ~[?:?]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.initialize(OrderedKvIterator.java:200) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.store.client.OrderedKvIterator.hasNext(OrderedKvIterator.java:93) ~[hg-store-client-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scanOrdered(HstoreSessionsImpl.java:745) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryByRange(HstoreTable.java:643) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:422) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342) ~[hugegraph-hstore-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.doIndexQueryOnce(GraphIndexTransaction.java:746) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphIndexTransaction.lambda$doIndexQuery$0(GraphIndexTransaction.java:664) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.IdHolder$PagingIdHolder.fetchNext(IdHolder.java:132) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList$IndexQuery.iterator(QueryList.java:274) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.QueryList.fetchNext(QueryList.java:120) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.fetch(PageEntryIterator.java:77) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.page.PageEntryIterator.hasNext(PageEntryIterator.java:63) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.MapperIterator.fetch(MapperIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.FilterIterator.fetch(FilterIterator.java:40) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.iterator.WrappedIterator.hasNext(WrappedIterator.java:38) ~[hugegraph-common-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.query.QueryResults.keepInputOrderIfNeeded(QueryResults.java:109) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVerticesFromBackend(GraphTransaction.java:868) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.cache.CachedGraphTransaction.queryVerticesFromBackend(CachedGraphTransaction.java:325) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:874) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:848) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:843) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65) ~[hugegraph-core-1.7.0.jar:1.7.0]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:135) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.next(AbstractStep.java:40) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.fill(Traversal.java:184) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal.toList(Traversal.java:122) ~[gremlin-core-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.process.traversal.Traversal$toList$0.call(Unknown Source) ~[?:?]
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:47) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:115) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:119) ~[groovy-2.5.14-indy.jar:2.5.14]
+	at Script1333.run(Script1333.groovy:1) ~[?:?]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:676) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at org.apache.tinkerpop.gremlin.groovy.jsr223.GremlinGroovyScriptEngine.eval(GremlinGroovyScriptEngine.java:378) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at javax.script.AbstractScriptEngine.eval(AbstractScriptEngine.java:233) ~[java.scripting:?]
+	at org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:272) ~[gremlin-groovy-3.5.1.jar:3.5.1]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515) [?:?]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:264) [?:?]
+	at org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1317) [hugegraph-api-1.7.0.jar:0.72.0.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128) [?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628) [?:?]
+	at java.lang.Thread.run(Thread.java:829) [?:?]
+2026-09-17 14:56:54 [gremlin-server-exec-1] [WARN] o.a.h.s.HugeSecurityManager - SecurityException: Not allowed to access thread group via Gremlin

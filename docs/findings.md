@@ -230,7 +230,7 @@ introduce no other semantic change visible to this suite.
 
 **`usePD=true` server cannot start on a JVM whose default locale uses a decimal comma**
 
-Status: **unreported**; one-line fix.
+Status: fix on branch `fix/graphspace-locale` (`Locale.ROOT` in `String.format`, unit test `GraphSpaceInfoLocaleTest` for pl_PL/de_DE/fr_FR/ru_RU), measured 2026-09-17 on the lab: master head `fabe0f0b` on a `pl_PL` JVM answers `GET /graphspaces/DEFAULT` with `400 Can't write json: For input string: "0,00"`, the fix answers 200 (`results/f10-fix/`). Issue and PR to follow.
 
 `GraphSpace.info()` (`hugegraph-server/hugegraph-core/src/main/java/org/apache/hugegraph/space/GraphSpace.java:392-394`)
 does
