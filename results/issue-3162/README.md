@@ -1,5 +1,9 @@
 # apache/hugegraph#3162 / PR #3164 — compaction vs raft snapshot race, reproduced and measured (2026-09-12)
 
+> Status: PR #3164 merged into master on 2026-09-17 as `5ad20f8a`, issue #3162 closed the same minute. The save-side fix
+> was confirmed on this lab at replication 1 (2026-09-12) and 3 (2026-09-15); a store that already holds an empty
+> snapshot from before the fix still needs the manual repair described below (wipe one partition, InstallSnapshot).
+
 Lab of [docs/setup.md](../../docs/setup.md), replication 1 (every partition a single-replica raft group on its store).
 Data: 25 M `xfer` edges (`cluster/idx_bench.py sk4-noindex`, 5 M loaded and compacted, then 20 M appended so the
 partitions carry unflushed data), partitions of 60–275 MB on the store at 192.168.80.235.
