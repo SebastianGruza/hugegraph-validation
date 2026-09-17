@@ -42,3 +42,21 @@ failed query in between, timeout message naming the option) passes on JDK 11. Th
 inside `createSysGraphIfNeed()` (first boot only) and did nothing on the lab, because the local `conf/graphs` hstore
 graph is opened before `loadMetaFromPD()` and already trips the 10-retry ceiling; the wait therefore sits in the
 constructor, before any graph is opened, and applies to every start with `usePD=true`.
+
+### v2, 2026-09-17: PD's own readiness, one-shot probe with per-call deadlines, no wait on an initialised cluster
+
+Review of #3210 (imbajin, bitflicker64): the first version leaked a `PDClient` with its watchers on every start,
+its RPCs kept the client's 60 s default deadline (so `pd.stores_wait_timeout` was not an upper bound), and it
+required `shard_count` active stores on every start, which would have turned a restart with one store down into a
+300 s wait and an exit. v2: a one-shot gRPC probe (`GraphManager.PdReadinessProbe`, one plaintext channel per PD
+peer, no watchers, closed after the wait, `withDeadlineAfter(min(remaining budget, poll))` on every call), and the
+wait is skipped as soon as PD reports any partition (`queryPartitions`); only a cluster without partitions waits,
+and it waits for PD's own `getClusterStats() == Cluster_OK`, which is what `allocShards()` needs on the first boot.
+Unit test `GraphManagerStoresWaitTest` (4 cases, incl. a black-holed probe whose deadlines shrink with the budget
+and the total stays under timeout + one poll) 4/4 on JDK 11.
+
+| run | result | log |
+|---|---|---|
+| cold start, stores +5 s / +71 s, `usePD=true`, first boot | 14 progress lines `Waiting for the PD cluster: Cluster_Not_Ready: The number of active stores is 1, less than pd.initial-store-count:3`, then `PD cluster ready after 70s: PD reports Cluster_OK`, 0 × 105, exit 0 after 81 s, REST 200 | `fix/after-v2-x5-x71.log` |
+| restart with the node2 store killed (`kill -9`, port 8500 closed), cluster initialised | `PD cluster ready after 0s: cluster already has 24 partition(s)`, exit 0 after 8 s, REST 200; PD still listed the store as Up 200 s later, so the skip must not depend on PD's store view | `fix/after-v2-restart-store-down.log` |
+| `pd.peers=192.168.80.250:8686` (black hole), `pd.stores_wait_timeout=20` | `Waiting for the PD cluster: 192.168.80.250:8686: UNAVAILABLE (16s left … 10s … 4s)`, `Timed out after 20s waiting for the PD cluster to be ready (192.168.80.250:8686: UNAVAILABLE); start the stores first or raise pd.stores_wait_timeout`, exit 1 after 31 s (10 s JVM boot + 20 s budget) | `fix/after-v2-unreachable-pd-timeout20.log` |

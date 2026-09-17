@@ -1,0 +1,32 @@
+##### A cold start, stores +5/+71 s, v2 06:28:52
+== 06:28:52 [after-v2-x5-x71] wipe
+== 06:30:21 [after-v2-x5-x71] PD listening; stores start in 5 s; server step: server
+step=start-hugegraph exit=0 duration=81 s (started 1 s after PD)
+........................................OK
+Started [pid 367973]
+  store Up in PD log: 
+  105: count=0 first= last= sleeps=
+  wait-for-cluster: 14 lines, first=2026-09-17 08:30:31 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: Cluster_Not_Ready:  (299s left) done=2026-09-17 08:31:41 [main] [INFO] o.a.h.c.GraphManager - PD cluster ready after 70s: PD reports Cluster_OK
+  upper limit:   other errors: 0 ()
+  REST: 200  PD says: 
+  hugegraph-dev: store start at +5 s after PD; 
+  hugegraph-node2: store start at +71 s after PD; 
+  hugegraph-node3: store start at +71 s after PD; 
+== 06:32:49 [after-v2-x5-x71] done
+##### B restart with one store down (cluster initialised) 06:32:49
+store .236 still up
+PD stores: [('192.168.80.235:8500', 'Up'), ('192.168.80.236:8500', 'Up'), ('192.168.80.237:8500', 'Up')]
+{"message":"OK","data":{"state":"Cluster_Warn","dataState":"PState_Warn","pdList":[{"raftUrl":"192.168.80.235:8610","grpcUrl":"192.168.80.235:8686","restUrl":"192.168.80.235:8620","state":"Up","dataPa
+restart: exit=0 duration=8 s
+2026-09-17 08:30:31 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: Cluster_Not_Ready:  (299s left)
+2026-09-17 08:30:36 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: Cluster_Not_Ready: The number of active stores is 1, less than pd.initial-s
+  REST: 200
+  [hugegraph-node2] store listening (attempt 1)
+##### C unreachable PD (pd.peers=192.168.80.250:8686, timeout 20 s) 06:33:25
+unreachable: exit=1 duration=31 s
+2026-09-17 08:33:42 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: 192.168.80.250:8686: UNAVAILABLE (16s left)
+2026-09-17 08:33:48 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: 192.168.80.250:8686: UNAVAILABLE (10s left)
+2026-09-17 08:33:54 [main] [INFO] o.a.h.c.GraphManager - Waiting for the PD cluster: 192.168.80.250:8686: UNAVAILABLE (4s left)
+org.apache.hugegraph.HugeException: Timed out after 20s waiting for the PD cluster to be ready (192.168.80.250:8686: UNAVAILABLE); start the stores first or raise pd.stor
+  restored, REST: 200
+##### V2 DONE 06:34:10
