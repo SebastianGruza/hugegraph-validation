@@ -1,0 +1,10 @@
+DOUBLE 1.5 server-bytes=3ff8000000000000 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+DOUBLE 63.5 server-bytes=404fc00000000000 -> struct.readProperty: THROW IllegalArgumentException: Unsupported data type UNKNOWN
+LONG 100 server-bytes=64 -> struct.readProperty: THROW IllegalArgumentException: Can't construct DataType from code 36
+TEXT ETC server-bytes=03455443 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+INT 7 server-bytes=07 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+BOOLEAN true server-bytes=01 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+FLOAT 0.5 server-bytes=3f000000 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+DATE Thu Jan 01 01:00:00 CET 1970 server-bytes=00 -> struct.readProperty: THROW IllegalArgumentException: Can't construct Cardinality from code 0
+
+struct resultType=EDGE conditions=[LABEL == 1, 1 > 1.0]
