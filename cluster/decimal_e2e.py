@@ -101,6 +101,11 @@ def indexes():
                   "sort_keys": [P + "amount"], "properties": [P + "amount"]})
     msg = jbody(b).get("message", "")
     record("R2 decimal sort key rejected", st == 400 and "decimal" in msg.lower(), f"HTTP {st} {msg[:90]}")
+    st, b = rest("POST", "/schema/vertexlabels",
+                 {"name": P + "badpk", "id_strategy": "PRIMARY_KEY", "primary_keys": [P + "balance"],
+                  "properties": [P + "balance"]})
+    msg = jbody(b).get("message", "")
+    record("R2 decimal primary key rejected", st == 400 and "decimal" in msg.lower(), f"HTTP {st} {msg[:90]}")
 
 
 # ---------------------------------------------------------------- R3 OLAP write types

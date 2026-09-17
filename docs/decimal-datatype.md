@@ -28,7 +28,7 @@ Branch: `feat/decimal-datatype` in `SebastianGruza/hugegraph`, one commit on top
 
 | limit | reason |
 |---|---|
-| not a sort key, not an index field of any type, not an OLAP range property; the schema builders reject these | no fixed-width byte-order encoding exists for a decimal; `isNumber()` stays `false` on purpose |
+| not a vertex primary key, not a sort key, not an index field of any type, not an OLAP write type with an index; the schema builders reject these | no fixed-width byte-order encoding exists for a decimal; `isNumber()` stays `false` on purpose; a primary key would go through `LongEncoding`/`NumericUtil`, which collapses fractions into a double and overflows a long on uint256 (review round 3, imbajin) |
 | at most 128 significant digits and an absolute scale of at most 128 (`DataType.DECIMAL_MAX_PRECISION` / `DECIMAL_MAX_SCALE`), checked in `valueToDecimal()` in both copies, so also on the `SUM` result in `BatchAPI` | a value such as `1E+999999999` is a few bytes on disk but a billion characters from `toPlainString()` on every read (review round 2, bitflicker64: OOM at `-Xmx512m`); uint256 with 18 fraction digits is 96 digits, well inside |
 | fractions in `PUT .../batch` must be sent as **strings** | the batch request's `properties` map is parsed by Jackson before any schema is known, and a JSON fraction literal becomes a `double` there (`0.000000000000000001` → `1.0E-18`); integral literals are exact (`Integer`/`Long`/`BigInteger`) |
 | Gremlin `sum()/max()/min()` work on the returned `BigDecimal` values (TinkerPop `NumberHelper`), but in the server JVM after fetching the elements | unchanged from other types |
@@ -112,6 +112,8 @@ Run on the lab (hstore server on PD + 3 stores, rocksdb server), dists built fro
 | N-A | the lab's `gremlin-server.yaml` answers `Accept: application/vnd.gremlin-v1.0+json` with `400 no serializer for requested Accept header`, before and after alike; `/gremlin` through the REST proxy (`application/json`) is untyped and passed on both heads | |
 
 Review round 2 (2026-09-16, bitflicker64): no bound on the exponent (`1E+999999999` stored in a few bytes, a billion characters from `toPlainString()` on every read, OOM at `-Xmx512m`), and the global `BigDecimal` serializer changing existing Gremlin literals from numbers to strings. Fixed by the 128/128 bound above (also for ready-made `BigDecimal`s: `PropertyKey.convValue()` no longer short-circuits decimals, which the struct test caught) and documented in the PR's compatibility note. `decimal_e2e.py` gained three R4 checks (create with `1E+999999999` → 400, 128 significant digits → 201, a `SUM` whose result has 129 digits → 400); on rocksdb with the round-2 dist: 37 PASS, 0 FAIL, 4 N-A (`results/decimal/e2e/after2-rocksdb.log`).
+
+Review round 3 (2026-09-17, imbajin): DECIMAL was still accepted as a vertex primary key, and primary-key ids go through `LongEncoding`/`NumericUtil.numberToSortableLong()`, i.e. through a `double` (`1.000000000000000001` and `…002` collapse into one id) and overflow a `long` on uint256. Rejected in `VertexLabelBuilder.checkPrimaryKeys()` (single and composite keys), `VertexLabelCoreTest.testAddVertexLabelWithDecimalPrimaryKey`, and a new R2 check in `decimal_e2e.py`; on rocksdb with the round-3 dist: 38 PASS, 0 FAIL, 4 N-A (`results/decimal/e2e/after3-rocksdb.log`).
 
 One side effect worth knowing: once a graph contains a DECIMAL property key, a server built without this change
 cannot open it (`No enum constant org.apache.hugegraph.type.define.DataType.DECIMAL` at startup). On the lab the
