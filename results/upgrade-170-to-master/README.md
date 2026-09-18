@@ -28,3 +28,8 @@ attempt; `8080`/`8081` the good one), `D-master-*` reads after the swap
 `8080-read2` after all stores were swapped), `C2-*` the usePD=true cycle,
 `C2-master-nolocal-read` the attempted workaround (graph config removed from
 `conf/graphs`: no graph at all, the graph was never registered in PD meta).
+
+Fix (issue #3219): `E-fixed-usepd-true-read.json` and `E2-fixed-usepd-true-read.json`
+are the reads with the server jars built from branch `fix/meta-cluster-name`
+on the cycle-2 data (`usePD=true`): schema and data identical to the 1.7.0
+baseline in 20/20 checks, no cluster warning in the log (E2).
