@@ -1,0 +1,72 @@
+== 14:05:07 stop + restore 1.7.0 libs + wipe
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+lib-1.7.0-restored-235
+lib-1.7.0 hugegraph-node2
+lib-1.7.0 hugegraph-node3
+57:# usePD=true
+65:usePD=true
+66:pd.peers=192.168.80.235:8686
+== 14:06:33 start 1.7.0 (usePD=true)
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+2026-09-18 16:07:28 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+Initialization finished.
+Started [pid 582823]
+8080: {"graphs":[]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.71.0.0"}}
+== 14:07:41 write on 1.7.0
+1351
+18:2026-09-18 16:07:32 [main] [INFO] o.a.h.p.c.AbstractClient - AbstractClient connect to host = 192.168.80.235:8686 success
+19:2026-09-18 16:07:32 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = 192.168.80.235:8686 success
+21:2026-09-18 16:07:32 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:192.168.80.235:8686
+22:2026-09-18 16:07:32 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+23:2026-09-18 16:07:32 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+24:2026-09-18 16:07:32 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+25:2026-09-18 16:07:32 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+26:2026-09-18 16:07:32 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+== 14:07:49 stop, swap to master libs, start (no init)
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+master-lib-235
+master-lib hugegraph-node2
+master-lib hugegraph-node3
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+Started [pid 587981]
+8080: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+== 14:10:44 read on master
+200 schema propertykeys: []
+200 schema vertexlabels: []
+200 schema edgelabels: []
+200 schema indexlabels: []
+200 graphs list: {'graphs': ['hugegraph']}
+200 graphspaces: {'graphSpaces': ['DEFAULT']}
+200 gremlin g.V().count(): [29]
+200 gremlin g.E().count(): [63]
+400 gremlin g.V().hasLabel('person').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined vertex label: 'person'", 'cause': '[java.lang.Ille
+400 gremlin g.V().hasLabel('software').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined vertex label: 'software'", 'cause': '[java.lang.
+400 gremlin g.V().hasLabel('cust').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined vertex label: 'cust'", 'cause': '[java.lang.IllegalA
+400 gremlin g.E().hasLabel('knows').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined edge label: 'knows'", 'cause': '[java.lang.IllegalA
+400 gremlin g.E().hasLabel('created').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined edge label: 'created'", 'cause': '[java.lang.Ille
+400 gremlin g.E().hasLabel('owns').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined edge label: 'owns'", 'cause': '[java.lang.IllegalArg
+400 gremlin g.V().has('person','name','p7').valueMap(true): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined property key: 'name'", 'cause': '[ja
+400 gremlin g.V().has('person','city','Krakow').count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined property key: 'city'", 'cause': '[java.
+400 gremlin g.V().has('person','age',gt(30)).count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined property key: 'age'", 'cause': '[java.lang
+400 gremlin g.V().has('software','desc',Text.contains('tool')).count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined property key: 'desc'", '
+400 gremlin g.E().has('knows','weight',gt(10.0)).count(): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefined property key: 'weight'", 'cause': '[ja
+400 gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name'): {'exception': 'java.lang.IllegalArgumentException', 'message': "Undefine
+200 gremlin g.V('c1').out('owns').values('name'): []
+400 gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score'): {'exception': 'java.lang.IllegalArgumentException', 'message': "Unde
+200 rest vertices: {'vertices': []}
+200 rest edges: {'edges': []}
+grep: /home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-server-incubating-1.7.0/logs/hugegraph-server.log: plik binarny pasuje do wzorca

@@ -1,0 +1,87 @@
+== 13:56:12 unpack master tarballs on .235
+apache-hugegraph-pd-1.7.0
+apache-hugegraph-server-1.7.0
+apache-hugegraph-store-1.7.0
+hugegraph-core-1.7.0.jar
+4f5202b8 fix(pd): keep KvClient watches alive after reconnect failures (#3157)
+== 13:56:19 copy master store lib to node2/node3
+tar: To nie wygląda jak archiwum tar
+tar: Zakończenie w stanie błędu z powodu uprzednich błędów
+tar: To nie wygląda jak archiwum tar
+tar: Zakończenie w stanie błędu z powodu uprzednich błędów
+== 13:56:19 stop servers, stores, PD (NO wipe)
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+220M	/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-pd-incubating-1.7.0/pd_data
+4,0M	/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/storage
+296M	/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/server-rocksdb-1.7.0/rocksdb-data
+== 13:58:18 swap lib/ -> master
+swapped-235
+324
+cp: nie można wykonać stat na '/home/seba/mst-store-lib/lib': Nie ma takiego pliku ani katalogu
+cp: nie można wykonać stat na '/home/seba/mst-store-lib/lib': Nie ma takiego pliku ani katalogu
+== 13:58:20 start PD (master jars, 1.7.0 conf+data)
+pd-up
+== 13:58:36 start stores
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+== 13:58:47 start servers (no init-store)
+Started [pid 578908]
+Started [pid 579193]
+8080: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+8081: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+== 13:59:04 read on master
+200 schema propertykeys: ['age', 'big', 'born', 'city', 'desc', 'flags', 'name', 'ok', 'ratio', 'score', 'since', 'tags', 'weight']
+200 schema vertexlabels: ['cust', 'person', 'software']
+200 schema edgelabels: ['created', 'knows', 'owns']
+200 schema indexlabels: ['knowsByWeight', 'personByAge', 'personByCity', 'softwareByDesc']
+200 graphs list: {'graphs': ['hugegraph']}
+400 graphspaces: {'exception': 'class org.apache.hugegraph.HugeException', 'message': 'GraphSpace management is not supported in standalone mode', 'cause': '
+200 gremlin g.V().count(): [0]
+200 gremlin g.E().count(): [0]
+200 gremlin g.V().hasLabel('person').count(): [0]
+200 gremlin g.V().hasLabel('software').count(): [0]
+200 gremlin g.V().hasLabel('cust').count(): [0]
+200 gremlin g.E().hasLabel('knows').count(): [0]
+200 gremlin g.E().hasLabel('created').count(): [0]
+200 gremlin g.E().hasLabel('owns').count(): [0]
+500 gremlin g.V().has('person','name','p7').valueMap(true): {'exception': 'class jakarta.ws.rs.ProcessingException', 'message': 'java.net.SocketTimeoutException: Read tim
+200 gremlin g.V().has('person','city','Krakow').count(): [0]
+200 gremlin g.V().has('person','age',gt(30)).count(): [0]
+200 gremlin g.V().has('software','desc',Text.contains('tool')).count(): [0]
+200 gremlin g.E().has('knows','weight',gt(10.0)).count(): [0]
+500 gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name'): {'exception': 'class jakarta.ws.rs.ProcessingException', 'message': 'jav
+400 gremlin g.V('c1').out('owns').values('name'): {'exception': 'java.util.concurrent.TimeoutException', 'message': "Evaluation exceeded the configured 'evaluationTimeout
+500 gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score'): {'exception': 'class jakarta.ws.rs.ProcessingException', 'message': 
+500 rest vertices: {'exception': 'class org.apache.hugegraph.store.client.type.HgStoreClientException', 'message': 'io.grpc.StatusRuntimeException: UNAVAILABLE
+500 rest edges: {'exception': 'class org.apache.hugegraph.store.client.type.HgStoreClientException', 'message': 'io.grpc.StatusRuntimeException: UNAVAILABLE
+--- 8080 read done
+200 schema propertykeys: ['age', 'big', 'born', 'city', 'desc', 'flags', 'name', 'ok', 'ratio', 'score', 'since', 'tags', 'weight']
+200 schema vertexlabels: ['cust', 'person', 'software']
+200 schema edgelabels: ['created', 'knows', 'owns']
+200 schema indexlabels: ['knowsByWeight', 'personByAge', 'personByCity', 'softwareByDesc']
+200 graphs list: {'graphs': ['hugegraph']}
+400 graphspaces: {'exception': 'class org.apache.hugegraph.HugeException', 'message': 'GraphSpace management is not supported in standalone mode', 'cause': '
+200 gremlin g.V().count(): [39]
+200 gremlin g.E().count(): [63]
+200 gremlin g.V().hasLabel('person').count(): [20]
+200 gremlin g.V().hasLabel('software').count(): [15]
+200 gremlin g.V().hasLabel('cust').count(): [4]
+200 gremlin g.E().hasLabel('knows').count(): [40]
+200 gremlin g.E().hasLabel('created').count(): [20]
+200 gremlin g.E().hasLabel('owns').count(): [3]
+200 gremlin g.V().has('person','name','p7').valueMap(true): [{'id': '1:p7', 'label': 'person', 'name': ['p7'], 'age': [27], 'city': ['Krakow'], 'score': [10.5], 'ratio': 
+200 gremlin g.V().has('person','city','Krakow').count(): [10]
+200 gremlin g.V().has('person','age',gt(30)).count(): [10]
+200 gremlin g.V().has('software','desc',Text.contains('tool')).count(): [15]
+200 gremlin g.E().has('knows','weight',gt(10.0)).count(): [22]
+200 gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name'): ['p9']
+200 gremlin g.V('c1').out('owns').values('name'): ['s1']
+200 gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score'): [['t3', 'u3'], [3, 103], '1993-01-04 00:00:00.000', 1000000000003, T
+200 rest vertices: {'vertices': [{'id': 1165664258311061504, 'label': 'software', 'type': 'vertex', 'properties': {'name': 's1', 'desc': 'graph database tool n
+200 rest edges: {'edges': [{'id': 'Sc1>3>3>>L1165664652118458368', 'label': 'owns', 'type': 'edge', 'outV': 'c1', 'outVLabel': 'cust', 'inV': 11656646521184
+--- 8081 read done

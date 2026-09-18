@@ -1,0 +1,1831 @@
+[
+ {
+  "step": "pk name",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 1,
+    "name": "name",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.903"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk age",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 2,
+    "name": "age",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.945"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk city",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 3,
+    "name": "city",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.951"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk score",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 4,
+    "name": "score",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.955"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk ratio",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 5,
+    "name": "ratio",
+    "data_type": "FLOAT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.960"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk big",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 6,
+    "name": "big",
+    "data_type": "LONG",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.964"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk ok",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 7,
+    "name": "ok",
+    "data_type": "BOOLEAN",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.969"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk born",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 8,
+    "name": "born",
+    "data_type": "DATE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.973"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk tags",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 9,
+    "name": "tags",
+    "data_type": "TEXT",
+    "cardinality": "LIST",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.979"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk flags",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 10,
+    "name": "flags",
+    "data_type": "INT",
+    "cardinality": "SET",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.984"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk since",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 11,
+    "name": "since",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.990"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk desc",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 12,
+    "name": "desc",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.995"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk weight",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 13,
+    "name": "weight",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.001"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "vl person",
+  "status": 201,
+  "data": {
+   "id": 1,
+   "name": "person",
+   "id_strategy": "PRIMARY_KEY",
+   "primary_keys": [
+    "name"
+   ],
+   "nullable_keys": [
+    "city",
+    "score",
+    "ratio",
+    "big",
+    "ok",
+    "born",
+    "tags",
+    "flags"
+   ],
+   "index_labels": [],
+   "properties": [
+    "name",
+    "age",
+    "city",
+    "score",
+    "ratio",
+    "big",
+    "ok",
+    "born",
+    "tags",
+    "flags"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.013"
+   }
+  }
+ },
+ {
+  "step": "vl software",
+  "status": 201,
+  "data": {
+   "id": 2,
+   "name": "software",
+   "id_strategy": "AUTOMATIC",
+   "primary_keys": [],
+   "nullable_keys": [
+    "desc"
+   ],
+   "index_labels": [],
+   "properties": [
+    "name",
+    "desc"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.020"
+   }
+  }
+ },
+ {
+  "step": "vl cust",
+  "status": 201,
+  "data": {
+   "id": 3,
+   "name": "cust",
+   "id_strategy": "CUSTOMIZE_STRING",
+   "primary_keys": [],
+   "nullable_keys": [],
+   "index_labels": [],
+   "properties": [
+    "name"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.026"
+   }
+  }
+ },
+ {
+  "step": "el knows",
+  "status": 201,
+  "data": {
+   "id": 1,
+   "name": "knows",
+   "edgelabel_type": "NORMAL",
+   "source_label": "person",
+   "target_label": "person",
+   "links": [
+    {
+     "person": "person"
+    }
+   ],
+   "frequency": "MULTIPLE",
+   "sort_keys": [
+    "since"
+   ],
+   "nullable_keys": [
+    "weight"
+   ],
+   "index_labels": [],
+   "properties": [
+    "since",
+    "weight"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.038"
+   }
+  }
+ },
+ {
+  "step": "el created",
+  "status": 201,
+  "data": {
+   "id": 2,
+   "name": "created",
+   "edgelabel_type": "NORMAL",
+   "source_label": "person",
+   "target_label": "software",
+   "links": [
+    {
+     "person": "software"
+    }
+   ],
+   "frequency": "SINGLE",
+   "sort_keys": [],
+   "nullable_keys": [
+    "weight"
+   ],
+   "index_labels": [],
+   "properties": [
+    "weight"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.049"
+   }
+  }
+ },
+ {
+  "step": "el owns",
+  "status": 201,
+  "data": {
+   "id": 3,
+   "name": "owns",
+   "edgelabel_type": "NORMAL",
+   "source_label": "cust",
+   "target_label": "software",
+   "links": [
+    {
+     "cust": "software"
+    }
+   ],
+   "frequency": "SINGLE",
+   "sort_keys": [],
+   "nullable_keys": [],
+   "index_labels": [],
+   "properties": [],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-18 15:53:33.054"
+   }
+  }
+ },
+ {
+  "step": "il personByCity",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 1,
+    "name": "personByCity",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "SECONDARY",
+    "fields": [
+     "city"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.072"
+    }
+   },
+   "task_id": 1
+  }
+ },
+ {
+  "step": "il personByAge",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 2,
+    "name": "personByAge",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "RANGE",
+    "fields": [
+     "age"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.089"
+    }
+   },
+   "task_id": 2
+  }
+ },
+ {
+  "step": "il softwareByDesc",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 3,
+    "name": "softwareByDesc",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "software",
+    "index_type": "SEARCH",
+    "fields": [
+     "desc"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.096"
+    }
+   },
+   "task_id": 3
+  }
+ },
+ {
+  "step": "il knowsByWeight",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 4,
+    "name": "knowsByWeight",
+    "base_type": "EDGE_LABEL",
+    "base_value": "knows",
+    "index_type": "RANGE",
+    "fields": [
+     "weight"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.106"
+    }
+   },
+   "task_id": 4
+  }
+ },
+ {
+  "step": "vertices batch",
+  "status": 201,
+  "data": [
+   "1:p1",
+   "1:p2",
+   "1:p3",
+   "1:p4",
+   "1:p5",
+   "1:p6",
+   "1:p7",
+   "1:p8",
+   "1:p9",
+   "1:p10",
+   "1:p11",
+   "1:p12",
+   "1:p13",
+   "1:p14",
+   "1:p15",
+   "1:p16",
+   "1:p17",
+   "1:p18",
+   "1:p19",
+   "1:p20",
+   1165664258311061504,
+   1165664258311061505,
+   1165664258311061506,
+   1165664258311061507,
+   1165664258311061508,
+   "c1",
+   "c2",
+   "c3"
+  ]
+ },
+ {
+  "step": "edges batch",
+  "status": 400,
+  "data": {
+   "exception": "class java.lang.IllegalArgumentException",
+   "message": "Expect target vertex id",
+   "cause": "",
+   "trace": [
+    "com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "org.apache.hugegraph.util.E.checkArgumentNotNull(E.java:58)",
+    "org.apache.hugegraph.api.graph.EdgeAPI$JsonEdge.checkCreate(EdgeAPI.java:531)",
+    "org.apache.hugegraph.api.API.checkCreatingBody(API.java:201)",
+    "org.apache.hugegraph.api.graph.EdgeAPI.create(EdgeAPI.java:137)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:219)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gs create test2",
+  "status": 201,
+  "data": {
+   "id": "c99",
+   "label": "cust",
+   "type": "vertex",
+   "properties": {
+    "name": "late"
+   }
+  }
+ },
+ {
+  "step": "schema propertykeys",
+  "status": 200,
+  "data": [
+   "age",
+   "big",
+   "born",
+   "city",
+   "desc",
+   "flags",
+   "name",
+   "ok",
+   "ratio",
+   "score",
+   "since",
+   "tags",
+   "weight"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "name",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.903"
+    }
+   },
+   {
+    "id": 2,
+    "name": "age",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.945"
+    }
+   },
+   {
+    "id": 3,
+    "name": "city",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.951"
+    }
+   },
+   {
+    "id": 4,
+    "name": "score",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.955"
+    }
+   },
+   {
+    "id": 5,
+    "name": "ratio",
+    "data_type": "FLOAT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.960"
+    }
+   },
+   {
+    "id": 6,
+    "name": "big",
+    "data_type": "LONG",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.964"
+    }
+   },
+   {
+    "id": 7,
+    "name": "ok",
+    "data_type": "BOOLEAN",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.969"
+    }
+   },
+   {
+    "id": 8,
+    "name": "born",
+    "data_type": "DATE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.973"
+    }
+   },
+   {
+    "id": 9,
+    "name": "tags",
+    "data_type": "TEXT",
+    "cardinality": "LIST",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.979"
+    }
+   },
+   {
+    "id": 10,
+    "name": "flags",
+    "data_type": "INT",
+    "cardinality": "SET",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.984"
+    }
+   },
+   {
+    "id": 11,
+    "name": "since",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.990"
+    }
+   },
+   {
+    "id": 12,
+    "name": "desc",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:32.995"
+    }
+   },
+   {
+    "id": 13,
+    "name": "weight",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.001"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema vertexlabels",
+  "status": 200,
+  "data": [
+   "cust",
+   "person",
+   "software"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "person",
+    "id_strategy": "PRIMARY_KEY",
+    "primary_keys": [
+     "name"
+    ],
+    "nullable_keys": [
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "index_labels": [
+     "personByCity",
+     "personByAge"
+    ],
+    "properties": [
+     "name",
+     "age",
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.013"
+    }
+   },
+   {
+    "id": 2,
+    "name": "software",
+    "id_strategy": "AUTOMATIC",
+    "primary_keys": [],
+    "nullable_keys": [
+     "desc"
+    ],
+    "index_labels": [
+     "softwareByDesc"
+    ],
+    "properties": [
+     "name",
+     "desc"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.020"
+    }
+   },
+   {
+    "id": 3,
+    "name": "cust",
+    "id_strategy": "CUSTOMIZE_STRING",
+    "primary_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [
+     "name"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.026"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema edgelabels",
+  "status": 200,
+  "data": [
+   "created",
+   "knows",
+   "owns"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "knows",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "person",
+    "links": [
+     {
+      "person": "person"
+     }
+    ],
+    "frequency": "MULTIPLE",
+    "sort_keys": [
+     "since"
+    ],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [
+     "knowsByWeight"
+    ],
+    "properties": [
+     "since",
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.038"
+    }
+   },
+   {
+    "id": 2,
+    "name": "created",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "software",
+    "links": [
+     {
+      "person": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [],
+    "properties": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.049"
+    }
+   },
+   {
+    "id": 3,
+    "name": "owns",
+    "edgelabel_type": "NORMAL",
+    "source_label": "cust",
+    "target_label": "software",
+    "links": [
+     {
+      "cust": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.054"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema indexlabels",
+  "status": 200,
+  "data": [
+   "knowsByWeight",
+   "personByAge",
+   "personByCity",
+   "softwareByDesc"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "personByCity",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "SECONDARY",
+    "fields": [
+     "city"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.072"
+    }
+   },
+   {
+    "id": 2,
+    "name": "personByAge",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "RANGE",
+    "fields": [
+     "age"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.089"
+    }
+   },
+   {
+    "id": 3,
+    "name": "softwareByDesc",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "software",
+    "index_type": "SEARCH",
+    "fields": [
+     "desc"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.096"
+    }
+   },
+   {
+    "id": 4,
+    "name": "knowsByWeight",
+    "base_type": "EDGE_LABEL",
+    "base_value": "knows",
+    "index_type": "RANGE",
+    "fields": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:33.106"
+    }
+   }
+  ]
+ },
+ {
+  "step": "graphs list",
+  "status": 200,
+  "data": {
+   "graphs": [
+    "hugegraph"
+   ]
+  }
+ },
+ {
+  "step": "graphspaces",
+  "status": 200,
+  "data": {
+   "graphSpaces": []
+  }
+ },
+ {
+  "step": "gremlin g.V().count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('person').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('software').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('cust').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('knows').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('created').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('owns').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').valueMap(true)",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','city','Krakow').count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','age',gt(30)).count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('software','desc',Text.contains('tool')).count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().has('knows','weight',gt(10.0)).count()",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name')",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V('c1').out('owns').values('name')",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score')",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.core.UriBuilderException",
+   "message": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "cause": "java.net.URISyntaxException: Illegal character in scheme name at index 0: 127.0.0.1:8183",
+   "trace": [
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.createURI(JerseyUriBuilder.java:993)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder._build(JerseyUriBuilder.java:961)",
+    "org.glassfish.jersey.uri.internal.JerseyUriBuilder.build(JerseyUriBuilder.java:886)",
+    "org.glassfish.jersey.client.JerseyWebTarget.getUri(JerseyWebTarget.java:111)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:198)",
+    "org.glassfish.jersey.client.JerseyWebTarget.request(JerseyWebTarget.java:38)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:60)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:66)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "rest vertices",
+  "status": 200,
+  "data": {
+   "vertices": [
+    {
+     "id": 1165664258311061504,
+     "label": "software",
+     "type": "vertex",
+     "properties": {
+      "name": "s1",
+      "desc": "graph database tool number 1"
+     }
+    },
+    {
+     "id": 1165664258311061505,
+     "label": "software",
+     "type": "vertex",
+     "properties": {
+      "name": "s2",
+      "desc": "graph database tool number 2"
+     }
+    },
+    {
+     "id": 1165664258311061506,
+     "label": "software",
+     "type": "vertex",
+     "properties": {
+      "name": "s3",
+      "desc": "graph database tool number 3"
+     }
+    }
+   ]
+  }
+ },
+ {
+  "step": "rest edges",
+  "status": 200,
+  "data": {
+   "edges": []
+  }
+ }
+]

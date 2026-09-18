@@ -1,0 +1,264 @@
+[
+ {
+  "step": "schema propertykeys",
+  "status": 404,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema vertexlabels",
+  "status": 404,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema edgelabels",
+  "status": 404,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema indexlabels",
+  "status": 404,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "graphs list",
+  "status": 200,
+  "data": {
+   "graphs": []
+  }
+ },
+ {
+  "step": "graphspaces",
+  "status": 200,
+  "data": {
+   "graphSpaces": [
+    "DEFAULT"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.E().count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('person').count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('software').count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('cust').count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('knows').count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('created').count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('owns').count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').valueMap(true)",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','city','Krakow').count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','age',gt(30)).count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('software','desc',Text.contains('tool')).count()",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.E().has('knows','weight',gt(10.0)).count()",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name')",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V('c1').out('owns').values('name')",
+  "status": 400,
+  "data": {
+   "exception": "",
+   "message": "Could not rebind [g] to [__g_DEFAULT-hugegraph] as [__g_DEFAULT-hugegraph] not in the Graph or TraversalSource global bindings",
+   "cause": ""
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score')",
+  "status": 500,
+  "data": {
+   "exception": "",
+   "message": "refCnt: 0, decrement: 1",
+   "cause": ""
+  }
+ },
+ {
+  "step": "rest vertices",
+  "status": 404,
+  "data": {
+   "exception": "class org.apache.hugegraph.exception.NotFoundException",
+   "message": "Graph 'hugegraph' does not exist",
+   "cause": "",
+   "trace": [
+    "org.apache.hugegraph.api.API.graph(API.java:104)",
+    "org.apache.hugegraph.api.graph.VertexAPI.list(VertexAPI.java:273)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:219)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "rest edges",
+  "status": 404,
+  "data": {
+   "exception": "class org.apache.hugegraph.exception.NotFoundException",
+   "message": "Graph 'hugegraph' does not exist",
+   "cause": "",
+   "trace": [
+    "org.apache.hugegraph.api.API.graph(API.java:104)",
+    "org.apache.hugegraph.api.graph.EdgeAPI.list(EdgeAPI.java:318)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:219)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ }
+]

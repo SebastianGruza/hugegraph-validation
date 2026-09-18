@@ -1,0 +1,893 @@
+[
+ {
+  "step": "schema propertykeys",
+  "status": 200,
+  "data": [
+   "age",
+   "big",
+   "born",
+   "city",
+   "desc",
+   "flags",
+   "name",
+   "ok",
+   "ratio",
+   "score",
+   "since",
+   "tags",
+   "weight"
+  ],
+  "full": [
+   {
+    "id": 7,
+    "name": "ok",
+    "data_type": "BOOLEAN",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.066"
+    }
+   },
+   {
+    "id": 6,
+    "name": "big",
+    "data_type": "LONG",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.046"
+    }
+   },
+   {
+    "id": 9,
+    "name": "tags",
+    "data_type": "TEXT",
+    "cardinality": "LIST",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.105"
+    }
+   },
+   {
+    "id": 8,
+    "name": "born",
+    "data_type": "DATE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.083"
+    }
+   },
+   {
+    "id": 3,
+    "name": "city",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:25.990"
+    }
+   },
+   {
+    "id": 2,
+    "name": "age",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:25.969"
+    }
+   },
+   {
+    "id": 5,
+    "name": "ratio",
+    "data_type": "FLOAT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.029"
+    }
+   },
+   {
+    "id": 4,
+    "name": "score",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.011"
+    }
+   },
+   {
+    "id": 1,
+    "name": "name",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:25.942"
+    }
+   },
+   {
+    "id": 11,
+    "name": "since",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.149"
+    }
+   },
+   {
+    "id": 12,
+    "name": "desc",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.167"
+    }
+   },
+   {
+    "id": 10,
+    "name": "flags",
+    "data_type": "INT",
+    "cardinality": "SET",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.126"
+    }
+   },
+   {
+    "id": 13,
+    "name": "weight",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.182"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema vertexlabels",
+  "status": 200,
+  "data": [
+   "cust",
+   "person",
+   "software"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "person",
+    "id_strategy": "PRIMARY_KEY",
+    "primary_keys": [
+     "name"
+    ],
+    "nullable_keys": [
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "index_labels": [
+     "personByCity",
+     "personByAge"
+    ],
+    "properties": [
+     "name",
+     "age",
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.209"
+    }
+   },
+   {
+    "id": 2,
+    "name": "software",
+    "id_strategy": "AUTOMATIC",
+    "primary_keys": [],
+    "nullable_keys": [
+     "desc"
+    ],
+    "index_labels": [
+     "softwareByDesc"
+    ],
+    "properties": [
+     "name",
+     "desc"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.231"
+    }
+   },
+   {
+    "id": 3,
+    "name": "cust",
+    "id_strategy": "CUSTOMIZE_STRING",
+    "primary_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [
+     "name"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.252"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema edgelabels",
+  "status": 200,
+  "data": [
+   "created",
+   "knows",
+   "owns"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "knows",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "person",
+    "links": [
+     {
+      "person": "person"
+     }
+    ],
+    "frequency": "MULTIPLE",
+    "sort_keys": [
+     "since"
+    ],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [
+     "knowsByWeight"
+    ],
+    "properties": [
+     "since",
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.285"
+    }
+   },
+   {
+    "id": 2,
+    "name": "created",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "software",
+    "links": [
+     {
+      "person": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [],
+    "properties": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.314"
+    }
+   },
+   {
+    "id": 3,
+    "name": "owns",
+    "edgelabel_type": "NORMAL",
+    "source_label": "cust",
+    "target_label": "software",
+    "links": [
+     {
+      "cust": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.333"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema indexlabels",
+  "status": 200,
+  "data": [
+   "knowsByWeight",
+   "personByAge",
+   "personByCity",
+   "softwareByDesc"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "personByCity",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "SECONDARY",
+    "fields": [
+     "city"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.371"
+    }
+   },
+   {
+    "id": 4,
+    "name": "knowsByWeight",
+    "base_type": "EDGE_LABEL",
+    "base_value": "knows",
+    "index_type": "RANGE",
+    "fields": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.630"
+    }
+   },
+   {
+    "id": 2,
+    "name": "personByAge",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "RANGE",
+    "fields": [
+     "age"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.475"
+    }
+   },
+   {
+    "id": 3,
+    "name": "softwareByDesc",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "software",
+    "index_type": "SEARCH",
+    "fields": [
+     "desc"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-18 15:53:26.527"
+    }
+   }
+  ]
+ },
+ {
+  "step": "graphs list",
+  "status": 200,
+  "data": {
+   "graphs": [
+    "hugegraph"
+   ]
+  }
+ },
+ {
+  "step": "graphspaces",
+  "status": 400,
+  "data": {
+   "exception": "class org.apache.hugegraph.HugeException",
+   "message": "GraphSpace management is not supported in standalone mode",
+   "cause": "",
+   "trace": [
+    "org.apache.hugegraph.api.API.ensurePdModeEnabled(API.java:264)",
+    "org.apache.hugegraph.api.space.GraphSpaceAPI.list(GraphSpaceAPI.java:84)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ObjectOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:192)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.E().count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('person').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('software').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('cust').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('knows').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('created').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('owns').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').valueMap(true)",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.ProcessingException",
+   "message": "java.net.SocketTimeoutException: Read timed out",
+   "cause": "java.net.SocketTimeoutException: Read timed out",
+   "trace": [
+    "org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:531)",
+    "org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:662)",
+    "org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:697)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:205)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)",
+    "org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:661)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:64)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:68)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','city','Krakow').count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','age',gt(30)).count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('software','desc',Text.contains('tool')).count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.E().has('knows','weight',gt(10.0)).count()",
+  "status": 200,
+  "data": [
+   0
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name')",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.ProcessingException",
+   "message": "java.net.SocketTimeoutException: Read timed out",
+   "cause": "java.net.SocketTimeoutException: Read timed out",
+   "trace": [
+    "org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:531)",
+    "org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:662)",
+    "org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:697)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:205)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)",
+    "org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:661)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:64)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:68)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V('c1').out('owns').values('name')",
+  "status": 400,
+  "data": {
+   "exception": "java.util.concurrent.TimeoutException",
+   "message": "Evaluation exceeded the configured 'evaluationTimeout' threshold of 30000 ms or evaluation was otherwise cancelled directly for request [g.V('c1').out('owns').values('name')]",
+   "cause": "[java.util.concurrent.TimeoutException]",
+   "trace": [
+    "java.util.concurrent.TimeoutException: Evaluation exceeded the configured 'evaluationTimeout' threshold of 30000 ms or evaluation was otherwise cancelled directly for request [g.V('c1').out('owns').values('name')]",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$1(GremlinExecutor.java:321)",
+    "\tat io.netty.util.concurrent.PromiseTask.runTask(PromiseTask.java:98)",
+    "\tat io.netty.util.concurrent.ScheduledFutureTask.run(ScheduledFutureTask.java:170)",
+    "\tat io.netty.util.concurrent.AbstractEventExecutor.safeExecute(AbstractEventExecutor.java:164)",
+    "\tat io.netty.util.concurrent.SingleThreadEventExecutor.runAllTasks(SingleThreadEventExecutor.java:472)",
+    "\tat io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:500)",
+    "\tat io.netty.util.concurrent.SingleThreadEventExecutor$4.run(SingleThreadEventExecutor.java:989)",
+    "\tat io.netty.util.internal.ThreadExecutorMap$2.run(ThreadExecutorMap.java:74)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score')",
+  "status": 500,
+  "data": {
+   "exception": "class jakarta.ws.rs.ProcessingException",
+   "message": "java.net.SocketTimeoutException: Read timed out",
+   "cause": "java.net.SocketTimeoutException: Read timed out",
+   "trace": [
+    "org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:531)",
+    "org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:297)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:662)",
+    "org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:697)",
+    "org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:205)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:390)",
+    "org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:691)",
+    "org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:661)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439)",
+    "org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345)",
+    "org.apache.hugegraph.api.gremlin.GremlinClient.doPostRequest(GremlinClient.java:64)",
+    "org.apache.hugegraph.api.gremlin.GremlinAPI.post(GremlinAPI.java:68)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$ResponseOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:176)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "rest vertices",
+  "status": 500,
+  "data": {
+   "exception": "class org.apache.hugegraph.store.client.type.HgStoreClientException",
+   "message": "io.grpc.StatusRuntimeException: UNAVAILABLE: io exception",
+   "cause": "io.grpc.StatusRuntimeException: UNAVAILABLE: io exception",
+   "trace": [
+    "org.apache.hugegraph.store.client.type.HgStoreClientException.of(HgStoreClientException.java:46)",
+    "org.apache.hugegraph.store.client.util.HgBufferProxy.checkErr(HgBufferProxy.java:159)",
+    "org.apache.hugegraph.store.client.util.HgBufferProxy.receive(HgBufferProxy.java:129)",
+    "org.apache.hugegraph.store.client.grpc.KvPageScanner.hasNext(KvPageScanner.java:222)",
+    "org.apache.hugegraph.store.client.grpc.GrpcKvIteratorImpl.hasNext(GrpcKvIteratorImpl.java:77)",
+    "org.apache.hugegraph.store.client.SequencedIterator.getIterator(SequencedIterator.java:64)",
+    "org.apache.hugegraph.store.client.SequencedIterator.hasNext(SequencedIterator.java:116)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:233)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scan(HstoreSessionsImpl.java:587)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.queryAll(HstoreTable.java:466)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:410)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342)",
+    "org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.backendBatches(GraphTransaction.java:867)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.fetchVertexBatch(GraphTransaction.java:879)",
+    "org.apache.hugegraph.backend.cache.CachedGraphTransaction.fetchVertexBatch(CachedGraphTransaction.java:326)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryVertexBatchesFromBackend(GraphTransaction.java:859)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryValidVerticesFromBackend(GraphTransaction.java:883)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryVertices(GraphTransaction.java:845)",
+    "org.apache.hugegraph.StandardHugeGraph.vertices(StandardHugeGraph.java:836)",
+    "org.apache.hugegraph.traversal.optimize.HugeGraphStep.vertices(HugeGraphStep.java:118)",
+    "org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "org.apache.hugegraph.serializer.JsonSerializer.writeIterator(JsonSerializer.java:107)",
+    "org.apache.hugegraph.serializer.JsonSerializer.writeVertices(JsonSerializer.java:243)",
+    "org.apache.hugegraph.api.graph.VertexAPI.list(VertexAPI.java:300)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:219)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "rest edges",
+  "status": 500,
+  "data": {
+   "exception": "class org.apache.hugegraph.store.client.type.HgStoreClientException",
+   "message": "io.grpc.StatusRuntimeException: UNAVAILABLE: io exception",
+   "cause": "io.grpc.StatusRuntimeException: UNAVAILABLE: io exception",
+   "trace": [
+    "org.apache.hugegraph.store.client.type.HgStoreClientException.of(HgStoreClientException.java:46)",
+    "org.apache.hugegraph.store.client.util.HgBufferProxy.checkErr(HgBufferProxy.java:159)",
+    "org.apache.hugegraph.store.client.util.HgBufferProxy.receive(HgBufferProxy.java:129)",
+    "org.apache.hugegraph.store.client.grpc.KvPageScanner.hasNext(KvPageScanner.java:222)",
+    "org.apache.hugegraph.store.client.grpc.GrpcKvIteratorImpl.hasNext(GrpcKvIteratorImpl.java:77)",
+    "org.apache.hugegraph.store.client.SequencedIterator.getIterator(SequencedIterator.java:64)",
+    "org.apache.hugegraph.store.client.SequencedIterator.hasNext(SequencedIterator.java:116)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:245)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$ColumnIterator.<init>(HstoreSessionsImpl.java:233)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreSessionsImpl$HstoreSession.scan(HstoreSessionsImpl.java:587)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.queryAll(HstoreTable.java:466)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.queryBy(HstoreTable.java:410)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreTable.query(HstoreTable.java:319)",
+    "org.apache.hugegraph.backend.store.hstore.HstoreStore.query(HstoreStore.java:342)",
+    "org.apache.hugegraph.backend.tx.AbstractTransaction.query(AbstractTransaction.java:161)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.backendBatches(GraphTransaction.java:867)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.fetchEdgeBatch(GraphTransaction.java:1131)",
+    "org.apache.hugegraph.backend.cache.CachedGraphTransaction.fetchEdgeBatch(CachedGraphTransaction.java:375)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryEdgeBatchesFromBackendInternal(GraphTransaction.java:1123)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryEdgeBatchesFromBackend(GraphTransaction.java:1113)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryValidEdgesFromBackend(GraphTransaction.java:1117)",
+    "org.apache.hugegraph.backend.tx.GraphTransaction.queryEdges(GraphTransaction.java:1034)",
+    "org.apache.hugegraph.StandardHugeGraph.edges(StandardHugeGraph.java:865)",
+    "org.apache.hugegraph.traversal.optimize.HugeGraphStep.edges(HugeGraphStep.java:139)",
+    "org.apache.hugegraph.traversal.optimize.HugeGraphStep.lambda$new$0(HugeGraphStep.java:65)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.map.GraphStep.processNextStart(GraphStep.java:157)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.ExpandableStepIterator.next(ExpandableStepIterator.java:55)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.filter.FilterStep.processNextStart(FilterStep.java:37)",
+    "org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "org.apache.hugegraph.serializer.JsonSerializer.writeIterator(JsonSerializer.java:107)",
+    "org.apache.hugegraph.serializer.JsonSerializer.writeEdges(JsonSerializer.java:253)",
+    "org.apache.hugegraph.api.graph.EdgeAPI.list(EdgeAPI.java:356)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)",
+    "java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)",
+    "java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)",
+    "java.base/java.lang.reflect.Method.invoke(Method.java:566)",
+    "org.glassfish.jersey.server.model.internal.ResourceMethodInvocationHandlerFactory.lambda$static$0(ResourceMethodInvocationHandlerFactory.java:52)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher$1.run(AbstractJavaResourceMethodDispatcher.java:124)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.invoke(AbstractJavaResourceMethodDispatcher.java:167)",
+    "org.glassfish.jersey.server.model.internal.JavaResourceMethodDispatcherProvider$TypeOutInvoker.doDispatch(JavaResourceMethodDispatcherProvider.java:219)",
+    "org.glassfish.jersey.server.model.internal.AbstractJavaResourceMethodDispatcher.dispatch(AbstractJavaResourceMethodDispatcher.java:79)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.invoke(ResourceMethodInvoker.java:475)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:397)",
+    "org.glassfish.jersey.server.model.ResourceMethodInvoker.apply(ResourceMethodInvoker.java:81)",
+    "org.glassfish.jersey.server.ServerRuntime$1.run(ServerRuntime.java:255)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:248)",
+    "org.glassfish.jersey.internal.Errors$1.call(Errors.java:244)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:292)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:274)",
+    "org.glassfish.jersey.internal.Errors.process(Errors.java:244)",
+    "org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:265)",
+    "org.glassfish.jersey.server.ServerRuntime.process(ServerRuntime.java:234)",
+    "org.glassfish.jersey.server.ApplicationHandler.handle(ApplicationHandler.java:684)",
+    "org.glassfish.jersey.grizzly2.httpserver.GrizzlyHttpContainer.service(GrizzlyHttpContainer.java:356)",
+    "org.glassfish.grizzly.http.server.HttpHandler$1.run(HttpHandler.java:190)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.doWork(AbstractThreadPool.java:535)",
+    "org.glassfish.grizzly.threadpool.AbstractThreadPool$Worker.run(AbstractThreadPool.java:515)",
+    "java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ }
+]
