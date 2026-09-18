@@ -1,0 +1,19 @@
+{
+ "scenario": "store-one-down",
+ "verdict": "PASS",
+ "evidence": "codes {200: 222}, transitions [], store back Ready in 23.04986000061035s, load {'writes': {'requests': 274, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 0.8, 'codes': []}, 'reads': {'requests': 274, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 0.0, 'codes': []}}",
+ "extra": {
+  "samples": 222,
+  "codes": {
+   "200": 222
+  },
+  "p50_ms": 3,
+  "p99_ms": 6,
+  "max_ms": 8,
+  "cached_ratio": 0.64,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-18 21:55:24"
+}

@@ -1,0 +1,196 @@
+{
+ "scenario": "stores-zero",
+ "verdict": "PASS",
+ "evidence": "per pod {\"hugegraph-server-78978d5656-27vnr\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 29.0, \"out_of_service_after_fault_s\": 29.0, \"readiness_200_after_back_s\": 12.9, \"ready_after_back_s\": 20.9, \"reasons_during_fault\": [\"none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; 2 store(s) did not answer within 1000 ms\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6386607161404282741}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6838705701474727512}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\\\"}\"]}, \"hugegraph-server-78978d5656-9wgqh\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 24.0, \"out_of_service_after_fault_s\": 24.0, \"readiness_200_after_back_s\": 12.9, \"ready_after_back_s\": 16.9, \"reasons_during_fault\": [\"none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6386607161404282741}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6838705701474727512}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\\\"}\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6838705701474727512}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6386607161404282741}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\\\"}\"]}, \"hugegraph-server-78978d5656-nqh9p\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 24.0, \"out_of_service_after_fault_s\": 24.0, \"readiness_200_after_back_s\": 14.9, \"ready_after_back_s\": 16.9, \"reasons_during_fault\": [\"none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; 2 store(s) did not answer within 1000 ms\", \"none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 3259356358697243292}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6386607161404282741}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\\\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \\\"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\\\", nodeId: 6838705701474727512}, graphName: \\\"DEFAULT/hugegraph/g\\\"}}, reason: \\\"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\\\"}\"]}}; min endpoints during fault 0; stores back Ready in 22.615440607070923s; load {'writes': {'requests': 647, 'failed': 526, 'first_failure_s': 41.3, 'last_failure_s': 177.7, 'max_latency_s': 31.1, 'codes': [0, 500]}, 'reads': {'requests': 647, 'failed': 525, 'first_failure_s': 41.3, 'last_failure_s': 146.5, 'max_latency_s': 0.4, 'codes': [0]}}",
+ "extra": {
+  "summary": {
+   "samples": 555,
+   "codes": {
+    "200": 226,
+    "503": 329
+   },
+   "p50_ms": 4,
+   "p99_ms": 1006,
+   "max_ms": 1014,
+   "cached_ratio": 0.62,
+   "readiness_transitions": [
+    [
+     20.0,
+     "hugegraph-server-78978d5656-27vnr",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     200,
+     503
+    ],
+    [
+     153.0,
+     "hugegraph-server-78978d5656-27vnr",
+     503,
+     200
+    ],
+    [
+     153.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     503,
+     200
+    ],
+    [
+     155.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     503,
+     200
+    ]
+   ],
+   "ready_cond_transitions": [
+    [
+     44.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     true,
+     false
+    ],
+    [
+     44.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     true,
+     false
+    ],
+    [
+     49.0,
+     "hugegraph-server-78978d5656-27vnr",
+     true,
+     false
+    ],
+    [
+     157.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     false,
+     true
+    ],
+    [
+     157.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     false,
+     true
+    ],
+    [
+     161.0,
+     "hugegraph-server-78978d5656-27vnr",
+     false,
+     true
+    ]
+   ],
+   "in_service_transitions": [
+    [
+     44.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     true,
+     false
+    ],
+    [
+     44.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     true,
+     false
+    ],
+    [
+     49.0,
+     "hugegraph-server-78978d5656-27vnr",
+     true,
+     false
+    ],
+    [
+     157.0,
+     "hugegraph-server-78978d5656-9wgqh",
+     false,
+     true
+    ],
+    [
+     157.0,
+     "hugegraph-server-78978d5656-nqh9p",
+     false,
+     true
+    ],
+    [
+     161.0,
+     "hugegraph-server-78978d5656-27vnr",
+     false,
+     true
+    ]
+   ]
+  },
+  "per_pod": {
+   "hugegraph-server-78978d5656-27vnr": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 29.0,
+    "out_of_service_after_fault_s": 29.0,
+    "readiness_200_after_back_s": 12.9,
+    "ready_after_back_s": 20.9,
+    "reasons_during_fault": [
+     "none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; 2 store(s) did not answer within 1000 ms",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\", nodeId: 6386607161404282741}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\", nodeId: 6838705701474727512}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"}"
+    ]
+   },
+   "hugegraph-server-78978d5656-9wgqh": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 24.0,
+    "out_of_service_after_fault_s": 24.0,
+    "readiness_200_after_back_s": 12.9,
+    "ready_after_back_s": 16.9,
+    "reasons_during_fault": [
+     "none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\", nodeId: 6386607161404282741}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\", nodeId: 6838705701474727512}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"}",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\", nodeId: 6838705701474727512}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\", nodeId: 6386607161404282741}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\"}"
+    ]
+   },
+   "hugegraph-server-78978d5656-nqh9p": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 24.0,
+    "out_of_service_after_fault_s": 24.0,
+    "readiness_200_after_back_s": 14.9,
+    "ready_after_back_s": 16.9,
+    "reasons_during_fault": [
+     "none of 3 active store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; 2 store(s) did not answer within 1000 ms",
+     "none of 3 active store(s) answered: a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-0.hugegraph-store.hugegraph.svc:8500\", nodeId: 3259356358697243292}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-1.hugegraph-store.hugegraph.svc:8500\", nodeId: 6386607161404282741}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\"}; a store failed: HgStoreClientException: {sessionInfo: {storeNodeSession: {storeNode: {address: \"hugegraph-store-2.hugegraph-store.hugegraph.svc:8500\", nodeId: 6838705701474727512}, graphName: \"DEFAULT/hugegraph/g\"}}, reason: \"UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"}"
+    ]
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 140.1,
+  "load": {
+   "writes": {
+    "requests": 647,
+    "failed": 526,
+    "first_failure_s": 41.3,
+    "last_failure_s": 177.7,
+    "max_latency_s": 31.1,
+    "codes": [
+     0,
+     500
+    ]
+   },
+   "reads": {
+    "requests": 647,
+    "failed": 525,
+    "first_failure_s": 41.3,
+    "last_failure_s": 146.5,
+    "max_latency_s": 0.4,
+    "codes": [
+     0
+    ]
+   }
+  }
+ },
+ "time": "2026-09-18 21:05:24"
+}

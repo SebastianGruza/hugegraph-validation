@@ -1,0 +1,71 @@
+{
+ "scenario": "pd-zero",
+ "verdict": "PASS",
+ "evidence": "per pod {\"hugegraph-server-54c69cfb86-l4zsj\": {\"codes_during_fault\": [200], \"pd_unreachable_seen_after_s\": 41.0, \"pd_reachable_again_after_s\": 18.9, \"ready_cond_transitions\": []}, \"hugegraph-server-54c69cfb86-l8jvv\": {\"codes_during_fault\": [200], \"pd_unreachable_seen_after_s\": 43.0, \"pd_reachable_again_after_s\": 18.9, \"ready_cond_transitions\": []}, \"hugegraph-server-54c69cfb86-mj8s7\": {\"codes_during_fault\": [200], \"pd_unreachable_seen_after_s\": 43.0, \"pd_reachable_again_after_s\": 18.9, \"ready_cond_transitions\": []}}; pd back Ready in 22.60096836090088s; load {'writes': {'requests': 295, 'failed': 2, 'first_failure_s': 52.7, 'last_failure_s': 113.8, 'max_latency_s': 45.9, 'codes': [500]}, 'reads': {'requests': 295, 'failed': 1, 'first_failure_s': 82.8, 'last_failure_s': 82.8, 'max_latency_s': 30.1, 'codes': [500]}}",
+ "extra": {
+  "summary": {
+   "samples": 582,
+   "codes": {
+    "200": 582
+   },
+   "p50_ms": 2,
+   "p99_ms": 6,
+   "max_ms": 8,
+   "cached_ratio": 0.62,
+   "readiness_transitions": [],
+   "ready_cond_transitions": [],
+   "in_service_transitions": []
+  },
+  "per_pod": {
+   "hugegraph-server-54c69cfb86-l4zsj": {
+    "codes_during_fault": [
+     200
+    ],
+    "pd_unreachable_seen_after_s": 41.0,
+    "pd_reachable_again_after_s": 18.9,
+    "ready_cond_transitions": []
+   },
+   "hugegraph-server-54c69cfb86-l8jvv": {
+    "codes_during_fault": [
+     200
+    ],
+    "pd_unreachable_seen_after_s": 43.0,
+    "pd_reachable_again_after_s": 18.9,
+    "ready_cond_transitions": []
+   },
+   "hugegraph-server-54c69cfb86-mj8s7": {
+    "codes_during_fault": [
+     200
+    ],
+    "pd_unreachable_seen_after_s": 43.0,
+    "pd_reachable_again_after_s": 18.9,
+    "ready_cond_transitions": []
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 110.1,
+  "load": {
+   "writes": {
+    "requests": 295,
+    "failed": 2,
+    "first_failure_s": 52.7,
+    "last_failure_s": 113.8,
+    "max_latency_s": 45.9,
+    "codes": [
+     500
+    ]
+   },
+   "reads": {
+    "requests": 295,
+    "failed": 1,
+    "first_failure_s": 82.8,
+    "last_failure_s": 82.8,
+    "max_latency_s": 30.1,
+    "codes": [
+     500
+    ]
+   }
+  }
+ },
+ "time": "2026-09-18 22:00:55"
+}

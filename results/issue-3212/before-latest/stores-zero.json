@@ -1,0 +1,71 @@
+{
+ "scenario": "stores-zero",
+ "verdict": "FAIL",
+ "evidence": "per pod {\"hugegraph-server-9474bc876-4bc8k\": {\"readiness_503_after_fault_s\": null, \"not_ready_after_fault_s\": null, \"out_of_service_after_fault_s\": null, \"readiness_200_after_back_s\": null, \"ready_after_back_s\": 0.9, \"reasons_during_fault\": []}, \"hugegraph-server-9474bc876-9cv5s\": {\"readiness_503_after_fault_s\": null, \"not_ready_after_fault_s\": null, \"out_of_service_after_fault_s\": null, \"readiness_200_after_back_s\": null, \"ready_after_back_s\": 0.9, \"reasons_during_fault\": []}, \"hugegraph-server-9474bc876-jgbxf\": {\"readiness_503_after_fault_s\": null, \"not_ready_after_fault_s\": null, \"out_of_service_after_fault_s\": null, \"readiness_200_after_back_s\": null, \"ready_after_back_s\": 0.9, \"reasons_during_fault\": []}}; min endpoints during fault 3; stores back Ready in 23.861173391342163s; load {'writes': {'requests': 42, 'failed': 3, 'first_failure_s': 41.3, 'last_failure_s': 175.3, 'max_latency_s': 42.3, 'codes': [500]}, 'reads': {'requests': 42, 'failed': 5, 'first_failure_s': 71.8, 'last_failure_s': 187.5, 'max_latency_s': 30.4, 'codes': [500]}}",
+ "extra": {
+  "summary": {
+   "samples": 579,
+   "codes": {
+    "401": 579
+   },
+   "p50_ms": null,
+   "p99_ms": null,
+   "max_ms": null,
+   "cached_ratio": 0.0,
+   "readiness_transitions": [],
+   "ready_cond_transitions": [],
+   "in_service_transitions": []
+  },
+  "per_pod": {
+   "hugegraph-server-9474bc876-4bc8k": {
+    "readiness_503_after_fault_s": null,
+    "not_ready_after_fault_s": null,
+    "out_of_service_after_fault_s": null,
+    "readiness_200_after_back_s": null,
+    "ready_after_back_s": 0.9,
+    "reasons_during_fault": []
+   },
+   "hugegraph-server-9474bc876-9cv5s": {
+    "readiness_503_after_fault_s": null,
+    "not_ready_after_fault_s": null,
+    "out_of_service_after_fault_s": null,
+    "readiness_200_after_back_s": null,
+    "ready_after_back_s": 0.9,
+    "reasons_during_fault": []
+   },
+   "hugegraph-server-9474bc876-jgbxf": {
+    "readiness_503_after_fault_s": null,
+    "not_ready_after_fault_s": null,
+    "out_of_service_after_fault_s": null,
+    "readiness_200_after_back_s": null,
+    "ready_after_back_s": 0.9,
+    "reasons_during_fault": []
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 140.1,
+  "load": {
+   "writes": {
+    "requests": 42,
+    "failed": 3,
+    "first_failure_s": 41.3,
+    "last_failure_s": 175.3,
+    "max_latency_s": 42.3,
+    "codes": [
+     500
+    ]
+   },
+   "reads": {
+    "requests": 42,
+    "failed": 5,
+    "first_failure_s": 71.8,
+    "last_failure_s": 187.5,
+    "max_latency_s": 30.4,
+    "codes": [
+     500
+    ]
+   }
+  }
+ },
+ "time": "2026-09-18 19:26:42"
+}

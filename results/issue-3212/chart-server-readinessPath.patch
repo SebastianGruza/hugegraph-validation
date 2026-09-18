@@ -1,0 +1,100 @@
+From 3a678dadd67c8b9101956165760532c08b3c15ac Mon Sep 17 00:00:00 2001
+From: Sebastian Gruza <sebastian.gruza@gmail.com>
+Date: Fri, 18 Sep 2026 19:18:48 +0200
+Subject: [PATCH] feat(helm): make the Server readiness path configurable
+ (server.readinessPath)
+
+---
+ .../templates/server-deployment.yaml          |  2 +-
+ helm/hugegraph/values.schema.json             | 29 ++++++++++++++++---
+ helm/hugegraph/values.yaml                    |  7 +++++
+ 3 files changed, 33 insertions(+), 5 deletions(-)
+
+diff --git a/helm/hugegraph/templates/server-deployment.yaml b/helm/hugegraph/templates/server-deployment.yaml
+index e7bcceb..93709f0 100644
+--- a/helm/hugegraph/templates/server-deployment.yaml
++++ b/helm/hugegraph/templates/server-deployment.yaml
+@@ -317,7 +317,7 @@ spec:
+             {{- with include "hugegraph.probeTuning" .Values.server.probes.startup }}{{ . | trim | nindent 12 }}{{- end }}
+           readinessProbe:
+             httpGet:
+-              path: /versions
++              path: {{ .Values.server.readinessPath | default "/versions" }}
+               port: http
+             periodSeconds: {{ .Values.server.probes.readiness.periodSeconds }}
+             failureThreshold: {{ .Values.server.probes.readiness.failureThreshold }}
+diff --git a/helm/hugegraph/values.schema.json b/helm/hugegraph/values.schema.json
+index 211e88f..5b41de4 100644
+--- a/helm/hugegraph/values.schema.json
++++ b/helm/hugegraph/values.schema.json
+@@ -244,8 +244,16 @@
+       "properties": {
+         "startup": {
+           "allOf": [
+-            { "$ref": "#/definitions/probe" },
+-            { "properties": { "successThreshold": { "maximum": 1 } } }
++            {
++              "$ref": "#/definitions/probe"
++            },
++            {
++              "properties": {
++                "successThreshold": {
++                  "maximum": 1
++                }
++              }
++            }
+           ]
+         },
+         "readiness": {
+@@ -253,8 +261,16 @@
+         },
+         "liveness": {
+           "allOf": [
+-            { "$ref": "#/definitions/probe" },
+-            { "properties": { "successThreshold": { "maximum": 1 } } }
++            {
++              "$ref": "#/definitions/probe"
++            },
++            {
++              "properties": {
++                "successThreshold": {
++                  "maximum": 1
++                }
++              }
++            }
+           ]
+         }
+       }
+@@ -1014,6 +1030,11 @@
+         "advertiseUrl": {
+           "type": "string",
+           "description": "URL registered with PD via server.urls_to_pd. Empty uses the in-cluster Server Service URL. Set to an externally reachable URL for outside Hubble PD discovery."
++        },
++        "readinessPath": {
++          "type": "string",
++          "pattern": "^/",
++          "description": "HTTP path for the Server readinessProbe; /readiness (apache/hugegraph#3212) on Server images that serve it, /versions (default) on older ones"
+         }
+       }
+     },
+diff --git a/helm/hugegraph/values.yaml b/helm/hugegraph/values.yaml
+index 0dcb0f1..d762a6b 100644
+--- a/helm/hugegraph/values.yaml
++++ b/helm/hugegraph/values.yaml
+@@ -280,6 +280,13 @@ server:
+   # Empty preserves the image entrypoint's automatic JVM sizing.
+   javaOpts: ""
+   port: 8080
++  # HTTP path the Server readinessProbe hits. /readiness (apache/hugegraph#3212)
++  # answers 503 while the Server cannot reach PD or any active Store, so such a
++  # Server drops out of the Service instead of answering 500 to every graph
++  # request; keep /versions on Server images that do not serve it. Startup and
++  # liveness stay on /versions so a Server that merely lost its storage is not
++  # restarted.
++  readinessPath: /versions
+   backend: hstore
+   resources: {}
+   # Server is stateless and may scale past the node count via HPA, so the
+-- 
+2.47.3
+

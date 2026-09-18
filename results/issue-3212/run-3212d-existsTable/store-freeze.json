@@ -1,0 +1,19 @@
+{
+ "scenario": "store-freeze",
+ "verdict": "PASS",
+ "evidence": "victim hugegraph-store-2 leading {'hugegraph-store-2': 24}; codes {200: 333}; readiness transitions []; answered stores ['3259356358697243292', '6386607161404282741', '6838705701474727512']; load {'writes': {'requests': 269, 'failed': 1, 'first_failure_s': 41.0, 'last_failure_s': 41.0, 'max_latency_s': 30.5, 'codes': [500]}, 'reads': {'requests': 269, 'failed': 1, 'first_failure_s': 50.7, 'last_failure_s': 50.7, 'max_latency_s': 3.1, 'codes': [500]}}",
+ "extra": {
+  "samples": 333,
+  "codes": {
+   "200": 333
+  },
+  "p50_ms": 2,
+  "p99_ms": 26,
+  "max_ms": 210,
+  "cached_ratio": 0.64,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-18 21:16:27"
+}

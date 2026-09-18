@@ -1,0 +1,19 @@
+{
+ "scenario": "store-roll",
+ "verdict": "PASS",
+ "evidence": "codes {200: 351}, transitions [], answered stores ['3259356358697243292', '6386607161404282741', '6838705701474727512'], load {'writes': {'requests': 48, 'failed': 2, 'first_failure_s': 41.1, 'last_failure_s': 103.1, 'max_latency_s': 30.9, 'codes': [500]}, 'reads': {'requests': 48, 'failed': 2, 'first_failure_s': 72.1, 'last_failure_s': 106.5, 'max_latency_s': 31.0, 'codes': [500]}}",
+ "extra": {
+  "samples": 351,
+  "codes": {
+   "200": 351
+  },
+  "p50_ms": 2,
+  "p99_ms": 9,
+  "max_ms": 11,
+  "cached_ratio": 0.65,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-18 21:57:31"
+}

@@ -1,0 +1,19 @@
+{
+ "scenario": "baseline",
+ "verdict": "FAIL",
+ "evidence": "183 samples, codes {401: 183}, p50 None ms, p99 None ms, cached ratio 0.0",
+ "extra": {
+  "samples": 183,
+  "codes": {
+   "401": 183
+  },
+  "p50_ms": null,
+  "p99_ms": null,
+  "max_ms": null,
+  "cached_ratio": 0.0,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-18 19:22:56"
+}

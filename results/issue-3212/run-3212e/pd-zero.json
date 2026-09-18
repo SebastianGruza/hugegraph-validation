@@ -1,0 +1,40 @@
+{
+ "scenario": "pd-zero",
+ "verdict": "FAIL",
+ "evidence": "per pod {\"hugegraph-server-64b9449875-5kzt5\": {\"readiness_503_after_fault_s\": null, \"readiness_200_after_back_s\": 0.9, \"reasons\": []}, \"hugegraph-server-64b9449875-kcnrw\": {\"readiness_503_after_fault_s\": null, \"readiness_200_after_back_s\": 0.9, \"reasons\": []}, \"hugegraph-server-64b9449875-z2blm\": {\"readiness_503_after_fault_s\": null, \"readiness_200_after_back_s\": 0.9, \"reasons\": []}}; pd back Ready in 22.99753761291504s",
+ "extra": {
+  "summary": {
+   "samples": 513,
+   "codes": {
+    "200": 513
+   },
+   "p50_ms": 2,
+   "p99_ms": 5,
+   "max_ms": 8,
+   "cached_ratio": 0.61,
+   "readiness_transitions": [],
+   "ready_cond_transitions": [],
+   "in_service_transitions": []
+  },
+  "per_pod": {
+   "hugegraph-server-64b9449875-5kzt5": {
+    "readiness_503_after_fault_s": null,
+    "readiness_200_after_back_s": 0.9,
+    "reasons": []
+   },
+   "hugegraph-server-64b9449875-kcnrw": {
+    "readiness_503_after_fault_s": null,
+    "readiness_200_after_back_s": 0.9,
+    "reasons": []
+   },
+   "hugegraph-server-64b9449875-z2blm": {
+    "readiness_503_after_fault_s": null,
+    "readiness_200_after_back_s": 0.9,
+    "reasons": []
+   }
+  },
+  "t_fault": 10.0,
+  "t_back": 100.1
+ },
+ "time": "2026-09-18 21:40:11"
+}

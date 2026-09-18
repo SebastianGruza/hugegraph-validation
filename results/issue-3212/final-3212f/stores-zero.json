@@ -1,0 +1,196 @@
+{
+ "scenario": "stores-zero",
+ "verdict": "PASS",
+ "evidence": "per pod {\"hugegraph-server-54c69cfb86-l4zsj\": {\"readiness_503_after_fault_s\": 1.0, \"not_ready_after_fault_s\": 32.0, \"out_of_service_after_fault_s\": 32.0, \"readiness_200_after_back_s\": 16.9, \"ready_after_back_s\": 19.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"]}, \"hugegraph-server-54c69cfb86-l8jvv\": {\"readiness_503_after_fault_s\": 1.0, \"not_ready_after_fault_s\": 29.0, \"out_of_service_after_fault_s\": 29.0, \"readiness_200_after_back_s\": 22.9, \"ready_after_back_s\": 27.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"]}, \"hugegraph-server-54c69cfb86-mj8s7\": {\"readiness_503_after_fault_s\": 1.0, \"not_ready_after_fault_s\": 25.0, \"out_of_service_after_fault_s\": 25.0, \"readiness_200_after_back_s\": 19.9, \"ready_after_back_s\": 25.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc\", \"none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc\"]}}; min endpoints during fault 0; stores back Ready in 23.08885145187378s; load {'writes': {'requests': 743, 'failed': 538, 'first_failure_s': 41.3, 'last_failure_s': 149.2, 'max_latency_s': 31.1, 'codes': [0, 500]}, 'reads': {'requests': 743, 'failed': 538, 'first_failure_s': 41.3, 'last_failure_s': 149.2, 'max_latency_s': 0.5, 'codes': [0]}}",
+ "extra": {
+  "summary": {
+   "samples": 555,
+   "codes": {
+    "200": 205,
+    "503": 350
+   },
+   "p50_ms": 3,
+   "p99_ms": 1005,
+   "max_ms": 1011,
+   "cached_ratio": 0.61,
+   "readiness_transitions": [
+    [
+     21.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     200,
+     503
+    ],
+    [
+     21.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     200,
+     503
+    ],
+    [
+     21.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     200,
+     503
+    ],
+    [
+     157.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     503,
+     200
+    ],
+    [
+     160.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     503,
+     200
+    ],
+    [
+     163.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     503,
+     200
+    ]
+   ],
+   "ready_cond_transitions": [
+    [
+     45.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     true,
+     false
+    ],
+    [
+     49.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     true,
+     false
+    ],
+    [
+     52.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     true,
+     false
+    ],
+    [
+     160.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     false,
+     true
+    ],
+    [
+     166.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     false,
+     true
+    ],
+    [
+     168.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     false,
+     true
+    ]
+   ],
+   "in_service_transitions": [
+    [
+     45.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     true,
+     false
+    ],
+    [
+     49.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     true,
+     false
+    ],
+    [
+     52.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     true,
+     false
+    ],
+    [
+     160.0,
+     "hugegraph-server-54c69cfb86-l4zsj",
+     false,
+     true
+    ],
+    [
+     166.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     false,
+     true
+    ],
+    [
+     168.0,
+     "hugegraph-server-54c69cfb86-l8jvv",
+     false,
+     true
+    ]
+   ]
+  },
+  "per_pod": {
+   "hugegraph-server-54c69cfb86-l4zsj": {
+    "readiness_503_after_fault_s": 1.0,
+    "not_ready_after_fault_s": 32.0,
+    "out_of_service_after_fault_s": 32.0,
+    "readiness_200_after_back_s": 16.9,
+    "ready_after_back_s": 19.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc"
+    ]
+   },
+   "hugegraph-server-54c69cfb86-l8jvv": {
+    "readiness_503_after_fault_s": 1.0,
+    "not_ready_after_fault_s": 29.0,
+    "out_of_service_after_fault_s": 29.0,
+    "readiness_200_after_back_s": 22.9,
+    "ready_after_back_s": 27.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc"
+    ]
+   },
+   "hugegraph-server-54c69cfb86-mj8s7": {
+    "readiness_503_after_fault_s": 1.0,
+    "not_ready_after_fault_s": 25.0,
+    "out_of_service_after_fault_s": 25.0,
+    "readiness_200_after_back_s": 19.9,
+    "ready_after_back_s": 25.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc",
+     "none of 3 known store(s) answered: a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-1.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-0.hugegraph-store.hugegraph.svc; a store failed: StatusRuntimeException: UNAVAILABLE: Unable to resolve host hugegraph-store-2.hugegraph-store.hugegraph.svc"
+    ]
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 140.1,
+  "load": {
+   "writes": {
+    "requests": 743,
+    "failed": 538,
+    "first_failure_s": 41.3,
+    "last_failure_s": 149.2,
+    "max_latency_s": 31.1,
+    "codes": [
+     0,
+     500
+    ]
+   },
+   "reads": {
+    "requests": 743,
+    "failed": 538,
+    "first_failure_s": 41.3,
+    "last_failure_s": 149.2,
+    "max_latency_s": 0.5,
+    "codes": [
+     0
+    ]
+   }
+  }
+ },
+ "time": "2026-09-18 21:54:00"
+}

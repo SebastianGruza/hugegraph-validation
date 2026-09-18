@@ -1,0 +1,6 @@
+19:21:55 === baseline
+19:22:56 RESULT baseline: FAIL 183 samples, codes {401: 183}, p50 None ms, p99 None ms, cached ratio 0.0
+19:23:07 === stores-zero
+19:23:27 stores -> 0 at t=20.0
+19:25:27 stores -> 3 at t=140.1
+19:26:42 RESULT stores-zero: FAIL per pod {"hugegraph-server-9474bc876-4bc8k": {"readiness_503_after_fault_s": null, "not_ready_after_fault_s": null, "out_of_service_after_fault_s": null, "readiness_200_after_back_s": null, "ready_after_back_s": 0.9, "reasons_during_fault": []}, "hugegraph-server-9474bc876-9cv5s": {"readiness_503_after_fault_s": null, "not_ready_after_fault_s": null, "out_of_service_after_fault_s": null, "readiness_200_after_back_s": null, "ready_after_back_s": 0.9, "reasons_during_fault": []}, "hugegraph-server-9474bc876-jgbxf": {"readiness_503_after_fault_s": null, "not_ready_after_fault_s": null, "out_of_service_after_fault_s": null, "readiness_200_after_back_s": null, "ready_after_back_s": 0.9, "reasons_during_fault": []}}; min endpoints during fault 3; stores back Ready in 23.861173391342163s; load {'writes': {'requests': 42, 'failed': 3, 'first_failure_s': 41.3, 'last_failure_s': 175.3, 'max_latency_s': 42.3, 'codes': [500]}, 'reads': {'requests': 42, 'failed': 5, 'first_failure_s': 71.8, 'last_failure_s': 187.5, 'max_latency_s': 30.4, 'codes': [500]}}
