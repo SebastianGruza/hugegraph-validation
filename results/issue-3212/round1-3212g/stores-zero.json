@@ -1,0 +1,201 @@
+{
+ "scenario": "stores-zero",
+ "verdict": "PASS",
+ "evidence": "per pod {\"hugegraph-server-6769b4689-9bngc\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 24.0, \"out_of_service_after_fault_s\": 24.0, \"readiness_200_after_back_s\": 25.9, \"ready_after_back_s\": 30.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 known store(s) answered: a store failed: DEADLINE_EXCEEDED; 2 store(s) did not answer within 1000 ms\", \"none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE\"]}, \"hugegraph-server-6769b4689-gxlcg\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 28.0, \"out_of_service_after_fault_s\": 28.0, \"readiness_200_after_back_s\": 22.9, \"ready_after_back_s\": 30.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE\"]}, \"hugegraph-server-6769b4689-mprz7\": {\"readiness_503_after_fault_s\": 0.0, \"not_ready_after_fault_s\": 28.0, \"out_of_service_after_fault_s\": 28.0, \"readiness_200_after_back_s\": 22.9, \"ready_after_back_s\": 31.9, \"reasons_during_fault\": [\"none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms\", \"none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE\"]}}; min endpoints during fault 0; stores back Ready in 23.428104877471924s; load {'writes': {'requests': 801, 'failed': 599, 'first_failure_s': 40.5, 'last_failure_s': 160.6, 'max_latency_s': 0.2, 'codes': [0]}, 'reads': {'requests': 801, 'failed': 600, 'first_failure_s': 40.3, 'last_failure_s': 160.6, 'max_latency_s': 30.1, 'codes': [0, 500]}}",
+ "extra": {
+  "summary": {
+   "samples": 536,
+   "codes": {
+    "0": 2,
+    "200": 171,
+    "503": 363
+   },
+   "p50_ms": 4,
+   "p99_ms": 1005,
+   "max_ms": 1012,
+   "cached_ratio": 0.6,
+   "readiness_transitions": [
+    [
+     20.0,
+     "hugegraph-server-6769b4689-9bngc",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-6769b4689-mprz7",
+     200,
+     503
+    ],
+    [
+     163.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     503,
+     200
+    ],
+    [
+     163.0,
+     "hugegraph-server-6769b4689-mprz7",
+     503,
+     200
+    ],
+    [
+     166.0,
+     "hugegraph-server-6769b4689-9bngc",
+     503,
+     200
+    ]
+   ],
+   "ready_cond_transitions": [
+    [
+     1.0,
+     "hugegraph-server-54c69cfb86-mj8s7",
+     true,
+     false
+    ],
+    [
+     44.0,
+     "hugegraph-server-6769b4689-9bngc",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-6769b4689-mprz7",
+     true,
+     false
+    ],
+    [
+     171.0,
+     "hugegraph-server-6769b4689-9bngc",
+     false,
+     true
+    ],
+    [
+     171.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     false,
+     true
+    ],
+    [
+     172.0,
+     "hugegraph-server-6769b4689-mprz7",
+     false,
+     true
+    ]
+   ],
+   "in_service_transitions": [
+    [
+     44.0,
+     "hugegraph-server-6769b4689-9bngc",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-6769b4689-mprz7",
+     true,
+     false
+    ],
+    [
+     171.0,
+     "hugegraph-server-6769b4689-9bngc",
+     false,
+     true
+    ],
+    [
+     171.0,
+     "hugegraph-server-6769b4689-gxlcg",
+     false,
+     true
+    ],
+    [
+     172.0,
+     "hugegraph-server-6769b4689-mprz7",
+     false,
+     true
+    ]
+   ]
+  },
+  "per_pod": {
+   "hugegraph-server-6769b4689-9bngc": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 24.0,
+    "out_of_service_after_fault_s": 24.0,
+    "readiness_200_after_back_s": 25.9,
+    "ready_after_back_s": 30.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 known store(s) answered: a store failed: DEADLINE_EXCEEDED; 2 store(s) did not answer within 1000 ms",
+     "none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE"
+    ]
+   },
+   "hugegraph-server-6769b4689-gxlcg": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 28.0,
+    "out_of_service_after_fault_s": 28.0,
+    "readiness_200_after_back_s": 22.9,
+    "ready_after_back_s": 30.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE"
+    ]
+   },
+   "hugegraph-server-6769b4689-mprz7": {
+    "readiness_503_after_fault_s": 0.0,
+    "not_ready_after_fault_s": 28.0,
+    "out_of_service_after_fault_s": 28.0,
+    "readiness_200_after_back_s": 22.9,
+    "ready_after_back_s": 31.9,
+    "reasons_during_fault": [
+     "none of 3 known store(s) answered: 3 store(s) did not answer within 1000 ms",
+     "none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; a store failed: UNAVAILABLE"
+    ]
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 140.1,
+  "load": {
+   "writes": {
+    "requests": 801,
+    "failed": 599,
+    "first_failure_s": 40.5,
+    "last_failure_s": 160.6,
+    "max_latency_s": 0.2,
+    "codes": [
+     0
+    ]
+   },
+   "reads": {
+    "requests": 801,
+    "failed": 600,
+    "first_failure_s": 40.3,
+    "last_failure_s": 160.6,
+    "max_latency_s": 30.1,
+    "codes": [
+     0,
+     500
+    ]
+   }
+  }
+ },
+ "time": "2026-09-19 06:44:32"
+}

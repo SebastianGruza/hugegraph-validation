@@ -59,3 +59,14 @@ Two earlier probe designs failed exactly these scenarios, which is why the endpo
 ## Runs
 
 `final-3212f/` the table above; `run-3212d-existsTable/` and `run-3212e/` the two superseded designs (kept as the evidence for the two changes); `before-latest/` the shipped image, where `/readiness` is 404/401 (endpoint absent). The Server image is the shipped `hugegraph/server:latest` with the two rebuilt jars overlaid; the exact classes are the `feat/server-readiness` branch.
+
+## Review round 1 (2026-09-19)
+
+Reviewer findings on apache/hugegraph#3221, all fixed in the PR: the `reason` field embedded raw exception text
+(PD peers via `PD unreachable, pd.peers=...`, Store host names via gRPC `Unable to resolve host ...`) on an
+unauthenticated endpoint; the background PD refresh was not single-flight (a hung PD parked one thread per
+cache-missed probe); channels of replaced Stores were never shut down; docs still described the pre-redesign
+probe. `round1-3212g/` reruns `stores-zero` and `pd-zero` on the fixed build: both PASS, and a grep of every
+sampled body for `.svc`, `8686` and `hugegraph-store-` finds 0 occurrences (before: the reasons quoted the Store
+DNS names). The 503 reasons are now categories only, e.g.
+`none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; ...`.
