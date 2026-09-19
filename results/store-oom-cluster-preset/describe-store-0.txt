@@ -1,0 +1,135 @@
+Name:             hugegraph-store-0
+Namespace:        hugegraph
+Priority:         0
+Service Account:  hugegraph-store
+Node:             hg-k3s-3/192.168.80.243
+Start Time:       Sat, 19 Sep 2026 06:43:24 +0200
+Labels:           app.kubernetes.io/component=store
+                  app.kubernetes.io/instance=hugegraph
+                  app.kubernetes.io/name=hugegraph
+                  apps.kubernetes.io/pod-index=0
+                  controller-revision-hash=hugegraph-store-fbcf565c5
+                  statefulset.kubernetes.io/pod-name=hugegraph-store-0
+Annotations:      kubectl.kubernetes.io/restartedAt: 2026-09-18T21:55:54+02:00
+Status:           Running
+IP:               10.42.3.60
+IPs:
+  IP:           10.42.3.60
+Controlled By:  StatefulSet/hugegraph-store
+Init Containers:
+  wait-for-pd:
+    Container ID:    containerd://3eb24aea85d365c6bc51b53b1a493363b644086a53006820e4b76b7b832fe307
+    Image:           curlimages/curl:8.5.0
+    Image ID:        docker.io/curlimages/curl@sha256:08e466006f0860e54fc299378de998935333e0e130a15f6f98482e9f8dab3058
+    Port:            <none>
+    Host Port:       <none>
+    SeccompProfile:  RuntimeDefault
+    Command:
+      sh
+      -c
+      set -eu
+      REQUIRED=2
+      HEALTH_PEERS=$(echo "hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8620,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8620,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8620" | tr ',' ' ')
+      TIMEOUT=900
+      DEADLINE=$(( $(date +%s) + TIMEOUT ))
+      WAIT_PATH="/v1/ready"
+      echo "Waiting for ${REQUIRED} PD peers to answer ${WAIT_PATH} among: ${HEALTH_PEERS}"
+      until [ "$(
+        ok=0
+        for peer in ${HEALTH_PEERS}; do
+          if curl -fsS --connect-timeout 2 --max-time 5 "http://${peer}${WAIT_PATH}" >/dev/null 2>&1; then
+            ok=$((ok+1))
+          fi
+        done
+        echo "$ok"
+      )" -ge "${REQUIRED}" ]; do
+        if [ "$(date +%s)" -ge "${DEADLINE}" ]; then
+          echo "Timed out after ${TIMEOUT}s waiting for ${REQUIRED} PD peers to answer ${WAIT_PATH} among: ${HEALTH_PEERS}" >&2
+          echo "Check PD Pods: kubectl get pods -l app.kubernetes.io/component=pd" >&2
+          exit 1
+        fi
+        echo "Waiting for PD peers..."
+        sleep 5
+      done
+      echo "Enough PD peers answered ${WAIT_PATH}."
+      
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Sat, 19 Sep 2026 06:43:24 +0200
+      Finished:     Sat, 19 Sep 2026 06:43:24 +0200
+    Ready:          True
+    Restart Count:  0
+    Limits:
+      cpu:     250m
+      memory:  64Mi
+    Requests:
+      cpu:        25m
+      memory:     32Mi
+    Environment:  <none>
+    Mounts:       <none>
+Containers:
+  store:
+    Container ID:    containerd://a132ff9e7ff99f6bd51cb0c0a96684821a2e6a989b5da329f31e53835b98f42c
+    Image:           hugegraph/store:latest
+    Image ID:        docker.io/hugegraph/store@sha256:879ee2d182c301a639a90a8aedb05838c39b2a4e4dd37adead347375676a16c4
+    Ports:           8500/TCP (grpc), 8510/TCP (raft), 8520/TCP (rest)
+    Host Ports:      0/TCP (grpc), 0/TCP (raft), 0/TCP (rest)
+    SeccompProfile:  RuntimeDefault
+    State:           Waiting
+      Reason:        CrashLoopBackOff
+    Last State:      Terminated
+      Reason:        OOMKilled
+      Exit Code:     137
+      Started:       Sat, 19 Sep 2026 08:35:15 +0200
+      Finished:      Sat, 19 Sep 2026 08:35:31 +0200
+    Ready:           False
+    Restart Count:   15
+    Limits:
+      cpu:     4
+      memory:  4Gi
+    Requests:
+      cpu:      1
+      memory:   2Gi
+    Liveness:   http-get http://:rest/v1/health delay=0s timeout=5s period=20s #success=1 #failure=3
+    Readiness:  http-get http://:rest/v1/health delay=0s timeout=5s period=10s #success=1 #failure=3
+    Startup:    http-get http://:rest/v1/health delay=0s timeout=5s period=10s #success=1 #failure=40
+    Environment:
+      POD_NAME:               hugegraph-store-0 (v1:metadata.name)
+      NAMESPACE:              hugegraph (v1:metadata.namespace)
+      HG_STORE_PD_ADDRESS:    hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686
+      HG_STORE_GRPC_HOST:     $(POD_NAME).hugegraph-store.$(NAMESPACE).svc
+      HG_STORE_GRPC_PORT:     8500
+      HG_STORE_REST_PORT:     8520
+      HG_STORE_RAFT_ADDRESS:  $(POD_NAME).hugegraph-store.$(NAMESPACE).svc:8510
+      HG_STORE_DATA_PATH:     /hugegraph-store/storage
+      JAVA_OPTS:              -Xms512m -Xmx1024m -XX:MaxMetaspaceSize=256m -XX:MaxDirectMemorySize=512m -XX:+UseContainerSupport
+    Mounts:
+      /hugegraph-store/storage from store-data (rw)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       False 
+  ContainersReady             False 
+  PodScheduled                True 
+Volumes:
+  store-data:
+    Type:        PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+    ClaimName:   store-data-hugegraph-store-0
+    ReadOnly:    false
+QoS Class:       Burstable
+Node-Selectors:  <none>
+Tolerations:     node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                 node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                   From     Message
+  ----     ------     ----                  ----     -------
+  Normal   Created    52m (x8 over 113m)    kubelet  spec.containers{store}: Container created
+  Normal   Started    52m (x8 over 113m)    kubelet  spec.containers{store}: Container started
+  Normal   Pulled     46m (x2 over 52m)     kubelet  spec.containers{store}: Successfully pulled image "hugegraph/store:latest" in 657ms (657ms including waiting). Image size: 397172146 bytes.
+  Normal   Pulled     27m                   kubelet  spec.containers{store}: Successfully pulled image "hugegraph/store:latest" in 666ms (666ms including waiting). Image size: 397172146 bytes.
+  Warning  Unhealthy  27m (x10 over 113m)   kubelet  spec.containers{store}: Startup probe failed: Get "http://10.42.3.60:8520/v1/health": dial tcp 10.42.3.60:8520: connect: connection refused
+  Normal   Pulled     6m50s (x2 over 71m)   kubelet  spec.containers{store}: Successfully pulled image "hugegraph/store:latest" in 656ms (656ms including waiting). Image size: 397172146 bytes.
+  Warning  BackOff    2m55s (x71 over 72m)  kubelet  spec.containers{store}: Back-off restarting failed container store in pod hugegraph-store-0_hugegraph(33431f58-bf45-4e33-9962-9ac7414cbe75)
+  Normal   Pulling    85s (x16 over 113m)   kubelet  spec.containers{store}: Pulling image "hugegraph/store:latest"

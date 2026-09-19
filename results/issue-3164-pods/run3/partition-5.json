@@ -1,0 +1,30 @@
+{
+ "partition": 5,
+ "pod": "hugegraph-store-0",
+ "gap_ms": 300,
+ "snapshots_during": [
+  "snapshot_10580 meta=yes data=9 should_not_load=yes"
+ ],
+ "snapshots_after_kill": [],
+ "snapshots_final": [
+  "snapshot_10580 meta=yes data=9 should_not_load=yes"
+ ],
+ "state_after": "{\"partitions\":[{\"id\":5,\"graphName\":\"DEFAULT/hugegraph/g\",\"startKey\":27310,\"endKey\":32772,\"version\":\"0\",\"workState\":\"PState_Normal\",\"metric\":{\"partitionId\":5,\"tables\":[{\"tableName\":\"default\",\"keyCount\"",
+ "ready_again_s": 313.9692168235779,
+ "race_fired": false,
+ "busy_lines": [],
+ "compaction_lines": [
+  "2026-09-19 05:38:46 [hg-compact-3] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 5-/hugegraph-store/storage got lock, dbCompaction start",
+  "2026-09-19 05:38:48 [hg-compact-3] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 5 dbCompaction end and start to do snapshot",
+  "2026-09-19 05:38:48 [hg-compact-3] [INFO] o.a.h.s.b.BusinessHandlerImpl - Partition 5-/hugegraph-store/storage dbCompaction end",
+  "2026-09-19 05:38:48 [JRaft-Group-Default-Executor-3] [INFO] o.a.h.s.PartitionEngine - Partition 5,path: /hugegraph-store/storage release dbCompaction lock"
+ ],
+ "corrupt_lines": [],
+ "error_count": 2,
+ "errors": [
+  "2026-09-19 05:44:02 [hg-heartbeat] [ERROR] o.a.h.s.u.IpUtil - getRaftAddress, got exception, For input string: \"hugegraph-store-0\"",
+  "2026-09-19 05:44:02 [hg-heartbeat] [ERROR] o.a.h.s.u.IpUtil - getRaftAddress, got exception, For input string: \"hugegraph-store-0\""
+ ],
+ "meta_only_dirs": [],
+ "verdict": "INCONCLUSIVE"
+}

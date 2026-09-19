@@ -1,0 +1,8 @@
+NAME                               CPU(cores)   MEMORY(bytes)   
+hugegraph-pd-0                     56m          1530Mi          
+hugegraph-pd-1                     27m          1924Mi          
+hugegraph-pd-2                     31m          1437Mi          
+hugegraph-server-6769b4689-9bngc   6m           911Mi           
+hugegraph-server-6769b4689-gxlcg   6m           924Mi           
+hugegraph-server-6769b4689-mprz7   7m           956Mi           
+hugegraph-store-1                  54m          937Mi           

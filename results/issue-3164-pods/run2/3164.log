@@ -1,0 +1,27 @@
+07:28:31 === partition 1 on hugegraph-store-0, gap 0 ms
+07:28:31 snapshots before: ['snapshot_9642 meta=yes data=13 should_not_load=yes']
+07:28:31 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:28:31 snapshot request: 200 snapshot OK! in 0.01s
+07:28:33 snapshots during compaction: ['snapshot_9643 meta=yes data=10 should_not_load=yes']
+07:28:33 SIGKILL java pid 16 at +1.8s
+07:28:36 snapshots after the kill: []
+07:29:37 hugegraph-store-0 Ready again after 61.065818309783936s
+07:30:08 RESULT partition 1: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":1,"graphName":"DEFAULT/hugegraph/g","startKey":5462,"endKey":10924,"version":"0","workState":"PState_Normal","metric":{"partitionId":1,"tables":[{"tableName":"default","keyCount": errors=2 compaction=['05:28:31Partition 1 dbCompaction end and start to do snapshot', '05:28:31Partition 1-/hugegraph-store/storage dbCompaction end', '05:28:32PartitionEngine - Partition 1,path: /hugegraph-store/storage']
+07:30:18 === partition 4 on hugegraph-store-0, gap 50 ms
+07:30:18 snapshots before: ['snapshot_9678 meta=yes data=13 should_not_load=yes']
+07:30:18 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:30:18 snapshot request: 200 snapshot OK! in 0.01s
+07:30:19 snapshots during compaction: ['snapshot_9679 meta=yes data=10 should_not_load=yes']
+07:30:20 SIGKILL java pid 16 at +1.8s
+07:30:23 snapshots after the kill: []
+07:32:05 hugegraph-store-0 Ready again after 101.9137761592865s
+07:32:35 RESULT partition 4: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":4,"graphName":"DEFAULT/hugegraph/g","startKey":21848,"endKey":27310,"version":"0","workState":"PState_Normal","metric":{"partitionId":4,"tables":[{"tableName":"default","keyCount" errors=2 compaction=['05:30:18Partition 4 dbCompaction end and start to do snapshot', '05:30:18Partition 4-/hugegraph-store/storage dbCompaction end', '05:30:18PartitionEngine - Partition 4,path: /hugegraph-store/storage']
+07:32:45 === partition 7 on hugegraph-store-0, gap 150 ms
+07:32:45 snapshots before: ['snapshot_9547 meta=yes data=13 should_not_load=yes']
+07:32:46 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:32:46 snapshot request: 200 snapshot OK! in 0.01s
+07:32:47 snapshots during compaction: ['snapshot_9548 meta=yes data=10 should_not_load=yes']
+07:32:47 SIGKILL java pid 16 at +2.0s
+07:32:51 snapshots after the kill: []
+07:35:46 hugegraph-store-0 Ready again after 175.33531141281128s
+07:36:16 RESULT partition 7: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":7,"graphName":"DEFAULT/hugegraph/g","startKey":38234,"endKey":43696,"version":"0","workState":"PState_Normal","metric":{"partitionId":7,"tables":[{"tableName":"default","keyCount" errors=2 compaction=['05:32:46Partition 7 dbCompaction end and start to do snapshot', '05:32:46Partition 7-/hugegraph-store/storage dbCompaction end', '05:32:46PartitionEngine - Partition 7,path: /hugegraph-store/storage']

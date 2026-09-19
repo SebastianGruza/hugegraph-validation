@@ -1,0 +1,10 @@
+NAME                               READY   STATUS             RESTARTS        AGE    IP           NODE       NOMINATED NODE   READINESS GATES
+hugegraph-pd-0                     1/1     Running            0               110m   10.42.1.60   hg-k3s-2   <none>           <none>
+hugegraph-pd-1                     1/1     Running            0               110m   10.42.3.61   hg-k3s-3   <none>           <none>
+hugegraph-pd-2                     1/1     Running            0               110m   10.42.0.69   hg-k3s-1   <none>           <none>
+hugegraph-server-6769b4689-9bngc   0/1     Running            0               116m   10.42.1.58   hg-k3s-2   <none>           <none>
+hugegraph-server-6769b4689-gxlcg   0/1     Running            0               116m   10.42.3.59   hg-k3s-3   <none>           <none>
+hugegraph-server-6769b4689-mprz7   0/1     Running            0               115m   10.42.0.67   hg-k3s-1   <none>           <none>
+hugegraph-store-0                  0/1     CrashLoopBackOff   15 (67s ago)    113m   10.42.3.60   hg-k3s-3   <none>           <none>
+hugegraph-store-1                  1/1     Running            6 (3m30s ago)   113m   10.42.0.68   hg-k3s-1   <none>           <none>
+hugegraph-store-2                  0/1     CrashLoopBackOff   5 (59s ago)     113m   10.42.1.59   hg-k3s-2   <none>           <none>

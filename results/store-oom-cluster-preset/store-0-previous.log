@@ -1,0 +1,349 @@
+[hugegraph-store-entrypoint] effective config:
+[hugegraph-store-entrypoint]   pdserver.address=hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686
+[hugegraph-store-entrypoint]   grpc.host=hugegraph-store-0.hugegraph-store.hugegraph.svc
+[hugegraph-store-entrypoint]   grpc.port=8500
+[hugegraph-store-entrypoint]   raft.address=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510
+[hugegraph-store-entrypoint]   server.port=8520
+[hugegraph-store-entrypoint]   app.data-path=/hugegraph-store/storage
+Current arch: x86_64
+Downloading /hugegraph-store/bin/libjemalloc.so...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+100 5816k  100 5816k    0     0  15.5M      0 --:--:-- --:--:-- --:--:-- 15.5M
+Using G1GC as the default garbage collector
+Starting HG-StoreServer...
+Starting HugeGraphStoreServer in foreground mode...
+[+pid] 16
+2026-09-19 06:35:18 [main] [INFO] o.a.h.p.c.AbstractClient - AbstractClient connect to host = hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686 success
+2026-09-19 06:35:18 [main] [INFO] o.a.h.s.n.l.PdConfigureListener - Start listening for keys :S:Timestamp
+██╗  ██╗ ██████╗       ███████╗████████╗ ██████╗ ██████╗ ███████╗
+██║  ██║██╔════╝       ██╔════╝╚══██╔══╝██╔═══██╗██╔══██╗██╔════╝
+███████║██║  ███╗█████╗███████╗   ██║   ██║   ██║██████╔╝█████╗
+██╔══██║██║   ██║╚════╝╚════██║   ██║   ██║   ██║██╔══██╗██╔══╝
+██║  ██║╚██████╔╝      ███████║   ██║   ╚██████╔╝██║  ██║███████╗
+╚═╝  ╚═╝ ╚═════╝       ╚══════╝   ╚═╝    ╚═════╝ ╚═╝  ╚═╝╚══════╝ - 3.x
+2026-09-19 06:35:18 [main] [INFO] o.a.h.s.n.StoreNodeApplication - Starting StoreNodeApplication v1.7.0 using Java 11.0.32 on hugegraph-store-0 with PID 16 (/hugegraph-store/lib/hg-store-node-1.7.0.jar started by root in /hugegraph-store)
+2026-09-19 06:35:18 [main] [INFO] o.a.h.s.n.StoreNodeApplication - The following 2 profiles are active: "pd", "default"
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (jar:file:/hugegraph-store/lib/hg-store-node-1.7.0.jar!/BOOT-INF/lib/groovy-2.5.14-indy.jar!/) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2026-09-19 06:35:18 [grpc-default-executor-0] [INFO] o.a.h.p.c.KvClient - set watch client id to :2568155599663356369
+2026-09-19 06:35:20 [main] [INFO] o.e.j.u.log - Logging initialized @4618ms to org.eclipse.jetty.util.log.Slf4jLog
+2026-09-19 06:35:20 [main] [INFO] o.s.b.w.e.j.JettyServletWebServerFactory - Server initialized with port: 8520
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.Server - jetty-9.4.46.v20220331; built: 2022-03-31T16:38:08.030Z; git: bc17a0369a11ecf40bb92c839b9ef0a8ac50ea18; jvm 11.0.32+9
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring embedded WebApplicationContext
+2026-09-19 06:35:20 [main] [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1481 ms
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.session - DefaultSessionIdManager workerName=node0
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.session - No SessionScavenger set, using defaults
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.session - node0 Scavenging every 660000ms
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.h.ContextHandler - Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@2d746ce4{application,/,[file:///tmp/jetty-docbase.8520.18093998971807211816/],AVAILABLE}
+2026-09-19 06:35:20 [main] [INFO] o.e.j.s.Server - Started @5168ms
+2026-09-19 06:35:20 [main] [INFO] o.a.h.s.n.g.HgStoreNodeService - AppConfig 
+rocksdb:
+	min_write_buffer_number_to_merge:16
+	total_memory_size:32000000000
+	write_buffer_size:32000000
+raft:
+	disruptorBufferSize: 1024
+2026-09-19 06:35:20 [main] [INFO] o.a.h.s.o.RaftRocksdbOptions - RocksdbConfig -1
+2026-09-19 06:35:20 [main] [INFO] o.a.h.s.n.g.HgStoreNodeService - HgStoreEngine init HgStoreEngineOptions(storeHBInterval=30, partitionHBInterval=5, waitLeaderTimeout=30, raftRpcThreadPoolSize=24, raftRpcThreadPoolSizeOfBasic=256, fakePD=false, fakePdOptions=HgStoreEngineOptions.FakePdOptions(partitionCount=3, shardCount=3, storeList='', peersList=''), raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), queryPushDownOption=HgStoreEngineOptions.QueryPushDownOption(threadPoolSize=1500, fetchBatchSize=20000, fetchTimeout=300000, memoryLimitCount=50000, indexSizeLimitCount=50000), pdAddress=hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686, grpcAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8500, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, dataPath=/hugegraph-store/storage, raftPath=/hugegraph-store/storage, rocksdbConfig={rocksdb.min_write_buffer_number_to_merge=16, rocksdb.write_cache=org.rocksdb.LRUCache@7d070ef5, rocksdb.write_buffer_size=32000000, rocksdb.total_memory_size=32000000000, rocksdb.write_buffer_manager=org.rocksdb.WriteBufferManager@7a55f148, rocksdb.env=org.rocksdb.RocksEnv@2e2f720, rocksdb.block_table_config=org.rocksdb.BlockBasedTableConfig@3ae2ed38, rocksdb.block_cache=org.rocksdb.LRUCache@7f572c37}, labels={rest.port=8520}, taskHandler=null, pdProvider=null, dataTransfer=null, jobConfig=JobOptions(core=128, max=256, queueSize=2147483647, batchSize=10000, startTime=0, uninterruptibleCore=4, uninterruptibleMax=16, uninterruptibleQueueSize=2147483647))
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.OptionSpace - Already registered option holder: rocksdb (class org.apache.hugegraph.rocksdb.access.RocksDBOptions)
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.HugeConfig - The config option 'rocksdb.write_cache' is redundant, please ensure it has been registered
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.HugeConfig - The config option 'rocksdb.write_buffer_manager' is redundant, please ensure it has been registered
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.HugeConfig - The config option 'rocksdb.env' is redundant, please ensure it has been registered
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.HugeConfig - The config option 'rocksdb.block_table_config' is redundant, please ensure it has been registered
+2026-09-19 06:35:21 [main] [WARN] o.a.h.c.HugeConfig - The config option 'rocksdb.block_cache' is redundant, please ensure it has been registered
+2026-09-19 06:35:21 [main] [INFO] o.a.h.p.c.PDClient - PDClient connect to host = hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686 success
+2026-09-19 06:35:21 [main] [INFO] o.a.h.p.c.PDClient - PDClient enable cache, init PDWatch object
+2026-09-19 06:35:21 [main] [INFO] o.a.h.p.c.PDClient - PDWatch client connect host:hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686
+2026-09-19 06:35:21 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to force reconnect...
+2026-09-19 06:35:21 [pdcm-reconnect-0] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Force reconnection task...
+2026-09-19 06:35:21 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Try to reconnect server...
+2026-09-19 06:35:21 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] The [ 1 ]th attempt to connect...
+2026-09-19 06:35:21 [reconnecting-server-pool-0] [INFO] o.a.h.p.c.i.PDPulseImpl2 - [PULSE] Reconnect server successfully!
+2026-09-19 06:35:21 [main] [INFO] o.a.h.s.p.DefaultPdProvider - pulse client connect to hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686
+2026-09-19 06:35:21 [main] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for hgstore-metadata
+2026-09-19 06:35:21 [main] [INFO] o.a.h.r.a.RocksDBSession - hgstore-metadata latest db path /hugegraph-store/storage/hgstore-metadata
+2026-09-19 06:35:21 [main] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+Sofa-Middleware-Log SLF4J : Actual binding is of type [ com.alipay.remoting Log4j2 ]
+2026-09-19 06:35:21 [hg-heartbeat] [ERROR] o.a.h.s.u.IpUtil - getRaftAddress, got exception, For input string: "hugegraph-store-0"
+2026-09-19 06:35:21 [hg-heartbeat] [ERROR] o.a.h.s.u.IpUtil - getRaftAddress, got exception, For input string: "hugegraph-store-0"
+2026-09-19 06:35:21 [main] [INFO] o.a.h.s.n.t.TTLCleaner - clean task will begin in 62678 seconds
+2026-09-19 06:35:21 [hg-heartbeat] [INFO] o.a.h.s.p.DefaultPdProvider - registerStore pd=hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686 storeId=3259356358697243292, store=Store(version=1.7.0, id=3259356358697243292, storeAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8500, pdAddress=hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, deployPath=file:/hugegraph-store/lib/hg-store-node-1.7.0.jar!/BOOT-INF/classes!/, dataPath=/hugegraph-store/storage, dataVersion=1, partitionCount=0, startTime=0, usedSize=0, pdHeartbeatInterval=0, state=Unknown, labels={rest.port=8520}, cores=4)
+2026-09-19 06:35:22 [grpc-default-executor-3] [INFO] o.a.h.p.c.PDClient - PDClient receive store event NODE_ONLINE 2d3b8f56e48f529c
+2026-09-19 06:35:22 [hg-heartbeat] [INFO] o.a.h.s.HeartbeatService - Register Store id= 3259356358697243292 successfully. store = Store(version=1.7.0, id=3259356358697243292, storeAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8500, pdAddress=hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-1.hugegraph-pd.hugegraph.svc:8686,hugegraph-pd-2.hugegraph-pd.hugegraph.svc:8686, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, deployPath=file:/hugegraph-store/lib/hg-store-node-1.7.0.jar!/BOOT-INF/classes!/, dataPath=/hugegraph-store/storage, dataVersion=1, partitionCount=0, startTime=0, usedSize=0, pdHeartbeatInterval=0, state=Unknown, labels={rest.port=8520}, cores=4), clusterStats timestamp: 1789799722010
+
+2026-09-19 06:35:22 [hg-heartbeat] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Trying to get the PD leader...
+2026-09-19 06:35:22 [hg-heartbeat] [INFO] o.a.h.p.c.PDConnectionManager - [PDCM] Get the PD leader: [ hugegraph-pd-0.hugegraph-pd.hugegraph.svc:8686 ]
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - stateChanged, oldState Unknown, newState Up
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00000
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00000 latest db path /hugegraph-store/storage/db/00000
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -0
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -0
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00001
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00001 latest db path /hugegraph-store/storage/db/00001
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:22 [main] [WARN] o.s.b.a.g.t.GroovyTemplateAutoConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Groovy configuration, or set spring.groovy.template.check-template-location=false)
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -1
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -1
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00002
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00002 latest db path /hugegraph-store/storage/db/00002
+2026-09-19 06:35:22 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:22 [main] [INFO] o.s.b.a.e.w.EndpointLinksResolver - Exposing 14 endpoint(s) beneath base path '/actuator'
+2026-09-19 06:35:22 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-19 06:35:22 [main] [INFO] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-19 06:35:22 [main] [INFO] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2026-09-19 06:35:22 [main] [INFO] o.e.j.s.AbstractConnector - Started ServerConnector@e93f3d5{HTTP/1.1, (http/1.1)}{0.0.0.0:8520}
+2026-09-19 06:35:22 [main] [INFO] o.s.b.w.e.j.JettyWebServer - Jetty started on port(s) 8520 (http/1.1) with context path '/'
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - Starting gRPC Server ...
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.store.node.grpc.HgStoreSessionImpl' service has been registered.
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.store.node.grpc.HgStoreStateService' service has been registered.
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.store.node.grpc.HgStoreStreamImpl' service has been registered.
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.store.node.grpc.query.AggregativeQueryService' service has been registered.
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.store.node.grpc.scan.GraphStoreImpl' service has been registered.
+2026-09-19 06:35:22 [main] [INFO] o.l.s.g.GRpcServerRunner - gRPC Server started, listening on port 8500.
+2026-09-19 06:35:22 [main] [INFO] o.a.h.s.n.StoreNodeApplication - Started StoreNodeApplication in 5.853 seconds (JVM running for 7.267)
+StoreNodeApplication started.
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -2
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -2
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00003
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00003 latest db path /hugegraph-store/storage/db/00003
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -3
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -3
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00004
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00004 latest db path /hugegraph-store/storage/db/00004
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -4
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -4
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00005
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00005 latest db path /hugegraph-store/storage/db/00005
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -5
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -5
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00006
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00006 latest db path /hugegraph-store/storage/db/00006
+2026-09-19 06:35:23 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -6
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -6
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00007
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00007 latest db path /hugegraph-store/storage/db/00007
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -7
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -7
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00008
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00008 latest db path /hugegraph-store/storage/db/00008
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -8
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -8
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00009
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00009 latest db path /hugegraph-store/storage/db/00009
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -9
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -9
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00010
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00010 latest db path /hugegraph-store/storage/db/00010
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -10
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -10
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBFactory - create rocksdb for 00011
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - 00011 latest db path /hugegraph-store/storage/db/00011
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.r.a.RocksDBSession - rocksdb use global WriteBufferManager
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/hugegraph/g -11
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.m.PartitionManager - load partition : DEFAULT/~sys_graph/g -11
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 0, with shards: { id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower }
+2026-09-19 06:35:24 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =0, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00000, raftSnapShotPath=/hugegraph-store/storage/raft/00000, groupId=0, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10565
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 0 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 0 onConfigurationCommitted hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-1] [INFO] o.a.h.s.PartitionEngine - Raft 0 onConfigurationCommitted, conf is hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-1] [INFO] o.a.h.s.PartitionEngine - Raft 0 onConfigurationCommitted, shardGroup [store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 0, peers list = [hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 1, with shards: { id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =1, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00001, raftSnapShotPath=/hugegraph-store/storage/raft/00001, groupId=1, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9643
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 1 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 1 onConfigurationCommitted hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 1 onConfigurationCommitted, conf is hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 1 onConfigurationCommitted, shardGroup [store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 1, peers list = [hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 2, with shards: { id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =2, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00002, raftSnapShotPath=/hugegraph-store/storage/raft/00002, groupId=2, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10568
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 2 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 2 onConfigurationCommitted hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 2 onConfigurationCommitted, conf is hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 2 onConfigurationCommitted, shardGroup [store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 2, peers list = [hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 3, with shards: { id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =3, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00003, raftSnapShotPath=/hugegraph-store/storage/raft/00003, groupId=3, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10552
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 3 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 3 onConfigurationCommitted, conf is hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 3 onConfigurationCommitted hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 3 onConfigurationCommitted, shardGroup [store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 3, peers list = [hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 4, with shards: { id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =4, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00004, raftSnapShotPath=/hugegraph-store/storage/raft/00004, groupId=4, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9679
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 4 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 4 onConfigurationCommitted hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 4 onConfigurationCommitted, conf is hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 4 onConfigurationCommitted, shardGroup [store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 4, peers list = [hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 5, with shards: { id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =5, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00005, raftSnapShotPath=/hugegraph-store/storage/raft/00005, groupId=5, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10580
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 5 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 5 onConfigurationCommitted hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 5 onConfigurationCommitted, conf is hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 5 onConfigurationCommitted, shardGroup [store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 5, peers list = [hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 6, with shards: { id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =6, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00006, raftSnapShotPath=/hugegraph-store/storage/raft/00006, groupId=6, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9572
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 onConfigurationCommitted hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 6 onConfigurationCommitted, conf is hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 6 onConfigurationCommitted, shardGroup [store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 6, peers list = [hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 7, with shards: { id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =7, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00007, raftSnapShotPath=/hugegraph-store/storage/raft/00007, groupId=7, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9548
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 7 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 7 onConfigurationCommitted hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 7 onConfigurationCommitted, conf is hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 7 onConfigurationCommitted, shardGroup [store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 7, peers list = [hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 8, with shards: { id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =8, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00008, raftSnapShotPath=/hugegraph-store/storage/raft/00008, groupId=8, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10620
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 8 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 8 onConfigurationCommitted hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 8 onConfigurationCommitted, conf is hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 8 onConfigurationCommitted, shardGroup [store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 8, peers list = [hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 9, with shards: { id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =9, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00009, raftSnapShotPath=/hugegraph-store/storage/raft/00009, groupId=9, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9561
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 9 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 9 onConfigurationCommitted hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 9 onConfigurationCommitted, conf is hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 9 onConfigurationCommitted, shardGroup [store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 9, peers list = [hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 10, with shards: { id:6386607161404282741,role:Follower },{ id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =10, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00010, raftSnapShotPath=/hugegraph-store/storage/raft/00010, groupId=10, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 10659
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 10 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 10 onConfigurationCommitted hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 10 onConfigurationCommitted, conf is hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 10 onConfigurationCommitted, shardGroup [store_id: 6386607161404282741
+role: Follower
+, store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 10, peers list = [hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.HgStoreEngine - createPartitionEngine 11, with shards: { id:6838705701474727512,role:Follower },{ id:3259356358697243292,role:Leader },{ id:6386607161404282741,role:Follower }
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine starting: PartitionEngine{groupId =11, isLeader=false, options=PartitionEngineOptions(taskScheduleTime=60, splitPartitionTimeout=1800000, raftOptions=HgStoreEngineOptions.RaftOptions(rpcConnectTimeoutMs=1000, electionTimeoutMs=3000, rpcInstallSnapshotTimeout=3600000, waitLeaderTimeout=30, maxEntriesSize=256, maxBodySize=524288, overloadRateLimit=100, keepInMemorySegmentCount=2, preAllocateSegmentCount=1, splitPartitionLogIndexMargin=10, rpcDefaultTimeout=10000, snapshotIntervalSecs=1800, snapshotDownloadingThreads=4, snapshotLogIndexMargin=0, metrics=true, disruptorBufferSize=1024, maxReplicatorInflightMsgs=256, maxLogSize=600000000000, aveLogEntrySizeRatio=0.95, useRocksDBSegmentLogStorage=true, maxSegmentFileSize=67108864), raftDataPath=/hugegraph-store/storage/raft/00011, raftSnapShotPath=/hugegraph-store/storage/raft/00011, groupId=11, raftAddress=hugegraph-store-0.hugegraph-store.hugegraph.svc:8510, peerList=[hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64], conf=null, taskHandler=org.apache.hugegraph.store.node.grpc.HgStoreNodeService@2a4c7704)}
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - onSnapshotLoad committedIndex = 9653
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.s.SnapshotHandler - skip to load snapshot because of should_not_load flag
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 11 onSnapshotLoad success
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 11 onConfigurationCommitted hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 11 onConfigurationCommitted, conf is hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100,hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80,hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64
+2026-09-19 06:35:25 [JRaft-Closure-Executor-3] [INFO] o.a.h.s.PartitionEngine - Raft 11 onConfigurationCommitted, shardGroup [store_id: 6838705701474727512
+role: Follower
+, store_id: 3259356358697243292
+role: Leader
+, store_id: 6386607161404282741
+role: Follower
+]
+2026-09-19 06:35:25 [JRaft-Closure-Executor-0] [INFO] o.a.h.s.PartitionEngine - PartitionEngine start successfully: id = 11, peers list = [hugegraph-store-2.hugegraph-store.hugegraph.svc:8510::100, hugegraph-store-0.hugegraph-store.hugegraph.svc:8510::80, hugegraph-store-1.hugegraph-store.hugegraph.svc:8510::64]
+2026-09-19 06:35:25 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 8 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=37, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:26 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 4 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=42, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:26 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 6 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=39, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:26 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 11 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=40, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:27 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 9 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=41, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:27 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 5 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=38, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:27 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 2 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=37, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:27 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 10 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=42, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:28 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 3 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=38, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:28 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 1 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=44, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:28 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 0 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=47, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].
+2026-09-19 06:35:28 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.r.PartitionStateMachine - Raft 7 start following: LeaderChangeContext [leaderId=hugegraph-store-2.hugegraph-store.hugegraph.svc:8510, term=41, status=Status[ENEWLEADER<10011>: Follower receives message from new leader with the same term.]].

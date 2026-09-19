@@ -1,0 +1,18 @@
+08:37:40 === partition 0 on hugegraph-store-0, gap 500 ms
+08:37:40 snapshots before: ['snapshot_10565 meta=yes data=10 should_not_load=yes']
+08:37:40 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+08:37:41 snapshot request: 200 snapshot OK! in 0.01s
+08:37:42 snapshots during compaction: ['snapshot_10565 meta=yes data=10 should_not_load=yes']
+08:37:43 SIGKILL java pid 16 at +2.4s
+08:37:46 snapshots after the kill: ['snapshot_10565 meta=yes data=10 should_not_load=yes']
+08:37:59 hugegraph-store-0 Ready again after 12.857033252716064s
+08:38:29 RESULT partition 0: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":0,"graphName":"DEFAULT/hugegraph/g","startKey":0,"endKey":5462,"version":"0","workState":"PState_Normal","metric":{"partitionId":0,"tables":[{"tableName":"default","keyCount":11," errors=2 compaction=['06:37:40Partition 0 dbCompaction started', '06:37:40Partition 0-/hugegraph-store/storage got lock, dbCompaction ', '06:37:40Partition 0 dbCompaction end and start to do snapshot']
+08:38:39 === partition 3 on hugegraph-store-0, gap 1500 ms
+08:38:39 snapshots before: ['snapshot_10552 meta=yes data=10 should_not_load=yes']
+08:38:40 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+08:38:41 snapshot request: 200 snapshot OK! in 0.01s
+08:38:42 snapshots during compaction: ['snapshot_10552 meta=yes data=10 should_not_load=yes']
+08:38:43 SIGKILL java pid 16 at +3.3s
+08:38:46 snapshots after the kill: []
+08:39:09 hugegraph-store-0 Ready again after 22.76505732536316s
+08:39:39 RESULT partition 3: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":3,"graphName":"DEFAULT/hugegraph/g","startKey":16386,"endKey":21848,"version":"0","workState":"PState_Normal","metric":{"partitionId":3,"tables":[{"tableName":"default","keyCount" errors=2 compaction=['06:38:40Partition 3-/hugegraph-store/storage got lock, dbCompaction ', '06:38:40Partition 3 dbCompaction started', '06:38:40Partition 3-/hugegraph-store/storage got lock, dbCompaction ']

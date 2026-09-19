@@ -1,0 +1,64 @@
+USER-SUPPLIED VALUES:
+pd:
+  antiAffinity: required
+  javaOpts: -Draft.rpc-timeout=3000
+  pdb:
+    enabled: true
+    minAvailable: 2
+  replicas: 3
+  resources:
+    limits:
+      cpu: "2"
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 1Gi
+  storage:
+    size: 10Gi
+server:
+  auth:
+    admin:
+      autoGenerate: true
+    enabled: true
+    token:
+      autoGenerate: true
+  hpa:
+    enabled: false
+  image:
+    pullPolicy: IfNotPresent
+    tag: 3212g
+  javaOpts: -Xms512m -Xmx1024m -XX:MaxMetaspaceSize=256m -XX:MaxDirectMemorySize=256m
+    -XX:+UseContainerSupport
+  readinessPath: /readiness
+  replicas: 3
+  resources:
+    limits:
+      cpu: "4"
+      memory: 2Gi
+    requests:
+      cpu: "1"
+      memory: 1Gi
+store:
+  antiAffinity: required
+  javaOpts: -Xms512m -Xmx1024m -XX:MaxMetaspaceSize=256m -XX:MaxDirectMemorySize=512m
+    -XX:+UseContainerSupport
+  pdb:
+    enabled: true
+    minAvailable: 2
+  replicas: 3
+  resources:
+    limits:
+      cpu: "4"
+      memory: 4Gi
+    requests:
+      cpu: "1"
+      memory: 2Gi
+  storage:
+    size: 50Gi
+  waitResources:
+    limits:
+      cpu: 250m
+      memory: 64Mi
+    requests:
+      cpu: 25m
+      memory: 32Mi

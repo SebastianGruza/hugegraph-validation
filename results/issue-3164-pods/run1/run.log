@@ -1,0 +1,27 @@
+07:22:55 === partition 0 on hugegraph-store-0, gap 300 ms
+07:22:55 snapshots before: ['snapshot_9562 meta=yes data=10 should_not_load=yes']
+07:22:55 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:22:56 snapshot request: 200 snapshot OK! in 0.00s
+07:22:57 snapshots during compaction: ['snapshot_9563 meta=yes data=10 should_not_load=yes']
+07:22:57 SIGKILL java pid 16 at +2.0s
+07:23:00 snapshots after the kill: ['snapshot_9563 meta=yes data=10 should_not_load=yes']
+07:23:17 hugegraph-store-0 Ready again after 16.552001237869263s
+07:23:47 RESULT partition 0: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":0,"graphName":"DEFAULT/hugegraph/g","startKey":0,"endKey":5462,"version":"0","workState":"PState_Normal","metric":{"partitionId":0,"tables":[{"tableName":"default","keyCount":11," errors=2
+07:23:57 === partition 3 on hugegraph-store-0, gap 300 ms
+07:23:57 snapshots before: ['snapshot_9549 meta=yes data=13 should_not_load=yes']
+07:23:58 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:23:58 snapshot request: 200 snapshot OK! in 0.01s
+07:23:59 snapshots during compaction: ['snapshot_9550 meta=yes data=10 should_not_load=yes']
+07:23:59 SIGKILL java pid 16 at +2.0s
+07:24:03 snapshots after the kill: []
+07:24:26 hugegraph-store-0 Ready again after 23.14656352996826s
+07:24:56 RESULT partition 3: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":3,"graphName":"DEFAULT/hugegraph/g","startKey":16386,"endKey":21848,"version":"0","workState":"PState_Normal","metric":{"partitionId":3,"tables":[{"tableName":"default","keyCount" errors=2
+07:25:06 === partition 6 on hugegraph-store-0, gap 300 ms
+07:25:06 snapshots before: ['snapshot_9571 meta=yes data=13 should_not_load=yes']
+07:25:06 compaction submit: 200 {"msg":"compaction was successfully submitted. See the log for more information","code":"OK"}
+07:25:07 snapshot request: 200 snapshot OK! in 0.01s
+07:25:08 snapshots during compaction: ['snapshot_9572 meta=yes data=10 should_not_load=yes']
+07:25:08 SIGKILL java pid 16 at +2.0s
+07:25:11 snapshots after the kill: []
+07:25:47 hugegraph-store-0 Ready again after 35.75806283950806s
+07:26:18 RESULT partition 6: INCONCLUSIVE race_fired=False meta_only=[] corrupt=0 state={"partitions":[{"id":6,"graphName":"DEFAULT/hugegraph/g","startKey":32772,"endKey":38234,"version":"0","workState":"PState_Normal","metric":{"partitionId":6,"tables":[{"tableName":"default","keyCount" errors=2
