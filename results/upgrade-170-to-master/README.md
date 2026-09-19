@@ -33,3 +33,9 @@ Fix (issue #3219): `E-fixed-usepd-true-read.json` and `E2-fixed-usepd-true-read.
 are the reads with the server jars built from branch `fix/meta-cluster-name`
 on the cycle-2 data (`usePD=true`): schema and data identical to the 1.7.0
 baseline in 20/20 checks, no cluster warning in the log (E2).
+
+Round 2 (2026-09-19, head `8e914e6f`): `usepd-false-round2.txt` runs the PR build on the same 1.7.0 data with
+`usePD=false` (no `usePD`/`pd.peers` in `rest-server.properties`): with the graph's default `pd.cluster` the
+server starts and sees 0 property keys (the data lives under `hg-test`), with `pd.cluster=hg-test` it sees all 13;
+in both runs the log has no `ensureCluster`/`IllegalStateException` line at all, since `initMetaManager()` only
+runs from `loadMetaFromPD()` (usePD=true). Restored `usePD=true`: 13 keys and `Meta cluster bound to 'hg-test'`.

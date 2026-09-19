@@ -1,0 +1,16 @@
+=== v1 usePD=false, pd.cluster default
+Started [pid 735895]
+  graphs: {"graphs":["hugegraph"]}
+  propertykeys: 0
+  cluster-related log lines: 0
+=== v2 usePD=false, pd.cluster=hg-test
+Started [pid 736155]
+  graphs: {"graphs":["hugegraph"]}
+  propertykeys: 13
+  cluster-related log lines: 0
+=== v3 restored usePD=true
+Started [pid 736425]
+  graphs: {"graphs":["hugegraph"]}
+  propertykeys: 13
+  cluster-related log lines: 1
+2026-09-19 15:26:56 [main] [INFO] o.a.h.d.HugeGraphServer - Meta cluster bound to 'hg-test' (keys under HUGEGRAPH/hg-test/)
