@@ -11,13 +11,14 @@ partition leaders and Server `/readiness`; the oracle is verified after each pas
 | pass | what changed | Store roll | PD roll | Server roll | writes (fail) | reads (fail) | min Server endpoints | PD leaderless samples | oracle |
 |---|---|---|---|---|---|---|---|---|---|
 | 1 `pass1-restart/` | pod annotation only (restart of all three, Server image unchanged) | 66 s | 295 s | 46 s | 2205 (2) | 2205 (0) | 3 | 0 | 0 / 0 |
-| 2 `pass2-to-3212g/` | Store, PD restart; Server image `3212h` → `3212g` | 66 s | 95 s | 47 s | see JSON (1 per Store/PD step) | 2 during the Store roll | 3 | 0 | 0 / 0 |
-| 3 `pass3-to-3212h/` | Store, PD restart; Server image `3212g` → `3212h` | 64 s | 76 s | 41 s | 1 during the Store roll | 1 during the Store/PD roll | 3 | 0 | 0 / 0 |
+| 2 `pass2-to-3212g/` | Store, PD restart; Server image `3212h` → `3212g` | 66 s | 95 s | 47 s | 1002 (2) | 1002 (3) | 3 | 1 | 0 / 0 |
+| 3 `pass3-to-3212h/` | Store, PD restart; Server image `3212g` → `3212h` | 64 s | 76 s | 41 s | 660 (2) | 660 (2) | 3 | 2 | 0 / 0 |
 
 Observations:
 
 - No acknowledged write was lost and every oracle sample matched after each pass; the Server Service never dropped
-  below 3 endpoints (the Deployment surges before it terminates) and PD never went leaderless in any 1 Hz sample.
+  below 3 endpoints (the Deployment surges before it terminates). PD was without a leader in 0, 1 and 2 single 1 Hz
+  samples respectively (a 1-2 s election while the PD leader's pod restarts, as expected with `raft.rpc-timeout=3000`).
 - Every failed request is the known 30 s request bound (#3204): during a Store roll, a read or write that lands on a
   partition whose leader was on the pod being restarted waits the full 30 s and fails once, then the load recovers.
   That is 1-2 requests per pass; the harness's single-threaded load makes the per-step request counts small when it
