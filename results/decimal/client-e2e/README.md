@@ -1,7 +1,7 @@
 # hugegraph-client DECIMAL support, E2E against the DECIMAL server (2026-09-20)
 
 Companion change for apache/hugegraph#3209 in apache/hugegraph-toolchain (branch `feat/client-decimal-datatype`
-in `SebastianGruza/hugegraph-toolchain`): `DataType.DECIMAL` in both client enums, `PropertyKey.Builder.asDecimal()`,
+in `SebastianGruza/hugegraph-toolchain`, PR apache/hugegraph-toolchain#771): `DataType.DECIMAL` in both client enums, `PropertyKey.Builder.asDecimal()`,
 `BigDecimal` sent as a plain string in every request body and query parameter (a JSON number would be read as a
 double), the direct serializer's `BytesBuffer` writes the server layout (unscaled bytes + scale), the loader and the
 spark connector convert `decimal` columns to `BigDecimal`, Hubble's Groovy export emits `.asDecimal()`.
