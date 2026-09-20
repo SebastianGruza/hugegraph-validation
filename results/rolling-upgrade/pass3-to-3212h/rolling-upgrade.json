@@ -1,0 +1,101 @@
+{
+ "tag_after": "3212h",
+ "steps": {
+  "hugegraph-store": {
+   "rollout_s": 63.5,
+   "load": {
+    "writes": {
+     "requests": 6,
+     "failed": 1,
+     "first_failure_s": 32.1,
+     "last_failure_s": 32.1,
+     "max_latency_s": 30.9,
+     "codes": [
+      500
+     ]
+    },
+    "reads": {
+     "requests": 6,
+     "failed": 1,
+     "first_failure_s": 62.3,
+     "last_failure_s": 62.3,
+     "max_latency_s": 30.1,
+     "codes": [
+      500
+     ]
+    }
+   }
+  },
+  "hugegraph-pd": {
+   "rollout_s": 76.1,
+   "load": {
+    "writes": {
+     "requests": 70,
+     "failed": 0,
+     "first_failure_s": null,
+     "last_failure_s": null,
+     "max_latency_s": 8.4,
+     "codes": []
+    },
+    "reads": {
+     "requests": 71,
+     "failed": 1,
+     "first_failure_s": 29.6,
+     "last_failure_s": 29.6,
+     "max_latency_s": 30.8,
+     "codes": [
+      500
+     ]
+    }
+   }
+  },
+  "hugegraph-server": {
+   "rollout_s": 41.1,
+   "load": {
+    "writes": {
+     "requests": 164,
+     "failed": 0,
+     "first_failure_s": null,
+     "last_failure_s": null,
+     "max_latency_s": 0.4,
+     "codes": []
+    },
+    "reads": {
+     "requests": 164,
+     "failed": 0,
+     "first_failure_s": null,
+     "last_failure_s": null,
+     "max_latency_s": 0.4,
+     "codes": []
+    }
+   }
+  }
+ },
+ "load_total": {
+  "writes": {
+   "requests": 660,
+   "failed": 2,
+   "first_failure_s": 52.1,
+   "last_failure_s": 113.2,
+   "max_latency_s": 31.1,
+   "codes": [
+    500
+   ]
+  },
+  "reads": {
+   "requests": 660,
+   "failed": 2,
+   "first_failure_s": 82.3,
+   "last_failure_s": 144.3,
+   "max_latency_s": 30.8,
+   "codes": [
+    500
+   ]
+  }
+ },
+ "min_server_endpoints": 3,
+ "pd_leaderless_samples": 2,
+ "verify_mismatches": 0,
+ "acked_lost": 0,
+ "images_after": "hugegraph-pd-0=docker.io/hugegraph/pd@sha256:6f4cee854e1db4c38a6e284281e748845478a3f10fe3a1e4327f2fa5232792d8\nhugegraph-pd-1=docker.io/hugegraph/pd@sha256:6f4cee854e1db4c38a6e284281e748845478a3f10fe3a1e4327f2fa5232792d8\nhugegraph-pd-2=docker.io/hugegraph/pd@sha256:6f4cee854e1db4c38a6e284281e748845478a3f10fe3a1e4327f2fa5232792d8\nhugegraph-server-69fff984cc-bqj66=sha256:1c539e7f260575dd701c52b37ad24bfe1da7d8515212ad59df8ea9892f907149\nhugegraph-server-69fff984cc-ddf55=sha256:1c539e7f260575dd701c52b37ad24bfe1da7d8515212ad59df8ea9892f907149\nhugegraph-server-69fff984cc-hcrkd=sha256:1c539e7f260575dd701c52b37ad24bfe1da7d8515212ad59df8ea9892f907149\nhugegraph-store-0=docker.io/hugegraph/store@sha256:879ee2d182c301a639a90a8aedb05838c39b2a4e4dd37adead347375676a16c4\nhugegraph-store-1=docker.io/hugegraph/store@sha256:879ee2d182c301a639a90a8aedb05838c39b2a4e4dd37adead347375676a16c4\nhugegraph-store-2=docker.io/hugegraph/store@sha256:879ee2d182c301a639a90a8aedb05838c39b2a4e4dd37adead347375676a16c4"
+}
