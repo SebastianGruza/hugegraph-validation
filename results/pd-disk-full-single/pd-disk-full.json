@@ -1,0 +1,124 @@
+{
+ "baseline": {
+  "samples": 54,
+  "pd_ready": {
+   "200": 54
+  },
+  "pd_health": {
+   "200": 54
+  },
+  "pd_pod": {
+   "true 0": 54
+  },
+  "srv_readiness": {
+   "200": 54
+  },
+  "srv_reasons": [
+   "ok"
+  ],
+  "writes": {
+   "202": 10
+  },
+  "reads": {
+   "200": 10
+  },
+  "disk_used_pct": [
+   "49%",
+   "79%"
+  ]
+ },
+ "full": {
+  "samples": 53,
+  "pd_ready": {
+   "200": 22,
+   "503": 31
+  },
+  "pd_health": {
+   "200": 53
+  },
+  "pd_pod": {
+   "true 0": 27,
+   "false 0": 26
+  },
+  "srv_readiness": {
+   "200": 53
+  },
+  "srv_reasons": [
+   "ok"
+  ],
+  "writes": {
+   "202": 4,
+   "0": 6
+  },
+  "reads": {
+   "200": 10
+  },
+  "disk_used_pct": [
+   "100%",
+   "49%"
+  ]
+ },
+ "freed": {
+  "samples": 35,
+  "pd_ready": {
+   "503": 35
+  },
+  "pd_health": {
+   "200": 35
+  },
+  "pd_pod": {
+   "false 0": 35
+  },
+  "srv_readiness": {
+   "200": 35
+  },
+  "srv_reasons": [
+   "ok"
+  ],
+  "writes": {
+   "0": 7
+  },
+  "reads": {
+   "200": 7
+  },
+  "disk_used_pct": [
+   "49%"
+  ]
+ },
+ "after_restart": {
+  "samples": 95,
+  "pd_ready": {
+   "0": 1,
+   "200": 94
+  },
+  "pd_health": {
+   "0": 1,
+   "200": 94
+  },
+  "pd_pod": {
+   "false 0": 1,
+   "true 0": 94
+  },
+  "srv_readiness": {
+   "200": 95
+  },
+  "srv_reasons": [
+   "ok"
+  ],
+  "writes": {
+   "0": 1,
+   "202": 18
+  },
+  "reads": {
+   "200": 19
+  },
+  "disk_used_pct": [
+   "49%"
+  ]
+ },
+ "pd_restarted": true,
+ "verify_mismatches": 0,
+ "acked_lost": 0,
+ "pd_error_lines": [],
+ "pd_error_count": 0
+}
