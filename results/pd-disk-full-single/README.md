@@ -35,3 +35,14 @@ harness's pod delete did.
 
 Pass 2 (`pass2/`) repeats the fill with the PD log and `/v1/members` captured at every step, since pass 1 deleted the
 pod before saving its log.
+
+## Pass 2 (`pass2/`, PD log captured before any restart)
+
+Fill at 11:50:37; PD stays leader until its next periodic raft snapshot at 09:51:33 UTC (56 s later), which fails on
+ENOSPC: `RaftException: ERROR_TYPE_SNAPSHOT` from `SnapshotExecutorImpl.doSnapshot` (jraft-core 1.3.13) →
+`RaftStateMachine.onError` → `Raft lost leader`. From then on `/v1/ready` = `{"ready":false,"state":"STATE_FOLLOWER"}`,
+`/v1/members` = 500 `Leader is not ready`, 63 such lines in 5 min, and after the filler is removed (disk back to
+49 %) there is not a single election attempt in the following 180 s (`pd-log-new-during-fill-and-free.txt`, grep
+for vote/elect/become leader: none). Two PD-side details: `onLeaderStop` unconditionally sets the probe view to
+`STATE_FOLLOWER`, overwriting the `STATE_ERROR` that `onError` set a moment earlier, so the readiness body hides the
+error state; and `/v1/health` is a bare 200 whenever Jetty is up, so no liveness ever fires.

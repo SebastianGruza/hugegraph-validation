@@ -422,7 +422,11 @@ F12–F14 are tracked outside this repository.
 
 **A single-node PD that fails one periodic raft snapshot stays leaderless forever (every RPC answers code 100), and every store loses registration**
 
-Status: **unreported**; observed 2026-09-15 on the lab, caused by a full root disk (98 %), but the failure mode is
+Status: **reproduced on pods 2026-09-20** (`results/pd-disk-full-single/`, chart single preset, PD on a 512 MB loop
+volume): the periodic raft snapshot fails on ENOSPC → jraft `RaftException ERROR_TYPE_SNAPSHOT` → `RaftStateMachine.onError`
+→ step down; no election for 3+ min after the disk is freed; `onLeaderStop` overwrites the `STATE_ERROR` probe view with
+`STATE_FOLLOWER`, so `/v1/ready` looks like a follower and `/v1/health` stays 200; only a process restart recovers.
+Upstream issue being drafted. Originally observed 2026-09-15 on the lab, caused by a full root disk (98 %), but the failure mode is
 independent of the cause.
 
 PD's own jraft node snapshots every 5 minutes (`hg-u-job` `Raft onSnapshotSave success` at :56:54, :01:54, ...).
