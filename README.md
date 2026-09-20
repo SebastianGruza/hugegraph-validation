@@ -15,7 +15,7 @@ for them. The upstream status of every finding is tracked in [docs/findings.md](
 - **Oracle, not expectations.** The same REST and Gremlin queries run against two servers built from the
   same source tree, HStore (PD + 3 store nodes) and embedded RocksDB. Results are compared as sets of
   element ids. Whatever RocksDB returns is the expectation; nothing is hand-coded. The same idea now
-  drives the client contract fixtures (`results/rust-roadmap`): a recording from the reference client
+  drives the client contract fixtures for the Rust roadmap: a recording from the reference client
   and the reference backend is the contract, and a backend regression shows up as a diff.
 - **Real clusters, real failures.** Two labs: three VMs running bare processes (server versions side by
   side, jar swaps without reloading data, RocksDB oracle) and a three-node k3s cluster running the Helm
