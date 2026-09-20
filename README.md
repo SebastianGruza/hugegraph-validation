@@ -1,20 +1,71 @@
-# hugegraph-oracle-suite
+# hugegraph-validation
 
-Black-box, **oracle-mode** regression suite for [Apache HugeGraph](https://github.com/apache/hugegraph) 1.7.0.
+An independent validation lab for [Apache HugeGraph](https://github.com/apache/hugegraph): the server,
+the HStore/PD distributed backend, the Helm chart and the client toolchain. The method is always the
+same: reproduce on a real cluster, measure against a reference, fix upstream, measure again.
 
-The same set of REST and Gremlin queries is run against two live servers built from the **same
-source tree**: the backend under test (`hstore` — PD + 3 store nodes) and a reference backend
-(`rocksdb`, embedded). Results are compared as **sets of element ids** (count, distinct count,
-md5 of the sorted ids, and the ids themselves), never as bare counts. Nothing is hard-coded as an
-expected value: **the expectation is whatever the reference backend returns.**
+This is not an Apache project. The lab, the harnesses and the findings are maintained by
+[Sebastian Gruza](https://gruzalab.pl) (graph databases, distributed systems, blockchain analytics),
+who evaluates HugeGraph with HStore for large-scale risk-propagation graph workloads. The repository
+holds the suites, the cluster orchestration, the raw reports, the bugs found and the patches written
+for them. The upstream status of every finding is tracked in [docs/findings.md](docs/findings.md).
 
-This is an independent effort, not an Apache project. The lab, the suite and the findings are
-maintained by [Sebastian Gruza](https://gruzalab.pl) (graph databases, distributed systems, blockchain
-analytics), who is evaluating HugeGraph with the HStore backend for large-scale risk-propagation
-graph workloads. The repository accompanies a working clone of `apache/hugegraph`: it holds the
-suite, the cluster orchestration used to run it, the reports it produced, the bugs it found and the
-patches written for them. The upstream reporting status of every finding is tracked in
-[docs/findings.md](docs/findings.md).
+## How the work is done
+
+- **Oracle, not expectations.** The same REST and Gremlin queries run against two servers built from the
+  same source tree, HStore (PD + 3 store nodes) and embedded RocksDB. Results are compared as sets of
+  element ids. Whatever RocksDB returns is the expectation; nothing is hand-coded. The same idea now
+  drives the client contract fixtures (`results/rust-roadmap`): a recording from the reference client
+  and the reference backend is the contract, and a backend regression shows up as a diff.
+- **Real clusters, real failures.** Two labs: three VMs running bare processes (server versions side by
+  side, jar swaps without reloading data, RocksDB oracle) and a three-node k3s cluster running the Helm
+  chart as users will get it (pod kills, disk full, OOM limits, rolling upgrades under load, probes).
+  Every run records what was tested: image digest or jar checksum, chart commit, configuration.
+- **A finding is a reproducer plus a measurement.** Each upstream issue comes with a script that
+  reproduces it, the logs, and the before/after numbers of the proposed fix, measured on the lab.
+  Each PR carries tests that the upstream CI actually counts and answers review rounds with
+  measurements rather than opinions.
+- **Security goes through the ASF private channels**, never through public issues.
+
+## Upstream contributions
+
+Merged in `apache/hugegraph` master:
+
+| PR | What | Merged |
+|---|---|---|
+| [#3184](https://github.com/apache/hugegraph/pull/3184) | HStore: sort-key prefix/range queries crashed the store-side decoder; sysprop-only range queries are no longer pushed down (part of #3090) | 2026-09-16 |
+| [#3204](https://github.com/apache/hugegraph/pull/3204) | store-client: a stalled store held REST workers for minutes; commit retries now honour interrupts (F15, [#3199](https://github.com/apache/hugegraph/issues/3199)) | 2026-09-16 |
+| [#3207](https://github.com/apache/hugegraph/pull/3207) | paging returned the page-boundary record twice when the limit was a multiple of 500, on RocksDB and HStore (F1, [#3191](https://github.com/apache/hugegraph/issues/3191)) | 2026-09-16 |
+| [#3210](https://github.com/apache/hugegraph/pull/3210) | server: wait for the stores at startup instead of exiting on a cold start (F10) | 2026-09-17 |
+| [#3216](https://github.com/apache/hugegraph/pull/3216) | `usePD=true` broke on JVMs with a decimal-comma locale ([#3215](https://github.com/apache/hugegraph/issues/3215)) | 2026-09-17 |
+| [#3220](https://github.com/apache/hugegraph/pull/3220) | a server upgraded from 1.7.0 with `usePD=true` read an empty schema: meta cluster prefix bound before any graph opens ([#3219](https://github.com/apache/hugegraph/issues/3219), `results/upgrade-170-to-master`) | 2026-09-20 |
+
+Open, under review:
+
+| PR | What | Evidence here |
+|---|---|---|
+| [apache/hugegraph#3209](https://github.com/apache/hugegraph/pull/3209) | `DECIMAL` (BigDecimal) property data type: exact amounts through batch `update_strategies: SUM` ([#3206](https://github.com/apache/hugegraph/issues/3206)) | [docs/decimal-datatype.md](docs/decimal-datatype.md), `results/decimal` |
+| [apache/hugegraph-toolchain#771](https://github.com/apache/hugegraph-toolchain/pull/771) | the same type in hugegraph-client, loader, spark connector and Hubble, E2E against the server branch | `results/decimal/client-e2e` |
+| [apache/hugegraph#3221](https://github.com/apache/hugegraph/pull/3221) | storage-aware `GET /readiness` for the server ([#3212](https://github.com/apache/hugegraph/issues/3212)), with the chart side in [hugegraph/hugegraph#229](https://github.com/hugegraph/hugegraph/pull/229) | [docs/server-readiness.md](docs/server-readiness.md), `results/issue-3212` |
+
+Issues filed from this lab, still open: [#3222](https://github.com/apache/hugegraph/issues/3222)
+(a single-node PD never recovers leadership after a failed snapshot on a full disk; probes hide it;
+`results/pd-disk-full-single`), [#3090](https://github.com/apache/hugegraph/issues/3090) analysis of
+the server/store property codec mismatch (`results/issue-3090`).
+
+Helm chart campaign ([apache/hugegraph#3132](https://github.com/apache/hugegraph/issues/3132), review in
+[hugegraph/hugegraph#221](https://github.com/hugegraph/hugegraph/pull/221)): fault battery, cold start,
+#3164 on pods, store memory under the cluster preset, PD disk full, rolling upgrade under load; see
+[docs/helm-chart-faults.md](docs/helm-chart-faults.md), [docs/store-memory-preset.md](docs/store-memory-preset.md)
+and `results/{helm-chart,issue-3164-pods,store-oom-cluster-preset,pd-disk-full-single,rolling-upgrade}`.
+
+In progress, the Rust modernization roadmap groundwork ([toolchain#748](https://github.com/apache/hugegraph-toolchain/issues/748),
+[server#3110](https://github.com/apache/hugegraph/issues/3110)): language-neutral client contract fixtures
+recorded from the Java client with a Go runner and a loader baseline benchmark
+([toolchain#772](https://github.com/apache/hugegraph-toolchain/issues/772)), and OLTP/storage workload
+baselines plus rolling-upgrade and rollback requirements for HStore and PD
+([server#3223](https://github.com/apache/hugegraph/issues/3223)). No Rust code is promised; the
+deliverable is the reference every port will be measured against.
 
 ## Why an oracle instead of expected counts
 
@@ -33,35 +84,23 @@ by running the suite on two server versions (master vs. a PR branch) and diffing
 ## Layout
 
 ```
-suite/hg_suite.py            the suite: run / compare (Python 3, stdlib only)
-suite/page_probe.py          paging probe: which ids duplicate, on which page boundary
-suite/hg_j8.py               PR #2994 review shapes: J8 id sets, P execution plans (explain()), G Gremlin ~page paging
-suite/scale_probe.py         1 M-vertex load + timings and plans for the point-lookup / index-pushdown shapes
-suite/scale_fallback.py      the documented local-filter fallback and ~page sweep timed at 1 M vertices, per backend
-cluster/run_cycle.sh         full cycle from the workstation: wipe 3-node cluster -> boot -> --load on both -> compare
-cluster/run_side.sh          same cycle for any tag: dists from ~/hg-<tag>/hugegraph-server/dist-<tag>-{hstore,rocksdb}, plus hg_j8.py
-cluster/make_dists.sh        dist-<tag>-hstore / dist-<tag>-rocksdb from a built worktree (conf carried over)
-cluster/node_store.sh        per store node: stop+wipe / start (with PD-readiness retry)
-cluster/node_servers.sh      on the server node: stop+wipe / init+start hstore and rocksdb servers
-cluster/validate_patch.sh    red -> green -> deploy -> revert cycle for a core patch (maven on the server node)
-cluster/make_master_dists.sh assemble master-built server distributions for the "before any patch" side
-cluster/make_dist_pair.sh    two hstore servers (A :8080, B :8082) from one build, for cross-server PD-meta tests
-cluster/pd_watch_exp2.sh     PD KV watch recovery experiment (issue #3152 / PR #3157): create -> drop on A, watch REMOVE on B across PD outages
-cluster/legacy/              the original bash suite (#3090 sort-key reproducer with expected counts)
-docs/setup.md                lab topology, builds, JDKs, every config file that mattered
-docs/pitfalls.md             configuration and operational traps, with symptom -> cause -> fix
-docs/findings.md             bugs and observations, evidence, root causes, reporting status (F15/F16: store-stall behaviour of batch writes)
-cluster/repro_deadline.py    F15/F16 reproduction: concurrent batch upserts + GET probes while one store is frozen with SIGSTOP
-cluster/repro_rate.py        F15 before/after measurement: 1 POST/s against a frozen store, REST availability probe (results/f15/)
-cluster/repro_rest_dead.py   F15 stress variant: writers in a tight retry loop
-cluster/rebuild_integration.sh  recreate the fork's `integration` branch = apache master + the open PR heads + our fix branches
-docs/results.md              result matrix and how to read the reports
-patches/                     fixes as git format-patch against apache/hugegraph master (0001 paging batch boundary, 0002 F15 store-client retry loop)
-results/                     JSON/text reports of the 2026-09-03 runs + results/README.md (file provenance)
-reports/<pr>/                one directory per upstream PR: README with the tables posted upstream + every raw report
-docs/decimal-datatype.md     DECIMAL (BigDecimal) property type branch: design, deliberate limits, test suite, results
-reports/index-cost/          write cost of edge indexes (label + SECONDARY) on HStore: 1 M, 20 M, four sort keys, replication 1 vs 3
-cluster/idx_bench.py         the index-cost load generator (2-sort-key and sk4 schemas); cluster/idx_run_variant.sh + idx_run_chain.sh the driver; idx_disk_split.sh the disk/table split; sample_res.sh the sampler; idx_summarize2.py the table
+suite/                  the oracle suite (Python 3, stdlib only): hg_suite.py run/compare, page_probe.py,
+                        hg_j8.py (PR #2994 shapes), scale_probe.py / scale_fallback.py (1 M-vertex timings)
+cluster/                harnesses for the bare-process lab: run_cycle.sh / run_side.sh (wipe, boot, load,
+                        compare), make_dists.sh, node_*.sh, validate_patch.sh (red -> green -> deploy -> revert),
+                        repro_*.py (F15/F16 stalled-store reproducers), pd_watch_exp2.sh (#3152/#3157),
+                        idx_bench.py + idx_*.sh (edge index write cost), sk_shapes.py, decimal_e2e.py,
+                        race_*.sh (#3164 snapshot/compaction race), rebuild_integration.sh
+cluster/k3s_*.py        harnesses for the Helm-chart k3s cluster: faults, readiness, #3164 on pods, pad load,
+                        PD disk full, rolling upgrade under load
+docs/                   setup.md (lab topology, builds, configs), pitfalls.md (symptom -> cause -> fix),
+                        findings.md (F1..F18: evidence, root cause, upstream status), results.md,
+                        decimal-datatype.md, server-readiness.md, helm-chart-faults.md, store-memory-preset.md
+results/                raw reports per run or per issue (each directory with its own README), e.g.
+                        pr-3184-sortkeys, issue-3090, upgrade-170-to-master, issue-3212, issue-3164-pods,
+                        store-oom-cluster-preset, pd-disk-full-single, rolling-upgrade, decimal
+reports/                per upstream PR: the tables posted upstream plus every raw report (pr-2994, index-cost)
+patches/                fixes as git format-patch against apache/hugegraph master
 ```
 
 ## Quick start
@@ -128,25 +167,15 @@ Version axis, backend held constant: rocksdb master vs rocksdb combined differ i
 | `BOTH-ERR` | both throw — a server or suite limitation, not a backend bug |
 | `NEW` / `MISSING` | case present in only one report (suite version drift) |
 
-## Reports per PR
+## Status (2026-09-20)
 
-| PR | Report | Verdict measured |
-|---|---|---|
-| [apache/hugegraph#2994](https://github.com/apache/hugegraph/pull/2994) | [reports/pr-2994](reports/pr-2994/README.md) (2026-09-06, head `ac641c6`) [fefe3ca](reports/pr-2994/fefe3ca/README.md) (2026-09-07) [e32a75f](reports/pr-2994/e32a75f/README.md) (2026-09-08, fallback + paging at 1 M on HStore; rocksdb column invalid, see erratum) and [2d53a55](reports/pr-2994/2d53a55/README.md) (2026-09-09, positive-label pushdown and unbound SEARCH) | label semantics correct on both backends, fixes 18 silently-incomplete shapes plus 10 `hasKey`/`hasValue` shapes that master answers with an empty set; point lookups preserved; the `has(indexed).out().hasLabel(neq(..))` full scan of `ac641c6` is fixed at `fefe3ca`; connective `hasId(...)` next to a negative label is still a full scan; at `2d53a55` positive labels before an unsafe child are label-index lookups again on both backends |
+Oracle suite on the bare lab, hstore (PD + 3 stores) vs rocksdb, server = apache master with the merged
+fixes above: 174 cases, `OK=170`, `BOTH-ERR=4` (REST string range predicates rejected on both backends),
+no `MISMATCH`, `DUP` or `TARGET-ERR`. Details in [results/README.md](results/README.md).
 
-## Status (2026-09-03)
-
-Server code = `combined` (apache/hugegraph master `98477f0` + PR #3184 `1072872` + PR #3182 `acbee167`
-+ PR #2994 `5cb9a519`; #3182 has since been merged, so this equals master + #2994 + #3184),
-hstore on a PD + 3-store cluster vs rocksdb: **174 cases, OK=170, BOTH-ERR=4**, no `MISMATCH`,
-no `DUP`, no `TARGET-ERR`. The four `BOTH-ERR` are string range predicates in the REST `properties`
-filter, which the REST layer rejects on both backends while Gremlin accepts them.
-
-The suite found one server-level bug that counting could never see — a duplicated record on every
-page boundary when the page limit is a multiple of 500 — root-caused, fixed and validated red/green
-in [docs/findings.md](docs/findings.md#f1) with the patch in [patches/](patches/); reported as
-[apache/hugegraph#3191](https://github.com/apache/hugegraph/issues/3191).
+Helm chart on k3s: fault battery, readiness, cold start and rolling upgrade clean; two open findings
+carried upstream (#3222 for the single-node PD, the store memory limit in `docs/store-memory-preset.md`).
 
 ## License
 
-Apache License 2.0 — the same license as HugeGraph, so patches and tests can move upstream as they are.
+Apache License 2.0, the same license as HugeGraph, so patches and tests can move upstream as they are.
