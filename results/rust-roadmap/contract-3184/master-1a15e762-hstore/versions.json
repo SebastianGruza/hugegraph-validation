@@ -1,0 +1,23 @@
+{
+  "description" : "Server version report; the api version selects the fixture directory",
+  "ignore" : [ "response.body.versions.core", "response.body.versions.gremlin" ],
+  "name" : "versions",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "GET",
+    "path" : "/versions"
+  },
+  "response" : {
+    "body" : {
+      "versions" : {
+        "api" : "0.72.0.0",
+        "core" : "<masked>",
+        "gremlin" : "<masked>",
+        "version" : "v1"
+      }
+    },
+    "status" : 200
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "description" : "Delete one vertex by id",
+  "ignore" : [ ],
+  "name" : "graph-vertex-delete",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "DELETE",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/vertices/%22marko%22"
+  },
+  "response" : {
+    "status" : 204
+  }
+}

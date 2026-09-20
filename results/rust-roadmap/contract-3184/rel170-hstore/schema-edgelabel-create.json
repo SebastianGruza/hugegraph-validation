@@ -1,0 +1,52 @@
+{
+  "description" : "Create an edge label between two vertex labels",
+  "ignore" : [ "response.body.id", "response.body.user_data.~create_time" ],
+  "name" : "schema-edgelabel-create",
+  "request" : {
+    "body" : {
+      "check_exist" : true,
+      "edgelabel_type" : "NORMAL",
+      "frequency" : "DEFAULT",
+      "id" : 0,
+      "links" : [ {
+        "person" : "person"
+      } ],
+      "name" : "knows",
+      "nullable_keys" : [ "weight" ],
+      "properties" : [ "weight" ],
+      "sort_keys" : [ ],
+      "ttl" : 0,
+      "user_data" : { }
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/edgelabels"
+  },
+  "response" : {
+    "body" : {
+      "edgelabel_type" : "NORMAL",
+      "enable_label_index" : true,
+      "frequency" : "SINGLE",
+      "id" : "<masked>",
+      "index_labels" : [ ],
+      "links" : [ {
+        "person" : "person"
+      } ],
+      "name" : "knows",
+      "nullable_keys" : [ "weight" ],
+      "properties" : [ "weight" ],
+      "sort_keys" : [ ],
+      "source_label" : "person",
+      "status" : "CREATED",
+      "target_label" : "person",
+      "ttl" : 0,
+      "user_data" : {
+        "~create_time" : "<masked>"
+      }
+    },
+    "status" : 201
+  }
+}

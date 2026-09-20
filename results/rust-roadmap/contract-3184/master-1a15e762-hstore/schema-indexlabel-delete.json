@@ -1,0 +1,18 @@
+{
+  "description" : "Delete an index label; the server answers with the removal task",
+  "ignore" : [ "response.body.task_id" ],
+  "name" : "schema-indexlabel-delete",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "DELETE",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/indexlabels/personByAge"
+  },
+  "response" : {
+    "body" : {
+      "task_id" : "<masked>"
+    },
+    "status" : 202
+  }
+}

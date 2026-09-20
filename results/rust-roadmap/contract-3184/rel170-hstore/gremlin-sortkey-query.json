@@ -1,0 +1,30 @@
+{
+  "description" : "Sort-key prefix query through Gremlin",
+  "ignore" : [ "response.body.requestId" ],
+  "name" : "gremlin-sortkey-query",
+  "request" : {
+    "body" : {
+      "aliases" : {
+        "g" : "__g_{graphspace}-{graph}",
+        "graph" : "{graphspace}-{graph}"
+      },
+      "gremlin" : "g.V('marko').outE('transfer').has('asset','ETC').values('epoch')",
+      "language" : "gremlin-groovy"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/gremlin"
+  },
+  "response" : {
+    "body" : {
+      "cause" : "[io.grpc.StatusRuntimeException]",
+      "exception" : "io.grpc.StatusRuntimeException",
+      "message" : "INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0\n\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)\n\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)\n\tat org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)\n\tat org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)\n\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)\n\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)\n\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseEdge(BinaryElementSerializer.java:296)\n\tat org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:67)\n\tat org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)\n\tat org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)\n\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)\n\tat java.base/java.lang.Thread.run(Thread.java:840)\n",
+      "trace" : [ "io.grpc.StatusRuntimeException: INTERNAL: an exception occurred while scanning data:Can't construct Cardinality from code 0,java.lang.IllegalArgumentException: Can't construct Cardinality from code 0", "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:165)", "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)", "\tat org.apache.hugegraph.type.define.SerialEnum.fromCode(SerialEnum.java:50)", "\tat org.apache.hugegraph.serializer.BytesBuffer.readProperty(BytesBuffer.java:589)", "\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperty(BinaryElementSerializer.java:116)", "\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseProperties(BinaryElementSerializer.java:135)", "\tat org.apache.hugegraph.serializer.BinaryElementSerializer.parseEdge(BinaryElementSerializer.java:296)", "\tat org.apache.hugegraph.store.business.FilterIterator.hasNext(FilterIterator.java:67)", "\tat org.apache.hugegraph.store.business.SelectIterator.hasNext(SelectIterator.java:74)", "\tat org.apache.hugegraph.store.node.grpc.ScanStreamResponse.lambda$initIterator$0(ScanStreamResponse.java:146)", "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)", "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)", "\tat java.base/java.lang.Thread.run(Thread.java:840)", "\tat io.grpc.Status.asRuntimeException(Status.java:535)", "\tat io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:487)", "\tat io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:562)", "\tat io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:70)", "\tat io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInternal(ClientCallImpl.java:743)", "\tat io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:722)", "\tat io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)", "\tat io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:133)", "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)", "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)", "\tat java.base/java.lang.Thread.run(Thread.java:829)" ]
+    },
+    "status" : 500
+  }
+}

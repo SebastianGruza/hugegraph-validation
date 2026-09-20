@@ -1,0 +1,35 @@
+{
+  "description" : "Create vertices in one batch; the answer lists their ids",
+  "ignore" : [ ],
+  "name" : "graph-vertices-batch-create",
+  "request" : {
+    "body" : [ {
+      "id" : "vadas",
+      "label" : "person",
+      "properties" : {
+        "age" : 27,
+        "name" : "vadas"
+      },
+      "type" : "vertex"
+    }, {
+      "id" : "josh",
+      "label" : "person",
+      "properties" : {
+        "age" : 32,
+        "name" : "josh"
+      },
+      "type" : "vertex"
+    } ],
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-encoding" : "gzip",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/vertices/batch"
+  },
+  "response" : {
+    "body" : [ "vadas", "josh" ],
+    "status" : 201
+  }
+}

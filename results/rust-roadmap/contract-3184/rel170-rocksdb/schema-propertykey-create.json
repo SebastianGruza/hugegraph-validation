@@ -1,0 +1,43 @@
+{
+  "description" : "Create a TEXT property key",
+  "ignore" : [ "response.body.property_key.id", "response.body.property_key.user_data.~create_time", "response.body.task_id" ],
+  "name" : "schema-propertykey-create",
+  "request" : {
+    "body" : {
+      "aggregate_type" : "NONE",
+      "cardinality" : "SINGLE",
+      "check_exist" : true,
+      "data_type" : "TEXT",
+      "id" : 0,
+      "name" : "name",
+      "properties" : [ ],
+      "user_data" : { },
+      "write_type" : "OLTP"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/propertykeys"
+  },
+  "response" : {
+    "body" : {
+      "property_key" : {
+        "aggregate_type" : "NONE",
+        "cardinality" : "SINGLE",
+        "data_type" : "TEXT",
+        "id" : "<masked>",
+        "name" : "name",
+        "properties" : [ ],
+        "status" : "CREATED",
+        "user_data" : {
+          "~create_time" : "<masked>"
+        },
+        "write_type" : "OLTP"
+      },
+      "task_id" : "<masked>"
+    },
+    "status" : 202
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "description" : "Create one vertex with a customized id",
+  "ignore" : [ ],
+  "name" : "graph-vertex-create",
+  "request" : {
+    "body" : {
+      "id" : "marko",
+      "label" : "person",
+      "properties" : {
+        "age" : 29,
+        "name" : "marko"
+      },
+      "type" : "vertex"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/vertices"
+  },
+  "response" : {
+    "body" : {
+      "id" : "marko",
+      "label" : "person",
+      "properties" : {
+        "age" : 29,
+        "name" : "marko"
+      },
+      "type" : "vertex"
+    },
+    "status" : 201
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "description" : "Read one vertex by id",
+  "ignore" : [ ],
+  "name" : "graph-vertex-get",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "GET",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/vertices/%22marko%22"
+  },
+  "response" : {
+    "body" : {
+      "id" : "marko",
+      "label" : "person",
+      "properties" : {
+        "age" : 30,
+        "name" : "marko"
+      },
+      "type" : "vertex"
+    },
+    "status" : 200
+  }
+}

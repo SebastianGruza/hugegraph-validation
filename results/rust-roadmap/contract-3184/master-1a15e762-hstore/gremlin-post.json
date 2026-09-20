@@ -1,0 +1,36 @@
+{
+  "description" : "Run a Gremlin script through the REST gremlin endpoint",
+  "ignore" : [ "response.body.requestId" ],
+  "name" : "gremlin-post",
+  "request" : {
+    "body" : {
+      "aliases" : {
+        "g" : "__g_{graphspace}-{graph}",
+        "graph" : "{graphspace}-{graph}"
+      },
+      "gremlin" : "g.V('marko').values('name')",
+      "language" : "gremlin-groovy"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/gremlin"
+  },
+  "response" : {
+    "body" : {
+      "requestId" : "<masked>",
+      "result" : {
+        "data" : [ "marko" ],
+        "meta" : { }
+      },
+      "status" : {
+        "attributes" : { },
+        "code" : 200,
+        "message" : ""
+      }
+    },
+    "status" : 200
+  }
+}

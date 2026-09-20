@@ -1,0 +1,40 @@
+{
+  "description" : "Create one edge; its id embeds the edge label id",
+  "ignore" : [ "response.body.id" ],
+  "name" : "graph-edge-create",
+  "request" : {
+    "body" : {
+      "id" : null,
+      "inV" : "vadas",
+      "inVLabel" : "person",
+      "label" : "knows",
+      "outV" : "marko",
+      "outVLabel" : "person",
+      "properties" : {
+        "weight" : 0.5
+      },
+      "type" : "edge"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/edges"
+  },
+  "response" : {
+    "body" : {
+      "id" : "<masked>",
+      "inV" : "vadas",
+      "inVLabel" : "person",
+      "label" : "knows",
+      "outV" : "marko",
+      "outVLabel" : "person",
+      "properties" : {
+        "weight" : 0.5
+      },
+      "type" : "edge"
+    },
+    "status" : 201
+  }
+}

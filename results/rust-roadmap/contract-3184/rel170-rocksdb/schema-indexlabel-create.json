@@ -1,0 +1,42 @@
+{
+  "description" : "Create a range index; the server answers with the rebuild task",
+  "ignore" : [ "response.body.index_label.id", "response.body.index_label.user_data.~create_time", "response.body.task_id" ],
+  "name" : "schema-indexlabel-create",
+  "request" : {
+    "body" : {
+      "base_type" : "VERTEX_LABEL",
+      "base_value" : "person",
+      "check_exist" : true,
+      "fields" : [ "age" ],
+      "id" : 0,
+      "index_type" : "RANGE",
+      "name" : "personByAge",
+      "rebuild" : true,
+      "user_data" : { }
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/indexlabels"
+  },
+  "response" : {
+    "body" : {
+      "index_label" : {
+        "base_type" : "VERTEX_LABEL",
+        "base_value" : "person",
+        "fields" : [ "age" ],
+        "id" : "<masked>",
+        "index_type" : "RANGE",
+        "name" : "personByAge",
+        "status" : "CREATING",
+        "user_data" : {
+          "~create_time" : "<masked>"
+        }
+      },
+      "task_id" : "<masked>"
+    },
+    "status" : 202
+  }
+}

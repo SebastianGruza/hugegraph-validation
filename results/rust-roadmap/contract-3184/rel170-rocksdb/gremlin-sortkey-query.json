@@ -1,0 +1,36 @@
+{
+  "description" : "Sort-key prefix query through Gremlin",
+  "ignore" : [ "response.body.requestId" ],
+  "name" : "gremlin-sortkey-query",
+  "request" : {
+    "body" : {
+      "aliases" : {
+        "g" : "__g_{graphspace}-{graph}",
+        "graph" : "{graphspace}-{graph}"
+      },
+      "gremlin" : "g.V('marko').outE('transfer').has('asset','ETC').values('epoch')",
+      "language" : "gremlin-groovy"
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/gremlin"
+  },
+  "response" : {
+    "body" : {
+      "requestId" : "<masked>",
+      "result" : {
+        "data" : [ 100, 200 ],
+        "meta" : { }
+      },
+      "status" : {
+        "attributes" : { },
+        "code" : 200,
+        "message" : ""
+      }
+    },
+    "status" : 200
+  }
+}

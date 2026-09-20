@@ -1,0 +1,40 @@
+{
+  "description" : "List out-edges by label, sort-key prefix and a range on the next sort key",
+  "ignore" : [ "response.body.edges.*.id" ],
+  "name" : "graph-edges-list-by-sortkey-range",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "GET",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/edges",
+    "query" : {
+      "direction" : "OUT",
+      "keep_start_p" : "false",
+      "label" : "transfer",
+      "limit" : "10",
+      "offset" : "0",
+      "properties" : "{\"asset\":\"ETC\",\"epoch\":\"P.gte(150)\"}",
+      "vertex_id" : "\"marko\""
+    }
+  },
+  "response" : {
+    "body" : {
+      "edges" : [ {
+        "id" : "<masked>",
+        "inV" : "vadas",
+        "inVLabel" : "person",
+        "label" : "transfer",
+        "outV" : "marko",
+        "outVLabel" : "person",
+        "properties" : {
+          "amount" : 2.5,
+          "asset" : "ETC",
+          "epoch" : 200
+        },
+        "type" : "edge"
+      } ]
+    },
+    "status" : 200
+  }
+}

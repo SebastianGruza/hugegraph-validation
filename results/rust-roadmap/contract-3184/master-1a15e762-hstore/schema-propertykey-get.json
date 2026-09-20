@@ -1,0 +1,28 @@
+{
+  "description" : "Read one property key by name",
+  "ignore" : [ "response.body.id", "response.body.user_data.~create_time" ],
+  "name" : "schema-propertykey-get",
+  "request" : {
+    "headers" : {
+      "authorization" : "Basic <masked>"
+    },
+    "method" : "GET",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/propertykeys/name"
+  },
+  "response" : {
+    "body" : {
+      "aggregate_type" : "NONE",
+      "cardinality" : "SINGLE",
+      "data_type" : "TEXT",
+      "id" : "<masked>",
+      "name" : "name",
+      "properties" : [ ],
+      "status" : "CREATED",
+      "user_data" : {
+        "~create_time" : "<masked>"
+      },
+      "write_type" : "OLTP"
+    },
+    "status" : 200
+  }
+}

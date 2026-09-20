@@ -1,0 +1,42 @@
+{
+  "description" : "Create a vertex label with customized string ids",
+  "ignore" : [ "response.body.id", "response.body.user_data.~create_time" ],
+  "name" : "schema-vertexlabel-create",
+  "request" : {
+    "body" : {
+      "check_exist" : true,
+      "id" : 0,
+      "id_strategy" : "CUSTOMIZE_STRING",
+      "name" : "person",
+      "nullable_keys" : [ "age" ],
+      "primary_keys" : [ ],
+      "properties" : [ "age", "name" ],
+      "ttl" : 0,
+      "user_data" : { }
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-type" : "application/json"
+    },
+    "method" : "POST",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/schema/vertexlabels"
+  },
+  "response" : {
+    "body" : {
+      "enable_label_index" : true,
+      "id" : "<masked>",
+      "id_strategy" : "CUSTOMIZE_STRING",
+      "index_labels" : [ ],
+      "name" : "person",
+      "nullable_keys" : [ "age" ],
+      "primary_keys" : [ ],
+      "properties" : [ "name", "age" ],
+      "status" : "CREATED",
+      "ttl" : 0,
+      "user_data" : {
+        "~create_time" : "<masked>"
+      }
+    },
+    "status" : 201
+  }
+}

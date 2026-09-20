@@ -1,0 +1,5 @@
+diff -r results/rust-roadmap/contract-3184/rel170-rocksdb/versions.json results/rust-roadmap/contract-3184/master-1a15e762-hstore/versions.json
+15c15
+<         "api" : "0.71.0.0",
+---
+>         "api" : "0.72.0.0",

@@ -1,0 +1,59 @@
+{
+  "description" : "Batch update with a SUM strategy on an existing property",
+  "ignore" : [ ],
+  "name" : "graph-vertices-batch-update",
+  "request" : {
+    "body" : {
+      "create_if_not_exist" : true,
+      "update_strategies" : {
+        "age" : "SUM"
+      },
+      "vertices" : [ {
+        "id" : "marko",
+        "label" : "person",
+        "properties" : {
+          "age" : 1,
+          "name" : "marko"
+        },
+        "type" : "vertex"
+      }, {
+        "id" : "vadas",
+        "label" : "person",
+        "properties" : {
+          "age" : 1,
+          "name" : "vadas"
+        },
+        "type" : "vertex"
+      } ]
+    },
+    "headers" : {
+      "authorization" : "Basic <masked>",
+      "content-encoding" : "gzip",
+      "content-type" : "application/json"
+    },
+    "method" : "PUT",
+    "path" : "/graphspaces/{graphspace}/graphs/{graph}/graph/vertices/batch"
+  },
+  "response" : {
+    "body" : {
+      "vertices" : [ {
+        "id" : "marko",
+        "label" : "person",
+        "properties" : {
+          "age" : 30,
+          "name" : "marko"
+        },
+        "type" : "vertex"
+      }, {
+        "id" : "vadas",
+        "label" : "person",
+        "properties" : {
+          "age" : 28,
+          "name" : "vadas"
+        },
+        "type" : "vertex"
+      } ]
+    },
+    "status" : 200
+  }
+}
