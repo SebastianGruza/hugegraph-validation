@@ -1,0 +1,106 @@
+== 0-before 11:50:35
+{"ready":true,"state":"STATE_LEADER","isLeader":true}
+{"message":"OK","data":{"pdLeader":{"raftUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610","grpcUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8686","restUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8620","state":"Up","dataPath":"/hugegraph-pd/pd_data","role":"Leader","replicateState":"","serviceName":"hg-single-hugegraph-pd-0.hg-
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+262
+269357056 bytes (269 MB, 257 MiB) copied, 1.27182 s, 212 MB/s
+filled 11:50:37
+== 1-full-30s 11:51:07
+{"ready":true,"state":"STATE_LEADER","isLeader":true}
+{"message":"OK","data":{"pdLeader":{"raftUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610","grpcUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8686","restUrl":"hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8620","state":"Up","dataPath":"/hugegraph-pd/pd_data","role":"Leader","replicateState":"","serviceName":"hg-single-hugegraph-pd-0.hg-
+/dev/loop0        498900 488416         0 100% /hugegraph-pd/pd_data
+262
+== 1-full-60s 11:51:38
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:51:41.354+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 488416         0 100% /hugegraph-pd/pd_data
+368
+== 1-full-90s 11:52:11
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:52:14.748+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 488416         0 100% /hugegraph-pd/pd_data
+537
+== 1-full-120s 11:52:45
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:52:48.123+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 488416         0 100% /hugegraph-pd/pd_data
+650
+freed 11:52:48
+== 2-freed-30s 11:53:18
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:53:21.719+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+799
+== 2-freed-60s 11:53:52
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:53:55.140+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+930
+== 2-freed-90s 11:54:25
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:54:28.581+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+1061
+== 2-freed-120s 11:54:58
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:55:02.044+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+1174
+== 2-freed-150s 11:55:32
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:55:35.555+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+1323
+== 2-freed-180s 11:56:05
+{"ready":false,"state":"STATE_FOLLOWER","isLeader":false}
+{"timestamp":"2026-09-20T09:56:08.948+00:00","status":500,"error":"Internal Server Error","path":"/v1/members"}
+/dev/loop0        498900 225368    236836  49% /hugegraph-pd/pd_data
+1454
+== log lines new since before (leader/raft/disk/error), filtered:
+> 2026-09-20 09:51:33 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.p.r.RaftStateMachine - Raft StateMachine on error {}
+> com.alipay.sofa.jraft.error.RaftException: ERROR_TYPE_SNAPSHOT
+> 	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.reportError(SnapshotExecutorImpl.java:731) ~[jraft-core-1.3.13.jar!/:?]
+> 	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:380) ~[jraft-core-1.3.13.jar!/:?]
+> 	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:309) ~[jraft-core-1.3.13.jar!/:?]
+> 	at com.alipay.sofa.jraft.core.NodeImpl.doSnapshot(NodeImpl.java:3163) ~[jraft-core-1.3.13.jar!/:?]
+> 	at com.alipay.sofa.jraft.core.NodeImpl.lambda$handleSnapshotTimeout$0(NodeImpl.java:616) ~[jraft-core-1.3.13.jar!/:?]
+> 2026-09-20 09:51:33 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.p.r.RaftStateMachine - Raft  lost leader 
+> 2026-09-20 09:51:41 [qtp88301993-23] [WARN] o.e.j.s.HttpChannel - /v1/members
+> org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+> 	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+> 2026-09-20 09:51:44 [hg-grpc-2-thread-493] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+> java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> 	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+> 	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+> java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+> 	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+> 2026-09-20 09:52:14 [qtp88301993-23] [WARN] o.e.j.s.HttpChannel - /v1/members
+> org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> 2026-09-20 09:52:14 [hg-grpc-2-thread-571] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+> java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+> 	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+> 	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+> 	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+> Caused by: java.lang.IllegalStateException: Leader is not ready
+== total new lines: 1192
+pod deleted 11:56:10
+== 3-after-restart 11:58:43
+
+
+error: unable to upgrade connection: container not found ("pd")
+1

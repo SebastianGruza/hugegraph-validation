@@ -1,0 +1,262 @@
+[hugegraph-pd-entrypoint] effective config:
+[hugegraph-pd-entrypoint]   grpc.host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc
+[hugegraph-pd-entrypoint]   grpc.port=8686
+[hugegraph-pd-entrypoint]   server.port=8620
+[hugegraph-pd-entrypoint]   raft.address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610
+[hugegraph-pd-entrypoint]   raft.peers-list=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610
+[hugegraph-pd-entrypoint]   pd.initial-store-list=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500
+[hugegraph-pd-entrypoint]   pd.initial-store-count=1
+[hugegraph-pd-entrypoint]   pd.data-path=/hugegraph-pd/pd_data
+[hugegraph-pd-entrypoint]   management.endpoints.web.exposure.include=health,metrics,prometheus
+Using G1GC as the default garbage collector
+Starting HugeGraphPDServer in foreground mode...
+[+pid] 19
+  _    _  _____        _____  _____
+ | |  | |/ ____|      |  __ \|  __ \
+ | |__| | |  __ ______| |__) | |  | |
+ |  __  | | |_ |______|  ___/| |  | |
+ | |  | | |__| |      | |    | |__| |
+ |_|  |_|\_____|      |_|    |_____/
+
+2026-09-20 09:47:01 [main] [INFO] o.a.h.p.b.HugePDServer - Starting HugePDServer v1.7.0 using Java 11.0.32 on hg-single-hugegraph-pd-0 with PID 19 (/hugegraph-pd/lib/hg-pd-service-1.7.0.jar started by root in /hugegraph-pd)
+2026-09-20 09:47:01 [main] [INFO] o.a.h.p.b.HugePDServer - No active profile set, falling back to 1 default profile: "default"
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (jar:file:/hugegraph-pd/lib/hg-pd-service-1.7.0.jar!/BOOT-INF/lib/groovy-2.5.14-indy.jar!/) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2026-09-20 09:47:03 [main] [INFO] o.e.j.u.log - Logging initialized @4450ms to org.eclipse.jetty.util.log.Slf4jLog
+2026-09-20 09:47:03 [main] [INFO] o.s.b.w.e.j.JettyServletWebServerFactory - Server initialized with port: 8620
+2026-09-20 09:47:03 [main] [INFO] o.e.j.s.Server - jetty-9.4.46.v20220331; built: 2022-03-31T16:38:08.030Z; git: bc17a0369a11ecf40bb92c839b9ef0a8ac50ea18; jvm 11.0.32+9
+2026-09-20 09:47:03 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring embedded WebApplicationContext
+2026-09-20 09:47:03 [main] [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2186 ms
+2026-09-20 09:47:03 [main] [INFO] o.a.h.p.s.PDService - PDService init………… PDConfig(clusterId=1, patrolInterval=1800, dataPath=/hugegraph-pd/pd_data, minStoreCount=1, initialStoreList=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, verifyPath=./conf/verify-license.json, licensePath=./conf/hugegraph.license, jobConfig=PDConfig.JobConfig(core=0, max=256, queueSize=2147483647, startTime=19, uninterruptibleCore=0, uninterruptibleMax=256, uninterruptibleQueueSize=2147483647), threadPoolGrpc=PDConfig.ThreadPoolGrpc(core=600, max=1000, queue=2147483647), raft=PDConfig.Raft(enable=true, ipWhitelistEnabled=false, address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, dataPath=/hugegraph-pd/pd_data, peersList=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, snapshotInterval=300, rpcTimeout=3000, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, port=8620, clusterId=1, grpcPort=8686), store=PDConfig.Store(keepAliveTimeout=300, maxDownTime=172800, monitorDataEnabled=true, monitorDataInterval=1 minute, monitorDataRetention=1 day), partition=PDConfig.Partition(totalCount=12, maxShardsPerStore=12, shardCount=1), discovery=PDConfig.Discovery(heartbeatOutTimes=3), initialStoreMap={hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500}, configService=null, idService=null)
+Sofa-Middleware-Log SLF4J : Actual binding is of type [ com.alipay.remoting Log4j2 ]
+2026-09-20 09:47:04 [main] [INFO] o.a.h.p.r.RaftEngine - PD Raft IP whitelist is disabled
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.r.RaftEngine - RaftEngine start successfully: id = pd_raft, peers list = [hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610]
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.p.AbstractObserverSubject - Adding a PULSE_TYPE_PARTITION_HEARTBEAT's listener, listener-id is [1789897625136].
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.s.DiscoveryService - PDService init………… PDConfig(clusterId=1, patrolInterval=1800, dataPath=/hugegraph-pd/pd_data, minStoreCount=1, initialStoreList=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, verifyPath=./conf/verify-license.json, licensePath=./conf/hugegraph.license, jobConfig=PDConfig.JobConfig(core=0, max=256, queueSize=2147483647, startTime=19, uninterruptibleCore=0, uninterruptibleMax=256, uninterruptibleQueueSize=2147483647), threadPoolGrpc=PDConfig.ThreadPoolGrpc(core=600, max=1000, queue=2147483647), raft=PDConfig.Raft(enable=true, ipWhitelistEnabled=false, address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, dataPath=/hugegraph-pd/pd_data, peersList=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, snapshotInterval=300, rpcTimeout=3000, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, port=8620, clusterId=1, grpcPort=8686), store=PDConfig.Store(keepAliveTimeout=300, maxDownTime=172800, monitorDataEnabled=true, monitorDataInterval=1 minute, monitorDataRetention=1 day), partition=PDConfig.Partition(totalCount=12, maxShardsPerStore=12, shardCount=1), discovery=PDConfig.Discovery(heartbeatOutTimes=3), initialStoreMap={hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500}, configService=org.apache.hugegraph.pd.ConfigService@f202d6d, idService=org.apache.hugegraph.pd.IdService@60e21209)
+2026-09-20 09:47:05 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.p.r.RaftStateMachine - Raft becomes leader
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.s.PDService - onLeaderChanged
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.ConfigService - update pd config: mConfig:version: 1
+partition_count: 12
+shard_count: 1
+max_Shards_Per_Store: 12
+timestamp: 1789897125975
+
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.PartitionService - Partition service reload cache from rocksdb, due to leader change
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - DefaultSessionIdManager workerName=node0
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - No SessionScavenger set, using defaults
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - node0 Scavenging every 600000ms
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.h.ContextHandler - Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@342726f1{application,/,[file:///tmp/jetty-docbase.8620.8531772081930097991/],AVAILABLE}
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.Server - Started @6509ms
+2026-09-20 09:47:06 [main] [WARN] o.s.b.a.g.t.GroovyTemplateAutoConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Groovy configuration, or set spring.groovy.template.check-template-location=false)
+2026-09-20 09:47:06 [main] [INFO] o.s.b.a.e.w.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-09-20 09:47:06 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-20 09:47:06 [main] [INFO] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-20 09:47:06 [main] [INFO] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2026-09-20 09:47:06 [main] [INFO] o.e.j.s.AbstractConnector - Started ServerConnector@7555b920{HTTP/1.1, (http/1.1)}{0.0.0.0:8620}
+2026-09-20 09:47:06 [main] [INFO] o.s.b.w.e.j.JettyWebServer - Jetty started on port(s) 8620 (http/1.1) with context path '/'
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - Starting gRPC Server ...
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.DiscoveryService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.KvServiceGrpcImpl' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.MetaServiceGrpcImpl' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDPulseService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDWatchService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - gRPC Server started, listening on port 8686.
+2026-09-20 09:47:06 [main] [INFO] o.a.h.p.b.HugePDServer - Started HugePDServer in 6.512 seconds (JVM running for 7.973)
+Hugegraph-pd started.
+2026-09-20 09:47:27 [hg-grpc-2-thread-10] [INFO] o.a.h.p.w.KvWatchSubject - client:4037266858335365312,start to watch key:S:Timestamp
+2026-09-20 09:47:27 [hg-grpc-2-thread-13] [INFO] o.a.h.p.StoreNodeService - onStoreStatusChanged storeId = 3656104150410122947 from Offline to Up
+2026-09-20 09:47:27 [hg-grpc-2-thread-13] [INFO] o.a.h.p.StoreNodeService - Store register, id = 3656104150410122947 id: 3656104150410122947
+address: "hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500"
+raft_address: "hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8510"
+labels {
+  key: "rest.port"
+  value: "8520"
+}
+version: "1.7.0"
+state: Up
+start_timestamp: 1789897140705
+deploy_path: "file:/hugegraph-store/lib/hg-store-node-1.7.0.jar!/BOOT-INF/classes!/"
+last_heartbeat: 1789897647773
+stats {
+  store_id: 3656104150410122947
+  capacity: 59814948864
+  available: 38882922496
+  partition_count: 12
+  start_time: 1789897140
+  used_size: 38657483291
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 82
+    approximate_keys: 1763
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 87
+    approximate_keys: 1966
+    partition_id: 1
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 66
+    approximate_keys: 1877
+    partition_id: 2
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 86
+    approximate_keys: 1853
+    partition_id: 3
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 68
+    approximate_keys: 1677
+    partition_id: 4
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 76
+    approximate_keys: 1892
+    partition_id: 5
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 84
+    approximate_keys: 1809
+    partition_id: 6
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 90
+    approximate_keys: 1913
+    partition_id: 7
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 65
+    approximate_keys: 1838
+    partition_id: 8
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 87
+    approximate_keys: 1872
+    partition_id: 9
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 79
+    approximate_keys: 1752
+    partition_id: 10
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 86
+    approximate_keys: 1848
+    partition_id: 11
+    role: Leader
+    work_state: PState_Normal
+  }
+  raft_stats {
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 1
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 2
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 3
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 4
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 5
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 6
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 7
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 8
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 9
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 10
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 11
+    committed_index: 19
+  }
+  cores: 6
+}
+data_version: 1
+cores: 6
+data_path: "/hugegraph-store/storage"
+
+2026-09-20 09:47:33 [hg-grpc-2-thread-40] [INFO] o.a.h.p.p.AbstractObserverSubject - Adding a PULSE_TYPE_PARTITION_HEARTBEAT's observer, observer-id is [1789897653118].
+2026-09-20 09:47:33 [hg-grpc-2-thread-51] [INFO] o.a.h.p.w.KvWatchSubject - client:9012820579630757317,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/UPDATE
+2026-09-20 09:47:33 [hg-grpc-2-thread-50] [INFO] o.a.h.p.w.KvWatchSubject - client:6249524410681020426,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/CLEAR
+2026-09-20 09:47:33 [hg-grpc-2-thread-52] [INFO] o.a.h.p.w.KvWatchSubject - client:-3849468608289493128,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/ADD
+2026-09-20 09:47:33 [hg-grpc-2-thread-53] [INFO] o.a.h.p.w.KvWatchSubject - client:-3625470917728065191,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/REMOVE
+2026-09-20 09:47:33 [hg-grpc-2-thread-54] [INFO] o.a.h.p.w.KvWatchSubject - client:-7220912901574754977,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/SCHEMA/CLEAR
+2026-09-20 09:47:33 [hg-grpc-2-thread-63] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:38 [hg-grpc-2-thread-131] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:43 [hg-grpc-2-thread-158] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:48 [hg-grpc-2-thread-182] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:53 [hg-grpc-2-thread-206] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:59 [hg-grpc-2-thread-236] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:04 [hg-grpc-2-thread-259] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:10 [hg-grpc-2-thread-283] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:15 [hg-grpc-2-thread-310] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:21 [hg-grpc-2-thread-348] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:27 [hg-grpc-2-thread-399] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:33 [hg-grpc-2-thread-432] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:38 [hg-grpc-2-thread-462] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:44 [hg-grpc-2-thread-495] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:50 [hg-grpc-2-thread-525] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:55 [hg-grpc-2-thread-555] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:49:00 [hg-grpc-2-thread-591] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:49:05 [hg-grpc-2-thread-21] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956

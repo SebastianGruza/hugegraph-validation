@@ -1,0 +1,1454 @@
+[hugegraph-pd-entrypoint] effective config:
+[hugegraph-pd-entrypoint]   grpc.host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc
+[hugegraph-pd-entrypoint]   grpc.port=8686
+[hugegraph-pd-entrypoint]   server.port=8620
+[hugegraph-pd-entrypoint]   raft.address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610
+[hugegraph-pd-entrypoint]   raft.peers-list=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610
+[hugegraph-pd-entrypoint]   pd.initial-store-list=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500
+[hugegraph-pd-entrypoint]   pd.initial-store-count=1
+[hugegraph-pd-entrypoint]   pd.data-path=/hugegraph-pd/pd_data
+[hugegraph-pd-entrypoint]   management.endpoints.web.exposure.include=health,metrics,prometheus
+Using G1GC as the default garbage collector
+Starting HugeGraphPDServer in foreground mode...
+[+pid] 19
+  _    _  _____        _____  _____
+ | |  | |/ ____|      |  __ \|  __ \
+ | |__| | |  __ ______| |__) | |  | |
+ |  __  | | |_ |______|  ___/| |  | |
+ | |  | | |__| |      | |    | |__| |
+ |_|  |_|\_____|      |_|    |_____/
+
+2026-09-20 09:47:01 [main] [INFO] o.a.h.p.b.HugePDServer - Starting HugePDServer v1.7.0 using Java 11.0.32 on hg-single-hugegraph-pd-0 with PID 19 (/hugegraph-pd/lib/hg-pd-service-1.7.0.jar started by root in /hugegraph-pd)
+2026-09-20 09:47:01 [main] [INFO] o.a.h.p.b.HugePDServer - No active profile set, falling back to 1 default profile: "default"
+WARNING: An illegal reflective access operation has occurred
+WARNING: Illegal reflective access by org.codehaus.groovy.reflection.CachedClass (jar:file:/hugegraph-pd/lib/hg-pd-service-1.7.0.jar!/BOOT-INF/lib/groovy-2.5.14-indy.jar!/) to method java.lang.Object.finalize()
+WARNING: Please consider reporting this to the maintainers of org.codehaus.groovy.reflection.CachedClass
+WARNING: Use --illegal-access=warn to enable warnings of further illegal reflective access operations
+WARNING: All illegal access operations will be denied in a future release
+2026-09-20 09:47:03 [main] [INFO] o.e.j.u.log - Logging initialized @4450ms to org.eclipse.jetty.util.log.Slf4jLog
+2026-09-20 09:47:03 [main] [INFO] o.s.b.w.e.j.JettyServletWebServerFactory - Server initialized with port: 8620
+2026-09-20 09:47:03 [main] [INFO] o.e.j.s.Server - jetty-9.4.46.v20220331; built: 2022-03-31T16:38:08.030Z; git: bc17a0369a11ecf40bb92c839b9ef0a8ac50ea18; jvm 11.0.32+9
+2026-09-20 09:47:03 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring embedded WebApplicationContext
+2026-09-20 09:47:03 [main] [INFO] o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2186 ms
+2026-09-20 09:47:03 [main] [INFO] o.a.h.p.s.PDService - PDService init………… PDConfig(clusterId=1, patrolInterval=1800, dataPath=/hugegraph-pd/pd_data, minStoreCount=1, initialStoreList=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, verifyPath=./conf/verify-license.json, licensePath=./conf/hugegraph.license, jobConfig=PDConfig.JobConfig(core=0, max=256, queueSize=2147483647, startTime=19, uninterruptibleCore=0, uninterruptibleMax=256, uninterruptibleQueueSize=2147483647), threadPoolGrpc=PDConfig.ThreadPoolGrpc(core=600, max=1000, queue=2147483647), raft=PDConfig.Raft(enable=true, ipWhitelistEnabled=false, address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, dataPath=/hugegraph-pd/pd_data, peersList=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, snapshotInterval=300, rpcTimeout=3000, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, port=8620, clusterId=1, grpcPort=8686), store=PDConfig.Store(keepAliveTimeout=300, maxDownTime=172800, monitorDataEnabled=true, monitorDataInterval=1 minute, monitorDataRetention=1 day), partition=PDConfig.Partition(totalCount=12, maxShardsPerStore=12, shardCount=1), discovery=PDConfig.Discovery(heartbeatOutTimes=3), initialStoreMap={hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500}, configService=null, idService=null)
+Sofa-Middleware-Log SLF4J : Actual binding is of type [ com.alipay.remoting Log4j2 ]
+2026-09-20 09:47:04 [main] [INFO] o.a.h.p.r.RaftEngine - PD Raft IP whitelist is disabled
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.r.RaftEngine - RaftEngine start successfully: id = pd_raft, peers list = [hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610]
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.p.AbstractObserverSubject - Adding a PULSE_TYPE_PARTITION_HEARTBEAT's listener, listener-id is [1789897625136].
+2026-09-20 09:47:05 [main] [INFO] o.a.h.p.s.DiscoveryService - PDService init………… PDConfig(clusterId=1, patrolInterval=1800, dataPath=/hugegraph-pd/pd_data, minStoreCount=1, initialStoreList=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, verifyPath=./conf/verify-license.json, licensePath=./conf/hugegraph.license, jobConfig=PDConfig.JobConfig(core=0, max=256, queueSize=2147483647, startTime=19, uninterruptibleCore=0, uninterruptibleMax=256, uninterruptibleQueueSize=2147483647), threadPoolGrpc=PDConfig.ThreadPoolGrpc(core=600, max=1000, queue=2147483647), raft=PDConfig.Raft(enable=true, ipWhitelistEnabled=false, address=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, dataPath=/hugegraph-pd/pd_data, peersList=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc:8610, snapshotInterval=300, rpcTimeout=3000, host=hg-single-hugegraph-pd-0.hg-single-hugegraph-pd.hg-single.svc, port=8620, clusterId=1, grpcPort=8686), store=PDConfig.Store(keepAliveTimeout=300, maxDownTime=172800, monitorDataEnabled=true, monitorDataInterval=1 minute, monitorDataRetention=1 day), partition=PDConfig.Partition(totalCount=12, maxShardsPerStore=12, shardCount=1), discovery=PDConfig.Discovery(heartbeatOutTimes=3), initialStoreMap={hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500=hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500}, configService=org.apache.hugegraph.pd.ConfigService@f202d6d, idService=org.apache.hugegraph.pd.IdService@60e21209)
+2026-09-20 09:47:05 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.p.r.RaftStateMachine - Raft becomes leader
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.s.PDService - onLeaderChanged
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.ConfigService - update pd config: mConfig:version: 1
+partition_count: 12
+shard_count: 1
+max_Shards_Per_Store: 12
+timestamp: 1789897125975
+
+2026-09-20 09:47:05 [JRaft-Closure-Executor-0] [INFO] o.a.h.p.PartitionService - Partition service reload cache from rocksdb, due to leader change
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - DefaultSessionIdManager workerName=node0
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - No SessionScavenger set, using defaults
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.session - node0 Scavenging every 600000ms
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.h.ContextHandler - Started o.s.b.w.e.j.JettyEmbeddedWebAppContext@342726f1{application,/,[file:///tmp/jetty-docbase.8620.8531772081930097991/],AVAILABLE}
+2026-09-20 09:47:05 [main] [INFO] o.e.j.s.Server - Started @6509ms
+2026-09-20 09:47:06 [main] [WARN] o.s.b.a.g.t.GroovyTemplateAutoConfiguration - Cannot find template location: classpath:/templates/ (please add some templates, check your Groovy configuration, or set spring.groovy.template.check-template-location=false)
+2026-09-20 09:47:06 [main] [INFO] o.s.b.a.e.w.EndpointLinksResolver - Exposing 3 endpoint(s) beneath base path '/actuator'
+2026-09-20 09:47:06 [main] [INFO] o.e.j.s.h.C.application - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-20 09:47:06 [main] [INFO] o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2026-09-20 09:47:06 [main] [INFO] o.s.w.s.DispatcherServlet - Completed initialization in 1 ms
+2026-09-20 09:47:06 [main] [INFO] o.e.j.s.AbstractConnector - Started ServerConnector@7555b920{HTTP/1.1, (http/1.1)}{0.0.0.0:8620}
+2026-09-20 09:47:06 [main] [INFO] o.s.b.w.e.j.JettyWebServer - Jetty started on port(s) 8620 (http/1.1) with context path '/'
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - Starting gRPC Server ...
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.DiscoveryService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.KvServiceGrpcImpl' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.MetaServiceGrpcImpl' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDPulseService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - 'org.apache.hugegraph.pd.service.PDWatchService' service has been registered.
+2026-09-20 09:47:06 [main] [INFO] o.l.s.g.GRpcServerRunner - gRPC Server started, listening on port 8686.
+2026-09-20 09:47:06 [main] [INFO] o.a.h.p.b.HugePDServer - Started HugePDServer in 6.512 seconds (JVM running for 7.973)
+Hugegraph-pd started.
+2026-09-20 09:47:27 [hg-grpc-2-thread-10] [INFO] o.a.h.p.w.KvWatchSubject - client:4037266858335365312,start to watch key:S:Timestamp
+2026-09-20 09:47:27 [hg-grpc-2-thread-13] [INFO] o.a.h.p.StoreNodeService - onStoreStatusChanged storeId = 3656104150410122947 from Offline to Up
+2026-09-20 09:47:27 [hg-grpc-2-thread-13] [INFO] o.a.h.p.StoreNodeService - Store register, id = 3656104150410122947 id: 3656104150410122947
+address: "hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8500"
+raft_address: "hg-single-hugegraph-store-0.hg-single-hugegraph-store.hg-single.svc:8510"
+labels {
+  key: "rest.port"
+  value: "8520"
+}
+version: "1.7.0"
+state: Up
+start_timestamp: 1789897140705
+deploy_path: "file:/hugegraph-store/lib/hg-store-node-1.7.0.jar!/BOOT-INF/classes!/"
+last_heartbeat: 1789897647773
+stats {
+  store_id: 3656104150410122947
+  capacity: 59814948864
+  available: 38882922496
+  partition_count: 12
+  start_time: 1789897140
+  used_size: 38657483291
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 82
+    approximate_keys: 1763
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 87
+    approximate_keys: 1966
+    partition_id: 1
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 66
+    approximate_keys: 1877
+    partition_id: 2
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 86
+    approximate_keys: 1853
+    partition_id: 3
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 68
+    approximate_keys: 1677
+    partition_id: 4
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 76
+    approximate_keys: 1892
+    partition_id: 5
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 84
+    approximate_keys: 1809
+    partition_id: 6
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 90
+    approximate_keys: 1913
+    partition_id: 7
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 65
+    approximate_keys: 1838
+    partition_id: 8
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 87
+    approximate_keys: 1872
+    partition_id: 9
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 79
+    approximate_keys: 1752
+    partition_id: 10
+    role: Leader
+    work_state: PState_Normal
+  }
+  graph_stats {
+    graph_name: "DEFAULT/hugegraph/g"
+    approximate_size: 86
+    approximate_keys: 1848
+    partition_id: 11
+    role: Leader
+    work_state: PState_Normal
+  }
+  raft_stats {
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 1
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 2
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 3
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 4
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 5
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 6
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 7
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 8
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 9
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 10
+    committed_index: 19
+  }
+  raft_stats {
+    partition_id: 11
+    committed_index: 19
+  }
+  cores: 6
+}
+data_version: 1
+cores: 6
+data_path: "/hugegraph-store/storage"
+
+2026-09-20 09:47:33 [hg-grpc-2-thread-40] [INFO] o.a.h.p.p.AbstractObserverSubject - Adding a PULSE_TYPE_PARTITION_HEARTBEAT's observer, observer-id is [1789897653118].
+2026-09-20 09:47:33 [hg-grpc-2-thread-51] [INFO] o.a.h.p.w.KvWatchSubject - client:9012820579630757317,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/UPDATE
+2026-09-20 09:47:33 [hg-grpc-2-thread-50] [INFO] o.a.h.p.w.KvWatchSubject - client:6249524410681020426,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/CLEAR
+2026-09-20 09:47:33 [hg-grpc-2-thread-52] [INFO] o.a.h.p.w.KvWatchSubject - client:-3849468608289493128,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/ADD
+2026-09-20 09:47:33 [hg-grpc-2-thread-53] [INFO] o.a.h.p.w.KvWatchSubject - client:-3625470917728065191,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/REMOVE
+2026-09-20 09:47:33 [hg-grpc-2-thread-54] [INFO] o.a.h.p.w.KvWatchSubject - client:-7220912901574754977,start to watch key:HUGEGRAPH/hg/EVENT/GRAPH/SCHEMA/CLEAR
+2026-09-20 09:47:33 [hg-grpc-2-thread-63] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:38 [hg-grpc-2-thread-131] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:43 [hg-grpc-2-thread-158] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:48 [hg-grpc-2-thread-182] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:53 [hg-grpc-2-thread-206] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:47:59 [hg-grpc-2-thread-236] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:04 [hg-grpc-2-thread-259] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:10 [hg-grpc-2-thread-283] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:15 [hg-grpc-2-thread-310] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:21 [hg-grpc-2-thread-348] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:27 [hg-grpc-2-thread-399] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:33 [hg-grpc-2-thread-432] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:38 [hg-grpc-2-thread-462] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:44 [hg-grpc-2-thread-495] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:50 [hg-grpc-2-thread-525] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:48:55 [hg-grpc-2-thread-555] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:49:00 [hg-grpc-2-thread-591] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:49:05 [hg-grpc-2-thread-21] [INFO] o.a.h.p.w.KvWatchSubject - cannot find StreamObserver for clientId:-7442276266468494956
+2026-09-20 09:51:33 [JRaft-FSMCaller-Disruptor-0] [ERROR] o.a.h.p.r.RaftStateMachine - Raft StateMachine on error {}
+com.alipay.sofa.jraft.error.RaftException: ERROR_TYPE_SNAPSHOT
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.reportError(SnapshotExecutorImpl.java:731) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:380) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.storage.snapshot.SnapshotExecutorImpl.doSnapshot(SnapshotExecutorImpl.java:309) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.core.NodeImpl.doSnapshot(NodeImpl.java:3163) ~[jraft-core-1.3.13.jar!/:?]
+	at com.alipay.sofa.jraft.core.NodeImpl.lambda$handleSnapshotTimeout$0(NodeImpl.java:616) ~[jraft-core-1.3.13.jar!/:?]
+	at java.util.concurrent.Executors$RunnableAdapter.call(Unknown Source) ~[?:?]
+	at java.util.concurrent.FutureTask.run(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+2026-09-20 09:51:33 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.p.r.RaftStateMachine - Raft  lost leader 
+2026-09-20 09:51:41 [qtp88301993-23] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.getAllStores(PDService.java:556)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3904)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:51:44 [hg-grpc-2-thread-493] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.storeHeartbeat(PDService.java:585)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3908)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:52:14 [qtp88301993-23] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+2026-09-20 09:52:14 [hg-grpc-2-thread-571] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:52:44 [hg-grpc-2-thread-43] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:52:48 [qtp88301993-23] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.getAllStores(PDService.java:556)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3904)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.storeHeartbeat(PDService.java:585)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3908)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:53:14 [hg-grpc-2-thread-129] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:53:21 [qtp88301993-22] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+2026-09-20 09:53:44 [hg-grpc-2-thread-195] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.getAllStores(PDService.java:556)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3904)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:53:55 [qtp88301993-22] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.storeHeartbeat(PDService.java:585)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3908)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:54:14 [hg-grpc-2-thread-269] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:54:28 [qtp88301993-20] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+2026-09-20 09:54:44 [hg-grpc-2-thread-345] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:55:02 [qtp88301993-20] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.storeHeartbeat(PDService.java:585)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3908)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.getAllStores(PDService.java:556)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3904)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:55:14 [hg-grpc-2-thread-422] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+2026-09-20 09:55:35 [qtp88301993-25] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+2026-09-20 09:55:44 [hg-grpc-2-thread-500] [WARN] o.a.h.p.s.ServiceGrpc - redirect to leader with error:
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:66) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.ServiceGrpc.redirectToLeader(ServiceGrpc.java:99) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.service.DiscoveryService.register(DiscoveryService.java:78) ~[classes!/:1.7.0]
+	at org.apache.hugegraph.pd.grpc.discovery.DiscoveryServiceGrpc$MethodHandlers.invoke(DiscoveryServiceGrpc.java:285) ~[hg-pd-grpc-1.7.0.jar!/:1.7.0]
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182) ~[grpc-stub-1.39.0.jar!/:1.39.0]
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40) ~[grpc-api-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123) ~[grpc-core-1.39.0.jar!/:1.39.0]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source) ~[?:?]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source) ~[?:?]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 16 more
+java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419)
+	at org.apache.hugegraph.pd.service.PDService.redirectToLeader(PDService.java:1277)
+	at org.apache.hugegraph.pd.service.PDService.storeHeartbeat(PDService.java:585)
+	at org.apache.hugegraph.pd.grpc.PDGrpc$MethodHandlers.invoke(PDGrpc.java:3908)
+	at io.grpc.stub.ServerCalls$UnaryServerCallHandler$UnaryServerCallListener.onHalfClose(ServerCalls.java:182)
+	at io.grpc.PartialForwardingServerCallListener.onHalfClose(PartialForwardingServerCallListener.java:35)
+	at io.grpc.ForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:23)
+	at io.grpc.ForwardingServerCallListener$SimpleForwardingServerCallListener.onHalfClose(ForwardingServerCallListener.java:40)
+	at io.grpc.internal.ServerCallImpl$ServerStreamListenerImpl.halfClosed(ServerCallImpl.java:331)
+	at io.grpc.internal.ServerImpl$JumpToApplicationThreadServerStreamListener$1HalfClosed.runInContext(ServerImpl.java:797)
+	at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+	at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at java.base/java.lang.Thread.run(Unknown Source)
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	... 15 more
+2026-09-20 09:56:08 [qtp88301993-18] [WARN] o.e.j.s.HttpChannel - /v1/members
+org.springframework.web.util.NestedServletException: Request processing failed; nested exception is java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:497) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:584) ~[jakarta.servlet-api-4.0.4.jar!/:4.0.4]
+	at org.eclipse.jetty.servlet.ServletHolder.handle(ServletHolder.java:799) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$ChainEnd.doFilter(ServletHandler.java:1631) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.websocket.server.WebSocketUpgradeFilter.doFilter(WebSocketUpgradeFilter.java:292) ~[websocket-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:96) ~[spring-boot-actuator-2.5.14.jar!/:2.5.14]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.eclipse.jetty.servlet.FilterHolder.doFilter(FilterHolder.java:193) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler$Chain.doFilter(ServletHandler.java:1601) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doHandle(ServletHandler.java:548) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:143) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.security.SecurityHandler.handle(SecurityHandler.java:600) ~[jetty-security-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:235) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doHandle(SessionHandler.java:1624) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextHandle(ScopedHandler.java:233) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doHandle(ContextHandler.java:1440) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:188) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.servlet.ServletHandler.doScope(ServletHandler.java:501) ~[jetty-servlet-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1594) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:186) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1355) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:141) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:127) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.Server.handle(Server.java:516) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.lambda$handle$1(HttpChannel.java:487) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:732) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:479) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:277) ~[jetty-server-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:311) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:105) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.io.ChannelEndPoint$1.run(ChannelEndPoint.java:104) ~[jetty-io-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.runTask(EatWhatYouKill.java:338) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.doProduce(EatWhatYouKill.java:315) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.tryProduce(EatWhatYouKill.java:173) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.strategy.EatWhatYouKill.run(EatWhatYouKill.java:131) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:409) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:883) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1034) ~[jetty-util-9.4.46.v20220331.jar!/:9.4.46.v20220331]
+	at java.lang.Thread.run(Unknown Source) ~[?:?]
+Caused by: java.util.concurrent.ExecutionException: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
+Caused by: java.lang.IllegalStateException: Leader is not ready
+	at org.apache.hugegraph.pd.raft.RaftEngine.getLeaderGrpcAddress(RaftEngine.java:419) ~[hg-pd-core-1.7.0.jar!/:1.7.0]
+	at org.apache.hugegraph.pd.rest.MemberAPI.getMembers(MemberAPI.java:77) ~[classes!/:1.7.0]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source) ~[?:?]
+	at java.lang.reflect.Method.invoke(Unknown Source) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.20.jar!/:5.3.20]
+	... 56 more
