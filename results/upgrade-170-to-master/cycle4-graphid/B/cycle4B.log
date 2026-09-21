@@ -1,0 +1,122 @@
+== 09:25:28 variant B: stop + restore 1.7.0 libs + wipe
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+lib-1.7.0-restored-235
+lib-1.7.0 hugegraph-node2
+lib-1.7.0 hugegraph-node3
+== 09:27:20 start 1.7.0
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+2026-09-21 11:28:15 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+Initialization finished.
+Started [pid 1044895]
+8080: {"graphs":[]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.71.0.0"}}
+== 09:28:28 write A on 1.7.0 (batch)
+1.7.0 after write A: V=29 E=63 person=20 cust=4 c200=0 p7knows=2
+== 09:28:38 snapshot on every store
+hugegraph-dev: snapshot dirs=12
+hugegraph-node2: snapshot dirs=12
+hugegraph-node3: snapshot dirs=12
+== 09:29:04 write B on 1.7.0 (batch, 5 cust)
+b'["c200","c201","c202","c203","c204"]'
+1.7.0 after write B: V=34 E=63 person=20 cust=9 c200=1 p7knows=2
+baseline-read-saved
+== 09:29:09 variant B: snapshot again so the raft log holds no batch entry at the swap
+hugegraph-dev: snapshot dirs=12
+hugegraph-node2: snapshot dirs=12
+hugegraph-node3: snapshot dirs=12
+== 09:29:35 stop, swap to master libs (83ef9f3f), start, no client write
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+master-lib-235
+master-lib hugegraph-node2
+master-lib hugegraph-node3
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+Started [pid 1050471]
+8080: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+master right after restart: V=30 E=56 person=16 cust=7 c200=1 p7knows=2
+hugegraph-dev: 2 allocations of DEFAULT/hugegraph
+hugegraph-node2: 2 allocations of DEFAULT/hugegraph
+hugegraph-node3: 2 allocations of DEFAULT/hugegraph
+B-master-before-write vs 1.7.0 baseline: identical 4/16 differ: gremlin g.V().count(); gremlin g.E().count(); gremlin g.V().hasLabel('person').count(); gremlin g.V().hasLabel('software').count()
+== 09:32:39 variant B: first client batch write on master (1 cust vertex)
+["c400"]
+
+master after the first client batch: V=23 E=41 person=11 cust=7 c200=1 p7knows=2
+hugegraph-dev: 4 allocations of DEFAULT/hugegraph
+hugegraph-node2: 4 allocations of DEFAULT/hugegraph
+hugegraph-node3: 4 allocations of DEFAULT/hugegraph
+127.0.0.1 p1 {"65534":{"size":"6","count":"2","graph":"not found"}}
+127.0.0.1 p4 {"65534":{"size":"7","count":"3","graph":"not found"}}
+127.0.0.1 p8 {"65534":{"size":"12","count":"4","graph":"not found"}}
+192.168.80.236 p1 {"65534":{"size":"6","count":"2","graph":"not found"}}
+192.168.80.236 p4 {"65534":{"size":"7","count":"3","graph":"not found"}}
+192.168.80.236 p8 {"65534":{"size":"12","count":"4","graph":"not found"}}
+192.168.80.237 p1 {"65534":{"size":"6","count":"2","graph":"not found"}}
+192.168.80.237 p4 {"65534":{"size":"7","count":"3","graph":"not found"}}
+192.168.80.237 p8 {"65534":{"size":"12","count":"4","graph":"not found"}}
+C-master-read vs 1.7.0 baseline: identical 4/16 differ: gremlin g.V().count(); gremlin g.E().count(); gremlin g.V().hasLabel('person').count(); gremlin g.V().hasLabel('software').count()
+Failed to parse entry lines in server log: 0
+== 09:32:51 rollback check: 1.7.0 jars on the allocated mapping
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+lib-1.7.0-restored-235
+lib-1.7.0 hugegraph-node2
+lib-1.7.0 hugegraph-node3
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+Started [pid 1054870]
+8080: {"graphs":[]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.71.0.0"}}
+1.7.0 after rollback: V=23 E=41 person=8 cust=5 c200=1 p7knows=2
+rollback server log, first errors:
+{"graphs":[]}
+== 09:36:03 forward again to master
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+master-lib-235
+master-lib hugegraph-node2
+master-lib hugegraph-node3
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+Started [pid 1058882]
+8080: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+master again: V=23 E=41 person=8 cust=5 c200=1 p7knows=2
+== 09:39:02 workaround: map DEFAULT/hugegraph/g -> 65534 on every partition of every store
+remapped
+master after remap: V=34 E=63 person=20 cust=9 c200=1 p7knows=2
+D-master-remapped-read vs 1.7.0 baseline: identical 16/16 
+== 09:39:10 write under the sentinel mapping, then restart the stores
+{"id":"c300","label":"cust","type":"vertex","properties":{"name":"under-sentinel
+
+master after write under sentinel: V=35 E=63 person=20 cust=10 c200=1 p7knows=2
+store restarted hugegraph-dev
+store restarted hugegraph-node2
+store restarted hugegraph-node3
+master after store restart: V=36 E=63 person=20 cust=11 c200=1 p7knows=2
+hugegraph-dev: 0 allocations of DEFAULT/hugegraph
+hugegraph-node2: 0 allocations of DEFAULT/hugegraph
+hugegraph-node3: 0 allocations of DEFAULT/hugegraph
+E-master-remapped-restarted-read vs 1.7.0 baseline: identical 14/16 differ: gremlin g.V().count(); gremlin g.V().hasLabel('cust').count()
+== 09:41:42 done variant B
+exit 0

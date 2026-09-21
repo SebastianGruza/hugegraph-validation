@@ -1,0 +1,1368 @@
+[
+ {
+  "step": "pk name",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 1,
+    "name": "name",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.433"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk age",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 2,
+    "name": "age",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.462"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk city",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 3,
+    "name": "city",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.485"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk score",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 4,
+    "name": "score",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.508"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk ratio",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 5,
+    "name": "ratio",
+    "data_type": "FLOAT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.526"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk big",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 6,
+    "name": "big",
+    "data_type": "LONG",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.544"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk ok",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 7,
+    "name": "ok",
+    "data_type": "BOOLEAN",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.566"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk born",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 8,
+    "name": "born",
+    "data_type": "DATE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.584"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk tags",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 9,
+    "name": "tags",
+    "data_type": "TEXT",
+    "cardinality": "LIST",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.602"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk flags",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 10,
+    "name": "flags",
+    "data_type": "INT",
+    "cardinality": "SET",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.621"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk since",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 11,
+    "name": "since",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.639"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk desc",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 12,
+    "name": "desc",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.658"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "pk weight",
+  "status": 202,
+  "data": {
+   "property_key": {
+    "id": 13,
+    "name": "weight",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.680"
+    }
+   },
+   "task_id": 0
+  }
+ },
+ {
+  "step": "vl person",
+  "status": 201,
+  "data": {
+   "id": 1,
+   "name": "person",
+   "id_strategy": "PRIMARY_KEY",
+   "primary_keys": [
+    "name"
+   ],
+   "nullable_keys": [
+    "city",
+    "score",
+    "ratio",
+    "big",
+    "ok",
+    "born",
+    "tags",
+    "flags"
+   ],
+   "index_labels": [],
+   "properties": [
+    "name",
+    "age",
+    "city",
+    "score",
+    "ratio",
+    "big",
+    "ok",
+    "born",
+    "tags",
+    "flags"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.713"
+   }
+  }
+ },
+ {
+  "step": "vl software",
+  "status": 201,
+  "data": {
+   "id": 2,
+   "name": "software",
+   "id_strategy": "AUTOMATIC",
+   "primary_keys": [],
+   "nullable_keys": [
+    "desc"
+   ],
+   "index_labels": [],
+   "properties": [
+    "name",
+    "desc"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.750"
+   }
+  }
+ },
+ {
+  "step": "vl cust",
+  "status": 201,
+  "data": {
+   "id": 3,
+   "name": "cust",
+   "id_strategy": "CUSTOMIZE_STRING",
+   "primary_keys": [],
+   "nullable_keys": [],
+   "index_labels": [],
+   "properties": [
+    "name"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.786"
+   }
+  }
+ },
+ {
+  "step": "el knows",
+  "status": 201,
+  "data": {
+   "id": 1,
+   "name": "knows",
+   "edgelabel_type": "NORMAL",
+   "source_label": "person",
+   "target_label": "person",
+   "links": [
+    {
+     "person": "person"
+    }
+   ],
+   "frequency": "MULTIPLE",
+   "sort_keys": [
+    "since"
+   ],
+   "nullable_keys": [
+    "weight"
+   ],
+   "index_labels": [],
+   "properties": [
+    "since",
+    "weight"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.827"
+   }
+  }
+ },
+ {
+  "step": "el created",
+  "status": 201,
+  "data": {
+   "id": 2,
+   "name": "created",
+   "edgelabel_type": "NORMAL",
+   "source_label": "person",
+   "target_label": "software",
+   "links": [
+    {
+     "person": "software"
+    }
+   ],
+   "frequency": "SINGLE",
+   "sort_keys": [],
+   "nullable_keys": [
+    "weight"
+   ],
+   "index_labels": [],
+   "properties": [
+    "weight"
+   ],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.879"
+   }
+  }
+ },
+ {
+  "step": "el owns",
+  "status": 201,
+  "data": {
+   "id": 3,
+   "name": "owns",
+   "edgelabel_type": "NORMAL",
+   "source_label": "cust",
+   "target_label": "software",
+   "links": [
+    {
+     "cust": "software"
+    }
+   ],
+   "frequency": "SINGLE",
+   "sort_keys": [],
+   "nullable_keys": [],
+   "index_labels": [],
+   "properties": [],
+   "status": "CREATED",
+   "ttl": 0,
+   "enable_label_index": true,
+   "user_data": {
+    "~create_time": "2026-09-21 11:12:40.925"
+   }
+  }
+ },
+ {
+  "step": "il personByCity",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 1,
+    "name": "personByCity",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "SECONDARY",
+    "fields": [
+     "city"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.971"
+    }
+   },
+   "task_id": 1
+  }
+ },
+ {
+  "step": "il personByAge",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 2,
+    "name": "personByAge",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "RANGE",
+    "fields": [
+     "age"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.164"
+    }
+   },
+   "task_id": 2
+  }
+ },
+ {
+  "step": "il softwareByDesc",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 3,
+    "name": "softwareByDesc",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "software",
+    "index_type": "SEARCH",
+    "fields": [
+     "desc"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.244"
+    }
+   },
+   "task_id": 3
+  }
+ },
+ {
+  "step": "il knowsByWeight",
+  "status": 202,
+  "data": {
+   "index_label": {
+    "id": 4,
+    "name": "knowsByWeight",
+    "base_type": "EDGE_LABEL",
+    "base_value": "knows",
+    "index_type": "RANGE",
+    "fields": [
+     "weight"
+    ],
+    "status": "CREATING",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.429"
+    }
+   },
+   "task_id": 4
+  }
+ },
+ {
+  "step": "vertices batch",
+  "status": 201,
+  "data": [
+   "1:p1",
+   "1:p2",
+   "1:p3",
+   "1:p4",
+   "1:p5",
+   "1:p6",
+   "1:p7",
+   "1:p8",
+   "1:p9",
+   "1:p10",
+   "1:p11",
+   "1:p12",
+   "1:p13",
+   "1:p14",
+   "1:p15",
+   "1:p16",
+   "1:p17",
+   "1:p18",
+   "1:p19",
+   "1:p20",
+   1166680741254266880,
+   1166680741254266881,
+   1166680741254266882,
+   1166680741258461184,
+   1166680741258461185,
+   "c1",
+   "c2",
+   "c3"
+  ]
+ },
+ {
+  "step": "edges batch",
+  "status": 201,
+  "data": [
+   "S1:p1>1>1>2VH>S1:p3",
+   "S1:p1>1>1>2VI>S1:p4",
+   "S1:p1>2>2>>L1166680741254266881",
+   "S1:p2>1>1>2VH>S1:p4",
+   "S1:p2>1>1>2VI>S1:p5",
+   "S1:p2>2>2>>L1166680741254266882",
+   "S1:p3>1>1>2VH>S1:p5",
+   "S1:p3>1>1>2VI>S1:p6",
+   "S1:p3>2>2>>L1166680741258461184",
+   "S1:p4>1>1>2VH>S1:p6",
+   "S1:p4>1>1>2VI>S1:p7",
+   "S1:p4>2>2>>L1166680741258461185",
+   "S1:p5>1>1>2VH>S1:p7",
+   "S1:p5>1>1>2VI>S1:p8",
+   "S1:p5>2>2>>L1166680741254266880",
+   "S1:p6>1>1>2VH>S1:p8",
+   "S1:p6>1>1>2VI>S1:p9",
+   "S1:p6>2>2>>L1166680741254266881",
+   "S1:p7>1>1>2VH>S1:p9",
+   "S1:p7>1>1>2VI>S1:p10",
+   "S1:p7>2>2>>L1166680741254266882",
+   "S1:p8>1>1>2VH>S1:p10",
+   "S1:p8>1>1>2VI>S1:p11",
+   "S1:p8>2>2>>L1166680741258461184",
+   "S1:p9>1>1>2VH>S1:p11",
+   "S1:p9>1>1>2VI>S1:p12",
+   "S1:p9>2>2>>L1166680741258461185",
+   "S1:p10>1>1>2VH>S1:p12",
+   "S1:p10>1>1>2VI>S1:p13",
+   "S1:p10>2>2>>L1166680741254266880",
+   "S1:p11>1>1>2VH>S1:p13",
+   "S1:p11>1>1>2VI>S1:p14",
+   "S1:p11>2>2>>L1166680741254266881",
+   "S1:p12>1>1>2VH>S1:p14",
+   "S1:p12>1>1>2VI>S1:p15",
+   "S1:p12>2>2>>L1166680741254266882",
+   "S1:p13>1>1>2VH>S1:p15",
+   "S1:p13>1>1>2VI>S1:p16",
+   "S1:p13>2>2>>L1166680741258461184",
+   "S1:p14>1>1>2VH>S1:p16",
+   "S1:p14>1>1>2VI>S1:p17",
+   "S1:p14>2>2>>L1166680741258461185",
+   "S1:p15>1>1>2VH>S1:p17",
+   "S1:p15>1>1>2VI>S1:p18",
+   "S1:p15>2>2>>L1166680741254266880",
+   "S1:p16>1>1>2VH>S1:p18",
+   "S1:p16>1>1>2VI>S1:p19",
+   "S1:p16>2>2>>L1166680741254266881",
+   "S1:p17>1>1>2VH>S1:p19",
+   "S1:p17>1>1>2VI>S1:p20",
+   "S1:p17>2>2>>L1166680741254266882",
+   "S1:p18>1>1>2VH>S1:p20",
+   "S1:p18>1>1>2VI>S1:p1",
+   "S1:p18>2>2>>L1166680741258461184",
+   "S1:p19>1>1>2VH>S1:p1",
+   "S1:p19>1>1>2VI>S1:p2",
+   "S1:p19>2>2>>L1166680741258461185",
+   "S1:p20>1>1>2VH>S1:p2",
+   "S1:p20>1>1>2VI>S1:p3",
+   "S1:p20>2>2>>L1166680741254266880",
+   "Sc1>3>3>>L1166680741254266880",
+   "Sc2>3>3>>L1166680741254266881",
+   "Sc3>3>3>>L1166680741254266882"
+  ]
+ },
+ {
+  "step": "gs create test2",
+  "status": 201,
+  "data": {
+   "id": "c99",
+   "label": "cust",
+   "type": "vertex",
+   "properties": {
+    "name": "late"
+   }
+  }
+ },
+ {
+  "step": "schema propertykeys",
+  "status": 200,
+  "data": [
+   "age",
+   "big",
+   "born",
+   "city",
+   "desc",
+   "flags",
+   "name",
+   "ok",
+   "ratio",
+   "score",
+   "since",
+   "tags",
+   "weight"
+  ],
+  "full": [
+   {
+    "id": 7,
+    "name": "ok",
+    "data_type": "BOOLEAN",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.566"
+    }
+   },
+   {
+    "id": 6,
+    "name": "big",
+    "data_type": "LONG",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.544"
+    }
+   },
+   {
+    "id": 9,
+    "name": "tags",
+    "data_type": "TEXT",
+    "cardinality": "LIST",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.602"
+    }
+   },
+   {
+    "id": 8,
+    "name": "born",
+    "data_type": "DATE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.584"
+    }
+   },
+   {
+    "id": 3,
+    "name": "city",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.485"
+    }
+   },
+   {
+    "id": 2,
+    "name": "age",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.462"
+    }
+   },
+   {
+    "id": 5,
+    "name": "ratio",
+    "data_type": "FLOAT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.526"
+    }
+   },
+   {
+    "id": 4,
+    "name": "score",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.508"
+    }
+   },
+   {
+    "id": 1,
+    "name": "name",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.433"
+    }
+   },
+   {
+    "id": 11,
+    "name": "since",
+    "data_type": "INT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.639"
+    }
+   },
+   {
+    "id": 12,
+    "name": "desc",
+    "data_type": "TEXT",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.658"
+    }
+   },
+   {
+    "id": 10,
+    "name": "flags",
+    "data_type": "INT",
+    "cardinality": "SET",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.621"
+    }
+   },
+   {
+    "id": 13,
+    "name": "weight",
+    "data_type": "DOUBLE",
+    "cardinality": "SINGLE",
+    "aggregate_type": "NONE",
+    "write_type": "OLTP",
+    "properties": [],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.680"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema vertexlabels",
+  "status": 200,
+  "data": [
+   "cust",
+   "person",
+   "software"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "person",
+    "id_strategy": "PRIMARY_KEY",
+    "primary_keys": [
+     "name"
+    ],
+    "nullable_keys": [
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "index_labels": [
+     "personByCity",
+     "personByAge"
+    ],
+    "properties": [
+     "name",
+     "age",
+     "city",
+     "score",
+     "ratio",
+     "big",
+     "ok",
+     "born",
+     "tags",
+     "flags"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.713"
+    }
+   },
+   {
+    "id": 2,
+    "name": "software",
+    "id_strategy": "AUTOMATIC",
+    "primary_keys": [],
+    "nullable_keys": [
+     "desc"
+    ],
+    "index_labels": [
+     "softwareByDesc"
+    ],
+    "properties": [
+     "name",
+     "desc"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.750"
+    }
+   },
+   {
+    "id": 3,
+    "name": "cust",
+    "id_strategy": "CUSTOMIZE_STRING",
+    "primary_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [
+     "name"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.786"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema edgelabels",
+  "status": 200,
+  "data": [
+   "created",
+   "knows",
+   "owns"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "knows",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "person",
+    "links": [
+     {
+      "person": "person"
+     }
+    ],
+    "frequency": "MULTIPLE",
+    "sort_keys": [
+     "since"
+    ],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [
+     "knowsByWeight"
+    ],
+    "properties": [
+     "since",
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.827"
+    }
+   },
+   {
+    "id": 2,
+    "name": "created",
+    "edgelabel_type": "NORMAL",
+    "source_label": "person",
+    "target_label": "software",
+    "links": [
+     {
+      "person": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [
+     "weight"
+    ],
+    "index_labels": [],
+    "properties": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.879"
+    }
+   },
+   {
+    "id": 3,
+    "name": "owns",
+    "edgelabel_type": "NORMAL",
+    "source_label": "cust",
+    "target_label": "software",
+    "links": [
+     {
+      "cust": "software"
+     }
+    ],
+    "frequency": "SINGLE",
+    "sort_keys": [],
+    "nullable_keys": [],
+    "index_labels": [],
+    "properties": [],
+    "status": "CREATED",
+    "ttl": 0,
+    "enable_label_index": true,
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.925"
+    }
+   }
+  ]
+ },
+ {
+  "step": "schema indexlabels",
+  "status": 200,
+  "data": [
+   "knowsByWeight",
+   "personByAge",
+   "personByCity",
+   "softwareByDesc"
+  ],
+  "full": [
+   {
+    "id": 1,
+    "name": "personByCity",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "SECONDARY",
+    "fields": [
+     "city"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:40.971"
+    }
+   },
+   {
+    "id": 4,
+    "name": "knowsByWeight",
+    "base_type": "EDGE_LABEL",
+    "base_value": "knows",
+    "index_type": "RANGE",
+    "fields": [
+     "weight"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.429"
+    }
+   },
+   {
+    "id": 2,
+    "name": "personByAge",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "person",
+    "index_type": "RANGE",
+    "fields": [
+     "age"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.164"
+    }
+   },
+   {
+    "id": 3,
+    "name": "softwareByDesc",
+    "base_type": "VERTEX_LABEL",
+    "base_value": "software",
+    "index_type": "SEARCH",
+    "fields": [
+     "desc"
+    ],
+    "status": "CREATED",
+    "user_data": {
+     "~create_time": "2026-09-21 11:12:41.244"
+    }
+   }
+  ]
+ },
+ {
+  "step": "graphs list",
+  "status": 200,
+  "data": {
+   "graphs": []
+  }
+ },
+ {
+  "step": "graphspaces",
+  "status": 200,
+  "data": {
+   "graphSpaces": [
+    "DEFAULT"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().count()",
+  "status": 200,
+  "data": [
+   29
+  ]
+ },
+ {
+  "step": "gremlin g.E().count()",
+  "status": 200,
+  "data": [
+   63
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('person').count()",
+  "status": 200,
+  "data": [
+   20
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('software').count()",
+  "status": 200,
+  "data": [
+   5
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('cust').count()",
+  "status": 200,
+  "data": [
+   4
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('knows').count()",
+  "status": 200,
+  "data": [
+   40
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('created').count()",
+  "status": 200,
+  "data": [
+   20
+  ]
+ },
+ {
+  "step": "gremlin g.E().hasLabel('owns').count()",
+  "status": 200,
+  "data": [
+   3
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').valueMap(true)",
+  "status": 200,
+  "data": [
+   {
+    "id": "1:p7",
+    "label": "person",
+    "name": [
+     "p7"
+    ],
+    "age": [
+     27
+    ],
+    "city": [
+     "Krakow"
+    ],
+    "score": [
+     10.5
+    ],
+    "ratio": [
+     1.75
+    ],
+    "big": [
+     1000000000007
+    ],
+    "ok": [
+     false
+    ],
+    "born": [
+     "1997-01-08 00:00:00.000"
+    ],
+    "tags": [
+     [
+      "t7",
+      "u7"
+     ]
+    ],
+    "flags": [
+     [
+      7,
+      107
+     ]
+    ]
+   }
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','city','Krakow').count()",
+  "status": 200,
+  "data": [
+   10
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','age',gt(30)).count()",
+  "status": 200,
+  "data": [
+   10
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('software','desc',Text.contains('tool')).count()",
+  "status": 200,
+  "data": [
+   5
+  ]
+ },
+ {
+  "step": "gremlin g.E().has('knows','weight',gt(10.0)).count()",
+  "status": 200,
+  "data": [
+   22
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name')",
+  "status": 200,
+  "data": [
+   "p9"
+  ]
+ },
+ {
+  "step": "gremlin g.V('c1').out('owns').values('name')",
+  "status": 200,
+  "data": [
+   "s1"
+  ]
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score')",
+  "status": 200,
+  "data": [
+   [
+    "t3",
+    "u3"
+   ],
+   [
+    3,
+    103
+   ],
+   "1993-01-04 00:00:00.000",
+   1000000000003,
+   true,
+   0.75,
+   4.5
+  ]
+ },
+ {
+  "step": "rest vertices",
+  "status": 200,
+  "data": {
+   "vertices": [
+    {
+     "id": 1166680741258461185,
+     "label": "software",
+     "type": "vertex",
+     "properties": {
+      "name": "s5",
+      "desc": "graph database tool number 5"
+     }
+    },
+    {
+     "id": "1:p3",
+     "label": "person",
+     "type": "vertex",
+     "properties": {
+      "name": "p3",
+      "age": 23,
+      "city": "Krakow",
+      "score": 4.5,
+      "ratio": 0.75,
+      "big": 1000000000003,
+      "ok": true,
+      "born": "1993-01-04 00:00:00.000",
+      "tags": [
+       "t3",
+       "u3"
+      ],
+      "flags": [
+       3,
+       103
+      ]
+     }
+    },
+    {
+     "id": "1:p12",
+     "label": "person",
+     "type": "vertex",
+     "properties": {
+      "name": "p12",
+      "age": 32,
+      "city": "Wroclaw",
+      "score": 18.0,
+      "ratio": 3.0,
+      "big": 1000000000012,
+      "ok": true,
+      "born": "1992-01-04 00:00:00.000",
+      "tags": [
+       "t12",
+       "u12"
+      ],
+      "flags": [
+       112,
+       12
+      ]
+     }
+    }
+   ]
+  }
+ },
+ {
+  "step": "rest edges",
+  "status": 200,
+  "data": {
+   "edges": [
+    {
+     "id": "S1:p3>1>1>2VH>S1:p5",
+     "label": "knows",
+     "type": "edge",
+     "outV": "1:p3",
+     "outVLabel": "person",
+     "inV": "1:p5",
+     "inVLabel": "person",
+     "properties": {
+      "since": 2001,
+      "weight": 3.5
+     }
+    },
+    {
+     "id": "S1:p3>1>1>2VI>S1:p6",
+     "label": "knows",
+     "type": "edge",
+     "outV": "1:p3",
+     "outVLabel": "person",
+     "inV": "1:p6",
+     "inVLabel": "person",
+     "properties": {
+      "since": 2002,
+      "weight": 4.0
+     }
+    },
+    {
+     "id": "S1:p3>2>2>>L1166680741258461184",
+     "label": "created",
+     "type": "edge",
+     "outV": "1:p3",
+     "outVLabel": "person",
+     "inV": 1166680741258461184,
+     "inVLabel": "software",
+     "properties": {
+      "weight": 0.3
+     }
+    }
+   ]
+  }
+ }
+]
