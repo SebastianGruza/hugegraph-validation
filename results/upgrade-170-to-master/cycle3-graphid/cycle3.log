@@ -1,0 +1,105 @@
+== 08:37:38 stop throwaway contract hstore servers
+ok
+== 08:37:46 stop + restore 1.7.0 libs + wipe
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+lib-1.7.0-restored-235
+lib-1.7.0 hugegraph-node2
+lib-1.7.0 hugegraph-node3
+57:# usePD=true
+65:usePD=true
+66:pd.peers=192.168.80.235:8686
+== 08:39:42 start 1.7.0 (usePD=true)
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+2026-09-21 10:40:39 [main] [WARN] o.a.h.c.HugeConfig - The config option 'arthas.disabled_commands' is redundant, please ensure it has been registered
+Initialization finished.
+Started [pid 1010952]
+8080: {"graphs":[]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.71.0.0"}}
+== 08:40:52 write A on 1.7.0 (batch)
+1.7.0 after write A: V=29 E=63 cust=4 c99=1 c200=0 p7=1
+== 08:41:02 force a raft snapshot on every store
+snapshot OK!
+ <- 127.0.0.1
+snapshot OK!
+ <- 192.168.80.236
+snapshot OK!
+ <- 192.168.80.237
+hugegraph-dev: snapshots=12 partitions=12; grep -c 'snapshot OK' /home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/*.log
+hugegraph-node2: snapshots=12 partitions=12; grep -c 'snapshot OK' /home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/*.log
+hugegraph-node3: snapshots=12 partitions=12; grep -c 'snapshot OK' /home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/*.log
+== 08:41:29 write B on 1.7.0 (batch, after the snapshot)
+b'["c200","c201","c202","c203","c204"]'
+1.7.0 after write B: V=34 E=63 cust=9 c99=1 c200=1 p7=1
+read-saved
+== 08:41:33 stop, swap to master libs, start (no init, no client write)
+servers-stopped
+store stopped hugegraph-dev
+store stopped hugegraph-node2
+store stopped hugegraph-node3
+pd-stopped
+master-lib-235
+master-lib hugegraph-node2
+master-lib hugegraph-node3
+pd-up
+store-up hugegraph-dev
+store-up hugegraph-node2
+store-up hugegraph-node3
+Started [pid 1016491]
+8080: {"graphs":["hugegraph"]} {"versions":{"version":"v1","core":"1.7.0","gremlin":"3.5.1","api":"0.72.0.0"}}
+master right after restart: V=18 E=23 cust= c99=0 c200=0 p7=
+-- allocations logged by the stores at restart:
+hugegraph-dev: /home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/audit-hugegraph-store.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/gc.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store-server.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-incubating-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/raft-hugegraph-store.log:0 allocations; first: 2026-09-21 10:43:58 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 3, Graph ID 0 is allocate
+hugegraph-node2: /home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/audit-hugegraph-store.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/gc.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store-server.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/raft-hugegraph-store.log:0 allocations; first: 2026-09-21 10:43:54 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 3, Graph ID 0 is allocate
+hugegraph-node3: /home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/audit-hugegraph-store.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/gc.log:0
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/hugegraph-store-server.log:8
+/home/seba/rel-1.7.0/apache-hugegraph-store-incubating-1.7.0/logs/raft-hugegraph-store.log:0 allocations; first: 2026-09-21 10:44:01 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 0, Graph ID 0 is allocate
+127.0.0.1 p1 {"65534":{"size":"6","count":"3","graph":"not found"}}
+127.0.0.1 p4 {"65534":{"size":"8","count":"5","graph":"not found"}}
+127.0.0.1 p8 {"65534":{"size":"11","count":"3","graph":"not found"}}
+192.168.80.236 p1 {"65534":{"size":"6","count":"3","graph":"not found"}}
+192.168.80.236 p4 {"65534":{"size":"8","count":"5","graph":"not found"}}
+192.168.80.236 p8 {"65534":{"size":"11","count":"3","graph":"not found"}}
+192.168.80.237 p1 {"65534":{"size":"6","count":"3","graph":"not found"}}
+192.168.80.237 p4 {"65534":{"size":"8","count":"5","graph":"not found"}}
+192.168.80.237 p8 {"65534":{"size":"11","count":"3","graph":"not found"}}
+6
+read-saved
+== 08:44:44 workaround: map DEFAULT/hugegraph/g -> 65534 on every partition of every store
+remapped
+master after remap to 0xFFFE: V=34 E=63 cust= c99=0 c200=0 p7=
+read-saved
+== 08:44:51 one write under the sentinel mapping, then restart the stores (does the mapping survive?)
+{"exception":"class java.lang.IllegalArgumentException","message":"Undefined ver
+
+master after write under sentinel: V=34 E=63 cust= c99=0 c200=0 p7=
+store restarted hugegraph-dev
+store restarted hugegraph-node2
+store restarted hugegraph-node3
+master after store restart (sentinel mapping): V=34 E=63 cust= c99=0 c200=0 p7=
+127.0.0.1 p1 {"65534":{"has_slot_id":"true","size":"6","count":"3","graph":"DEFAULT/hugegraph/g"}}
+127.0.0.1 p4 {"65534":{"has_slot_id":"true","size":"8","count":"5","graph":"DEFAULT/hugegraph/g"}}
+127.0.0.1 p8 {"65534":{"has_slot_id":"true","size":"15","count":"3","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.236 p1 {"65534":{"has_slot_id":"true","size":"6","count":"3","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.236 p4 {"65534":{"has_slot_id":"true","size":"8","count":"5","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.236 p8 {"65534":{"has_slot_id":"true","size":"13","count":"3","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.237 p1 {"65534":{"has_slot_id":"true","size":"6","count":"3","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.237 p4 {"65534":{"has_slot_id":"true","size":"8","count":"5","graph":"DEFAULT/hugegraph/g"}}
+192.168.80.237 p8 {"65534":{"has_slot_id":"true","size":"15","count":"3","graph":"DEFAULT/hugegraph/g"}}
+== 08:47:22 done
+exit 0

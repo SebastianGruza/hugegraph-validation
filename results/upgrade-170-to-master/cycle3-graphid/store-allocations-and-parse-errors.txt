@@ -1,0 +1,11 @@
+2026-09-21 10:43:58 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 3, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:43:59 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 11, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:43:59 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 2, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:43:59 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 6, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:43:59 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 5, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:44:00 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 7, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:44:00 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 0, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+2026-09-21 10:44:00 [JRaft-FSMCaller-Disruptor-0] [INFO] o.a.h.s.m.GraphIdManager - partition: 8, Graph ID 0 is allocated for graph DEFAULT/hugegraph/g
+
+2026-09-21 10:44:36 [gremlin-server-exec-3] [ERROR] o.a.h.b.t.AbstractTransaction - Failed to parse entry: 0x8363323030: [�c200=post-snapshot-200]
+2026-09-21 10:44:44 [gremlin-server-exec-4] [ERROR] o.a.h.b.t.AbstractTransaction - Failed to parse entry: 0x816331: [�c1=cust1]

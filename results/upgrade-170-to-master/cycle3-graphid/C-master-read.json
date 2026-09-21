@@ -1,0 +1,562 @@
+[
+ {
+  "step": "schema propertykeys",
+  "status": 200,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema vertexlabels",
+  "status": 200,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema edgelabels",
+  "status": 200,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "schema indexlabels",
+  "status": 200,
+  "data": [],
+  "full": []
+ },
+ {
+  "step": "graphs list",
+  "status": 200,
+  "data": {
+   "graphs": [
+    "hugegraph"
+   ]
+  }
+ },
+ {
+  "step": "graphspaces",
+  "status": 200,
+  "data": {
+   "graphSpaces": [
+    "DEFAULT"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().count()",
+  "status": 200,
+  "data": [
+   18
+  ]
+ },
+ {
+  "step": "gremlin g.E().count()",
+  "status": 200,
+  "data": [
+   23
+  ]
+ },
+ {
+  "step": "gremlin g.V().hasLabel('person').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined vertex label: 'person'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined vertex label: 'person'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.vertexLabel(StandardHugeGraph.java:981)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:166)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.verticesCount(HugeGraphStep.java:87)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:77)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('software').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined vertex label: 'software'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined vertex label: 'software'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.vertexLabel(StandardHugeGraph.java:981)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:166)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.verticesCount(HugeGraphStep.java:87)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:77)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().hasLabel('cust').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined vertex label: 'cust'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined vertex label: 'cust'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.vertexLabel(StandardHugeGraph.java:981)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:166)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.verticesCount(HugeGraphStep.java:87)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:77)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('knows').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined edge label: 'knows'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined edge label: 'knows'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.edgeLabel(StandardHugeGraph.java:1042)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:168)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.edgesCount(HugeGraphStep.java:96)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:80)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('created').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined edge label: 'created'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined edge label: 'created'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.edgeLabel(StandardHugeGraph.java:1042)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:168)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.edgesCount(HugeGraphStep.java:96)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:80)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().hasLabel('owns').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined edge label: 'owns'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined edge label: 'owns'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.edgeLabel(StandardHugeGraph.java:1042)",
+    "\tat org.apache.hugegraph.schema.SchemaLabel.getLabelId(SchemaLabel.java:168)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convSysValueIfNeeded(TraversalUtil.java:1235)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2SyspropRelation(TraversalUtil.java:932)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convCompare2Relation(TraversalUtil.java:920)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHas2Condition(TraversalUtil.java:848)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.fillConditionQuery(TraversalUtil.java:810)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.makeQuery(HugeGraphStep.java:154)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.edgesCount(HugeGraphStep.java:96)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStep.count(HugeGraphStep.java:80)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeCountStep.processNextStart(HugeCountStep.java:75)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.step.util.AbstractStep.hasNext(AbstractStep.java:150)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:222)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').valueMap(true)",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'name'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'name'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','city','Krakow').count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'city'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'city'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','age',gt(30)).count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'age'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'age'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('software','desc',Text.contains('tool')).count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'desc'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'desc'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.E().has('knows','weight',gt(10.0)).count()",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'weight'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'weight'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p7').outE('knows').has('since',2001).inV().values('name')",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'name'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'name'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "gremlin g.V('c1').out('owns').values('name')",
+  "status": 200,
+  "data": []
+ },
+ {
+  "step": "gremlin g.V().has('person','name','p3').values('tags','flags','born','big','ok','ratio','score')",
+  "status": 400,
+  "data": {
+   "exception": "java.lang.IllegalArgumentException",
+   "message": "Undefined property key: 'name'",
+   "cause": "[java.lang.IllegalArgumentException]",
+   "trace": [
+    "java.lang.IllegalArgumentException: Undefined property key: 'name'",
+    "\tat com.google.common.base.Preconditions.checkArgument(Preconditions.java:167)",
+    "\tat org.apache.hugegraph.util.E.checkArgument(E.java:52)",
+    "\tat org.apache.hugegraph.StandardHugeGraph.propertyKey(StandardHugeGraph.java:921)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convPredicateValue(TraversalUtil.java:1193)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convHasStep(TraversalUtil.java:1183)",
+    "\tat org.apache.hugegraph.traversal.optimize.TraversalUtil.convAllHasSteps(TraversalUtil.java:1176)",
+    "\tat org.apache.hugegraph.traversal.optimize.HugeGraphStepStrategy.apply(HugeGraphStepStrategy.java:49)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.TraversalHelper.applyTraversalRecursively(TraversalHelper.java:467)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.applyStrategies(DefaultTraversal.java:151)",
+    "\tat org.apache.tinkerpop.gremlin.process.traversal.util.DefaultTraversal.hasNext(DefaultTraversal.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.fill(IteratorUtils.java:62)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.list(IteratorUtils.java:85)",
+    "\tat org.apache.tinkerpop.gremlin.util.iterator.IteratorUtils.asList(IteratorUtils.java:382)",
+    "\tat org.apache.tinkerpop.gremlin.server.handler.HttpGremlinEndpointHandler.lambda$channelRead$1(HttpGremlinEndpointHandler.java:221)",
+    "\tat org.apache.tinkerpop.gremlin.util.function.FunctionUtils.lambda$wrapFunction$0(FunctionUtils.java:36)",
+    "\tat org.apache.tinkerpop.gremlin.groovy.engine.GremlinExecutor.lambda$eval$0(GremlinExecutor.java:278)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:515)",
+    "\tat java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)",
+    "\tat org.apache.hugegraph.auth.HugeGraphAuthProxy$ContextTask.run(HugeGraphAuthProxy.java:1310)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)",
+    "\tat java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)",
+    "\tat java.base/java.lang.Thread.run(Thread.java:829)"
+   ]
+  }
+ },
+ {
+  "step": "rest vertices",
+  "status": 200,
+  "data": {
+   "vertices": []
+  }
+ },
+ {
+  "step": "rest edges",
+  "status": 200,
+  "data": {
+   "edges": []
+  }
+ }
+]
