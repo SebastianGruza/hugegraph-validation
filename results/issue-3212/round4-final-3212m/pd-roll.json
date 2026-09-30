@@ -1,0 +1,19 @@
+{
+ "scenario": "pd-roll",
+ "verdict": "PASS",
+ "evidence": "codes {200: 438}, readiness transitions [], ready-condition transitions [], load {'writes': {'requests': 370, 'failed': 1, 'first_failure_s': 103.6, 'last_failure_s': 103.6, 'max_latency_s': 30.2, 'codes': [500]}, 'reads': {'requests': 370, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 3.7, 'codes': []}}",
+ "extra": {
+  "samples": 438,
+  "codes": {
+   "200": 438
+  },
+  "p50_ms": 2,
+  "p99_ms": 6,
+  "max_ms": 25,
+  "cached_ratio": 0.63,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-30 12:27:17"
+}

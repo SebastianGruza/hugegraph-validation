@@ -1,0 +1,223 @@
+{
+ "scenario": "pd-zero",
+ "verdict": "FAIL",
+ "evidence": "per pod {\"hugegraph-server-7dff57dbb4-kpm8m\": {\"codes_during_fault\": [503], \"pd_unreachable_seen_after_s\": 0.0, \"pd_reachable_again_after_s\": 20.9, \"ready_cond_transitions\": [[52.0, \"hugegraph-server-7dff57dbb4-kpm8m\", true, false], [130.0, \"hugegraph-server-7dff57dbb4-kpm8m\", false, true]]}, \"hugegraph-server-7dff57dbb4-p6dtz\": {\"codes_during_fault\": [503], \"pd_unreachable_seen_after_s\": 36.0, \"pd_reachable_again_after_s\": 28.9, \"ready_cond_transitions\": [[44.0, \"hugegraph-server-7dff57dbb4-p6dtz\", true, false], [138.0, \"hugegraph-server-7dff57dbb4-p6dtz\", false, true]]}, \"hugegraph-server-7dff57dbb4-vffgq\": {\"codes_during_fault\": [503], \"pd_unreachable_seen_after_s\": 48.0, \"pd_reachable_again_after_s\": 17.9, \"ready_cond_transitions\": [[48.0, \"hugegraph-server-7dff57dbb4-vffgq\", true, false], [130.0, \"hugegraph-server-7dff57dbb4-vffgq\", false, true]]}}; pd back Ready in 23.503108501434326s; load {'writes': {'requests': 669, 'failed': 387, 'first_failure_s': 41.2, 'last_failure_s': 118.8, 'max_latency_s': 31.0, 'codes': [0, 500]}, 'reads': {'requests': 669, 'failed': 387, 'first_failure_s': 41.2, 'last_failure_s': 118.8, 'max_latency_s': 3.2, 'codes': [0]}}",
+ "extra": {
+  "summary": {
+   "samples": 339,
+   "codes": {
+    "200": 251,
+    "503": 88
+   },
+   "p50_ms": 5,
+   "p99_ms": 1004,
+   "max_ms": 1006,
+   "cached_ratio": 0.49,
+   "readiness_transitions": [
+    [
+     20.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     200,
+     503
+    ],
+    [
+     20.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     200,
+     503
+    ],
+    [
+     124.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     503,
+     200
+    ],
+    [
+     128.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     503,
+     200
+    ],
+    [
+     136.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     503,
+     200
+    ]
+   ],
+   "ready_cond_transitions": [
+    [
+     44.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     true,
+     false
+    ],
+    [
+     52.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     true,
+     false
+    ],
+    [
+     130.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     false,
+     true
+    ],
+    [
+     130.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     false,
+     true
+    ],
+    [
+     138.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     false,
+     true
+    ]
+   ],
+   "in_service_transitions": [
+    [
+     44.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     true,
+     false
+    ],
+    [
+     48.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     true,
+     false
+    ],
+    [
+     52.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     true,
+     false
+    ],
+    [
+     130.0,
+     "hugegraph-server-7dff57dbb4-kpm8m",
+     false,
+     true
+    ],
+    [
+     130.0,
+     "hugegraph-server-7dff57dbb4-vffgq",
+     false,
+     true
+    ],
+    [
+     139.0,
+     "hugegraph-server-7dff57dbb4-p6dtz",
+     false,
+     true
+    ]
+   ]
+  },
+  "per_pod": {
+   "hugegraph-server-7dff57dbb4-kpm8m": {
+    "codes_during_fault": [
+     503
+    ],
+    "pd_unreachable_seen_after_s": 0.0,
+    "pd_reachable_again_after_s": 20.9,
+    "ready_cond_transitions": [
+     [
+      52.0,
+      "hugegraph-server-7dff57dbb4-kpm8m",
+      true,
+      false
+     ],
+     [
+      130.0,
+      "hugegraph-server-7dff57dbb4-kpm8m",
+      false,
+      true
+     ]
+    ]
+   },
+   "hugegraph-server-7dff57dbb4-p6dtz": {
+    "codes_during_fault": [
+     503
+    ],
+    "pd_unreachable_seen_after_s": 36.0,
+    "pd_reachable_again_after_s": 28.9,
+    "ready_cond_transitions": [
+     [
+      44.0,
+      "hugegraph-server-7dff57dbb4-p6dtz",
+      true,
+      false
+     ],
+     [
+      138.0,
+      "hugegraph-server-7dff57dbb4-p6dtz",
+      false,
+      true
+     ]
+    ]
+   },
+   "hugegraph-server-7dff57dbb4-vffgq": {
+    "codes_during_fault": [
+     503
+    ],
+    "pd_unreachable_seen_after_s": 48.0,
+    "pd_reachable_again_after_s": 17.9,
+    "ready_cond_transitions": [
+     [
+      48.0,
+      "hugegraph-server-7dff57dbb4-vffgq",
+      true,
+      false
+     ],
+     [
+      130.0,
+      "hugegraph-server-7dff57dbb4-vffgq",
+      false,
+      true
+     ]
+    ]
+   }
+  },
+  "t_fault": 20.0,
+  "t_back": 110.1,
+  "load": {
+   "writes": {
+    "requests": 669,
+    "failed": 387,
+    "first_failure_s": 41.2,
+    "last_failure_s": 118.8,
+    "max_latency_s": 31.0,
+    "codes": [
+     0,
+     500
+    ]
+   },
+   "reads": {
+    "requests": 669,
+    "failed": 387,
+    "first_failure_s": 41.2,
+    "last_failure_s": 118.8,
+    "max_latency_s": 3.2,
+    "codes": [
+     0
+    ]
+   }
+  }
+ },
+ "time": "2026-09-30 10:35:46"
+}

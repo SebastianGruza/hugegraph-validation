@@ -1,0 +1,57 @@
+{
+ "scenario": "store-freeze",
+ "verdict": "PASS",
+ "evidence": "victim hugegraph-store-2 leading {'hugegraph-store-1': 8, 'hugegraph-store-2': 14, 'hugegraph-store-0': 2}; codes {200: 323, 503: 4}; readiness transitions [(23.0, 'hugegraph-server-76676859f-57hdj', 200, 503), (23.0, 'hugegraph-server-76676859f-6zsdg', 200, 503), (23.0, 'hugegraph-server-76676859f-rxs9p', 200, 503), (26.0, 'hugegraph-server-76676859f-57hdj', 503, 200), (26.0, 'hugegraph-server-76676859f-rxs9p', 503, 200), (27.0, 'hugegraph-server-76676859f-6zsdg', 503, 200)]; answered stores ['3259356358697243292', '6386607161404282741', '6838705701474727512']; load {'writes': {'requests': 319, 'failed': 1, 'first_failure_s': 41.3, 'last_failure_s': 41.3, 'max_latency_s': 30.8, 'codes': [500]}, 'reads': {'requests': 319, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 0.1, 'codes': []}}",
+ "extra": {
+  "samples": 327,
+  "codes": {
+   "200": 323,
+   "503": 4
+  },
+  "p50_ms": 2,
+  "p99_ms": 17,
+  "max_ms": 1004,
+  "cached_ratio": 0.62,
+  "readiness_transitions": [
+   [
+    23.0,
+    "hugegraph-server-76676859f-57hdj",
+    200,
+    503
+   ],
+   [
+    23.0,
+    "hugegraph-server-76676859f-6zsdg",
+    200,
+    503
+   ],
+   [
+    23.0,
+    "hugegraph-server-76676859f-rxs9p",
+    200,
+    503
+   ],
+   [
+    26.0,
+    "hugegraph-server-76676859f-57hdj",
+    503,
+    200
+   ],
+   [
+    26.0,
+    "hugegraph-server-76676859f-rxs9p",
+    503,
+    200
+   ],
+   [
+    27.0,
+    "hugegraph-server-76676859f-6zsdg",
+    503,
+    200
+   ]
+  ],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-30 10:11:52"
+}

@@ -70,3 +70,38 @@ probe. `round1-3212g/` reruns `stores-zero` and `pd-zero` on the fixed build: bo
 sampled body for `.svc`, `8686` and `hugegraph-store-` finds 0 occurrences (before: the reasons quoted the Store
 DNS names). The 503 reasons are now categories only, e.g.
 `none of 3 known store(s) answered: a store failed: UNAVAILABLE; a store failed: UNAVAILABLE; ...`.
+
+## Review round 4 (2026-09-30): a read through the graph path as the gate, measured and rejected
+
+The reviewer asked that `ready` prove the graph-serving path (raft, partition, RocksDB), not only that a
+Store's status RPC answers. Three gates were built on top of the round-3 probe and run through the same
+seven scenarios, Server image = shipped `latest` with the rebuilt api + hstore jars (`3212j`..`3212m`):
+
+| tag | gate | store-one-down | store-roll | store-freeze | pd-zero (load failed) | pd-roll (load failed) |
+|---|---|---|---|---|---|---|
+| `3212j` | ping + one get of a sentinel key on the vertex table through the query Store client, one shared partition | PASS | 503 on 3/3 Servers at once, 8-35 s | 503 on 3/3, 4 s | 503 for the whole outage (87 %) | 503 on 3/3, 28-36 s (7 %) |
+| `3212k` | ping + the same read in a partition led by the Store that answered the ping (leader codes from PD's partition cache at each refresh) | PASS | 503 on 3/3, 23-42 s | 503 on 3/3, 20-28 s | 503 (58 %) | PASS (0 %) |
+| `3212l` | ping + parallel reads, one partition per known Store, first success wins | 503 on 3/3, 3-12 s, four times | 503 on 3/3, 13-35 s | 503 on 3/3, 3-7 s | 503 (62 %) | 503 on 3/3, 53-85 s (47 %) |
+| `3212m` | round-3 ping gate + single-flight `StorageReadiness.check` (the PR head) | PASS | PASS | PASS | PASS (2 / 244) | PASS (1 / 370) |
+
+Two effects, present in every read-gated variant (`round4-graphread-3212{j,k,l}/`, control `round4-final-3212m/`):
+
+1. **The reads do not fail independently.** Every 503 reason is `... partition read(s) did not finish within
+   1000 ms`, also when two of three Stores are healthy and their partitions are being read. On the first
+   error the Store client invalidates its partition cache and sleeps 1 s before the retry
+   (`NodeTxExecutor.retryingInvoke`, `HgStoreNodePartitionerImpl` on a `NOT_WORK` notice), so one moving
+   partition stalls every read through that client past the probe budget. During a Store roll all three
+   Servers went 503 together and were pulled out of the Service while the load through the Service had 2-3
+   failures in ~45 requests.
+2. **A read through the query client is not a passive measurement.** A failed probe read invalidates the
+   partition cache shared with real queries, and with PD down there is nothing to rebuild it from: in
+   `pd-zero` the load failed 2 of 244 requests with the ping gate and 387-560 of ~640 with any read gate; in
+   `pd-roll` 1 of 370 versus 106 of 226 (`3212l`). A readiness probe that takes the data plane down during a
+   PD outage is worse than one that cannot see raft.
+
+Outcome: the gate stays on the ping; its scope is stated in the Javadoc and the PR ("this Server knows a
+Store list and reaches at least one Store over gRPC; a Store whose status RPC answers while its raft path
+is broken is not detected"). A Store-side signal that covers raft without going through the shared client
+does not exist today (`HgStoreState.getPeers` is in the proto, not implemented in the store node); it is
+offered as a separate Store PR. The single-flight change from this round is kept: `StorageReadiness.check`
+no longer holds a monitor during I/O, concurrent callers share the running probe with a bounded wait.

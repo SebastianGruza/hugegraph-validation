@@ -1,0 +1,129 @@
+{
+ "scenario": "store-one-down",
+ "verdict": "FAIL",
+ "evidence": "codes {200: 159, 503: 27}, transitions [(20.0, 'hugegraph-server-847c849dc7-49tkw', 200, 503), (20.0, 'hugegraph-server-847c849dc7-pqgfb', 200, 503), (20.0, 'hugegraph-server-847c849dc7-w97jj', 200, 503), (28.0, 'hugegraph-server-847c849dc7-49tkw', 503, 200), (28.0, 'hugegraph-server-847c849dc7-w97jj', 503, 200), (32.0, 'hugegraph-server-847c849dc7-pqgfb', 503, 200), (35.0, 'hugegraph-server-847c849dc7-pqgfb', 200, 503), (37.0, 'hugegraph-server-847c849dc7-49tkw', 200, 503), (41.0, 'hugegraph-server-847c849dc7-49tkw', 503, 200), (42.0, 'hugegraph-server-847c849dc7-pqgfb', 503, 200), (44.0, 'hugegraph-server-847c849dc7-pqgfb', 200, 503), (46.0, 'hugegraph-server-847c849dc7-49tkw', 200, 503), (50.0, 'hugegraph-server-847c849dc7-pqgfb', 503, 200), (54.0, 'hugegraph-server-847c849dc7-49tkw', 503, 200), (54.0, 'hugegraph-server-847c849dc7-pqgfb', 200, 503), (57.0, 'hugegraph-server-847c849dc7-pqgfb', 503, 200), (59.0, 'hugegraph-server-847c849dc7-49tkw', 200, 503), (62.0, 'hugegraph-server-847c849dc7-49tkw', 503, 200)], store back Ready in 13.57784390449524s, load {'writes': {'requests': 51, 'failed': 1, 'first_failure_s': 40.6, 'last_failure_s': 40.6, 'max_latency_s': 30.5, 'codes': [500]}, 'reads': {'requests': 51, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 6.1, 'codes': []}}",
+ "extra": {
+  "samples": 186,
+  "codes": {
+   "200": 159,
+   "503": 27
+  },
+  "p50_ms": 3,
+  "p99_ms": 1005,
+  "max_ms": 1005,
+  "cached_ratio": 0.56,
+  "readiness_transitions": [
+   [
+    20.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    200,
+    503
+   ],
+   [
+    20.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    200,
+    503
+   ],
+   [
+    20.0,
+    "hugegraph-server-847c849dc7-w97jj",
+    200,
+    503
+   ],
+   [
+    28.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    503,
+    200
+   ],
+   [
+    28.0,
+    "hugegraph-server-847c849dc7-w97jj",
+    503,
+    200
+   ],
+   [
+    32.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    503,
+    200
+   ],
+   [
+    35.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    200,
+    503
+   ],
+   [
+    37.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    200,
+    503
+   ],
+   [
+    41.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    503,
+    200
+   ],
+   [
+    42.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    503,
+    200
+   ],
+   [
+    44.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    200,
+    503
+   ],
+   [
+    46.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    200,
+    503
+   ],
+   [
+    50.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    503,
+    200
+   ],
+   [
+    54.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    503,
+    200
+   ],
+   [
+    54.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    200,
+    503
+   ],
+   [
+    57.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    503,
+    200
+   ],
+   [
+    59.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    200,
+    503
+   ],
+   [
+    62.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    503,
+    200
+   ]
+  ],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-30 11:21:59"
+}

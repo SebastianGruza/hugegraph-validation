@@ -80,7 +80,8 @@ class Sampler(threading.Thread):
                     row.update({"reason": j.get("reason"), "cached": j.get("cached"),
                                 "active_stores": j.get("active_stores"),
                                 "answered_store": j.get("answered_store"),
-                                "pd_reachable": j.get("pd_reachable")})
+                                "pd_reachable": j.get("pd_reachable"),
+                                "graph_read_ms": j.get("graph_read_ms")})
                 except Exception:
                     row["reason"] = body[:80]
                 self.rows.append(row)

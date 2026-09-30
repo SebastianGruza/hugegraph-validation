@@ -1,0 +1,57 @@
+{
+ "scenario": "store-freeze",
+ "verdict": "PASS",
+ "evidence": "victim hugegraph-store-2 leading {'hugegraph-store-2': 12, 'hugegraph-store-1': 8, 'hugegraph-store-0': 4}; codes {200: 305, 503: 7}; readiness transitions [(22.0, 'hugegraph-server-847c849dc7-49tkw', 200, 503), (22.0, 'hugegraph-server-847c849dc7-pqgfb', 200, 503), (22.0, 'hugegraph-server-847c849dc7-w97jj', 200, 503), (25.0, 'hugegraph-server-847c849dc7-pqgfb', 503, 200), (27.0, 'hugegraph-server-847c849dc7-w97jj', 503, 200), (29.0, 'hugegraph-server-847c849dc7-49tkw', 503, 200)]; answered stores ['3259356358697243292', '6386607161404282741', '6838705701474727512']; load {'writes': {'requests': 301, 'failed': 1, 'first_failure_s': 41.4, 'last_failure_s': 41.4, 'max_latency_s': 30.8, 'codes': [500]}, 'reads': {'requests': 301, 'failed': 0, 'first_failure_s': None, 'last_failure_s': None, 'max_latency_s': 0.0, 'codes': []}}",
+ "extra": {
+  "samples": 312,
+  "codes": {
+   "200": 305,
+   "503": 7
+  },
+  "p50_ms": 2,
+  "p99_ms": 350,
+  "max_ms": 1004,
+  "cached_ratio": 0.62,
+  "readiness_transitions": [
+   [
+    22.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    200,
+    503
+   ],
+   [
+    22.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    200,
+    503
+   ],
+   [
+    22.0,
+    "hugegraph-server-847c849dc7-w97jj",
+    200,
+    503
+   ],
+   [
+    25.0,
+    "hugegraph-server-847c849dc7-pqgfb",
+    503,
+    200
+   ],
+   [
+    27.0,
+    "hugegraph-server-847c849dc7-w97jj",
+    503,
+    200
+   ],
+   [
+    29.0,
+    "hugegraph-server-847c849dc7-49tkw",
+    503,
+    200
+   ]
+  ],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-30 11:31:56"
+}

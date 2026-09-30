@@ -1,0 +1,19 @@
+{
+ "scenario": "baseline",
+ "verdict": "PASS",
+ "evidence": "174 samples, codes {200: 174}, p50 5 ms, p99 17 ms, cached ratio 0.59",
+ "extra": {
+  "samples": 174,
+  "codes": {
+   "200": 174
+  },
+  "p50_ms": 5,
+  "p99_ms": 17,
+  "max_ms": 22,
+  "cached_ratio": 0.59,
+  "readiness_transitions": [],
+  "ready_cond_transitions": [],
+  "in_service_transitions": []
+ },
+ "time": "2026-09-30 09:56:36"
+}

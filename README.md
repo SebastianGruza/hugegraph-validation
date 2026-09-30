@@ -46,7 +46,7 @@ Open, under review:
 |---|---|---|
 | [apache/hugegraph#3209](https://github.com/apache/hugegraph/pull/3209) | `DECIMAL` (BigDecimal) property data type: exact amounts through batch `update_strategies: SUM` ([#3206](https://github.com/apache/hugegraph/issues/3206)) | [docs/decimal-datatype.md](docs/decimal-datatype.md), `results/decimal` |
 | [apache/hugegraph-toolchain#771](https://github.com/apache/hugegraph-toolchain/pull/771) | the same type in hugegraph-client, loader, spark connector and Hubble, E2E against the server branch | `results/decimal/client-e2e` |
-| [apache/hugegraph#3221](https://github.com/apache/hugegraph/pull/3221) | storage-aware `GET /readiness` for the server ([#3212](https://github.com/apache/hugegraph/issues/3212)), with the chart side in [hugegraph/hugegraph#229](https://github.com/hugegraph/hugegraph/pull/229) | [docs/server-readiness.md](docs/server-readiness.md), `results/issue-3212` |
+| [apache/hugegraph#3221](https://github.com/apache/hugegraph/pull/3221) | storage-aware `GET /readiness` for the server ([#3212](https://github.com/apache/hugegraph/issues/3212)), with the chart side in [hugegraph/hugegraph#229](https://github.com/hugegraph/hugegraph/pull/229); round 4 measured and rejected a graph-read gate | [docs/server-readiness.md](docs/server-readiness.md), `results/issue-3212` |
 
 Issues filed from this lab, still open: [#3222](https://github.com/apache/hugegraph/issues/3222)
 (a single-node PD never recovers leadership after a failed snapshot on a full disk; probes hide it;

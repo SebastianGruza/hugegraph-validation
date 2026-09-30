@@ -1,0 +1,107 @@
+{
+ "scenario": "store-roll",
+ "verdict": "FAIL",
+ "evidence": "codes {200: 237, 503: 36}, transitions [(64.0, 'hugegraph-server-76676859f-57hdj', 200, 503), (64.0, 'hugegraph-server-76676859f-6zsdg', 200, 503), (64.0, 'hugegraph-server-76676859f-rxs9p', 200, 503), (72.0, 'hugegraph-server-76676859f-rxs9p', 503, 200), (85.0, 'hugegraph-server-76676859f-57hdj', 503, 200), (89.0, 'hugegraph-server-76676859f-57hdj', 200, 503), (99.0, 'hugegraph-server-76676859f-6zsdg', 503, 200), (107.0, 'hugegraph-server-76676859f-57hdj', 503, 200), (85.0, 'hugegraph-server-76676859f-6zsdg', True, False), (95.0, 'hugegraph-server-76676859f-57hdj', True, False), (105.0, 'hugegraph-server-76676859f-6zsdg', False, True), (85.0, 'hugegraph-server-76676859f-6zsdg', True, False), (95.0, 'hugegraph-server-76676859f-57hdj', True, False), (105.0, 'hugegraph-server-76676859f-6zsdg', False, True)], answered stores ['3259356358697243292', '6386607161404282741', '6838705701474727512'], load {'writes': {'requests': 47, 'failed': 2, 'first_failure_s': 40.9, 'last_failure_s': 101.9, 'max_latency_s': 30.8, 'codes': [500]}, 'reads': {'requests': 47, 'failed': 1, 'first_failure_s': 70.9, 'last_failure_s': 70.9, 'max_latency_s': 30.0, 'codes': [500]}}",
+ "extra": {
+  "samples": 273,
+  "codes": {
+   "200": 237,
+   "503": 36
+  },
+  "p50_ms": 3,
+  "p99_ms": 1004,
+  "max_ms": 1005,
+  "cached_ratio": 0.59,
+  "readiness_transitions": [
+   [
+    64.0,
+    "hugegraph-server-76676859f-57hdj",
+    200,
+    503
+   ],
+   [
+    64.0,
+    "hugegraph-server-76676859f-6zsdg",
+    200,
+    503
+   ],
+   [
+    64.0,
+    "hugegraph-server-76676859f-rxs9p",
+    200,
+    503
+   ],
+   [
+    72.0,
+    "hugegraph-server-76676859f-rxs9p",
+    503,
+    200
+   ],
+   [
+    85.0,
+    "hugegraph-server-76676859f-57hdj",
+    503,
+    200
+   ],
+   [
+    89.0,
+    "hugegraph-server-76676859f-57hdj",
+    200,
+    503
+   ],
+   [
+    99.0,
+    "hugegraph-server-76676859f-6zsdg",
+    503,
+    200
+   ],
+   [
+    107.0,
+    "hugegraph-server-76676859f-57hdj",
+    503,
+    200
+   ]
+  ],
+  "ready_cond_transitions": [
+   [
+    85.0,
+    "hugegraph-server-76676859f-6zsdg",
+    true,
+    false
+   ],
+   [
+    95.0,
+    "hugegraph-server-76676859f-57hdj",
+    true,
+    false
+   ],
+   [
+    105.0,
+    "hugegraph-server-76676859f-6zsdg",
+    false,
+    true
+   ]
+  ],
+  "in_service_transitions": [
+   [
+    85.0,
+    "hugegraph-server-76676859f-6zsdg",
+    true,
+    false
+   ],
+   [
+    95.0,
+    "hugegraph-server-76676859f-57hdj",
+    true,
+    false
+   ],
+   [
+    105.0,
+    "hugegraph-server-76676859f-6zsdg",
+    false,
+    true
+   ]
+  ]
+ },
+ "time": "2026-09-30 10:03:52"
+}
